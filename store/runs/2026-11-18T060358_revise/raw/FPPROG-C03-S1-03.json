@@ -1,0 +1,27 @@
+{
+ "atom_id": "FPPROG-C03-S1-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Expected runtime transformer\n\nATOM FPPROG-C03-S1-03 (S1): The plain expected runtime of $c$ on initial state $\\sigma$ is $\\mathrm{ert}[c](0)(\\sigma)$, where $0$ is the constant runtime $\\lambda\\sigma.\\,0$, and under the simple runtime model this captures the expected number of assignments and guard evaluations.\n\nEVIDENCE:\n[FPPROG-p0209-s13] Thus, the plain expected runtime of executing c on initial state σ is ert[c](0)(σ), where 0 is a shortcut for the constant runtime λσ• 0.1 In general, we write k to denote the constant runtime λσ• k for k ∈R∞ ≥0.\n[FPPROG-p0209-s15] That is, ert[c](0) captures the expected number of assignments and guard evaluations.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the zero-continuation definition of plain runtime with the runtime model’s counted operations. / Joins the definition of plain expected runtime ert[c](0)(sigma) with what the simple runtime model counts (assignments and guard evaluations).",
+ "raw": "{\"atoms\":[{\"statement\":\"The plain expected runtime of executing program $c$ on initial state $\\\\sigma$ is $\\\\mathrm{ert}[c](0)(\\\\sigma)$, where $0$ denotes the constant runtime $\\\\lambda\\\\sigma.\\\\,0$.\",\"scope\":\"S1\",\"evidence_ids\":[\"FPPROG-p0209-s13\"]},{\"statement\":\"The runtime $\\\\mathrm{ert}[c](0)$ captures the expected number of assignments and guard evaluations of $c$.\",\"scope\":\"S1\",\"evidence_ids\":[\"FPPROG-p0209-s15\"]}],\"note\":\"Split the definition from the description of what is counted. Dropped 'under the simple runtime model' because the cited sentences do not state that condition.\"}",
+ "usage": {
+  "completion_tokens": 513,
+  "prompt_tokens": 793,
+  "total_tokens": 1306,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 793,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00671600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

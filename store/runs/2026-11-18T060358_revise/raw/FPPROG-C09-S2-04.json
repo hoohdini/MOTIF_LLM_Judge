@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C09-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Probabilistic abstract interpretation\n\nATOM FPPROG-C09-S2-04 (S2): If $X\\in\\gamma(\\mathbf{a})$ and the boolean expression $exp$ has non-zero marginal probability in $X$, then the conditioned distribution $X\\mid exp$ lies in $\\gamma(\\mathbf{a}\\mid exp)$, which follows from the soundness of abstract conjunction and abstract normalization.\n\nEVIDENCE:\n[FPPROG-p0394-s04] Together with soundness of abstract conjunction presented earlier in this section we arrive at the main goal of this work.\n[FPPROG-p0394-s05] Theorem 11.15 (Soundness of Conditioning).\n[FPPROG-p0394-s06] If X ∈γ (a) and exp has non-zero marginal probability in X then X | exp ∈γ (a | exp).\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The theorem and conjunction's role are stated, but the supplied evidence does not establish sound abstract normalization as a premise of the derivation. / Evidence does not explicitly specify 'boolean expression exp' or 'soundness of abstract normalization'. Remove 'the boolean expression' and 'and abstract normalization'.\n- SINGLE_CLAIM: revise — Separates into the conditioning soundness theorem and a claim about its derivation from two operators' soundness. / Combines the formal statement of the soundness of conditioning theorem with the separate claim of what lemmas it follows from.\n- L1_ONLY: hold — Keep the recall-level theorem; remove the additional derivation clause involving abstract conjunction and normalization.",
+ "raw": "{\"atoms\": [{\"statement\": \"If $X\\\\in\\\\gamma(\\\\mathbf{a})$ and $exp$ has non-zero marginal probability in $X$, then $X \\\\mid exp \\\\in \\\\gamma(\\\\mathbf{a} \\\\mid exp)$ (soundness of conditioning).\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0394-s05\", \"FPPROG-p0394-s06\"]}], \"note\": \"Removed the derivation clause about abstract conjunction and abstract normalization (normalization is not in the evidence) and the 'boolean' qualifier on exp, which the evidence does not state.\"}",
+ "usage": {
+  "completion_tokens": 220,
+  "prompt_tokens": 957,
+  "total_tokens": 1177,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 220
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 957,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00411400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

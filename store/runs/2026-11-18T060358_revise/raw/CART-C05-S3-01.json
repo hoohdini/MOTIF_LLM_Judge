@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C05-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: antigen loss\n\nATOM CART-C05-S3-01 (S3): BCMA downregulation after BCMA CAR-T therapy in myeloma was recorded in a significant proportion of patients, but BCMA intensity increased back towards baseline in almost all patients, so downregulation is typically not permanent loss.\n\nEVIDENCE:\n[CART-p0024-s13] In myeloma, downregulation of BCMA was recorded in a significant proportion of patients following BCMA CAR-T therapy, but intensity increased back towards baseline in almost all patients (Cohen et al. 2019).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Delete the generalized conclusion 'so downregulation is typically not permanent loss'; the evidence reports recovery in the observed patients. / Drop 'so downregulation is typically not permanent loss', which is an inference not stated in the evidence.\n- SINGLE_CLAIM: revise — Combines the frequency of downregulation with subsequent recovery of BCMA intensity. / Combines initial BCMA downregulation frequency with subsequent recovery towards baseline.\n- L1_ONLY: hold — Remove the incidence clause and retain the single fact about recovery of BCMA expression.\n- SOURCE_INDEPENDENT: hold — The proportions experiencing downregulation and recovery are findings from a particular study.",
+ "raw": "{\"atoms\": [{\"statement\": \"In myeloma, BCMA intensity increased back towards baseline in almost all patients after BCMA downregulation following BCMA CAR-T therapy.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0024-s13\"]}], \"note\": \"Removed the unsupported inference that downregulation is typically not permanent loss. Split off the downregulation-frequency claim as redundant; kept the recovery finding as the single claim.\"}",
+ "usage": {
+  "completion_tokens": 160,
+  "prompt_tokens": 852,
+  "total_tokens": 1012,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 160
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 852,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00330400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

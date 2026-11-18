@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C06-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: allogeneic CAR-T cells\n\nATOM CART-C06-S2-02 (S2): Removal of HLA class I molecules to avoid CD8+ T cell-mediated rejection can be achieved by disrupting the common beta 2-microglobulin gene, while rejection through HLA class II on activated T cells may be addressed by disrupting transcription factors such as CIITA and RFXANK.\n\nEVIDENCE:\n[CART-p0058-s02] Removal of HLA class I molecules on the cell surface to avoid CD8+ T cell-­mediated rejection can be achieved by disrupting the common beta 2-microglobulin gene.\n[CART-p0058-s05] Rejection through recognition of HLA class II on activated T cells may be addressed by disruption of critical transcription factors, such as CIITA and RFXANK (Depil et al. 2020).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — HLA class I removal through beta 2-microglobulin disruption and HLA class II targeting through transcription-factor disruption are separate claims. / Joins two separate claims: HLA class I removal via beta 2-microglobulin disruption and HLA class II removal via CIITA/RFXANK disruption.\n- L1_ONLY: hold — Split the class I and class II rejection-avoidance strategies into separate recall facts.",
+ "raw": "{\"atoms\": [{\"statement\": \"Removal of HLA class I molecules on the cell surface to avoid CD8+ T cell-mediated rejection can be achieved by disrupting the common beta 2-microglobulin gene.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0058-s02\"]}, {\"statement\": \"Rejection through recognition of HLA class II on activated T cells may be addressed by disruption of critical transcription factors, such as CIITA and RFXANK.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0058-s05\"]}], \"note\": \"Split the original atom into separate HLA class I and HLA class II claims.\"}",
+ "usage": {
+  "completion_tokens": 226,
+  "prompt_tokens": 845,
+  "total_tokens": 1071,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 226
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 845,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00395000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

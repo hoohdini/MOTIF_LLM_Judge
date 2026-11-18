@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: allogeneic CAR-T cells\n\nATOM CART-C06-S2-03 (S2): Strategies to reduce TCRαβ activity in allogeneic CAR-T cells include truncated dominant-negative CD3ζ proteins, protein expression blockers, small hairpin RNA, and genome editing with platforms such as ZFNs, meganucleases, TALENs, megaTALs, CRISPR/Cas9, and base editors.\n\nEVIDENCE:\n[CART-p0056-s11] Strategies to reduce TCRαβ activity have included the use of truncated dominant-negative CD3ζ proteins (Gilham et al. 2018), protein expression blockers (PEBLs) (Kamiya et al. 2018), small hairpin RNA (Bunse et al. 2014), and genome editing.\n[CART-p0056-s12] Platforms for the latter have included zinc-finger nucleases (ZFN) homing endonucleases/meganucleases, transcription activator-like effector nucleases (TALEN), megaTALs, clustered regularly interspaced short palindromic repeat (CRISP/cas9), and base editors (BEs) (Depil et al. 2020).\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied evidence lists TCRαβ-reduction strategies but does not state their use in allogeneic CAR-T cells; that substantive population restriction is unsupported.\n- SINGLE_CLAIM: revise — It separately tests the repertoire of TCRαβ-reduction strategies and the repertoire of genome-editing platforms. Split these claims. / Combines general strategies to reduce TCRαβ activity with a separate list of six specific genome-editing platforms.",
+ "raw": "{\"atoms\": [{\"statement\": \"Strategies to reduce TCRαβ activity have included truncated dominant-negative CD3ζ proteins, protein expression blockers (PEBLs), small hairpin RNA, and genome editing.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0056-s11\"]}, {\"statement\": \"Genome-editing platforms used to reduce TCRαβ activity have included zinc-finger nucleases, homing endonucleases/meganucleases, TALENs, megaTALs, CRISPR/Cas9, and base editors.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0056-s11\", \"CART-p0056-s12\"]}], \"note\": \"Removed the 'allogeneic CAR-T cells' restriction because the evidence does not state it. Split the general strategies from the genome-editing platform list.\"}",
+ "usage": {
+  "completion_tokens": 293,
+  "prompt_tokens": 966,
+  "total_tokens": 1259,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 293
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 966,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00486200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

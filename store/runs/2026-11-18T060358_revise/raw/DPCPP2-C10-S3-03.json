@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C10-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Kernel bundles\n\nATOM DPCPP2-C10-S3-03 (S3): Querying a kernel, for example for its preferred_work_group_size_multiple via get_info(), requires an instance of the kernel class, which requires knowing the kernel's name and kernel_id to extract it from the kernel_bundle, so the kernel lambda must be named.\n\nEVIDENCE:\n[DPCPP2-p0370-s05] We also need to name kernels if we want to use kernel queries.\n[DPCPP2-p0370-s08] For instance, querying a kernel’s preferred_work_group_size_multiple requires us to call the get_info() member function of the kernel class, which requires an instance of the kernel class, which ultimately requires that we know the name (and kernel_id) of the kernel in order to extract a handle to it from the relevant kernel_bundle.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Replace 'the kernel lambda must be named' with 'the kernel must be named'; the evidence does not specify lambda-defined kernels. / Evidence says 'name kernels', not specifically 'kernel lambda'; replace 'kernel lambda' with 'kernel'.\n- SINGLE_CLAIM: revise — Combines the named-kernel requirement with the query API, kernel-instance requirement, and name/kernel_id-based handle extraction. / Stacks multiple claims: querying via get_info() requires a kernel instance, extracting a kernel from a bundle requires its name/kernel_id, and kernels must be named for queries.\n- SCOPE_LABEL: hold — S2: Describes the mechanism and requirements for querying and extracting a kernel from a kernel bundle.\n- L1_ONLY: revise — Retain the named-kernel requirement for queries; remove the multi-step dependency chain through get_info(), kernel instances, and handle extraction. / Chains multiple API mechanics and a specific query example (preferred_work_group_size_multiple) into one complex sentence.",
+ "raw": "{\"atoms\": [{\"statement\": \"A kernel must be named in order to use kernel queries on it.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0370-s05\"]}, {\"statement\": \"Calling get_info() on a kernel, such as to query preferred_work_group_size_multiple, requires an instance of the kernel class, which requires knowing the kernel's name and kernel_id in order to extract it from the relevant kernel_bundle.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0370-s08\"]}], \"note\": \"Split the named-kernel limit from the query mechanism. Replaced 'kernel lambda' with 'kernel' because the evidence does not mention lambdas. The auditor's S2 label is applied to the mechanism atom.\"}",
+ "usage": {
+  "completion_tokens": 270,
+  "prompt_tokens": 1059,
+  "total_tokens": 1329,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 270
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1059,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00481800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "KGBDP-C05-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Knowledge graph embedding\n\nATOM KGBDP-C05-S2-03 (S2): LogicENN derives algebraic constraints for logical rules such as symmetric, inverse, transitive, negation, implication and equivalence from its score function and adds them as penalty terms to the loss function, which injects rules into learning.\n\nEVIDENCE:\n[KGBDP-p0105-s07] Considering the formulation of the score function, the algebraic formulae (algebraic constraints) corresponding to each of the logical rules – namely symmetric, inverse, transitive, negation, implication, equivalence etc – are derived.\n[KGBDP-p0105-s08] The formulae are then used as penalty terms to be added to the loss function for optimization.\n[KGBDP-p0105-s09] This enables the injection of rules into the learning process of the network.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentences describe rule constraints and penalties but never identify the model as LogicENN.\n- SINGLE_CLAIM: hold — Combines deriving algebraic constraints from the score function with adding them as loss penalty terms to inject rules.\n- L1_ONLY: hold — Introduces a specific peripheral model (LogicENN) and a long list of six logical rules, adding excessive recall load.\n- CENTRALITY: hold — LogicENN is a niche single paper/model, not a central model for understanding knowledge graph embeddings generally.",
+ "raw": "{\"atoms\":[{\"statement\":\"Algebraic constraints corresponding to logical rules, such as symmetric, inverse, transitive, negation, implication and equivalence, can be derived from the formulation of the score function.\",\"scope\":\"S2\",\"evidence_ids\":[\"KGBDP-p0105-s07\"]},{\"statement\":\"Adding the algebraic formulae of logical rules as penalty terms to the loss function injects those rules into the network's learning process.\",\"scope\":\"S2\",\"evidence_ids\":[\"KGBDP-p0105-s08\",\"KGBDP-p0105-s09\"]}],\"note\":\"The evidence never names LogicENN, so the model name is dropped. The original claim joined deriving the constraints with using them as loss penalties, so it is split into two atoms.\"}",
+ "usage": {
+  "completion_tokens": 719,
+  "prompt_tokens": 873,
+  "total_tokens": 1592,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 873,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00893600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

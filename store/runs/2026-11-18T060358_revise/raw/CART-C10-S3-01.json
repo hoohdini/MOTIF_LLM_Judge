@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C10-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: immune monitoring\n\nATOM CART-C10-S3-01 (S3): Flow cytometry of CAR-T cells has relatively low sensitivity, and below 0.5% of T cells its reliability is weak, which justifies pursuing monitoring by PCR.\n\nEVIDENCE:\n[CART-p0168-s15] The limitation of the technique is the relatively low sensitivity.\n[CART-p0168-s16] Below 0.5% of T cells, the reliability of CMF is weak and justifies pursuing monitoring via PCR.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the flow-cytometry sensitivity limitation with a recommendation to pursue PCR monitoring. / Combines the sensitivity threshold of flow cytometry (<0.5% of T cells) with the justification for using PCR.\n- L1_ONLY: hold — Retain the reliability threshold; remove the procedural conclusion about pursuing PCR.",
+ "raw": "{\"atoms\": [{\"statement\": \"Flow cytometry (CMF) for monitoring CAR-T cells has relatively low sensitivity, and below 0.5% of T cells its reliability is weak.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0168-s15\", \"CART-p0168-s16\"]}], \"note\": \"Removed the PCR-monitoring justification as a separate procedural recommendation. Kept the sensitivity limitation and 0.5% threshold as one claim.\"}",
+ "usage": {
+  "completion_tokens": 169,
+  "prompt_tokens": 718,
+  "total_tokens": 887,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 169
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 718,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00312600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

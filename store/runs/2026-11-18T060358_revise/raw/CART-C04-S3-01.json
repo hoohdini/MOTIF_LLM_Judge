@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C04-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: tumour antigen\n\nATOM CART-C04-S3-01 (S3): Dual-antigen targeting is not expected to ameliorate the risk of CRS, its on-target off-tumour toxicity risk is difficult to estimate because it depends on the CAR-T cells' ability to discriminate combined from single antigen expression, and single-antigen expression on normal cells carries potential off-target off-tumour risk.\n\nEVIDENCE:\n[CART-p0020-s12] This approach is not expected to ameliorate the risk of CRS, and it is difficult to estimate the risk of ‘on-target off-tumour’ toxicity, which will depend on the ability of CAR-T cells to discriminate between cells with combined or single antigen expression.\n[CART-p0020-s13] In this case, there would be a potential risk of ‘off-target off-tumour’ toxicity for single antigens (expression of a single antigen in normal cells or aberrant antigen expression in normal cells).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines unchanged CRS risk, discrimination-dependent toxicity estimation, and potential toxicity from single-antigen expression. / Combines three separate claims about CRS risk, on-target off-tumour risk estimation, and single-antigen risk.\n- L1_ONLY: revise — Split the three toxicity limitations into separate recall atoms rather than combining risk assessment, discrimination, and single-antigen expression. / Overloaded sentence stacking multiple distinct conditions and risk evaluations.",
+ "raw": "{\"atoms\": [{\"statement\": \"Dual-antigen targeting by CAR-T cells is not expected to ameliorate the risk of cytokine release syndrome (CRS).\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0020-s12\"]}, {\"statement\": \"With dual-antigen targeting, the risk of 'on-target off-tumour' toxicity is difficult to estimate because it depends on the ability of CAR-T cells to discriminate between cells with combined or single antigen expression.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0020-s12\"]}, {\"statement\": \"With dual-antigen targeting, there would be a potential risk of 'off-target off-tumour' toxicity for single antigens, through expression of a single antigen in normal cells or aberrant antigen expression in normal cells.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0020-s13\"]}], \"note\": \"Split the overloaded atom into three single-claim atoms, each fully stated in the cited evidence.\"}",
+ "usage": {
+  "completion_tokens": 350,
+  "prompt_tokens": 908,
+  "total_tokens": 1258,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 350
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 908,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00531600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

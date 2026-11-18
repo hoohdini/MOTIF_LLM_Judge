@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C01-S2-06",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: RDF Mapping Language\n\nATOM KGBDP-C01-S2-06 (S2): RML's Language Map (rml:LanguageMap) extends R2RML's rr:language by allowing not only constant language values but also references derived from the input data, with rr:language regarded as an abbreviation of rml:languageMap.\n\nEVIDENCE:\n[KGBDP-p0072-s10] Language Map. RML introduces a new Term Map for defining the language, the Language Map (rml:LanguageMap, Listing 4.10, line 5), which extends R2RML’s language tag (rr:language).\n[KGBDP-p0072-s11] The Language Map allows not only constant values for language but also references derived from the input data. rr:language is considered then an abbreviation for the rml:languageMap, as rr:predicate is for the rr:predicateMap.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Supporting input-derived language values and treating rr:language as an abbreviation are separate claims. / Combines what Language Map allows with the syntax rule that rr:language is an abbreviation of rml:languageMap.\n- L1_ONLY: hold — Remove the abbreviation clause and assess it separately from the Language Map's supported value sources.",
+ "raw": "{\"atoms\": [{\"statement\": \"RML's Language Map (rml:LanguageMap) extends R2RML's rr:language by allowing not only constant language values but also references derived from the input data.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0072-s10\", \"KGBDP-p0072-s11\"]}, {\"statement\": \"In RML, rr:language is considered an abbreviation for rml:languageMap, as rr:predicate is for rr:predicateMap.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0072-s11\"]}], \"note\": \"\"}",
+ "usage": {
+  "completion_tokens": 204,
+  "prompt_tokens": 807,
+  "total_tokens": 1011,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 204
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 807,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00365400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

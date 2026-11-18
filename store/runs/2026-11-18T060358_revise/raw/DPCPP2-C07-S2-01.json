@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C07-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Sub-group\n\nATOM DPCPP2-C07-S2-01 (S2): For a given combination of device, kernel, and ND-range, a sub-group has a fixed one-dimensional size that can be queried using the query functions of the kernel class.\n\nEVIDENCE:\n[DPCPP2-p0148-s08] of our control. However, a sub-group has a fixed (one-dimensional) size for a given combination of device, kernel, and ND-range, and we can query this size using the query functions of the kernel class (see Chapters 10 and 12).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Fixed one-dimensional size and availability of kernel-class size queries are separately assessable facts. / Joins two separately assessable claims: fixed 1D size for a given device/kernel/ND-range, and querying it via kernel class functions.",
+ "raw": "{\"atoms\": [{\"statement\": \"For a given combination of device, kernel, and ND-range, a sub-group has a fixed one-dimensional size.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0148-s08\"]}, {\"statement\": \"The size of a sub-group can be queried using the query functions of the kernel class.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0148-s08\"]}], \"note\": \"Split the joined claim into the fixed-size property and the queryability of that size.\"}",
+ "usage": {
+  "completion_tokens": 182,
+  "prompt_tokens": 673,
+  "total_tokens": 855,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 182
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 673,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00316600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

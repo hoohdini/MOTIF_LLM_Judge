@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C10-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intra-abdominal hypertension\n\nATOM IVFLUID-C10-S3-01 (S3): Primary IAH originates from injury or disease within the abdominopelvic cavity (e.g., ruptured abdominal aortic aneurysm, bowel perforation, spleen rupture), whereas secondary IAH results from conditions of extra-abdominal origin (e.g., sepsis, major burns, or other conditions requiring massive fluid resuscitation).\n\nEVIDENCE:\n[IVFLUID-p0452-s15] Primary IAH originates from injury or disease within the abdominopelvic cavity (e.g., a ruptured abdominal aortic aneurysm, bowel perforation and spleen rupture), whereas secondary IAH results from conditions that have an extra-abdominal origin (e.g., sepsis, major burns or other conditions requiring massive fluid resuscitation) [3].\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Primary and secondary IAH have separate, independently assessable definitions; split them. / Defines both primary IAH and secondary IAH, which are independently assessable concepts.\n- SCOPE_LABEL: revise — S1: This defines etiological categories rather than limits or endpoints. / S1: Classifications and definitions of primary and secondary IAH belong in S1 (what it is).",
+ "raw": "{\"atoms\": [{\"statement\": \"Primary intra-abdominal hypertension (IAH) originates from injury or disease within the abdominopelvic cavity (e.g., a ruptured abdominal aortic aneurysm, bowel perforation, spleen rupture).\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0452-s15\"]}, {\"statement\": \"Secondary intra-abdominal hypertension (IAH) results from conditions with an extra-abdominal origin (e.g., sepsis, major burns, or other conditions requiring massive fluid resuscitation).\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0452-s15\"]}], \"note\": \"Split into separate atoms for primary and secondary IAH; scope changed from S3 to S1 because these are definitions.\"}",
+ "usage": {
+  "completion_tokens": 281,
+  "prompt_tokens": 846,
+  "total_tokens": 1127,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 281
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 846,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00450200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

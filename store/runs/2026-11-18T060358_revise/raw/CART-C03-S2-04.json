@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C03-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: CAR structure\n\nATOM CART-C03-S2-04 (S2): Full T cell activation requires adding one costimulatory domain (second generation CARs) or two (third generation CARs) from molecules such as CD28, 4-1BB/CD137, or OX40/CD134, which provide the costimulatory signal.\n\nEVIDENCE:\n[CART-p0013-s02] However, full activation of T cells requires the addition of one (second generation CARs) or two (third generation CARs) domains from costimulatory molecules, such as CD28, 4-1BB/CD137, or OX40/CD134, that provide the T cell costimulatory signal.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The activation requirement, second-generation domain count, and third-generation domain count are independently assessable. / Combines the requirement for full activation, definitions of 2nd and 3rd generation CARs, and specific examples of costimulatory molecules.\n- L1_ONLY: hold — Separate the generation-specific domain counts from the activation requirement and list of costimulatory examples.",
+ "raw": "{\"atoms\": [{\"statement\": \"Full activation of T cells by a CAR requires adding costimulatory domains from costimulatory molecules, which provide the T cell costimulatory signal.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0013-s02\"]}, {\"statement\": \"Second generation CARs add one costimulatory domain, whereas third generation CARs add two costimulatory domains.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0013-s02\"]}, {\"statement\": \"CD28, 4-1BB/CD137, and OX40/CD134 are examples of costimulatory molecules whose domains are added to CARs.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0013-s02\"]}], \"note\": \"Split into three atoms: the activation requirement, the generation-specific domain counts, and the examples of costimulatory molecules.\"}",
+ "usage": {
+  "completion_tokens": 300,
+  "prompt_tokens": 749,
+  "total_tokens": 1049,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 300
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 749,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00449800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

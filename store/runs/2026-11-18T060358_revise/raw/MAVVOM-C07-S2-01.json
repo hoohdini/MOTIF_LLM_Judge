@@ -1,0 +1,30 @@
+{
+ "atom_id": "MAVVOM-C07-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Vector-valued Jacobi form\n\nATOM MAVVOM-C07-S2-01 (S2): For $m>0$, the $m$-th Fourier–Jacobi coefficient of a modular form $f\\in M_{\\lambda,k}(\\Gamma)$, regarded as a section of $\\mathcal{E}_{\\lambda,k}\\otimes\\Theta_J^{\\otimes m}$, is a Jacobi form of weight $(\\lambda,k)$ and index $m$, and it is a Jacobi cusp form when $f$ is a cusp form.\n\nEVIDENCE:\n[MAVVOM-p0099-s04] Proposition 7.12. For m > 0 the m-th Fourier–Jacobi coefficient of a modular form f 2 M�;k.�/ as a section of E�;k ˝ ‚˝m J is a Jacobi form of weight .�; k/ and index m in the sense of Definition 7.10.\n[MAVVOM-p0099-s05] When f is a cusp form, the Fourier–Jacobi coefficient is a Jacobi cusp form.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The Jacobi-form property and preservation of cuspidality are separately assessable conclusions. / Combines the claim for general modular forms with the claim for cusp forms.",
+ "raw": "{\"atoms\":[{\"statement\":\"For $m>0$, the $m$-th Fourier–Jacobi coefficient of a modular form $f\\\\in M_{\\\\lambda,k}(\\\\Gamma)$, regarded as a section of $\\\\mathcal{E}_{\\\\lambda,k}\\\\otimes\\\\Theta_J^{\\\\otimes m}$, is a Jacobi form of weight $(\\\\lambda,k)$ and index $m$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0099-s04\"]},{\"statement\":\"When $f$ is a cusp form, its Fourier–Jacobi coefficient is a Jacobi cusp form.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0099-s05\"]}],\"note\":\"Split into the Jacobi-form claim and the cusp-form claim.\"}",
+ "usage": {
+  "completion_tokens": 290,
+  "prompt_tokens": 838,
+  "total_tokens": 1128,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 290
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 838,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00457600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

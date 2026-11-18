@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C07-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: bridging therapy\n\nATOM CART-C07-S3-01 (S3): Prior CD19-directed therapy such as blinatumomab is reported as possibly detrimental before CD19 CAR-T cells, particularly through selection of CD19-negative clones, according to accumulating data.\n\nEVIDENCE:\n[CART-p0116-s02] • Accumulating data suggest that the use of CD19-oriented therapy (e.g., blinatu-\n[CART-p0116-s03] momab) prior to administration of CD19 CAR-T cells can be detrimental, particularly with the selection of CD19-negative clones (Pillai et al. 2019; Baruchel et al. 2020; Taraseviciute et al. 2020). • Inotuzumab ozogamicin, an anti-CD22 therapy, can be used in patients with che-\n\nAUDITOR FINDINGS:\n- SOURCE_INDEPENDENT: revise — Drop “is reported as” and “according to accumulating data”; state the general claim directly as “may be detrimental.” / Remove source-framing phrases 'is reported as' and 'according to accumulating data'; state directly that it can be detrimental.",
+ "raw": "{\"atoms\": [{\"statement\": \"Use of CD19-directed therapy such as blinatumomab before CD19 CAR-T cell administration can be detrimental, particularly through selection of CD19-negative clones.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0116-s02\", \"CART-p0116-s03\"]}], \"note\": \"Removed source-framing phrases ('is reported as', 'according to accumulating data') and stated the claim directly, keeping the hedge 'can be' and the 'particularly' qualifier.\"}",
+ "usage": {
+  "completion_tokens": 181,
+  "prompt_tokens": 776,
+  "total_tokens": 957,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 181
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 776,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00336200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

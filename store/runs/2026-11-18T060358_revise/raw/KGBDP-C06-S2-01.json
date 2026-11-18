@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C06-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Layered perspective\n\nATOM KGBDP-C06-S2-01 (S2): Reasoning poses different requirements at each layer: at the representation layer it is a design consideration balancing expressive power against computational complexity, at the management layer a general-purpose reasoning (analogous to querying in an RDBMS) service is of utmost importance, and at the application layer the specific reasoning service the application requires or exposes is the focus.\n\nEVIDENCE:\n[KGBDP-p0095-s10] – At the bottom-most layer (representation), reasoning is an important design consideration to achieve a good balance between expressive power and computational complexity. – At the middle layer (management), similar to a relational database management system, providing a general-purpose reasoning (or in a RDBMS: querying) service is of utmost importance. – At the top layer (application), the specific reasoning service required or exposed by the application becomes the focus.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The representation-layer trade-off, management-layer general-purpose service, and application-layer specific service are three independently assessable claims. / Combines three distinct claims about the reasoning requirements at the representation, management, and application layers.\n- L1_ONLY: revise — Split the three layer-specific requirements into separate recall facts rather than requiring the entire bundled comparison. / Packs three distinct layer characterizations and an RDBMS analogy into one heavy sentence; split into separate atoms.",
+ "raw": "{\"atoms\": [{\"statement\": \"At the representation layer of a knowledge graph system, reasoning is an important design consideration for achieving a good balance between expressive power and computational complexity.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0095-s10\"]}, {\"statement\": \"At the management layer of a knowledge graph system, providing a general-purpose reasoning service is of utmost importance, similar to the querying service in a relational database management system.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0095-s10\"]}, {\"statement\": \"At the application layer of a knowledge graph system, the focus is on the specific reasoning service that the application requires or exposes.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0095-s10\"]}], \"note\": \"Split the bundled atom into three layer-specific claims, one per layer, in the order the evidence gives them.\"}",
+ "usage": {
+  "completion_tokens": 307,
+  "prompt_tokens": 869,
+  "total_tokens": 1176,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 307
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 869,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00480800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

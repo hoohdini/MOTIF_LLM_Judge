@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C11-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Volume kinetics\n\nATOM IVFLUID-C11-S2-01 (S2): Volume kinetics is based on serial analysis of blood hemoglobin concentration and, at best, urine volume during and after infusion of a fluid in a controlled setting, and blood volume itself is not important to the calculations.\n\nEVIDENCE:\n[IVFLUID-p0120-s08] The blood volume is not important to the calculations, but volume kinetics is still based\n[IVFLUID-p0120-s09] on serial analysis of the blood Hb concentration and, at best, the urine volume as well, during and after infusion of a fluid in a controlled setting.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the measurement basis with a separate claim that blood volume is unimportant to calculations. / Combines required measurements (serial Hb and urine volume) with the claim that baseline blood volume is not important to calculations.\n- L1_ONLY: hold — Remove the separate blood-volume clause to retain one recall-level fact about the measurement basis.",
+ "raw": "{\"atoms\": [{\"statement\": \"Volume kinetics is based on serial analysis of blood hemoglobin concentration and, at best, urine volume as well, during and after infusion of a fluid in a controlled setting.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0120-s08\", \"IVFLUID-p0120-s09\"]}], \"note\": \"Removed the separate claim that blood volume is not important to the calculations, as the auditors flagged it as a distinct claim.\"}",
+ "usage": {
+  "completion_tokens": 168,
+  "prompt_tokens": 745,
+  "total_tokens": 913,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 168
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 745,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00317000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

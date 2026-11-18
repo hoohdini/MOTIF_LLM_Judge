@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C06-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Anodyne morphism\n\nATOM HMDEND-C06-S3-01 (S3): A saturated class of normal monomorphisms of dendroidal sets that contains all spine inclusions of trees and has the closure property that $j$ lies in the class whenever monomorphisms $i:A\\to B$ and $j:B\\to C$ are such that $i$ and $ji$ lie in the class, necessarily contains all inner anodyne morphisms.\n\nEVIDENCE:\n[HMDEND-p0260-s09] Proposition 6.39 Let A be a saturated class of normal monomorphisms between dendroidal sets which contains all spine inclusions of trees and satisfies the following additional closure property: if i : A →B and j : B →C are monomorphisms such that i and ji are in A, then j is in A as well.\n[HMDEND-p0260-s10] Then the class A contains all inner anodynes.\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — S2: This is a sufficient spine-and-closure criterion for containing inner anodynes, rather than a limitation of the concept. / S2: This is a structural generation criterion for inner anodyne morphisms via spines and 2-out-of-3 closure, not a boundary/limitation.\n- L1_ONLY: hold — The criterion stacks saturation, normality, spine containment, and a nested cancellation condition; simplify the atom's conditional load.",
+ "raw": "{\"atoms\":[{\"statement\":\"A saturated class of normal monomorphisms between dendroidal sets contains all inner anodyne morphisms if it contains all spine inclusions of trees and satisfies this closure property: for monomorphisms $i:A\\\\to B$ and $j:B\\\\to C$ with $i$ and $ji$ in the class, $j$ is also in the class.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0260-s09\",\"HMDEND-p0260-s10\"]}],\"note\":\"Relabeled S3 to S2 because the claim is a sufficient generation criterion, not a limitation. Rewrote it as a single sufficient-condition sentence. All the conditions are needed for the claim to hold, so none were dropped.\"}",
+ "usage": {
+  "completion_tokens": 483,
+  "prompt_tokens": 862,
+  "total_tokens": 1345,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 862,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00655400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

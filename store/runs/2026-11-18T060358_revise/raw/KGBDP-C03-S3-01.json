@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C03-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Federated query processing\n\nATOM KGBDP-C03-S3-01 (S3): Unlike distributed query processing systems, which have control over each dataset, federated query processing engines have no control over datasets in the federation, and data providers can join or leave the federation at any time and modify their datasets independently.\n\nEVIDENCE:\n[KGBDP-p0086-s11] While distributed query processing systems have control over each dataset, federated query processing engines have no control over datasets in the federation and data providers can join or leave the federation at any time and modify their datasets independently.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Dataset control, providers' freedom to join or leave, and independent dataset modification are separately assessable claims. / Combines the contrast in dataset control with the autonomy actions available to data providers (joining/leaving and modifying datasets).\n- L1_ONLY: hold — Retain the dataset-control contrast; remove the additional claims about federation membership and independent modification.",
+ "raw": "{\"atoms\": [{\"statement\": \"Federated query processing engines have no control over the datasets in the federation, unlike distributed query processing systems, which have control over each dataset.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0086-s11\"]}, {\"statement\": \"In a federation, data providers can join or leave at any time and modify their datasets independently.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0086-s11\"]}], \"note\": \"Split the original atom into the dataset-control contrast and the data providers' autonomy; the second claim covers joining/leaving and independent modification together.\"}",
+ "usage": {
+  "completion_tokens": 210,
+  "prompt_tokens": 715,
+  "total_tokens": 925,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 210
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 715,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00353000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

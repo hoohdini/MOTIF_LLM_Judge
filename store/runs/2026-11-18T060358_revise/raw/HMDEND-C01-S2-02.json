@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C01-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Normal dendroidal set\n\nATOM HMDEND-C01-S2-02 (S2): The class of normal monomorphisms of dendroidal sets is the smallest weakly saturated class containing the boundary inclusions $\\partial\\Omega[T]\\to\\Omega[T]$ for every tree $T$ in $\\Omega$, because every normal monomorphism is a transfinite composition of pushouts of such boundary inclusions.\n\nEVIDENCE:\n[HMDEND-p0145-s12] Theorem 3.31 The class of normal monomorphisms is the smallest weakly saturated class containing the boundary inclusion ∂Ω[T] →Ω[T] for every tree T in Ω.\n[HMDEND-p0145-s16] To see that these classes are equal one applies Proposition 3.26, which shows that any normal monomorphism can be written as a transfinite composition of pushouts of boundary inclusions of trees. □\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Separately asserts the smallest weakly saturated class characterization and a transfinite pushout decomposition of every normal monomorphism. / Combines two distinct claims: the weakly saturated class characterization (Theorem 3.31) and the transfinite composition of pushouts characterization (Proposition 3.26).\n- L1_ONLY: revise — Remove the explanatory 'because' clause; it adds a separately assessable decomposition theorem to the recall-level characterization. / Remove the 'because...' clause, which stacks a second major characterization as a proof justification.",
+ "raw": "{\"atoms\": [{\"statement\": \"The class of normal monomorphisms of dendroidal sets is the smallest weakly saturated class containing the boundary inclusions $\\\\partial\\\\Omega[T]\\\\to\\\\Omega[T]$ for every tree $T$ in $\\\\Omega$.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0145-s12\"]}, {\"statement\": \"Any normal monomorphism of dendroidal sets can be written as a transfinite composition of pushouts of boundary inclusions of trees.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0145-s16\"]}], \"note\": \"Split the atom into two claims and dropped the 'because' clause that linked them.\"}",
+ "usage": {
+  "completion_tokens": 250,
+  "prompt_tokens": 913,
+  "total_tokens": 1163,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 250
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 913,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00432600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

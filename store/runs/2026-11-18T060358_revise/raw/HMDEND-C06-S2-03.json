@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Anodyne morphism\n\nATOM HMDEND-C06-S2-03 (S2): For a tree $T$ and a non-empty subset $E$ of its inner edges, the inclusion $\\Lambda^E[T]\\to\\Omega[T]$, where $\\Lambda^E[T]$ is the union of the faces of $T$ containing all inner edges in $E$, is a composition of pushouts of inner horn inclusions and hence inner anodyne.\n\nEVIDENCE:\n[HMDEND-p0241-s06] Lemma 6.20 Let T be a tree and let E be a non-empty subset of the set I(T) of inner edges.\n[HMDEND-p0241-s07] Write ΛE[T] ⊆Ω[T] for the union of all the faces ∂xΩ[T] for x not in E.\n[HMDEND-p0241-s08] In other words, ΛE[T] is the union of those faces of T which contain all the inner edges in the set E.\n[HMDEND-p0241-s09] Then the inclusion ΛE[T] →Ω[T] is a composition of pushouts of inner horn inclusions.\n[HMDEND-p0241-s10] In particular it is an inner anodyne morphism.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Being a composition of horn pushouts and being inner anodyne are separately assessable properties. / Combines the definition of the generalized horn, its structure as a composition of pushouts of inner horn inclusions, and the conclusion that it is inner anodyne.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a tree $T$ and a non-empty subset $E$ of its inner edges, the inclusion $\\\\Lambda^E[T]\\\\to\\\\Omega[T]$, where $\\\\Lambda^E[T]$ is the union of those faces of $T$ that contain all the inner edges in $E$, is a composition of pushouts of inner horn inclusions.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0241-s06\",\"HMDEND-p0241-s07\",\"HMDEND-p0241-s08\",\"HMDEND-p0241-s09\"]},{\"statement\":\"For a tree $T$ and a non-empty subset $E$ of its inner edges, the inclusion $\\\\Lambda^E[T]\\\\to\\\\Omega[T]$ is an inner anodyne morphism.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0241-s06\",\"HMDEND-p0241-s09\",\"HMDEND-p0241-s10\"]}],\"note\":\"\"}",
+ "usage": {
+  "completion_tokens": 340,
+  "prompt_tokens": 906,
+  "total_tokens": 1246,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 340
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 906,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00521200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

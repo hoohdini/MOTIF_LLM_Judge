@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Layered perspective\n\nATOM KGBDP-C06-S2-03 (S2): According to the authors, achieving a great overall KG system requires taking all layers and their interactions into account, because a good knowledge application platform is hardly possible if the knowledge representation layer is not fit for the purpose.\n\nEVIDENCE:\n[KGBDP-p0030-s19] Of course, it is clear that to achieve a great overall system, all layers and their interactions have to be taken into account; it is hardly possibly to provide a good knowledge application platform if the knowledge representation layer is not fit for the purpose.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines considering all layers and interactions with the distinct claim that application quality depends on a fit-for-purpose representation layer. / Joins two claims: the general requirement to take all layers and interactions into account, and the specific justification/example about the representation layer.\n- L1_ONLY: revise — Remove the explanatory 'because' clause to retain one recall-level principle about considering all layers and their interactions. / Carries an extra causal justification clause ('because a good knowledge application platform...') that adds cognitive load.\n- SOURCE_INDEPENDENT: hold — Drop 'According to the authors'; the cross-layer dependency principle is assessable without consulting this source. / Explicitly framed as the authors' opinion/perspective on what makes a 'great' system within their specific layered model.",
+ "raw": "{\"atoms\": [{\"statement\": \"Achieving a great overall knowledge graph system requires taking all layers and their interactions into account.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0030-s19\"]}, {\"statement\": \"It is hardly possible to provide a good knowledge application platform if the knowledge representation layer is not fit for the purpose.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0030-s19\"]}], \"note\": \"Split the joined claim into the general layered requirement and the specific dependency of the application platform on the representation layer; removed the attribution and the causal 'because' linkage.\"}",
+ "usage": {
+  "completion_tokens": 217,
+  "prompt_tokens": 868,
+  "total_tokens": 1085,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 217
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 868,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00390600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

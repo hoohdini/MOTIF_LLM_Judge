@@ -1,0 +1,27 @@
+{
+ "atom_id": "LAPINF-C03-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intrinsic size\n\nATOM LAPINF-C03-S2-03 (S2): For a fixed model of finite intrinsic size, with the deficiency indices of the minimal Kirchhoff Laplacian positive, a self-adjoint extension of the minimal Kirchhoff Laplacian is positive definite if and only if the corresponding self-adjoint extension of the minimal graph Laplacian is positive definite.\n\nEVIDENCE:\n[LAPINF-p0061-s17] Theorem 3.22. Let .G;�;�/ be a weighted metric graph together with a fixed model.\n[LAPINF-p0061-s18] Suppose n˙.H0/ > 0;\n[LAPINF-p0061-s25] If additionally the corresponding model has finite intrinsic size, ��.E/ < 1, then:\n[LAPINF-p0061-s26] (v) zH is positive definite if and only if zh is positive definite.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentences do not identify the two operators as corresponding self-adjoint extensions of the specified minimal Laplacians. / The supplied evidence uses only the symbols H0, zH, and zh without naming them 'minimal Kirchhoff Laplacian' or 'minimal graph Laplacian'.\n- L1_ONLY: revise — The deficiency-index hypothesis introduces an additional technical concept beyond the core positivity correspondence. / Carries stacked technical conditions (deficiency indices of the minimal Kirchhoff Laplacian positive) on top of the core finite intrinsic size equivalence.",
+ "raw": "{\"atoms\": [], \"note\": \"The evidence only states that, for a model of finite intrinsic size (with n±(H0) > 0 assumed), zH is positive definite if and only if zh is positive definite. It never says what H0, zH and zh are. In particular, it does not identify them as the minimal Kirchhoff Laplacian, its self-adjoint extension, or the corresponding graph-Laplacian extension. Dropping those names leaves undefined symbols, so the claim would not be understandable without the source. Keeping the names would add content the evidence does not state.\"}",
+ "usage": {
+  "completion_tokens": 584,
+  "prompt_tokens": 934,
+  "total_tokens": 1518,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 934,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00770800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

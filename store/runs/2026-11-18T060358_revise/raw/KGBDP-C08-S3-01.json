@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C08-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Feature-based semantic similarity\n\nATOM KGBDP-C08-S3-01 (S3): Most approaches in SANSA's similarity assessment module are feature-based, which requires the semantic objects to be representable as sets of features.\n\nEVIDENCE:\n[KGBDP-p0120-s17] Most of the approaches covered in the SANSA similarity assessment module are feature-based.\n[KGBDP-p0120-s18] The feature model requires the semantic objects to be represented as sets of features.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — SANSA's predominance of feature-based approaches and the feature model's representation requirement are independently assessable claims. / Joins two separate claims: what approaches SANSA covers, and the general requirement of feature-based models.\n- SCOPE_LABEL: revise — S1: Identifies an approach family and its required representation, rather than a boundary of applicability. / S1: The core requirement that semantic objects be represented as sets of features defines what feature-based similarity is.\n- SOURCE_INDEPENDENT: hold — The predominance of feature-based approaches in SANSA describes a particular implementation choice, not a source-independent fact about feature-based semantic similarity. / Drop 'Most approaches in SANSA's similarity assessment module are feature-based'; keep only that feature-based similarity requires objects represented as feature sets.",
+ "raw": "{\"atoms\": [{\"statement\": \"The feature model for semantic similarity requires the semantic objects to be represented as sets of features.\", \"scope\": \"S1\", \"evidence_ids\": [\"KGBDP-p0120-s18\"]}], \"note\": \"Dropped the SANSA-specific claim that most approaches in its module are feature-based, since the auditors flagged it as an implementation detail and it is a separate claim. Relabeled the remaining atom S1 because it defines the feature model rather than a boundary of applicability.\"}",
+ "usage": {
+  "completion_tokens": 171,
+  "prompt_tokens": 854,
+  "total_tokens": 1025,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 171
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 854,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00341800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

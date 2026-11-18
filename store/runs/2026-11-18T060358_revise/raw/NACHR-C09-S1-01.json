@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C09-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Galantamine allosteric potentiation\n\nATOM NACHR-C09-S1-01 (S1): Galantamine, besides inhibiting acetylcholinesterase, binds nicotinic acetylcholine receptors (nAChRs) and allosterically potentiates their synaptic transmission, which is why it is called an allosteric potentiating ligand (APL) of nAChRs.\n\nEVIDENCE:\n[NACHR-p0150-s05] In addition to the inhibition of AChE, galantamine binds to nAChRs and allosterically potentiates their synaptic transmission.\n[NACHR-p0150-s06] Consequently, galantamine is called an allosteric potentiating ligand (APL) of nAChRs.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines acetylcholinesterase inhibition with receptor binding and allosteric potentiation; the inhibition claim is independently assessable. / Combines AChE inhibition, nAChR binding/allosteric potentiation, and the terminological definition of APL into one sentence.\n- L1_ONLY: hold — Remove the acetylcholinesterase-inhibition aside to retain a focused recall-level definition of galantamine as an APL.",
+ "raw": "{\"atoms\": [{\"statement\": \"Galantamine binds nicotinic acetylcholine receptors (nAChRs) and allosterically potentiates their synaptic transmission, so it is called an allosteric potentiating ligand (APL) of nAChRs.\", \"scope\": \"S1\", \"evidence_ids\": [\"NACHR-p0150-s05\", \"NACHR-p0150-s06\"]}], \"note\": \"Removed the acetylcholinesterase-inhibition aside, which is a separate claim. Kept the binding, potentiation, and APL naming as one definitional claim.\"}",
+ "usage": {
+  "completion_tokens": 194,
+  "prompt_tokens": 804,
+  "total_tokens": 998,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 194
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 804,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00354800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

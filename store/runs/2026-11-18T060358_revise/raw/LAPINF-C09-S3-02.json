@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C09-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Recurrence\n\nATOM LAPINF-C09-S3-02 (S3): An arbitrary Dirichlet form may be neither recurrent nor transient, but every irreducible Dirichlet form is either transient or recurrent and not both.\n\nEVIDENCE:\n[LAPINF-p0218-s15] Note that an arbitrary Dirichlet form might be neither recurrent nor transient.\n[LAPINF-p0218-s16] However, the dichotomy holds for irreducible Dirichlet forms,3 that is, every irreducible Dirichlet form is either transient or recurrent (but not both!).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Failure of the dichotomy for arbitrary forms and validity for irreducible forms are separately assessable. / Joins two distinct claims: that arbitrary Dirichlet forms need not be either, and that irreducible ones satisfy the dichotomy.",
+ "raw": "{\"atoms\": [{\"statement\": \"Every irreducible Dirichlet form is either transient or recurrent, but not both.\", \"scope\": \"S2\", \"evidence_ids\": [\"LAPINF-p0218-s16\"]}, {\"statement\": \"An arbitrary Dirichlet form might be neither recurrent nor transient.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0218-s15\"]}], \"note\": \"Split into two claims: the dichotomy for irreducible forms, and its possible failure for arbitrary forms.\"}",
+ "usage": {
+  "completion_tokens": 185,
+  "prompt_tokens": 704,
+  "total_tokens": 889,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 185
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 704,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00325800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C08-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Deresuscitation\n\nATOM IVFLUID-C08-S3-02 (S3): De-resuscitation should be considered only when the patient is hemodynamically stable on no or minimal vasopressor dose, needs no additional fluid boluses and has no ongoing fluid loss requiring replacement, and has clinical and objective evidence of fluid overload with reasonable suspicion of organ damage directly resulting from fluid accumulation.\n\nEVIDENCE:\n[IVFLUID-p0516-s22] • When to start? Patient must be hemodynamically stable on no or minimal dose\n[IVFLUID-p0516-s23] of vasopressors before considering de-resuscitation.\n[IVFLUID-p0516-s24] He or she should not be requiring additional boluses or fluid or there should not be any ongoing fluid loss requiring replacement.\n[IVFLUID-p0516-s25] Clinical and objective evidence of fluid overload should be present with reasonable suspicion of organ damage (or impending one) directly resulting from the fluid accumulation.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Soften 'only' and the cumulative requirements to match the evidence's 'should' and alternative wording; include impending organ damage.\n- SINGLE_CLAIM: revise — Bundles hemodynamic stability, vasopressor dose, fluid needs, overload evidence, and suspected organ damage into one atom. / Stacks three distinct initiation criteria (hemodynamic stability, no ongoing fluid needs/losses, and evidence of overload with organ damage).\n- SCOPE_LABEL: hold — S2: Initiation criteria ('When to start?') describe how the clinical strategy works/is applied.\n- L1_ONLY: revise — Split the stacked eligibility conditions into individual recall-level criteria. / Stacks multiple distinct clinical conditions into one long sentence.",
+ "raw": "{\"atoms\": [{\"statement\": \"Before de-resuscitation is considered, the patient must be hemodynamically stable on no or only a minimal dose of vasopressors.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0516-s22\", \"IVFLUID-p0516-s23\"]}, {\"statement\": \"Before de-resuscitation is considered, the patient should not be requiring additional fluid boluses and should not have any ongoing fluid loss requiring replacement.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0516-s24\"]}, {\"statement\": \"De-resuscitation requires clinical and objective evidence of fluid overload, with reasonable suspicion of existing or impending organ damage directly resulting from the fluid accumulation.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0516-s25\"]}], \"note\": \"Split into three initiation criteria; dropped 'only' and kept 'should' and 'must' as in the evidence; added impending organ damage.\"}",
+ "usage": {
+  "completion_tokens": 353,
+  "prompt_tokens": 1033,
+  "total_tokens": 1386,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 353
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1033,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00559600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

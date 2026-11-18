@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C04-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Heart-lung interactions\n\nATOM IVFLUID-C04-S1-02 (S1): Transmural pressure is the difference between internal and external pressure across a hollow structure; in the thorax the external pressure is pericardial pressure for the heart and pleural pressure for the lungs.\n\nEVIDENCE:\n[IVFLUID-p0148-s10] Transmural pressure (PTM) is the difference of pressures (internal to external) across a\n[IVFLUID-p0148-s11] hollow structure. In the thoracic cavity, the external pressure for the heart is pericardial pressure (PPER) and for lungs, the external pressure is the pleural pressure (PPL) [7, 8].\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the definition of transmural pressure with separately assessable identifications of external pressure for the heart and lungs. / Combines the general definition of transmural pressure with the specific external pressures for the heart and lungs in the thorax.",
+ "raw": "{\"atoms\": [{\"statement\": \"Transmural pressure is the difference between the internal pressure and the external pressure across a hollow structure.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0148-s10\", \"IVFLUID-p0148-s11\"]}, {\"statement\": \"In the thoracic cavity, the external pressure for the heart is pericardial pressure, and the external pressure for the lungs is pleural pressure.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0148-s11\"]}], \"note\": \"Split the definition of transmural pressure from the thoracic external-pressure identifications.\"}",
+ "usage": {
+  "completion_tokens": 219,
+  "prompt_tokens": 721,
+  "total_tokens": 940,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 219
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 721,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00363200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

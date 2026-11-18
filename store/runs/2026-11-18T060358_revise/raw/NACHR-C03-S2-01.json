@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C03-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Time-dependent nicotinic neuroprotection\n\nATOM NACHR-C03-S2-01 (S2): The authors argue that if nicotine protected by directly modifying NMDA receptors, concomitant application of nicotine and glutamate or short-term nicotine exposure should affect glutamate neurotoxicity, but more than an hour of exposure is actually needed to detect nicotinic neuroprotection.\n\nEVIDENCE:\n[NACHR-p0016-s16] In this case, concomitant application of nicotine and glutamate or short-term nicotine exposure should affect glutamate neurotoxicity by direct modification of NMDA receptors.\n[NACHR-p0016-s17] However, as described above, long-term exposure for more than an hour is necessary to detect nicotinic neuroprotection (Akaike et al. 1994; Kaneko et al. 1997).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — It combines a prediction for direct NMDA receptor modification with the observed exposure requirement. / Joins the counterfactual prediction about direct NMDA modification with the empirical requirement of >1 hour exposure.\n- L1_ONLY: revise — Replace the conditional prediction and contrasting observation with the single recalled inference that delayed protection argues against direct NMDA receptor action. / Contains a counterfactual conditional argument plus an empirical contrast.\n- SOURCE_INDEPENDENT: revise — Drop 'The authors argue'; the mechanistic timing argument can be assessed without that attribution. / Phrased as 'The authors argue that', which should be dropped.",
+ "raw": "{\"atoms\": [{\"statement\": \"Detecting nicotinic neuroprotection against glutamate neurotoxicity requires long-term nicotine exposure of more than an hour.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0016-s17\"]}, {\"statement\": \"If nicotine protected by directly modifying NMDA receptors, concomitant application of nicotine and glutamate or short-term nicotine exposure should affect glutamate neurotoxicity.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0016-s16\"]}], \"note\": \"Split the counterfactual prediction from the empirical exposure requirement and removed the attribution. The inference that this argues against direct NMDA modification is not stated explicitly in the cited sentences, so it was not made into an atom.\"}",
+ "usage": {
+  "completion_tokens": 274,
+  "prompt_tokens": 936,
+  "total_tokens": 1210,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 274
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 936,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00461200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

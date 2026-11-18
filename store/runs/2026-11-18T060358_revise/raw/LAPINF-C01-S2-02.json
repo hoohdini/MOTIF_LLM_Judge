@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C01-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Cable system\n\nATOM LAPINF-C01-S2-02 (S2): Every locally finite graph $(V,m;b)$ has a cable system, which can be constructed by adding a loop at every vertex of the simple graph $G_b$ and choosing edge lengths and weights from the weighted degree function and $b$.\n\nEVIDENCE:\n[LAPINF-p0114-s20] Theorem 6.16. Every locally finite graph .V; mI b/ has a cable system.\n[LAPINF-p0115-s03] Let Gloop D .V; Eloop/ be the (combinatorial) graph obtained from Gb D .V; Eb/ by adding a loop ev D ev;v at each vertex v 2 V.\n[LAPINF-p0115-s12] Moreover, it is easy to check that .Gloop; j �j; �; �/ is a cable system for .V; mI b/.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence establishes existence and adding loops, but does not specify choosing edge lengths and weights from the weighted degree function and b. / Evidence does not state that edge lengths and weights are chosen from the weighted degree function and b; drop the 'and choosing...' clause.\n- SINGLE_CLAIM: revise — Universal existence and the specific construction are independently assessable claims. / Combines universal existence of a cable system with the specific loop-adding construction.",
+ "raw": "{\"atoms\": [{\"statement\": \"Every locally finite graph $(V,m;b)$ has a cable system.\", \"scope\": \"S2\", \"evidence_ids\": [\"LAPINF-p0114-s20\"]}, {\"statement\": \"For a locally finite graph $(V,m;b)$, a cable system can be built on the combinatorial graph $G_{loop}$ obtained from $G_b$ by adding a loop $e_v = e_{v,v}$ at each vertex $v \\\\in V$.\", \"scope\": \"S2\", \"evidence_ids\": [\"LAPINF-p0115-s03\", \"LAPINF-p0115-s12\"]}], \"note\": \"Removed the unsupported clause about choosing edge lengths and weights from the weighted degree function and b. Split existence from the loop-adding construction.\"}",
+ "usage": {
+  "completion_tokens": 267,
+  "prompt_tokens": 859,
+  "total_tokens": 1126,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 267
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 859,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00438800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

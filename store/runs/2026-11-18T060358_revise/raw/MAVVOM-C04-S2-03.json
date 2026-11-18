@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C04-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: J-filtration\n\nATOM MAVVOM-C04-S2-03 (S2): For $\\lambda\\neq\\det$, the last (top-level) piece $F^{\\lambda_1}\\mathcal{E}_\\lambda$ of the J-filtration on $\\mathcal{E}_\\lambda$ coincides with the sub vector bundle $\\mathcal{E}^J_\\lambda$ of $\\mathcal{E}_\\lambda$ defined earlier in the source's study of the Siegel operator.\n\nEVIDENCE:\n[MAVVOM-p0118-s06] Proposition 8.13. Let �¤ det.\n[MAVVOM-p0118-s11] Moreover, F �1E�coincides with the sub vector bundle EJ �of E�defined in Section 6.2.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Delete the characterization of Section 6.2 as studying the Siegel operator; the evidence only identifies the bundle defined there. / Evidence says 'defined in Section 6.2', not 'defined earlier in the source's study of the Siegel operator'.\n- L1_ONLY: hold — Remove the source-history clause invoking the Siegel operator; retain only the identification of the top piece.\n- SOURCE_INDEPENDENT: hold — Drop the source-specific attribution and identify E_lambda^J mathematically rather than through an earlier source section. / Refers to a subbundle E^J_\\lambda 'defined earlier in the source's study' without an independent mathematical definition.",
+ "raw": "{\"atoms\": [{\"statement\": \"For $\\\\lambda\\\\neq\\\\det$, $F^{\\\\lambda_1}\\\\mathcal{E}_\\\\lambda$ coincides with the sub vector bundle $\\\\mathcal{E}^J_\\\\lambda$ of $\\\\mathcal{E}_\\\\lambda$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0118-s06\", \"MAVVOM-p0118-s11\"]}], \"note\": \"Removed the 'defined earlier in the study of the Siegel operator' clause and the 'last (top-level)' wording, since the evidence only says E^J_λ is defined in Section 6.2. The evidence gives no independent definition of E^J_λ, so the atom cannot define it further.\"}",
+ "usage": {
+  "completion_tokens": 539,
+  "prompt_tokens": 901,
+  "total_tokens": 1440,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 901,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00719200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

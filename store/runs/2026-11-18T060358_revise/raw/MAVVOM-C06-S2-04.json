@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C06-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fourier–Jacobi expansion\n\nATOM MAVVOM-C06-S2-04 (S2): The embedding is obtained from the exact sequence $0\\to\\mathcal{I}^{m+1}\\mathcal{E}\\to\\mathcal{I}^m\\mathcal{E}\\to\\mathcal{E}\\otimes\\Theta_J^{\\otimes m}\\to0$ on $\\overline{\\mathcal{X}(J)}$ by using $\\omega_J^m$ and the pullback $\\pi_1^*$ to define a splitting map $\\phi\\otimes\\omega_J^{\\otimes m}\\mapsto\\omega_J^m\\cdot\\pi_1^*\\phi$, which splits the filtration $(H^0(\\mathcal{I}^m\\mathcal{E}_{\\lambda,k}))_m$.\n\nEVIDENCE:\n[MAVVOM-p0094-s03] 0 ! H 0.X.J /; �mC1E�;k/ !\n[MAVVOM-p0094-s04] H 0.X.J /; �mE�;k/ ! H 0.�J ; E�;k ˝ ‚˝m J /: (7.6) The generator !m J of �m and the pullback map\n[MAVVOM-p0094-s07] define the splitting map\n[MAVVOM-p0094-s09] H 0.X.J /; �mE�;k/; �˝ !˝m J 7! !m J ��� 1 � (7.7)\n[MAVVOM-p0094-s11] This defines a splitting of the filtration .H 0.X.J /; �mE�;k//m on H 0.X.J /; E�;k/ and thus an embedding\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence gives a sequence of global sections, not the asserted short exact sequence of sheaves ending in zero. / The evidence shows the left-exact sequence on H^0 sections (s03-s04), not the short exact sequence of sheaves with -> 0; revise to state the H^0 sequence.\n- SINGLE_CLAIM: hold — Separate the exact-sequence assertion, the splitting-map formula, and the filtration-splitting result.\n- L1_ONLY: hold — Reduce the multi-stage construction to one recall fact, such as the splitting-map formula.",
+ "raw": "{\"atoms\":[{\"statement\":\"The map sending $\\\\phi\\\\otimes\\\\omega_J^{\\\\otimes m}$ to $\\\\omega_J^m$ times the pullback of $\\\\phi$, built from the generator $\\\\omega_J^m$ of $\\\\mathcal{I}^m$ and the pullback map, splits the filtration $(H^0(\\\\overline{\\\\mathcal{X}(J)},\\\\mathcal{I}^m\\\\mathcal{E}_{\\\\lambda,k}))_m$ of $H^0(\\\\overline{\\\\mathcal{X}(J)},\\\\mathcal{E}_{\\\\lambda,k})$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0094-s04\",\"MAVVOM-p0094-s07\",\"MAVVOM-p0094-s09\",\"MAVVOM-p0094-s11\"]},{\"statement\":\"The global sections form a sequence $0\\\\to H^0(\\\\overline{\\\\mathcal{X}(J)},\\\\mathcal{I}^{m+1}\\\\mathcal{E}_{\\\\lambda,k})\\\\to H^0(\\\\overline{\\\\mathcal{X}(J)},\\\\mathcal{I}^m\\\\mathcal{E}_{\\\\lambda,k})\\\\to H^0(\\\\Delta_J,\\\\mathcal{E}_{\\\\lambda,k}\\\\otimes\\\\Theta_J^{\\\\otimes m})$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0094-s03\",\"MAVVOM-p0094-s04\"]}],\"note\":\"Dropped the claim of a short exact sequence of sheaves ending in 0, which the evidence does not state. Split the remainder into the splitting-map claim and the H^0 sequence. The pullback symbol is garbled in the evidence, so it is described generically. The target of the embedding is not legible, so no embedding claim is made.\"}",
+ "usage": {
+  "completion_tokens": 1388,
+  "prompt_tokens": 1163,
+  "total_tokens": 2551,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1163,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01620600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

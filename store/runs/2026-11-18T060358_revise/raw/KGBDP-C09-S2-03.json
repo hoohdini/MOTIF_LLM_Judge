@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C09-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Non-Intrusive Load Monitoring\n\nATOM KGBDP-C09-S2-03 (S2): Unsupervised NILM techniques are widely applied because labeled data are unavailable for the houses in which services will be installed; examples include clustering and histogram analysis before conditional random fields, adaptation over unlabeled data, and single-channel source separation via Non Negative Matrix Factorization and Separation Via Tensor and Matrix Factorization.\n\nEVIDENCE:\n[KGBDP-p0174-s13] The main cause of this is the fact that labeled data for the houses in which services are going to be installed are not available, as already discussed.\n[KGBDP-p0174-s14] Therefore, many authors choose to use unsupervised learning techniques instead of improving generalization on the supervised ones.\n[KGBDP-p0174-s15] Examples of these attempts are shown in [194] where clusterization and histogram analysis has been employed before using the conditional random fields approach, in [344] where adaptation over unlabeled data has been carried out in order to improve performance on the gaining houses, and in [136] where disaggregation was described as a single-channel source separation problem and Non Negative Matrix Factorization and Separation Via Tensor and Matrix Factorization were used.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the reason for unsupervised learning with several independently assessable method examples. / Joins the rationale for unsupervised NILM with three separate examples of specific methods from individual studies.\n- L1_ONLY: revise — Retain the missing-label motivation; remove the catalogue of separate technical methods and their processing relationships. / The list of specific multi-stage setups from three individual papers adds excessive recall load beyond the core fact of why unsupervised methods are used.\n- SOURCE_INDEPENDENT: hold — The specific pipeline examples (e.g., clustering and histogram analysis before CRFs) reflect specific cited papers [194, 344, 136] rather than general truths.",
+ "raw": "{\"atoms\": [{\"statement\": \"Many NILM authors use unsupervised learning techniques instead of improving generalization of supervised ones, because labeled data are not available for the houses in which services are going to be installed.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0174-s13\", \"KGBDP-p0174-s14\"]}], \"note\": \"Removed the three cited method examples (clustering/histogram analysis with CRFs, adaptation over unlabeled data, NMF/tensor-matrix source separation) because they are study-specific and separately assessable. Also removed the unsupported 'widely applied' wording, using the evidence's 'many authors'.\"}",
+ "usage": {
+  "completion_tokens": 224,
+  "prompt_tokens": 1064,
+  "total_tokens": 1288,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 224
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1064,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00436800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

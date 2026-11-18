@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C13-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: α7 agonists in intracerebral hemorrhage\n\nATOM NACHR-C13-S2-02 (S2): PHA-543613-induced inactivation of GSK-3β led to stabilization of β-catenin and of tight junction proteins claudin-3 and claudin-5, which may be relevant to preserving blood-brain barrier integrity and inhibiting edema formation.\n\nEVIDENCE:\n[NACHR-p0134-s12] A follow-up study by the same group (Krafft et al. 2013) showed that PHA-543613-induced inactivation of GSK-3β led to stabilization of β-catenin and tight junction proteins such as claudin­3 and claudin-5, which may be relevant to the preservation of blood-brain barrier integrity and to the inhibition of edema formation by the drug (Fig. 7.4).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Protein stabilization and its proposed relevance to barrier preservation and edema inhibition can be assessed separately. / Combines stabilization of specific proteins (β-catenin, claudin-3, claudin-5) with their proposed relevance to BBB integrity and edema.\n- L1_ONLY: hold — Separate the molecular stabilization mechanism from its proposed barrier-preserving and anti-edema consequences.",
+ "raw": "{\"atoms\": [{\"statement\": \"PHA-543613-induced inactivation of GSK-3β led to stabilization of β-catenin and of the tight junction proteins claudin-3 and claudin-5.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0134-s12\"]}, {\"statement\": \"Stabilization of β-catenin and the tight junction proteins claudin-3 and claudin-5 after PHA-543613-induced GSK-3β inactivation may be relevant to preserving blood-brain barrier integrity and inhibiting edema formation.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0134-s12\"]}], \"note\": \"Split the molecular stabilization finding from its hedged proposed relevance to blood-brain barrier integrity and edema inhibition.\"}",
+ "usage": {
+  "completion_tokens": 276,
+  "prompt_tokens": 833,
+  "total_tokens": 1109,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 276
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 833,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00442600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

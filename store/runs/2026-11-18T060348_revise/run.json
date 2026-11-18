@@ -1,0 +1,22 @@
+{
+ "judge": {
+  "provider": "openai_compat",
+  "model": "claude-sonnet-5-5",
+  "family": "reviser",
+  "base_url_env": "LETSUR_BASE_URL",
+  "key_env": "LETSUR_API_KEY",
+  "max_tokens": 8000
+ },
+ "targets": 325,
+ "run_id": "2026-11-18T060348_revise",
+ "stage": "revise",
+ "started_at": "2026-11-18T06:03:48+00:00",
+ "active": {
+  "items": "d68da57f36d7",
+  "cards": "3fe7b34e8c59"
+ },
+ "offsets_at_start": {
+  "verdicts": 29146,
+  "revisions": 0
+ }
+}

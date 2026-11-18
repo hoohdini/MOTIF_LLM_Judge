@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C02-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Positive almost-sure termination\n\nATOM FPPROG-C02-S2-02 (S2): Every positively almost-surely terminating PCF⊕ term is almost-surely terminating, because finiteness of the expected reduction length requires the probability of convergence $\\|\\langle M\\rangle\\|$ to equal 1.\n\nEVIDENCE:\n[FPPROG-p0151-s21] Lemma 4.24. Every positively almost-surely terminating term is almost-surely terminating.\n[FPPROG-p0152-s01] Proof A necessary condition for ExLen(M) to be finite is that\n[FPPROG-p0152-s02] which can hold only if ∥⟨M⟩∥= 1, namely only if M is almost surely terminating. □\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence states the implication and convergence condition, but does not specify that the terms belong to PCF⊕. / The cited evidence does not mention 'PCF⊕' or state that ||<M>|| is 'the probability of convergence'.\n- SINGLE_CLAIM: hold — Combines the termination implication with a separate necessary condition expressed through convergence probability.\n- L1_ONLY: hold — Retain the termination implication; remove the additional calculus-specific convergence-probability condition.\n- SOURCE_INDEPENDENT: hold — Relies on book-specific syntax (PCF⊕, ||<M>||) rather than stating the general implication for probabilistic programs.",
+ "raw": "{\"atoms\": [{\"statement\": \"Every positively almost-surely terminating term is almost-surely terminating.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0151-s21\"]}], \"note\": \"Removed PCF⊕ and the convergence-probability condition, since the evidence does not describe them as such. The evidence only says that finite expected length can hold only if ∥⟨M⟩∥ = 1, i.e. the term is almost-surely terminating.\"}",
+ "usage": {
+  "completion_tokens": 162,
+  "prompt_tokens": 889,
+  "total_tokens": 1051,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 162
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 889,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00339800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

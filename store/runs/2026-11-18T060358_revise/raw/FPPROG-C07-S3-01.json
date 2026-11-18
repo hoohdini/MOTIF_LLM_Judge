@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C07-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Hyper-distribution\n\nATOM FPPROG-C07-S3-01 (S3): A channel that leaks nothing (all rows of its matrix equal) maps any prior $\\pi$ to the singleton hyper $\\langle\\pi\\rangle$, whereas the identity channel that leaks everything maps a prior to a non-singleton hyper whose support is only point distributions, e.g. prior $(2/3,1/3)$ goes to $\\tfrac{2}{3}\\langle(1,0)\\rangle+\\tfrac{1}{3}\\langle(0,1)\\rangle$.\n\nEVIDENCE:\n[FPPROG-p0424-s05] Recall that the trivial channel that leaks nothing, treating all inputs the same 13\n[FPPROG-p0424-s06] takes any prior to the singleton hyper on that prior: that is, its action is π �→⟨π⟩, indicating that after the channel has run the adversary knows for sure that the distribution on the input was. . . just π, which she knew before.\n[FPPROG-p0424-s07] On the other hand, the channel that leaks everything (the identity matrix) takes input π in general to a non-singleton hyper whose support is (only) point distributions: for example the prior (2/3, 1/3) is taken by that channel to the hyper 2/3⟨(1,0) ⟩+1/3⟨(0,1) ⟩, indicating that with probability 2/3 the adversary will know for sure that the input was 0 and with probability 1/3 she will know that it was 1.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Qualify 'non-singleton' with 'in general'; the evidence does not claim identity channels produce non-singleton hypers for every prior. / Evidence says 'treating all inputs the same', not 'all rows of its matrix equal'; drop the parenthetical.\n- SINGLE_CLAIM: revise — The no-leak channel's behavior and the identity channel's behavior are separately assessable claims. / Contrasts two distinct claims: the action of a zero-leakage channel and the action of an identity channel.\n- SCOPE_LABEL: hold — S2: Describes how extreme channels map priors to hyper-distributions.\n- L1_ONLY: hold — Split the two limiting-channel facts and remove the additional numerical example.",
+ "raw": "{\"atoms\": [{\"statement\": \"A channel that leaks nothing, treating all inputs the same, maps any prior $\\\\pi$ to the singleton hyper $\\\\langle\\\\pi\\\\rangle$.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0424-s05\", \"FPPROG-p0424-s06\"]}, {\"statement\": \"The identity channel, which leaks everything, in general maps a prior to a non-singleton hyper whose support consists only of point distributions.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0424-s07\"]}], \"note\": \"Split into two atoms. Dropped the parenthetical 'all rows equal' and the numerical example. Added 'in general' to the identity-channel claim. Scope changed from S3 to S2, since the atoms describe how the channels act on priors.\"}",
+ "usage": {
+  "completion_tokens": 287,
+  "prompt_tokens": 1165,
+  "total_tokens": 1452,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 287
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1165,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00520000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

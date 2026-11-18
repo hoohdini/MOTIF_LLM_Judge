@@ -1,0 +1,27 @@
+{
+ "atom_id": "LAPINF-C01-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Cable system\n\nATOM LAPINF-C01-S3-03 (S3): The loop-based cable system built at every vertex is never minimal because it has a loop at every vertex, and cable systems of a given graph are not unique: every locally finite graph b over (V,m) has a large number of them.\n\nEVIDENCE:\n[LAPINF-p0115-s15] However, we stress that, due to the presence of a loop at every vertex, this cable system is never minimal.\n[LAPINF-p0115-s17] In fact, every locally finite graph b over .V;m/ has a large number of cable systems.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Loop-based nonminimality and nonuniqueness of cable systems are independent claims. / Joins two distinct claims: the loop-based system is never minimal, and cable systems of a locally finite graph are not unique.\n- L1_ONLY: hold — Remove the loop-based nonminimality clause and retain nonuniqueness as a standalone recall fact.",
+ "raw": "{\"atoms\":[{\"statement\":\"Cable systems of a graph are not unique: every locally finite graph b over $(V,m)$ has a large number of cable systems.\",\"scope\":\"S3\",\"evidence_ids\":[\"LAPINF-p0115-s17\"]}],\"note\":\"Split the original atom. I dropped the loop-based nonminimality claim because the evidence only says 'this cable system' without naming the construction, so it cannot be stated on its own.\"}",
+ "usage": {
+  "completion_tokens": 459,
+  "prompt_tokens": 728,
+  "total_tokens": 1187,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 728,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00604600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

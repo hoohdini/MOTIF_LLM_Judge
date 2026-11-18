@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C04-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Ranking supermartingale\n\nATOM FPPROG-C04-S2-02 (S2): If all program variables of a probabilistic program are integer-valued and $\\sup_\\sigma\\mathbb{E}^\\sigma_{\\mathbf{x}_{init}}[Term]<\\infty$, then an RSM-map exists with respect to some invariant, which together with soundness makes RSM-maps sound and complete for bounded termination.\n\nEVIDENCE:\n[FPPROG-p0253-s14] Proposition 7.13 (Completeness) If all program variables in a probabilistic program P are integer-valued and supσ Eσ xinit[Term] < ∞, then there exists an RSM-map w.r.t some invariant I for P.\n[FPPROG-p0253-s15] From Proposition 7.12 and Proposition 7.13, we obtain that the approach of RSMs is sound and complete (through RSM-maps).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Separately asserts completeness under integer-valued variables and soundness. Retain the completeness implication alone. / Joins the completeness condition (integer variables and finite expected termination imply RSM-map existence) with the combined soundness-and-completeness conclusion.\n- L1_ONLY: hold — Remove the concluding combination with soundness; retain the recall-level completeness theorem and its integer-valued-variable condition.",
+ "raw": "{\"atoms\": [{\"statement\": \"If all program variables in a probabilistic program are integer-valued and $\\\\sup_\\\\sigma\\\\mathbb{E}^\\\\sigma_{\\\\mathbf{x}_{init}}[Term]<\\\\infty$, then there exists an RSM-map with respect to some invariant $I$ for the program.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0253-s14\"]}], \"note\": \"Removed the soundness conclusion and the 'bounded termination' wording, since the cited evidence does not state them; kept only the completeness proposition.\"}",
+ "usage": {
+  "completion_tokens": 201,
+  "prompt_tokens": 861,
+  "total_tokens": 1062,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 201
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 861,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00373200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

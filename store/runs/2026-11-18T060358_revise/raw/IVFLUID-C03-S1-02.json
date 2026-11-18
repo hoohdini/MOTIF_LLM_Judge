@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C03-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fluid responsiveness\n\nATOM IVFLUID-C03-S1-02 (S1): Fluid responsiveness is distinct from fluid tolerance, which is the degree to which a patient can tolerate fluid administration without causing organ dysfunction or failure.\n\nEVIDENCE:\n[IVFLUID-p0049-s06] Fluid tolerance is the degree to which a patient can tolerate the administration of fluids without causing organ dysfunction or failure\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence defines fluid tolerance but does not state its distinction from fluid responsiveness. / Evidence defines fluid tolerance; drop 'Fluid responsiveness is distinct from fluid tolerance, which' or keep only the definition.\n- SINGLE_CLAIM: hold — Combines a distinction between concepts with a separately assessable definition of fluid tolerance.\n- L1_ONLY: hold — Separate the conceptual distinction from the added definition of fluid tolerance.",
+ "raw": "{\"atoms\": [{\"statement\": \"Fluid tolerance is the degree to which a patient can tolerate the administration of fluids without causing organ dysfunction or failure.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0049-s06\"]}], \"note\": \"The evidence defines fluid tolerance but does not state that it is distinct from fluid responsiveness, so the distinction claim was removed and only the supported definition was kept.\"}",
+ "usage": {
+  "completion_tokens": 153,
+  "prompt_tokens": 733,
+  "total_tokens": 886,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 153
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 733,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00299600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

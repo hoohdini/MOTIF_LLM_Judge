@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C10-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intra-abdominal hypertension\n\nATOM IVFLUID-C10-S3-02 (S3): Tertiary IAH refers to the more chronic condition of an open and frozen abdomen after initial treatment for either primary or secondary IAH.\n\nEVIDENCE:\n[IVFLUID-p0452-s16] Tertiary IAH refers to the more chronic condition of an open and frozen abdomen after initial treatment for either primary or secondary IAH.\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — S1: This defines a category of IAH, not a limit or endpoint. / S1: Definition/classification of tertiary IAH belongs in S1 (what it is).",
+ "raw": "{\"atoms\": [{\"statement\": \"Tertiary intra-abdominal hypertension (IAH) is the more chronic condition of an open and frozen abdomen after initial treatment for either primary or secondary IAH.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0452-s16\"]}], \"note\": \"Changed scope label from S3 to S1, because the atom defines a category of IAH rather than a limit. Wording is unchanged apart from spelling out the term.\"}",
+ "usage": {
+  "completion_tokens": 165,
+  "prompt_tokens": 623,
+  "total_tokens": 788,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 165
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 623,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00289600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

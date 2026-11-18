@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C09-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Group barrier\n\nATOM DPCPP2-C09-S3-02 (S3): Work-group barriers are available only to ND-range kernels and not to basic data-parallel kernels, because the group representing the work-group can be queried from an nd_item but not from an item.\n\nEVIDENCE:\n[DPCPP2-p0259-s08] To synchronize the work-items in an ND-range kernel work-group, call the group_barrier function with a group representing the work-group.\n[DPCPP2-p0259-s09] Because the group representing the work-group may only be queried from an nd_item and cannot be queried from an item, work-group barriers are only available to ND-range kernels and are not available to basic data-parallel kernels.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines kernel-type availability with the separate claim about querying work-group objects from nd_item versus item. / Combines kernel-type availability of work-group barriers with the API capability of nd_item versus item.\n- L1_ONLY: hold — Remove the justification involving nd_item and item; retain the kernel-type availability restriction.",
+ "raw": "{\"atoms\": [{\"statement\": \"Work-group barriers are available only to ND-range kernels and are not available to basic data-parallel kernels.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0259-s09\"]}, {\"statement\": \"The group representing the work-group may only be queried from an nd_item and cannot be queried from an item.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0259-s09\"]}], \"note\": \"Split the original atom into the availability restriction and the nd_item/item query restriction, as the auditors recommended.\"}",
+ "usage": {
+  "completion_tokens": 197,
+  "prompt_tokens": 755,
+  "total_tokens": 952,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 197
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 755,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00348000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

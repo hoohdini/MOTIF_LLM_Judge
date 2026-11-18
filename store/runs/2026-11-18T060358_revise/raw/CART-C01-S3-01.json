@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C01-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: cytokine release syndrome\n\nATOM CART-C01-S3-01 (S3): The diagnosis of cytokine release syndrome cannot be established or ruled out by laboratory diagnostics, which can only be used to monitor organ dysfunction.\n\nEVIDENCE:\n[CART-p0131-s12] Although the diagnosis of CRS cannot be established or ruled out by laboratory\n[CART-p0131-s13] diagnostics, they can be used to monitor organ dysfunction.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — The evidence permits monitoring organ dysfunction but does not restrict laboratory diagnostics to that use. Delete 'only'. / Evidence says 'they can be used to monitor organ dysfunction', not 'can only be used'.\n- SINGLE_CLAIM: revise — Diagnostic limitations and the use of laboratory diagnostics for organ monitoring are separate claims. / Joins two claims: lab diagnostics cannot establish/rule out CRS, and they can be used to monitor organ dysfunction.\n- L1_ONLY: hold — Retain the diagnostic limitation; separate the additional organ-monitoring use.",
+ "raw": "{\"atoms\": [{\"statement\": \"The diagnosis of cytokine release syndrome cannot be established or ruled out by laboratory diagnostics.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0131-s12\", \"CART-p0131-s13\"]}, {\"statement\": \"Laboratory diagnostics can be used to monitor organ dysfunction in cytokine release syndrome.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0131-s13\"]}], \"note\": \"Removed 'only' (not stated in evidence) and split the diagnostic limitation from the organ-monitoring use.\"}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 790,
+  "total_tokens": 1001,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 211
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 790,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00369000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

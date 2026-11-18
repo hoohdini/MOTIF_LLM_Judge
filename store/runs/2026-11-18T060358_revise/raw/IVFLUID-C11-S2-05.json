@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C11-S2-05",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Volume kinetics\n\nATOM IVFLUID-C11-S2-05 (S2): Volume kinetic analysis has shown that after expansion by a crystalloid fluid the interstitial fluid space is only twice as large as the plasma volume, which is less than commonly assumed, and crystalloid distribution has a half-life of 8 min.\n\nEVIDENCE:\n[IVFLUID-p0120-s10] The results have shown that the interstitial fluid space after expansion by a crystalloid fluid is only twice as large as the plasma volume, i.e., less than commonly assumed.\n[IVFLUID-p0120-s11] The distribution of crystalloid fluid occurs with a half-life of 8 min, except in association with an abrupt drop in arterial pressure, when distribution is temporarily arrested.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — The evidence excludes abrupt arterial-pressure drops from the distribution claim. Soften to 'crystalloid distribution typically has a half-life of 8 min.' / S11 includes a major exception ('except in association with an abrupt drop in arterial pressure') dropped by the atom.\n- SINGLE_CLAIM: revise — The interstitial-to-plasma volume ratio and crystalloid distribution half-life are independently assessable claims. / Joins two separate empirical claims: relative interstitial fluid space size and crystalloid distribution half-life.\n- L1_ONLY: hold — Split the two joined facts and remove the evaluative clause 'which is less than commonly assumed'.",
+ "raw": "{\"atoms\": [{\"statement\": \"Volume kinetic analysis indicates that after expansion by a crystalloid fluid, the interstitial fluid space is only twice as large as the plasma volume.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0120-s10\"]}, {\"statement\": \"Crystalloid fluid distribution occurs with a half-life of 8 min, except in association with an abrupt drop in arterial pressure, when distribution is temporarily arrested.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0120-s11\"]}], \"note\": \"Split into two atoms. Removed the evaluative clause 'less than commonly assumed'. Restored the arterial-pressure exception to the half-life claim.\"}",
+ "usage": {
+  "completion_tokens": 259,
+  "prompt_tokens": 911,
+  "total_tokens": 1170,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 259
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 911,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00441200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

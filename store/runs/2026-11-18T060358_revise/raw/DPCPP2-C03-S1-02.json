@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C03-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: atomic_ref\n\nATOM DPCPP2-C03-S1-02 (S1): In SYCL kernels, the atomic_ref class is based on C++20 std::atomic_ref, whose instances do not own their data but are constructed from an existing non-atomic variable.\n\nEVIDENCE:\n[DPCPP2-p0564-s03] The biggest difference between the two classes is that instances of std::atomic_ref do not own their data but are instead constructed from an existing non-atomic variable.\n[DPCPP2-p0564-s06] The atomic_ref class used in SYCL kernels is therefore based on std::atomic_ref.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence does not state 'C++20'. Remove 'C++20'.\n- SINGLE_CLAIM: revise — Separately asserts SYCL's relationship to std::atomic_ref and std::atomic_ref's non-owning construction semantics. / Combines three claims: based on std::atomic_ref, instances do not own data, and constructed from existing non-atomic variable.",
+ "raw": "{\"atoms\": [{\"statement\": \"The atomic_ref class used in SYCL kernels is based on std::atomic_ref.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0564-s06\"]}, {\"statement\": \"Instances of std::atomic_ref do not own their data but are constructed from an existing non-atomic variable.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0564-s03\"]}], \"note\": \"Removed 'C++20', which the evidence does not state. Split into two atoms: SYCL's basis in std::atomic_ref, and std::atomic_ref's non-owning construction semantics.\"}",
+ "usage": {
+  "completion_tokens": 224,
+  "prompt_tokens": 746,
+  "total_tokens": 970,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 224
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 746,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00373200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

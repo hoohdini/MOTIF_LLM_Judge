@@ -1,0 +1,30 @@
+{
+ "atom_id": "MAVVOM-C11-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Corank vanishing bound\n\nATOM MAVVOM-C11-S2-01 (S2): For a nontrivial highest weight $\\rho$ of $SO(n,\\mathbb{C})$ (with $\\rho_1\\neq0$) and $\\alpha\\in\\mathbb{Z}$, the irreducible highest weight module $L(\\rho,\\alpha)$ is unitarizable if and only if $-\\alpha\\ge n+\\rho_1-\\mathrm{corank}(\\rho)-1$, and the vanishing proof uses only the \"only if\" direction.\n\nEVIDENCE:\n[MAVVOM-p0147-s22] Let �D.�1;: : :;�Œn=2�/ be a highest weight for SO.n;C/.\n[MAVVOM-p0147-s23] Assume that �1 ¤ 0, i.e., �nontrivial.\n[MAVVOM-p0147-s24] Let ˛ 2 Z. Then the irreducible highest weight module L.�; ˛/ is unitarizable if and only if �˛ �n C �1 �corank.�/ �1.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence does not state that the vanishing proof uses only the necessary direction. / Delete 'and the vanishing proof uses only the \"only if\" direction', which is absent from the evidence.\n- SINGLE_CLAIM: revise — The unitarizability criterion and which direction the vanishing proof uses are independently assessable claims. / Joins the unitarizability criterion with a separate claim about which direction the vanishing proof uses.\n- L1_ONLY: revise — Remove the proof-use clause; it adds a separate claim about a particular proof to the recall-level criterion. / Drop the procedural add-on 'and the vanishing proof uses only the \"only if\" direction'.\n- SOURCE_INDEPENDENT: hold — Which direction a particular vanishing proof uses depends on that proof, not solely on general mathematical knowledge. / 'the vanishing proof uses only...' refers to the specific proof in this source; drop that clause.",
+ "raw": "{\"atoms\": [{\"statement\": \"For a nontrivial highest weight $\\\\rho=(\\\\rho_1,\\\\ldots,\\\\rho_{[n/2]})$ of $SO(n,\\\\mathbb{C})$ (with $\\\\rho_1\\\\neq0$) and $\\\\alpha\\\\in\\\\mathbb{Z}$, the irreducible highest weight module $L(\\\\rho,\\\\alpha)$ is unitarizable if and only if $-\\\\alpha\\\\ge n+\\\\rho_1-\\\\mathrm{corank}(\\\\rho)-1$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0147-s22\", \"MAVVOM-p0147-s23\", \"MAVVOM-p0147-s24\"]}], \"note\": \"Removed the clause about the vanishing proof using only the 'only if' direction, since the evidence does not state it.\"}",
+ "usage": {
+  "completion_tokens": 298,
+  "prompt_tokens": 1091,
+  "total_tokens": 1389,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 298
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1091,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00516200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

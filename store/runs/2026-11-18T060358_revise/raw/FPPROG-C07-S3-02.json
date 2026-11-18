@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C07-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Hyper-distribution\n\nATOM FPPROG-C07-S3-02 (S3): A pure Markov program step has type $\\mathbb{D}\\mathcal{A}\\to\\mathbb{D}^2\\mathcal{A}$ and always yields a singleton hyper (it releases no information), whereas a pure channel step has the same type but satisfies $\\mu(C\\delta)=\\delta$, so it leaves the state distribution unchanged and can only leak information.\n\nEVIDENCE:\n[FPPROG-p0424-s02] A (pure) Markov program M (for “Markov”) will be of type DA→D2A and has the characteristic that for any initial distribution δ we find that Mδ = ηδ′ for some δ′, i.e. that the result of the M is always a singleton hyper.\n[FPPROG-p0424-s04] On the other hand, a (pure) channel C again has type DA→D2A (the same as a Markov program), but in addition has the characteristic that μ(Cδ) = δ, i.e. that the state distribution is not changed: all that is possible is that information can leak.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence does not explicitly state '(it releases no information)' for Markov steps; drop parenthetical.\n- SINGLE_CLAIM: revise — Singleton output for pure Markov steps and marginal preservation for pure channel steps are distinct claims. / Combines the characterization of a pure Markov step with the characterization of a pure channel step.\n- SCOPE_LABEL: revise — S2: describes how Markov and channel steps operate on distributions, rather than a boundary of hyper-distributions. / S2: Describes how Markov steps and channel steps work in the monadic model.\n- L1_ONLY: hold — Split the contrasting Markov-step and channel-step characterizations into separate recall facts.",
+ "raw": "{\"atoms\": [{\"statement\": \"A pure Markov program has type $\\\\mathbb{D}\\\\mathcal{A}\\\\to\\\\mathbb{D}^2\\\\mathcal{A}$ and, for any initial distribution $\\\\delta$, yields $M\\\\delta=\\\\eta\\\\delta'$ for some $\\\\delta'$, so its result is always a singleton hyper.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0424-s02\"]}, {\"statement\": \"A pure channel $C$ has type $\\\\mathbb{D}\\\\mathcal{A}\\\\to\\\\mathbb{D}^2\\\\mathcal{A}$ and satisfies $\\\\mu(C\\\\delta)=\\\\delta$, so the state distribution is unchanged and information can only leak.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0424-s04\"]}], \"note\": \"Split into two atoms; removed the unstated parenthetical \\\"releases no information\\\" and relabeled scope to S2.\"}",
+ "usage": {
+  "completion_tokens": 343,
+  "prompt_tokens": 1007,
+  "total_tokens": 1350,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 343
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1007,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00544400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

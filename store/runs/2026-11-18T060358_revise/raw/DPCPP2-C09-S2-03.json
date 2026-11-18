@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C09-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Group barrier\n\nATOM DPCPP2-C09-S2-03 (S2): When group_barrier is called without an explicit scope argument, it determines the default memory-consistency scope from the passed-in group; this default is usually correct, and the scope can be broadened for some algorithms.\n\nEVIDENCE:\n[DPCPP2-p0260-s03] When no additional arguments are passed to the group_barrier function, the barrier function will determine the default scope based on the passed-in group.\n[DPCPP2-p0260-s04] The default scope is usually correct and therefore an explicit scope is rarely required, but the memory scope can be broadened if necessary for some algorithms.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines default-scope determination, its usual adequacy, and the ability to broaden it. / Combines how the default scope is determined with an evaluative claim ('usually correct') and the ability to broaden the scope.\n- L1_ONLY: revise — Retain default-scope determination; remove the evaluative adequacy statement and algorithm-dependent broadening add-on. / Remove the evaluative add-on 'this default is usually correct'.\n- SOURCE_INDEPENDENT: hold — Drop the subjective assessment 'this default is usually correct'.",
+ "raw": "{\"atoms\": [{\"statement\": \"When group_barrier is called with no additional arguments, it determines the default memory scope from the group passed to it.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0260-s03\"]}, {\"statement\": \"The memory scope used by group_barrier can be broadened beyond the default if necessary for some algorithms.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0260-s04\"]}], \"note\": \"Split into two atoms; removed the evaluative claim that the default is usually correct.\"}",
+ "usage": {
+  "completion_tokens": 190,
+  "prompt_tokens": 819,
+  "total_tokens": 1009,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 190
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 819,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00353800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

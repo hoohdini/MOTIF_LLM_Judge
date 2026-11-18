@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C03-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fluid responsiveness\n\nATOM IVFLUID-C03-S2-03 (S2): Pulse pressure variation (PPV), which reflects stroke volume variation, was shown by Michard and colleagues in 2000 to detect fluid responsiveness when it is increased above 12–15% during controlled mechanical ventilation.\n\nEVIDENCE:\n[IVFLUID-p0143-s08] In 2000, Michard and colleagues demonstrated that the respiratory variation in pulse pressure, or pulse pressure variation (PPV), which reflects stroke volume variation (SVV), can detect fluid responsiveness when it is increased above 12–15% during controlled mechanical ventilation [2].\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines PPV's relationship to SVV, its detection threshold and ventilation condition, and a historical attribution. / Combines the physiological relation (PPV reflects SVV), historical attribution (Michard 2000), and the clinical threshold (>12-15% during controlled mechanical ventilation).\n- L1_ONLY: revise — Keep the recall-level detection threshold and ventilation condition; remove the historical attribution and separate the PPV–SVV relationship. / Remove the historical attribution ('Michard and colleagues in 2000') which adds non-conceptual trivia load.\n- SOURCE_INDEPENDENT: revise — Drop the attribution to Michard and colleagues in 2000; the underlying claim about PPV is general. / Drop 'was shown by Michard and colleagues in 2000 to' so it states the general domain fact rather than a specific study's finding.",
+ "raw": "{\"atoms\": [{\"statement\": \"Pulse pressure variation (PPV), the respiratory variation in pulse pressure, can detect fluid responsiveness when it is increased above 12–15% during controlled mechanical ventilation.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0143-s08\"]}, {\"statement\": \"Pulse pressure variation (PPV) reflects stroke volume variation (SVV).\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0143-s08\"]}], \"note\": \"Split into the threshold claim and the PPV–SVV relation; removed the Michard 2000 attribution.\"}",
+ "usage": {
+  "completion_tokens": 226,
+  "prompt_tokens": 946,
+  "total_tokens": 1172,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 226
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 946,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00415200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

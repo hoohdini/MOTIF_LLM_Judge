@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C10-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Quantitative reliability\n\nATOM FPPROG-C10-S1-02 (S1): The joint reliability of a set of parameters is the probability that they all have the correct value when passed in from the caller, and it is a key abstraction for Rely's verification.\n\nEVIDENCE:\n[FPPROG-p0555-s15] The joint reliability of a set of parameters is the probability that they all have the correct value when passed in from the caller.\n[FPPROG-p0555-s16] The joint reliability is a key abstraction for our verification; we will formalize it in Section 15.4.2.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The probability definition and its importance to Rely's verification are separately assessable claims. / Combines the definition of joint reliability with an evaluative claim that it is a key abstraction for Rely's verification.\n- L1_ONLY: revise — Keep the joint-reliability definition; remove the evaluative add-on about being a key abstraction. / Remove the evaluative add-on ('and it is a key abstraction for Rely's verification').\n- SOURCE_INDEPENDENT: hold — Calling joint reliability a key abstraction for this verification is the authors' assessment, not a source-independent fact. / Drop 'and it is a key abstraction for Rely's verification' which is an author framing/evaluative statement.",
+ "raw": "{\"atoms\": [{\"statement\": \"The joint reliability of a set of parameters is the probability that they all have the correct value when passed in from the caller.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0555-s15\"]}], \"note\": \"Removed the evaluative claim that joint reliability is a key abstraction for Rely's verification, as the auditors recommended. Kept only the definition.\"}",
+ "usage": {
+  "completion_tokens": 137,
+  "prompt_tokens": 837,
+  "total_tokens": 974,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 137
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 837,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00304400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C06-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Glazman–Povzner–Wienholtz theorem\n\nATOM LAPINF-C06-S3-03 (S3): The metric-graph Glazman–Povzner–Wienholtz theorem remains valid if an additive potential preserving semiboundedness is added to $\\mathbf{H}^0_\\alpha$, subject to regularity assumptions such as $V\\in L^2_{\\rm loc}(\\mathcal{G})$, and distributional potentials $V\\in H^{-1}_{\\rm loc}(\\mathcal{G})$ are even allowed.\n\nEVIDENCE:\n[LAPINF-p0146-s13] The claim in Theorem 7.9 remains valid if we add an additive potential V WG !\n[LAPINF-p0146-s14] R to the operator H0 ˛, which preserves the semiboundedness.\n[LAPINF-p0146-s15] Of course, some regularity assumptions on V must be imposed (e.g., V 2 L2 loc.G/), however, it is proved in [145, Theorem 5.1] that one may even allow distributional potentials V 2 H �1 loc .G/.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The extension to regular additive potentials and the stronger extension to distributional potentials are separately assessable. / Combines general validity under regular potentials (L^2_loc) with the extension to distributional potentials (H^-1_loc).\n- L1_ONLY: hold — Separate the additive-potential extension from the distributional-potential extension instead of stacking distinct regularity classes in one recall item.",
+ "raw": "{\"atoms\": [{\"statement\": \"The claim of Theorem 7.9 (the metric-graph Glazman–Povzner–Wienholtz theorem) remains valid when an additive potential that preserves semiboundedness is added to the operator $\\\\mathbf{H}^0_\\\\alpha$.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0146-s13\", \"LAPINF-p0146-s14\"]}, {\"statement\": \"Distributional potentials $V\\\\in H^{-1}_{\\\\rm loc}(\\\\mathcal{G})$ may be allowed in the additive-potential extension of the metric-graph Glazman–Povzner–Wienholtz theorem.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0146-s15\"]}], \"note\": \"Split the original atom into the general additive-potential extension and the distributional-potential extension. Dropped the L^2_loc example from the first atom, since the evidence only gives it as an example regularity assumption.\"}",
+ "usage": {
+  "completion_tokens": 340,
+  "prompt_tokens": 919,
+  "total_tokens": 1259,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 340
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 919,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00523800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Type-2 computability\n\nATOM FPPROG-C06-S2-03 (S2): A distribution $\\mu$ on a computable metric space $(X,d,S)$ is computable if and only if it is samplable, meaning there is a computable, measure-preserving function from the fair-coin bit-stream space $(2^\\omega,\\mu_{iid})$ to $(X,\\mu)$ that is computable on a domain of full measure.\n\nEVIDENCE:\n[FPPROG-p0098-s04] We call a distribution μ on X samplable if there is a computable function s : (2ω, μiid) ⇀(X, μ) such that s is computable on dom(s) of full-measure (i.e., μ(X) = 1) and is measure-preserving (i.e., μ = μiid ◦s−1).\n[FPPROG-p0098-s05] Proposition 3.11 (Computable iff samplable, see Freer and Roy, 2010, Lem. 2 and Lem. 3).\n[FPPROG-p0098-s06] A distribution μ ∈M(X) on computable metric space (X, d,S) is computable iff it is samplable.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Delete “fair-coin”: the supplied sentences name μiid but do not specify its bit probabilities.\n- SINGLE_CLAIM: revise — Combines the computable–samplable equivalence with a separately assessable definition of samplability. / Combines the equivalence theorem (computable iff samplable) with the definition of a samplable distribution.\n- L1_ONLY: hold — Keep the equivalence alone; the appended measure-preserving-map definition adds a second technical concept.",
+ "raw": "{\"atoms\": [{\"statement\": \"A distribution $\\\\mu$ on a computable metric space $(X,d,S)$ is computable if and only if it is samplable.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0098-s06\"]}, {\"statement\": \"A distribution $\\\\mu$ on $X$ is samplable if there is a computable, measure-preserving function $s : (2^\\\\omega,\\\\mu_{iid}) \\\\rightharpoonup (X,\\\\mu)$ that is computable on a domain $\\\\mathrm{dom}(s)$ of full measure.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0098-s04\"]}], \"note\": \"Split the equivalence from the definition of samplability. Removed 'fair-coin' and 'bit-stream' because the evidence does not state them for $\\\\mu_{iid}$.\"}",
+ "usage": {
+  "completion_tokens": 298,
+  "prompt_tokens": 948,
+  "total_tokens": 1246,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 298
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 948,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00487600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

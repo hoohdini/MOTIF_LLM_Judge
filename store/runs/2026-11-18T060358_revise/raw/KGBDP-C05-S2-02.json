@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C05-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Knowledge graph embedding\n\nATOM KGBDP-C05-S2-02 (S2): RotatE rotates the head embedding element-wise by a relation element of modulus 1 in complex space, so that $h_j \\circ r_j = t_j$ holds for every element $j$ of a correct triple, which lets it encode symmetric, inverse and composition relation patterns.\n\nEVIDENCE:\n[KGBDP-p0103-s10] Based on its score function, for every correct triple (h, r, t) there should be the relation of hjrj = tj which holds ∀j ∈{0, . . . , d}. hj, rj, tj are the j-th elements of the embedding vectors of h, r, t ∈Cd.\n[KGBDP-p0103-s12] Re(rj)2 + Im(rj)2 = 1. The model performs a rotation of the j-th element hj of the head vector h by the j-th element rj = eiθrj of a relation vector r to get the j-th element tj of the tail vector t, where θrj is the phase of the relation r.\n[KGBDP-p0103-s14] In this way, the RotatE model becomes capable of encoding symmetric, inverse, and composition relation patterns.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence states hjrj = tj without the Hadamard circle symbol; drop the circle symbol or use standard multiplication.\n- SINGLE_CLAIM: revise — The element-wise rotation mechanism and the supported relation patterns can be assessed independently. / Combines the rotation mechanism/equation in complex space with the list of relation patterns it can encode.\n- L1_ONLY: hold — Remove the relation-pattern capability clause to keep a single recall-level description of the rotation mechanism.",
+ "raw": "{\"atoms\": [{\"statement\": \"RotatE rotates each element $h_j$ of the head embedding by the corresponding relation element $r_j = e^{i\\\\theta_{r_j}}$ of modulus 1 in complex space to obtain the tail element $t_j$, so that $h_j r_j = t_j$ holds for every element $j$ of a correct triple.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0103-s10\", \"KGBDP-p0103-s12\"]}, {\"statement\": \"The RotatE model can encode symmetric, inverse, and composition relation patterns.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0103-s14\"]}], \"note\": \"Split the mechanism from the capability claim; replaced the Hadamard circle symbol with plain juxtaposition as in the evidence.\"}",
+ "usage": {
+  "completion_tokens": 289,
+  "prompt_tokens": 978,
+  "total_tokens": 1267,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 289
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 978,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00484600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

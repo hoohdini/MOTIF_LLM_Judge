@@ -1,0 +1,27 @@
+{
+ "atom_id": "CART-C01-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: cytokine release syndrome\n\nATOM CART-C01-S2-02 (S2): High tumour burden and high CAR-T cell dose seem to be associated with a higher risk of cytokine release syndrome after CAR-T cell therapy.\n\nEVIDENCE:\n[CART-p0132-s05] factors, such as high tumour burden and CAR-T cell dose, seem to be associated with a higher risk of CRS.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — The evidence identifies CAR-T cell dose but does not unambiguously specify high dose. Delete the second 'high'. / Evidence says 'high tumour burden and CAR-T cell dose', without specifying 'after CAR-T cell therapy' as a scope restriction (or second 'high').\n- SINGLE_CLAIM: hold — Tumour burden and CAR-T cell dose are separate risk-factor associations that can be assessed independently.",
+ "raw": "{\"atoms\": [{\"statement\": \"High tumour burden seems to be associated with a higher risk of cytokine release syndrome (CRS).\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0132-s05\"]}, {\"statement\": \"CAR-T cell dose seems to be associated with a higher risk of cytokine release syndrome (CRS).\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0132-s05\"]}], \"note\": \"Split the two risk factors into separate atoms. Removed the second 'high' and 'after CAR-T cell therapy', which the evidence does not state.\"}",
+ "usage": {
+  "completion_tokens": 523,
+  "prompt_tokens": 700,
+  "total_tokens": 1223,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 700,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00663000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

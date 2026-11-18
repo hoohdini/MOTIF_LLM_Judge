@@ -1,0 +1,30 @@
+{
+ "atom_id": "MAVVOM-C05-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Canonical extension\n\nATOM MAVVOM-C05-S3-03 (S3): Although every modular form $f\\in M_{\\lambda,k}(\\Gamma)$ extends holomorphically to the canonical extension over $X(I)^\\Sigma$, the extended section vanishes at the boundary divisor $\\Delta_\\sigma$ only when $\\lambda\\neq 1,\\det$ and $\\sigma$ is not an isotropic ray, and for cusp forms it vanishes at every $\\Delta_\\sigma$.\n\nEVIDENCE:\n[MAVVOM-p0046-s19] Lemma 3.11. A modular form f 2 M�;k.�/ as a section of E�;k over X.I/ extends to a holomorphic section of the extended bundle E�;k over X.I/†.\n[MAVVOM-p0046-s20] When �¤ 1; det and �is not an isotropic ray, this extended section vanishes at ��.\n[MAVVOM-p0046-s21] When f is a cusp form, this section vanishes at every ��.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Replace “only when” with “when”: the evidence gives a sufficient vanishing condition, not a necessary one. / Evidence says 'When...' (sufficient condition), whereas the atom says 'only when' (necessary condition). Replace 'only when' with 'when'.\n- SINGLE_CLAIM: revise — Combines holomorphic extension of modular forms, conditional boundary vanishing, and vanishing of cusp forms at every boundary divisor. / Joins three distinct claims: holomorphic extension of modular forms, vanishing condition for non-isotropic rays, and vanishing of cusp forms.\n- SCOPE_LABEL: hold — S2: Extension and vanishing behavior of modular forms as sections of the canonical extension is how the bundle works.\n- L1_ONLY: revise — Separate extension, conditional vanishing, and cusp-form vanishing into individual recall facts; remove the stacked contrast. / Stacks three distinct properties and conditions into one sentence.",
+ "raw": "{\"atoms\": [{\"statement\": \"A modular form $f\\\\in M_{\\\\lambda,k}(\\\\Gamma)$, viewed as a section of $E_{\\\\lambda,k}$ over $X(I)$, extends to a holomorphic section of the extended bundle $E_{\\\\lambda,k}$ over $X(I)^\\\\Sigma$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0046-s19\"]}, {\"statement\": \"When $\\\\lambda\\\\neq 1,\\\\det$ and $\\\\sigma$ is not an isotropic ray, the extended section of a modular form vanishes at $\\\\Delta_\\\\sigma$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0046-s20\"]}, {\"statement\": \"When $f$ is a cusp form, its extended section vanishes at every $\\\\Delta_\\\\sigma$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0046-s21\"]}], \"note\": \"Split into three atoms; 'only when' changed to 'when' since the evidence gives only a sufficient condition; scope changed to S2 per the audit.\"}",
+ "usage": {
+  "completion_tokens": 396,
+  "prompt_tokens": 1098,
+  "total_tokens": 1494,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 396
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1098,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00615600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

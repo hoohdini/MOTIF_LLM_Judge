@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C10-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Quasi-isometry\n\nATOM LAPINF-C10-S3-01 (S3): Quasi-isometric spaces are known to share properties such as volume growth, isoperimetric inequalities, and Liouville-type theorems, but most of these connections require additional conditions on local geometry, typically bounded geometry for manifolds and bounded geometry/controlled weights for graphs.\n\nEVIDENCE:\n[LAPINF-p0122-s12] Kanai. It is well known in context with Riemannian manifolds and (combinatorial) graphs that quasi-isometric spaces share many important properties: e.g., geometric properties (such as volume growth and isoperimetric inequalities) [122], parabolicity/transience [47, 122, 160], Nash inequalities [47], Liouville-type theorems for harmonic functions of finite energy [47, 106, 107, 151,160,194] and parabolic/elliptic Harnack inequalities [14,15,47,103].\n[LAPINF-p0122-s13] However, we stress that most of these connections also require additional conditions on the local geometry of the spaces.\n[LAPINF-p0122-s14] Typically, one imposes a bounded geometry assumption for manifolds [122] and bounded geometry/controlled weights assumptions for graphs [12,15], [195, Chapter VII].\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Restrict the opening to manifolds and combinatorial graphs, and qualify Liouville-type theorems as concerning harmonic functions of finite energy. / Evidence specifically states 'Liouville-type theorems for harmonic functions of finite energy'; restore 'for harmonic functions of finite energy'.\n- SINGLE_CLAIM: revise — Combines preservation of several properties, the need for local hypotheses, and the typical hypotheses for two different classes of spaces. / Joins what properties quasi-isometric spaces share with the requirement of additional local geometry conditions for manifolds and graphs.\n- L1_ONLY: hold — Retain the local-geometry limitation; move the property list and class-specific examples into separate atoms.",
+ "raw": "{\"atoms\": [{\"statement\": \"For Riemannian manifolds and combinatorial graphs, most connections showing that quasi-isometric spaces share properties (such as volume growth, isoperimetric inequalities, parabolicity/transience, Nash inequalities, Liouville-type theorems for harmonic functions of finite energy, and Harnack inequalities) also require additional conditions on the local geometry of the spaces.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0122-s12\", \"LAPINF-p0122-s13\"]}, {\"statement\": \"The additional local-geometry condition for such quasi-isometry connections is typically a bounded geometry assumption for manifolds and bounded geometry or controlled weights assumptions for graphs.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0122-s14\"]}], \"note\": \"Split into the limitation claim and the typical-conditions claim; the property list is folded into the first atom as the scope of the limitation, with Liouville-type theorems qualified as for harmonic functions of finite energy and the setting restricted to manifolds and combinatorial graphs.\"}",
+ "usage": {
+  "completion_tokens": 386,
+  "prompt_tokens": 1101,
+  "total_tokens": 1487,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 386
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1101,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00606200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C02-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intrinsic metric\n\nATOM LAPINF-C02-S3-02 (S3): The combinatorial distance is not intrinsic for the combinatorial Laplacian ($m\\equiv 1$), and it is equivalent to an intrinsic path metric if and only if the vertex degree is bounded, i.e. the graph has bounded geometry.\n\nEVIDENCE:\n[LAPINF-p0120-s08] Remark 6.25. Let us emphasize that the combinatorial distance %comb is not intrinsic for the combinatorial Laplacian Lcomb (m �1 on V in this case).\n[LAPINF-p0120-s09] However, %comb is equivalent to an intrinsic path metric if and only if deg is bounded on V, that is, the corresponding graph has bounded geometry.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Non-intrinsicness and equivalence to an intrinsic path metric under bounded degree are independently assessable claims. / Joins two separate claims: that combinatorial distance is not intrinsic, and the condition for its equivalence to an intrinsic path metric.\n- L1_ONLY: hold — Retain either the non-intrinsicness statement or the bounded-degree equivalence, rather than combining both.",
+ "raw": "{\"atoms\": [{\"statement\": \"The combinatorial distance is not intrinsic for the combinatorial Laplacian (the case $m\\\\equiv 1$ on $V$).\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0120-s08\"]}, {\"statement\": \"The combinatorial distance is equivalent to an intrinsic path metric if and only if the vertex degree $\\\\deg$ is bounded on $V$, that is, the graph has bounded geometry.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0120-s09\"]}], \"note\": \"Split the joined atom into two separately assessable claims, each fully stated in its cited sentence.\"}",
+ "usage": {
+  "completion_tokens": 235,
+  "prompt_tokens": 818,
+  "total_tokens": 1053,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 235
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 818,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00398600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

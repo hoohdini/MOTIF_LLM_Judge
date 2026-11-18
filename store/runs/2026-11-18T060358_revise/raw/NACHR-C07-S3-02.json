@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C07-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Microglial GLAST regulation\n\nATOM NACHR-C07-S3-02 (S3): Although cytosolic Ca2+ rises within 1–2 min of nicotine treatment, upregulation of GLAST mRNA is observed only after 18 h, and the protein synthesis inhibitor cycloheximide blocks nicotine-induced GLAST mRNA expression, indicating a protein intermediary between Ca2+ increase and GLAST expression.\n\nEVIDENCE:\n[NACHR-p0087-s06] Increased cytosolic Ca2+ concentration is observed within 1–2 min following nicotine treatment (Suzuki et al. 2006).\n[NACHR-p0087-s08] However, upregulation of GLAST mRNA expression is observed only after 18 h of nicotine treatment.\n[NACHR-p0087-s10] In fact, the protein synthesis inhibitor cycloheximide blocks nicotine-induced GLAST mRNA expression, indicating the presence of a protein intermediary between increased Ca2+ concentration and GLAST expression.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines calcium timing, GLAST transcription timing, cycloheximide inhibition, and a protein-intermediary mechanism. / Joins Ca2+ timing (1–2 min), GLAST mRNA timing (18 h), and cycloheximide blocking into one sentence.\n- SCOPE_LABEL: revise — S2: The atom includes a protein-intermediary mechanism; separate the S3 timing limitation from that mechanism. / S2: Describes the temporal kinetics and protein synthesis dependency of the signaling mechanism.\n- L1_ONLY: revise — Separate the timing comparison from the cycloheximide experiment and protein-intermediary conclusion. / Contains stacked 'Although... and... indicating...' clauses combining multiple experimental observations.\n- SOURCE_INDEPENDENT: hold — Specific time points (18 h) and experimental observations from a particular study.",
+ "raw": "{\"atoms\": [{\"statement\": \"Nicotine-induced upregulation of GLAST mRNA expression is observed only after 18 h of nicotine treatment, although cytosolic Ca2+ concentration increases within 1–2 min.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0087-s06\", \"NACHR-p0087-s08\"]}, {\"statement\": \"The protein synthesis inhibitor cycloheximide blocks nicotine-induced GLAST mRNA expression, indicating a protein intermediary between increased Ca2+ concentration and GLAST expression.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0087-s10\"]}], \"note\": \"Split into a timing-delay claim and a cycloheximide/protein-intermediary claim. Both are mechanism-related (S2) rather than limits, so the original S3 label was changed.\"}",
+ "usage": {
+  "completion_tokens": 302,
+  "prompt_tokens": 1086,
+  "total_tokens": 1388,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 302
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1086,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00519200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C01-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: cytokine release syndrome\n\nATOM CART-C01-S1-02 (S1): Cytokine release syndrome usually manifests with fever preceding or accompanied by general symptoms such as malaise, headache, arthralgia, anorexia, rigours and fatigue, and can rapidly progress to hypoxia, tachypnoea, tachycardia, hypotension, arrhythmia, shock and cardiorespiratory organ dysfunction and failure.\n\nEVIDENCE:\n[CART-p0131-s11] \u0007Clinical Symptoms, Laboratory Diagnosis, Differential Diagnosis, and Predictive Factors CRS usually manifests with fever preceding or accompanied by general symptoms, such as malaise, headache, arthralgia, anorexia, rigours, and fatigue, and can rapidly progress to hypoxia, tachypnoea, tachycardia, hypotension, arrhythmia, culminating in shock cardiorespiratory organ dysfunction, and failure.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Typical initial presentation and possible progression to severe organ dysfunction are independently assessable claims. / Joins initial presentation symptoms with rapid progression to severe complications, which overlaps with S1-03.\n- L1_ONLY: hold — Retain the typical presenting symptoms; separate the additional severe-progression claim.",
+ "raw": "{\"atoms\": [{\"statement\": \"Cytokine release syndrome usually manifests with fever preceding or accompanied by general symptoms such as malaise, headache, arthralgia, anorexia, rigours and fatigue.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0131-s11\"]}, {\"statement\": \"Cytokine release syndrome can rapidly progress to hypoxia, tachypnoea, tachycardia, hypotension and arrhythmia, culminating in shock, cardiorespiratory organ dysfunction and failure.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0131-s11\"]}], \"note\": \"Split the original atom into typical initial presentation and possible rapid progression to severe complications.\"}",
+ "usage": {
+  "completion_tokens": 254,
+  "prompt_tokens": 859,
+  "total_tokens": 1113,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 254
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 859,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00425800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "CART-C06-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: allogeneic CAR-T cells\n\nATOM CART-C06-S1-02 (S1): Allogeneic off-the-shelf CAR-T cells are engineered by genetically eliminating the TCRα constant (TRAC) locus and/or HLA from the T cell surface, which reduces the risk of graft versus host disease and allograft rejection.\n\nEVIDENCE:\n[CART-p0017-s03] Such allogeneic CAR-T cells were engineered by genetically eliminating the TCRα constant (TRAC) locus and/or HLA from the T cell surface, reducing the risk of graft versus host disease (GvHD) and allograft rejection.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence describes particular engineered cells, not a universal property. Replace 'are engineered' with 'can be engineered'.\n- SINGLE_CLAIM: revise — Combines genetic engineering targets with reductions in two independently assessable adverse outcomes. / Combines two distinct mechanisms (eliminating TRAC vs eliminating HLA) and two distinct clinical risks (GvHD vs allograft rejection).\n- SCOPE_LABEL: revise — S2: Describes an engineering strategy and its effects, rather than defining allogeneic CAR-T cells. / S2: Describes engineering mechanisms (eliminating TRAC and HLA) to prevent GvHD and rejection.\n- L1_ONLY: hold — Separate TCR-directed GvHD mitigation from HLA-directed rejection mitigation rather than bundling targets and outcomes.",
+ "raw": "{\"atoms\": [{\"statement\": \"Allogeneic CAR-T cells can be engineered by genetically eliminating the TCRα constant (TRAC) locus and/or HLA from the T cell surface, which reduces the risk of graft versus host disease and allograft rejection.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0017-s03\"]}], \"note\": \"The evidence does not say which edit (TRAC or HLA) reduces which risk (GvHD or rejection), so splitting by target and outcome would add an unstated mapping. I kept one atom, changed 'are engineered' to 'can be engineered' to fit the evidence, and relabeled it S2 because it describes an engineering mechanism.\"}</br>",
+ "usage": {
+  "completion_tokens": 549,
+  "prompt_tokens": 926,
+  "total_tokens": 1475,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 926,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00734200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C03-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: CAR structure\n\nATOM CART-C03-S3-03 (S3): Fourth-generation CAR-T cells (armoured CAR cells or TRUCKs), which encode a CAR plus a cytokine, interleukin, pro-inflammatory ligand, or chemokine to counteract the immune suppressive microenvironment of most solid tumours, have so far been developed for preclinical projects.\n\nEVIDENCE:\n[CART-p0013-s05] Finally, fourth generation CAR-T cells have been developed for preclinical projects.\n[CART-p0013-s06] These cells, named armoured CAR cells or T cells redirected for universal cytokine-mediated killing (TRUCKS), encode not only a CAR (usually with one costimulatory domain, such as in second generation CARs) but also a cytokine, interleukin, pro-inflammatory ligand, or chemokine that will counteract the immune suppressive microenvironment that prevails in most solid tumours (Eshhar et al. 1993; Chmielewski and Abken 2015).\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Delete “so far,” which implies development remains confined to preclinical projects; the evidence only states development for preclinical projects.\n- SINGLE_CLAIM: revise — Names, additional payload architecture, microenvironmental purpose, and preclinical development status are independently assessable. / Combines the structural definition/mechanism of 4th-generation CARs with their current preclinical development status.\n- SCOPE_LABEL: hold — S1/S2: Defines fourth-generation CARs (TRUCKs) and their mechanism, rather than a boundary/limitation.\n- L1_ONLY: revise — Retain the defining additional payload; separate aliases, microenvironmental effects, and development status. / Remove the time-bound preclinical development status add-on.\n- SOURCE_INDEPENDENT: hold — “So far” makes development status depend on an unspecified source-era cutoff rather than a fixed conceptual fact. / Drop 'have so far been developed for preclinical projects', which is time-bound to the publication date.",
+ "raw": "{\"atoms\": [{\"statement\": \"Fourth-generation CAR-T cells, called armoured CAR cells or TRUCKs, encode a CAR (usually with one costimulatory domain, as in second-generation CARs) together with a cytokine, interleukin, pro-inflammatory ligand, or chemokine.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0013-s06\"]}, {\"statement\": \"In fourth-generation CAR-T cells (TRUCKs), the encoded cytokine, interleukin, pro-inflammatory ligand, or chemokine is intended to counteract the immune suppressive microenvironment that prevails in most solid tumours.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0013-s06\"]}], \"note\": \"Removed 'so far' and the preclinical-status claim as time-bound; split definition from mechanism and relabelled from S3 to S1/S2.\"}",
+ "usage": {
+  "completion_tokens": 314,
+  "prompt_tokens": 1097,
+  "total_tokens": 1411,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 314
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1097,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00533400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

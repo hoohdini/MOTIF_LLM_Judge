@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C05-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Inner Kan complex\n\nATOM HMDEND-C05-S2-03 (S2): If $X$ is an inner Kan complex, the homotopy category $\\tau(X)$ is isomorphic to the category $\\tau_1(X)$ whose objects are the vertices of $X$ and whose arrows $x\\to y$ are equivalence classes of 1-simplices $f$ with $d_1f=x$ and $d_0f=y$, where $f\\sim f'$ if some 2-simplex $e$ has $d_2e=f$, $d_1e=f'$ and $d_0e=s_0y$.\n\nEVIDENCE:\n[HMDEND-p0183-s11] The arrows x →y in τ1(X) are equivalence classes of 1-simplices f with d0 f = y and d1 f = x, where two such 1-simplices f and f ′ are declared to be equivalent if there exists a 2-simplex e ∈X2 with d2e = f , d1e = f ′ and d0e = s0y, the degenerate 1-simplex on the vertex y:\n[HMDEND-p0183-s12] Writing [ f ] for the equivalence class of f , the composition of two arrows [ f ] : x →y and [g] : y →z is defined to be [h] : x →z, where h = d1b for any 2-simplex b with d2b = f and d0b = g.\n[HMDEND-p0183-s18] (iv) The evident functor τ1(X) →τ(X) is an isomorphism of categories (and we will\n\nAUDITOR FINDINGS:\n- GROUNDED: fail — The supplied sentences do not state the inner Kan hypothesis for the isomorphism or explicitly identify all objects of τ₁(X) as vertices. / Evidence omits that the objects of tau_1(X) are vertices of X and that the isomorphism holds under the condition that X is an inner Kan complex.\n- SINGLE_CLAIM: revise — The isomorphism with τ(X) and the explicit description of τ₁(X) are independently assessable claims. / Combines the isomorphism tau(X) ~= tau_1(X), the objects and arrows of tau_1(X), and the explicit formula for the equivalence relation.\n- L1_ONLY: hold — Separate the isomorphism fact from the detailed objects, arrows, and homotopy-relation description.",
+ "raw": "{\"atoms\":[{\"statement\":\"In the category $\\\\tau_1(X)$, an arrow $x\\\\to y$ is an equivalence class of 1-simplices $f$ of $X$ with $d_1f=x$ and $d_0f=y$, where $f\\\\sim f'$ if there is a 2-simplex $e\\\\in X_2$ with $d_2e=f$, $d_1e=f'$ and $d_0e=s_0y$.\",\"scope\":\"S1\",\"evidence_ids\":[\"HMDEND-p0183-s11\"]},{\"statement\":\"In $\\\\tau_1(X)$, the composite of arrows $[f]:x\\\\to y$ and $[g]:y\\\\to z$ is $[h]:x\\\\to z$, where $h=d_1b$ for any 2-simplex $b$ with $d_2b=f$ and $d_0b=g$.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0183-s12\"]}],\"note\":\"The isomorphism $\\\\tau_1(X)\\\\cong\\\\tau(X)$ is dropped. The cited sentence (s18) states it without the inner Kan hypothesis, which this evidence does not give. The evidence also never says that the objects of $\\\\tau_1(X)$ are the vertices of $X$. The remaining atoms cover only the arrow description and the composition rule.\"}",
+ "usage": {
+  "completion_tokens": 940,
+  "prompt_tokens": 1169,
+  "total_tokens": 2109,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1169,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01173800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

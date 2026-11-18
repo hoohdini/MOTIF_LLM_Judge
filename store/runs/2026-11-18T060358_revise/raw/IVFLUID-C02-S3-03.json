@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C02-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Venous return curve\n\nATOM IVFLUID-C02-S3-03 (S3): Beyond a certain limit the heart cannot accommodate additional returning blood, so right atrial pressure rises disproportionately and venous return falls, whereas below that limit the rise in right atrial pressure is minimal in a normally contractile heart.\n\nEVIDENCE:\n[IVFLUID-p0136-s01] 3. The rise in venous return in turn will produce a rise in RAP.\n[IVFLUID-p0136-s02] Up to a certain limit, the\n[IVFLUID-p0136-s03] rise in RAP is minimal with a normally contractile heart, but beyond that limit heart cannot accommodate blood further and RAP starts rising disproportionately, resulting in a fall in VR [6].\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the beyond-limit failure mechanism with the separately assessable minimal RAP response below that limit. / Combines the behavior of RAP and VR below the accommodation limit with their behavior beyond that limit.\n- L1_ONLY: hold — Remove the below-limit contrast and normal-contractility qualifier, retaining the beyond-limit mechanism as one recall fact.",
+ "raw": "{\"atoms\": [{\"statement\": \"Beyond a certain limit, the heart cannot accommodate additional returning blood, so right atrial pressure rises disproportionately and venous return falls.\", \"scope\": \"S3\", \"evidence_ids\": [\"IVFLUID-p0136-s03\"]}], \"note\": \"Removed the below-limit contrast and the normal-contractility qualifier, as auditors recommended, keeping only the beyond-limit mechanism.\"}",
+ "usage": {
+  "completion_tokens": 153,
+  "prompt_tokens": 810,
+  "total_tokens": 963,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 153
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 810,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00315000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

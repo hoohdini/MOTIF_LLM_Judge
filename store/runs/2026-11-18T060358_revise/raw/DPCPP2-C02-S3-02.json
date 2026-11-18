@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C02-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Forward progress guarantees\n\nATOM DPCPP2-C02-S3-02 (S3): The memory ordering guarantees provided by atomics are orthogonal to forward progress guarantees, so relying on memory order alone to implement synchronization primitives may lead to deadlocks when forward progress guarantees are not sufficiently strong.\n\nEVIDENCE:\n[DPCPP2-p0573-s08] The memory ordering guarantees provided by atomics are orthogonal to forward progress guarantees, and, at the time of writing, work-group scheduling in SYCL is completely implementation-defined.\n[DPCPP2-p0574-s01] Relying on memory order alone to implement synchronization primitives may lead to deadlocks in the absence of sufficiently strong forward progress guarantees!\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Orthogonality of memory ordering and progress guarantees is distinct from possible deadlock in synchronization primitives. / Joins two claims: that atomic memory ordering is orthogonal to forward progress, and that relying on memory order alone can cause deadlocks.\n- L1_ONLY: hold — Split the orthogonality fact from the conditional deadlock consequence to avoid combining two recall targets.",
+ "raw": "{\"atoms\": [{\"statement\": \"The memory ordering guarantees provided by atomics are orthogonal to forward progress guarantees.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0573-s08\"]}, {\"statement\": \"Relying on memory order alone to implement synchronization primitives may lead to deadlocks in the absence of sufficiently strong forward progress guarantees.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0574-s01\"]}], \"note\": \"Split into the orthogonality claim and the conditional deadlock claim; dropped the implementation-defined work-group scheduling clause as a separate, unrelated claim.\"}",
+ "usage": {
+  "completion_tokens": 233,
+  "prompt_tokens": 815,
+  "total_tokens": 1048,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 233
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 815,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00396000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

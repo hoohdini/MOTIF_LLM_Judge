@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C13-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Interstitial sodium storage\n\nATOM IVFLUID-C13-S1-01 (S1): Recent human investigations are reported to confirm animal laboratory evidence that some sodium is stored within the body without commensurate water, contrary to the teaching that body sodium content directly determines extracellular fluid volume.\n\nEVIDENCE:\n[IVFLUID-p0094-s12] It has long been taught that body sodium content directly determines the extracellular fluid volume and therefore the effective circulating fluid volume.\n[IVFLUID-p0094-s15] Recent investigations in humans confirm animal laboratory evidence that some sodium is in fact stored within the body without commensurate water.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines non-osmotic sodium storage, human confirmation of animal evidence, and a comparison with traditional extracellular-volume teaching. / Joins the core claim of water-free sodium storage with the contrasting historical teaching about extracellular fluid volume.\n- L1_ONLY: revise — Retain the recall-level storage fact; remove the experimental-confirmation framing and comparison with traditional teaching. / Remove the 'contrary to the teaching...' contrast clause and meta-reporting ('Recent... are reported to confirm') to isolate the core physiological fact.\n- SOURCE_INDEPENDENT: revise — Drop the reporting and investigation framing; state directly that some body sodium is stored without commensurate water. / Drop 'Recent human investigations are reported to confirm animal laboratory evidence that' and state the physiological fact directly.",
+ "raw": "{\"atoms\": [{\"statement\": \"Some sodium is stored within the body without commensurate water.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0094-s15\"]}], \"note\": \"Removed the reporting framing and the contrast with the traditional teaching, as the auditors requested. The second atom is not added because the contrast clause is evaluative and belongs in a separate atom; the core fact is kept.\"}",
+ "usage": {
+  "completion_tokens": 143,
+  "prompt_tokens": 931,
+  "total_tokens": 1074,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 143
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 931,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00329200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

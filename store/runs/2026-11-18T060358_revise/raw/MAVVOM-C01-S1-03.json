@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C01-S1-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Second Hodge bundle\n\nATOM MAVVOM-C01-S1-03 (S1): The second Hodge bundle $\\mathcal{E}$ is an $\\mathrm{O}^+(L_{\\mathbb{R}})$-equivariant vector bundle of rank $n$ over $\\mathcal{D}$ whose fiber over a point $[\\omega]\\in\\mathcal{D}$ is $\\omega^\\perp/\\mathbb{C}\\omega$.\n\nEVIDENCE:\n[MAVVOM-p0025-s06] This is an OC.LR/-equivariant vector bundle of rank n over D.\n[MAVVOM-p0025-s07] The fiber of E over Œ!�2 D is !?=C!.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Equivariance, rank, and the fiber description can be assessed separately. / Joins two distinct claims: that $\\mathcal{E}$ is an $\\mathrm{O}^+(L_\\mathbb{R})$-equivariant vector bundle of rank $n$, and that its fiber over $[\\omega]$ is $\\omega^\\perp/\\mathbb{C}\\omega$.",
+ "raw": "{\"atoms\":[{\"statement\":\"The fiber of the second Hodge bundle $\\\\mathcal{E}$ over a point $[\\\\omega]\\\\in\\\\mathcal{D}$ is $\\\\omega^\\\\perp/\\\\mathbb{C}\\\\omega$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0025-s07\"]},{\"statement\":\"The second Hodge bundle $\\\\mathcal{E}$ is an $\\\\mathrm{O}^+(L_{\\\\mathbb{R}})$-equivariant vector bundle of rank $n$ over $\\\\mathcal{D}$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0025-s06\"]}],\"note\":\"Split into the fiber description and the equivariance/rank claim. The rank claim rests on s06, which refers to the bundle only as 'This', so its referent is assumed to be $\\\\mathcal{E}$.\"}",
+ "usage": {
+  "completion_tokens": 645,
+  "prompt_tokens": 789,
+  "total_tokens": 1434,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 789,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00802800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

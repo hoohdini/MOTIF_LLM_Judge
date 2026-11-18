@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C05-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Knowledge graph embedding\n\nATOM KGBDP-C05-S3-01 (S3): DistMult cannot represent anti-symmetric relations because its score $h^T \\mathrm{diag}(r) t$ equals $t^T \\mathrm{diag}(r) h$, whereas ComplEx extends it to complex space so that $f_r(h,t) \\neq f_r(t,h)$ and anti-symmetric relations can be modeled.\n\nEVIDENCE:\n[KGBDP-p0104-s11] ComplEx ComplEx [430] is an extension of DistMult into the complex space.\n[KGBDP-p0104-s12] Considering the scoring function of DistMult, it can be observed that it has a limitation in representing anti-symmetric relations since hT diag(r)t is equivalent to tT diag(r)h.\n[KGBDP-p0104-s16] It is straightforward to show that fr(h, t) ̸= fr(t, h), i.e. ComplEx is capable of modeling anti-symmetric relations.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Replace categorical 'cannot represent' with 'is limited in representing,' matching the evidence's stated strength.\n- SINGLE_CLAIM: revise — DistMult's symmetry limitation and ComplEx's extension and anti-symmetric modeling capability are independently assessable claims. / Joins two separate claims: why DistMult fails on anti-symmetric relations and how ComplEx extends it to model them.\n- L1_ONLY: hold — Retain one model's limitation or capability rather than combining two models, their relationship, and both scoring properties.",
+ "raw": "{\"atoms\": [{\"statement\": \"DistMult is limited in representing anti-symmetric relations because its score $h^T \\\\mathrm{diag}(r) t$ is equivalent to $t^T \\\\mathrm{diag}(r) h$.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0104-s12\"]}, {\"statement\": \"ComplEx, an extension of DistMult into complex space, can model anti-symmetric relations because $f_r(h,t) \\\\neq f_r(t,h)$.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0104-s11\", \"KGBDP-p0104-s16\"]}], \"note\": \"Split into two atoms; softened 'cannot' to 'is limited in' to match the evidence.\"}",
+ "usage": {
+  "completion_tokens": 263,
+  "prompt_tokens": 941,
+  "total_tokens": 1204,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 263
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 941,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00451200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C01-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: cytokine release syndrome\n\nATOM CART-C01-S3-03 (S3): Prediction of cytokine release syndrome in an individual patient is not yet possible, even though some factors are associated with higher risk.\n\nEVIDENCE:\n[CART-p0132-s03] Prediction of CRS in an individual patient is not yes possible.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — The supplied sentence supports inability to predict individual CRS, but not the risk-factor qualifier. Delete the 'even though' clause. / Delete 'even though some factors are associated with higher risk', which is not in the cited evidence sentence.\n- SINGLE_CLAIM: revise — Individual prediction limitations and the existence of associated risk factors are separate claims. / Joins two claims: individual prediction is not possible, and some factors are associated with higher risk.\n- L1_ONLY: hold — Retain the individual-prediction limitation without the additional risk-factor claim.",
+ "raw": "{\"atoms\": [{\"statement\": \"Prediction of cytokine release syndrome (CRS) in an individual patient is not yet possible.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0132-s03\"]}], \"note\": \"Removed the 'even though some factors are associated with higher risk' clause because the cited sentence does not state it. The evidence typo 'yes' was read as 'yet'.\"}",
+ "usage": {
+  "completion_tokens": 138,
+  "prompt_tokens": 714,
+  "total_tokens": 852,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 138
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 714,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00280800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

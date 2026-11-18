@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C01-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: cytokine release syndrome\n\nATOM CART-C01-S2-01 (S2): In patients with cytokine release syndrome who then receive antipyretics or anticytokine therapy such as tocilizumab or steroids, fever is no longer required to grade subsequent severity, and grading is then driven by hypotension and/or hypoxia.\n\nEVIDENCE:\n[CART-p0132-s13] In patients who have CRS then receive antipyretics or anticytokine therapy such as tocilizumab or steriods, fever is no longer required to grade subsequent CRS severity.\n[CART-p0132-s14] In this case, CRS grading is driven by hypotension and/or hypoxia.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — It combines removal of the fever requirement with the separate identification of subsequent grading determinants. / Joins two distinct claims: that fever is no longer required for grading after treatment, and that grading is driven by hypotension/hypoxia.\n- L1_ONLY: hold — Retain one post-treatment grading rule rather than combining the fever exception and the hypotension/hypoxia determinants.",
+ "raw": "{\"atoms\": [{\"statement\": \"In patients with cytokine release syndrome who then receive antipyretics or anticytokine therapy such as tocilizumab or steroids, fever is no longer required to grade subsequent severity of the syndrome.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0132-s13\"]}, {\"statement\": \"When fever is no longer required to grade cytokine release syndrome severity after antipyretic or anticytokine therapy, grading is driven by hypotension and/or hypoxia.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0132-s14\"]}], \"note\": \"Split into two atoms: the removal of the fever requirement (s13) and the determinants of grading afterward (s14). Atom 2 uses 'In this case' from s14, which refers back to the s13 condition.\"}",
+ "usage": {
+  "completion_tokens": 281,
+  "prompt_tokens": 771,
+  "total_tokens": 1052,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 281
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 771,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00435200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C11-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Volume kinetics\n\nATOM IVFLUID-C11-S2-02 (S2): The rise in blood water concentration after a fluid infusion only seems analogous to a drug concentration in pharmacokinetics, because it represents a dilution of the administered water in a much larger water volume, which adds requirements to the calculations.\n\nEVIDENCE:\n[IVFLUID-p0120-s05] The increase in the blood water concentration then seems to yield the same concept as a drug concentration in conventional pharmacokinetics.\n[IVFLUID-p0120-s06] Sadly, though, this is an illusion, because the rise in blood water concentration that occurs when a fluid is infused represents a dilution of administered water in a much larger water volume.\n[IVFLUID-p0120-s07] This fact adds some requirements to the calculations.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — Combines the dilution-based distinction from drug concentration with a separate claim about additional calculation requirements.\n- L1_ONLY: revise — Remove the vague procedural add-on, 'which adds requirements to the calculations,' leaving the recall-level dilution distinction. / Remove the vague procedural add-on 'which adds requirements to the calculations'.",
+ "raw": "{\"atoms\": [{\"statement\": \"The rise in blood water concentration after a fluid infusion is not equivalent to a drug concentration in conventional pharmacokinetics, because it represents a dilution of the administered water in a much larger water volume.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0120-s05\", \"IVFLUID-p0120-s06\"]}], \"note\": \"Removed the vague add-on about calculation requirements, as the auditors requested.\"}",
+ "usage": {
+  "completion_tokens": 162,
+  "prompt_tokens": 809,
+  "total_tokens": 971,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 162
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 809,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00323800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

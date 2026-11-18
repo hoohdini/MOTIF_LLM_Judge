@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C12-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Nicotine dosing regimen effects\n\nATOM NACHR-C12-S3-03 (S3): Virtually all studies reporting deleterious effects of nicotine on ischemic brain injury were designed to reveal adverse effects of smoking and therefore generally used long-term and/or continuous nicotine pretreatment, so these harmful findings come from regimens modeling chronic exposure.\n\nEVIDENCE:\n[NACHR-p0129-s12] It should be noted that virtually all studies reporting the deleterious effect of nicotine on ischemic brain injury were aimed to reveal potential adverse effects of smoking on cerebrovascular disorders, and therefore that these studies generally employ long-term and/or continuous pretreatment regimen for nicotine administration (Table 7.3).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Delete the final 'so' clause; the evidence states smoking-related aims and pretreatment patterns, not explicitly that these regimens model chronic exposure. / The concluding clause 'so these harmful findings come from regimens modeling chronic exposure' is an added paraphrase not in the evidence.\n- SINGLE_CLAIM: revise — Study aims, typical pretreatment regimens, and the chronic-exposure characterization can be judged separately. / Joins the study design aim (to reveal adverse effects of smoking) with the regimen type used (long-term/continuous pretreatment).\n- L1_ONLY: hold — Remove the study-purpose explanation and concluding inference; retain only the limitation concerning long-term or continuous pretreatment.\n- SOURCE_INDEPENDENT: hold — The purposes attributed to virtually all reviewed studies depend on the source's characterization of that literature.",
+ "raw": "{\"atoms\": [{\"statement\": \"Virtually all studies reporting a deleterious effect of nicotine on ischemic brain injury generally used long-term and/or continuous nicotine pretreatment regimens.\", \"scope\": \"S3\", \"evidence_ids\": [\"NACHR-p0129-s12\"]}], \"note\": \"Removed the study-aim clause and the inferred 'modeling chronic exposure' conclusion, which the evidence does not state as such. Kept only the regimen characterization.\"}",
+ "usage": {
+  "completion_tokens": 165,
+  "prompt_tokens": 976,
+  "total_tokens": 1141,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 165
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 976,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00360200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

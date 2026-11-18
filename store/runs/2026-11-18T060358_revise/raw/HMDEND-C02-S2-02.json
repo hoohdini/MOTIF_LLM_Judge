@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C02-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Boardman–Vogt resolution\n\nATOM HMDEND-C02-S2-02 (S2): In $W(P)$, a labelled tree with an inner edge of length zero is identified with the smaller tree obtained by contracting that edge and labelling the newly arising vertex by the appropriate composition in $P$.\n\nEVIDENCE:\n[HMDEND-p0049-s03] If an edge has length zero, then the operation in W(P) represented by that labelled tree is to be identified with the one represented by the smaller labelled tree obtained by contracting the edge of length zero and labelling the newly arising vertex by the appropriate composition in P. Let us illustrate this relation by an example.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentence does not restrict the relation to inner edges; establishing that restriction requires evidence about external-edge lengths. / Evidence says 'If an edge has length zero', not specifically 'an inner edge' (drop 'inner').",
+ "raw": "{\"atoms\": [{\"statement\": \"In $W(P)$, if an edge of a labelled tree has length zero, the operation represented by that tree is identified with the operation represented by the smaller labelled tree obtained by contracting that edge and labelling the newly arising vertex by the appropriate composition in $P$.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0049-s03\"]}], \"note\": \"Removed 'inner' since the evidence says only 'an edge'.\"}",
+ "usage": {
+  "completion_tokens": 164,
+  "prompt_tokens": 716,
+  "total_tokens": 880,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 164
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 716,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00307200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

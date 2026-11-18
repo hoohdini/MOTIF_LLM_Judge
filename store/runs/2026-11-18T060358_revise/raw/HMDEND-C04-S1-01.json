@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C04-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Tensor product of dendroidal sets\n\nATOM HMDEND-C04-S1-01 (S1): The tensor product of dendroidal sets $\\otimes:\\mathbf{dSets}\\times\\mathbf{dSets}\\to\\mathbf{dSets}$ is the functor, unique up to natural isomorphism, that preserves colimits in each variable separately and on representables is given by $\\Omega[S]\\otimes\\Omega[T]=N(\\Omega(S)\\otimes\\Omega(T))$, the dendroidal nerve of the Boardman–Vogt tensor product of the free operads.\n\nEVIDENCE:\n[HMDEND-p0151-s07] by assigning to a pair of trees (S,T) the corresponding free operads Ω(S) and Ω(T), forming their tensor product Ω(S) ⊗Ω(T) and finally taking the dendroidal nerve:\n[HMDEND-p0151-s08] By the method of Kan extension discussed in Section 2.4, this functor determines a functor (again denoted as tensor product)\n[HMDEND-p0151-s10] uniquely determined up to natural isomorphism by the requirement that it agrees with ten on representables and preserves colimits in each variable separately.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence gives the free-operad tensor and its colimit-preserving extension, but does not identify that tensor as the Boardman–Vogt tensor product. / The provided evidence does not state 'Boardman–Vogt', 'dSets', or the formula \\Omega[S]\\otimes\\Omega[T]=N(\\Omega(S)\\otimes\\Omega(T)); delete 'Boardman–Vogt' and the explicit formula/notation not in the snippet.",
+ "raw": "{\"atoms\":[{\"statement\":\"The tensor product of dendroidal sets is the functor, uniquely determined up to natural isomorphism, that preserves colimits in each variable separately and agrees on representables with the functor sending a pair of trees (S,T) to the dendroidal nerve of the tensor product of the free operads Ω(S) and Ω(T).\",\"scope\":\"S1\",\"evidence_ids\":[\"HMDEND-p0151-s07\",\"HMDEND-p0151-s08\",\"HMDEND-p0151-s10\"]}],\"note\":\"Removed 'Boardman–Vogt', the explicit formula notation, and 'dSets', which the evidence does not state. The statement keeps only the free-operad tensor, the nerve, and the uniqueness by colimit preservation.\"}",
+ "usage": {
+  "completion_tokens": 259,
+  "prompt_tokens": 978,
+  "total_tokens": 1237,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 259
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 978,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00454600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

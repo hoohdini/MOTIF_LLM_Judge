@@ -1,0 +1,27 @@
+{
+ "atom_id": "FPPROG-C07-S1-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Hyper-distribution\n\nATOM FPPROG-C07-S1-04 (S1): Hyper-distributions were synthesised as a conceptual artefact by asking what operation determines the $f$-leakage of a channel for a prior when $f$ ranges over a general class of entropy functions on distributions that includes Shannon entropy and Bayes risk as special cases.\n\nEVIDENCE:\n[FPPROG-p0421-s09] It is ‘distributions on posterior distributions’ that have been named hyperdistributions (McIver et al., 2014a, 2010), a conceptual artefact synthesised by asking “If we allow entropies from a general class of functions f on distributions (including Shannon Entropy and Bayes Risk as special cases), what operation do we carry out to determine the f -leakage of a channel with respect to a particular prior?\n[FPPROG-p0421-s10] The answer is “Apply the entropy to the prior, and take the expected value of the same entropy over the hyper-distribution produced by the channel’s acting on that prior; then compare the two numbers obtained.\" 12\n\nAUDITOR FINDINGS:\n- SOURCE_INDEPENDENT: hold — The claimed question motivating the concept's synthesis is a source-specific historical account, not a general mathematical property. / Phrased as historical narrative ('were synthesised as a conceptual artefact by asking'); rephrase as a direct property of hyper-distributions.\n- CENTRALITY: hold — The historical motivation is peripheral; the entropy-evaluation operation itself is the central knowledge.",
+ "raw": "{\"atoms\": [{\"statement\": \"A hyper-distribution is a distribution on posterior distributions.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0421-s09\"]}, {\"statement\": \"The f-leakage of a channel with respect to a prior is determined by comparing the entropy f of the prior with the expected value of f over the hyper-distribution produced by the channel acting on that prior.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0421-s09\", \"FPPROG-p0421-s10\"]}], \"note\": \"Dropped the historical-synthesis framing. Replaced it with the definition of a hyper-distribution and the f-leakage operation that the evidence states directly.\"}",
+ "usage": {
+  "completion_tokens": 493,
+  "prompt_tokens": 910,
+  "total_tokens": 1403,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 910,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00675000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

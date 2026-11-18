@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fourier–Jacobi expansion\n\nATOM MAVVOM-C06-S2-03 (S2): Independence of the choice of $\\omega_J$ holds because two special normal parameters satisfy $\\tilde\\omega_J/\\omega_J=\\pi_1^*\\xi$ for a nowhere vanishing holomorphic function $\\xi$ on $\\Delta_J$ (both being linear on fibers of $\\pi_1$), so the splitting map sends $\\phi\\otimes\\omega_J^{\\otimes m}$ to $\\omega_J^m\\cdot\\pi_1^*\\phi$ regardless of which parameter is used.\n\nEVIDENCE:\n[MAVVOM-p0095-s02] Therefore we have z!J =!J D �� 1 �for a nowhere vanishing holomorphic function �on �J .\n[MAVVOM-p0095-s03] Then the map (7.7) defined by using z!J in place of !J sends �˝ !˝m J as\n[MAVVOM-p0095-s04] �˝ !˝m J D .��m�/ ˝ z!˝m J 7! z!m J ��� 1 .��m�/ D !m J ��� 1 �:\n[MAVVOM-p0095-s05] This coincides with the map using !J .\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence does not state that both parameters are linear on fibers, an added explanation for the parameter-ratio relation. / The parenthetical '(both being linear on fibers of \\pi_1)' is not in the cited evidence; delete it.\n- SINGLE_CLAIM: hold — Separate the parameter-ratio relation from invariance of the splitting map.\n- L1_ONLY: hold — Remove the stacked justification combining fiber linearity, the parameter ratio, and the splitting-map calculation.",
+ "raw": "{\"atoms\":[{\"statement\":\"If $\\\\tilde\\\\omega_J$ is used in place of $\\\\omega_J$, the two are related by $\\\\tilde\\\\omega_J/\\\\omega_J=\\\\pi_1^*\\\\xi$ for a nowhere vanishing holomorphic function $\\\\xi$ on $\\\\Delta_J$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0095-s02\"]},{\"statement\":\"The map (7.7) defined using $\\\\tilde\\\\omega_J$ in place of $\\\\omega_J$ coincides with the map defined using $\\\\omega_J$, so the Fourier–Jacobi expansion does not depend on the choice of $\\\\omega_J$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MAVVOM-p0095-s03\",\"MAVVOM-p0095-s04\",\"MAVVOM-p0095-s05\"]}],\"note\":\"Removed the unsupported parenthetical about fiber linearity. Split the parameter-ratio relation from the invariance of the map.\"}",
+ "usage": {
+  "completion_tokens": 971,
+  "prompt_tokens": 1005,
+  "total_tokens": 1976,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1005,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01172000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C04-S1-05",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: tumour antigen\n\nATOM CART-C04-S1-05 (S1): Most CAR-T cells in clinical practice recognize not tumour-specific antigens but pan-B cell antigens (CD19, CD20, CD22) or maturation antigens (e.g., BCMA), which are abundantly expressed cell surface molecules on both malignant and normal cells.\n\nEVIDENCE:\n[CART-p0019-s10] The majority of CAR-T cells currently applied in clinical practice do not recog-\n[CART-p0019-s11] nize tumour-specific target antigens but pan-B cell antigens (CD19, CD20, CD22) or maturation antigens (e.g., BCMA), which are abundantly expressed cell surface molecules on both malignant and normal cells (Sadelain et al. 2017; June and Sadelain 2018).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines clinical predominance of these targets with their expression on malignant and normal cells. / Joins clinical prevalence of target types with the expression pattern of those antigens.\n- L1_ONLY: hold — Keep the clinical target-category fact; separate the additional malignant-versus-normal expression claim.\n- NO_OVERLAP: hold — The expression claim is repeated in CART-C04-S3-04, which additionally explains its target-selection significance.",
+ "raw": "{\"atoms\": [{\"statement\": \"Most CAR-T cells currently used in clinical practice target pan-B cell antigens (CD19, CD20, CD22) or maturation antigens (e.g., BCMA) rather than tumour-specific antigens.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0019-s10\", \"CART-p0019-s11\"]}], \"note\": \"Split off the expression-on-malignant-and-normal-cells claim, which is covered in CART-C04-S3-04, so only the clinical target-category claim remains.\"}",
+ "usage": {
+  "completion_tokens": 187,
+  "prompt_tokens": 847,
+  "total_tokens": 1034,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 187
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 847,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00356400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

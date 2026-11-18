@@ -1,0 +1,27 @@
+{
+ "atom_id": "NACHR-C01-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: PI3K-Akt survival pathway\n\nATOM NACHR-C01-S1-02 (S1): In the authors' proposed model of nAChR-mediated survival signaling, stimulation of α7 nAChRs activates the Src family, which activates PI3K, which phosphorylates Akt and thereby upregulates the anti-apoptotic proteins Bcl-2 and Bcl-x.\n\nEVIDENCE:\n[NACHR-p0157-s19] From the experimental data, our hypothesis for the mechanism of nAChR-mediated survival signal transduction\n[NACHR-p0158-s01] is as follows: activation of α7 nAChRs stimulates the Src family, which in turn activates PI3K.\n[NACHR-p0158-s02] PI3K phosphorylates AKT, which causes upregulation of Bcl-2 and Bcl-x. α4β2 nAChR stimulation also causes neuroprotection cascade without direct involvement of PI3K system.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — Combines multiple sequential signaling steps (α7 nAChR -> Src -> PI3K -> Akt -> Bcl-2/Bcl-x) into one compound claim.\n- SCOPE_LABEL: revise — S2: Describes the sequence of signaling events. / S2: Describes the mechanism of signal transduction (how it works).\n- SOURCE_INDEPENDENT: revise — Drop attribution to the authors' proposed model; assess the mechanistic cascade directly. / Phrased as 'In the authors' proposed model'; drop the attribution to state the signaling mechanism directly.",
+ "raw": "{\"atoms\":[{\"statement\":\"Activation of α7 nAChRs is hypothesized to stimulate the Src family, which in turn activates PI3K.\",\"scope\":\"S2\",\"evidence_ids\":[\"NACHR-p0157-s19\",\"NACHR-p0158-s01\"]},{\"statement\":\"PI3K is hypothesized to phosphorylate Akt, which causes upregulation of the anti-apoptotic proteins Bcl-2 and Bcl-x in nAChR-mediated survival signaling.\",\"scope\":\"S2\",\"evidence_ids\":[\"NACHR-p0157-s19\",\"NACHR-p0158-s02\"]}],\"note\":\"Split the cascade into two steps. Kept the hypothesis hedge because the evidence presents the mechanism as a hypothesis. Dropped the attribution to the authors.\"}",
+ "usage": {
+  "completion_tokens": 503,
+  "prompt_tokens": 948,
+  "total_tokens": 1451,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 948,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00692600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C01-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Second Hodge bundle\n\nATOM MAVVOM-C01-S2-01 (S2): The quadratic form on $L_{\\mathbb{C}}\\otimes\\mathcal{O}_{\\mathcal{D}}$ induces a nondegenerate $\\mathrm{O}^+(L_{\\mathbb{R}})$-invariant quadratic form on $\\mathcal{E}$, so $\\mathcal{E}$ is an orthogonal vector bundle and in particular $\\mathcal{E}^\\vee\\simeq\\mathcal{E}$.\n\nEVIDENCE:\n[MAVVOM-p0025-s08] The quadratic form on LC ˝ OD induces a nondegenerate OC.LR/-invariant quadratic form on E.\n[MAVVOM-p0025-s09] In other words, E is an orthogonal vector bundle.\n[MAVVOM-p0025-s10] In particular, we have E_ ' E.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the induced invariant quadratic form with the separately assessable self-duality assertion. / Combines the induced nondegenerate invariant quadratic form (orthogonal structure) with the consequence of self-duality $\\mathcal{E}^\\vee\\simeq\\mathcal{E}$.",
+ "raw": "{\"atoms\": [{\"statement\": \"The quadratic form on $L_{\\\\mathbb{C}}\\\\otimes\\\\mathcal{O}_{\\\\mathcal{D}}$ induces a nondegenerate $\\\\mathrm{O}^+(L_{\\\\mathbb{R}})$-invariant quadratic form on $\\\\mathcal{E}$, so $\\\\mathcal{E}$ is an orthogonal vector bundle.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0025-s08\", \"MAVVOM-p0025-s09\"]}, {\"statement\": \"Because $\\\\mathcal{E}$ is an orthogonal vector bundle, its dual is isomorphic to itself: $\\\\mathcal{E}^\\\\vee\\\\simeq\\\\mathcal{E}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0025-s09\", \"MAVVOM-p0025-s10\"]}], \"note\": \"Split the orthogonal structure from the self-duality consequence.\"}",
+ "usage": {
+  "completion_tokens": 582,
+  "prompt_tokens": 830,
+  "total_tokens": 1412,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 830,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00748000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

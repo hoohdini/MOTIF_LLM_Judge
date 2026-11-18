@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C09-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: B-cell aplasia\n\nATOM CART-C09-S3-01 (S3): There is no consensus regarding systematic IgG supplementation in adults with plasma-cell aplasia and hypogammaglobulinaemia after CAR-T cell therapy, whereas in paediatric centres immunoglobulin replacement following CAR-T therapy has been the standard of care.\n\nEVIDENCE:\n[CART-p0142-s06] In paediatric centres, it has been the standard of care to perform immunoglobulin replacement following CAR-T cell therapy (Maude et al. 2014).\n[CART-p0142-s07] However, there is no consensus regarding systematic IgG supplementation in adults with plasma-cell aplasia and hypogammaglobulinaemia after CAR-T cell therapy.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Adult lack of consensus and paediatric standard practice are independently assessable claims. / Joins two separate claims comparing adult consensus on IgG supplementation with paediatric standard of care.\n- L1_ONLY: hold — Remove the contrasting population clause and assess adult or paediatric replacement practice separately.",
+ "raw": "{\"atoms\": [{\"statement\": \"There is no consensus regarding systematic IgG supplementation in adults with plasma-cell aplasia and hypogammaglobulinaemia after CAR-T cell therapy.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0142-s07\"]}, {\"statement\": \"In paediatric centres, immunoglobulin replacement following CAR-T cell therapy has been the standard of care.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0142-s06\"]}], \"note\": \"Split the adult and paediatric claims into separate atoms; removed the contrast framing.\"}",
+ "usage": {
+  "completion_tokens": 213,
+  "prompt_tokens": 787,
+  "total_tokens": 1000,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 213
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 787,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00370400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

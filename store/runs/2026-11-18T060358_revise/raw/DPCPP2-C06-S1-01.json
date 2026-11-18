@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C06-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: USM allocation types\n\nATOM DPCPP2-C06-S1-01 (S1): A USM device allocation resides in device-attached memory (such as (G)DDR or HBM), can be read and written by kernels running on a specific device, but cannot be directly accessed from host code.\n\nEVIDENCE:\n[DPCPP2-p0182-s04] This first type of allocation is what we need in order to have a pointer into a device’s attached memory, such as (G)DDR or HBM.\n[DPCPP2-p0182-s05] Device allocations can be read from or written to by kernels running on a specific device, but they cannot be directly accessed from code executing on the host (and usually not by devices either).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Memory location, device accessibility, and prohibition of direct host access are independently assessable claims. / Combines three distinct claims: physical memory location, device kernel accessibility, and lack of direct host accessibility.",
+ "raw": "{\"atoms\": [{\"statement\": \"A USM device allocation gives a pointer into a device's attached memory, such as (G)DDR or HBM.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0182-s04\"]}, {\"statement\": \"A USM device allocation can be read from or written to by kernels running on a specific device.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0182-s05\"]}, {\"statement\": \"A USM device allocation cannot be directly accessed from code executing on the host.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0182-s05\"]}], \"note\": \"Split the original atom into three single-claim atoms: memory location, kernel accessibility, and the host-access limit.\"}",
+ "usage": {
+  "completion_tokens": 260,
+  "prompt_tokens": 708,
+  "total_tokens": 968,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 260
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 708,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00401600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C08-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Quasi-pullback\n\nATOM MAVVOM-C08-S1-02 (S1): A modular form $f\\in M_{\\lambda,k}(\\Gamma)$ vanishes to order $\\ge\\nu$ along $\\mathcal{D}'$ if it is a section of the subsheaf $\\mathcal{I}^\\nu\\mathcal{E}_{\\lambda,k}$ of $\\mathcal{E}_{\\lambda,k}$, where $\\mathcal{I}$ is the ideal sheaf of $\\mathcal{D}'\\subset\\mathcal{D}$, and the vanishing order of $f$ is the largest $\\nu$ for which $f$ is a section of $\\mathcal{I}^\\nu\\mathcal{E}_{\\lambda,k}$.\n\nEVIDENCE:\n[MAVVOM-p0058-s19] By definition, a modular form f 2 M�;k.�/ vanishes to order ��along D0 if it is a section of the subsheaf ��E�;k of E�;k.\n[MAVVOM-p0058-s20] The vanishing order of f along D0 is the largest �for which f is a section of ��E�;k.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentences do not identify the symbol as the ideal sheaf of the domain inclusion; that added definition is substantive. / Evidence is garbled (�� for >=\\nu and I^\\nu), and the definition 'where I is the ideal sheaf of D' subset D' is not in the cited sentences.\n- SINGLE_CLAIM: revise — Separately defines vanishing to at least a specified order and the maximal vanishing order. / Combines the definition of vanishing to order >= \\nu with the definition of the exact vanishing order \\nu.",
+ "raw": "{\"atoms\":[{\"statement\":\"A modular form $f\\\\in M_{\\\\lambda,k}(\\\\Gamma)$ vanishes to order at least $\\\\nu$ along $\\\\mathcal{D}'$ if it is a section of the subsheaf $\\\\mathcal{I}^\\\\nu\\\\mathcal{E}_{\\\\lambda,k}$ of $\\\\mathcal{E}_{\\\\lambda,k}$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0058-s19\"]},{\"statement\":\"The vanishing order of a modular form $f$ along $\\\\mathcal{D}'$ is the largest $\\\\nu$ for which $f$ is a section of $\\\\mathcal{I}^\\\\nu\\\\mathcal{E}_{\\\\lambda,k}$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0058-s20\"]}],\"note\":\"Split the definition of vanishing to order at least ν from the definition of the vanishing order. Removed the claim that $\\\\mathcal{I}$ is the ideal sheaf of $\\\\mathcal{D}'\\\\subset\\\\mathcal{D}$, which the cited sentences do not state. The evidence is garbled at the order and subsheaf symbols, so the notation $\\\\mathcal{I}^\\\\nu$ is kept without further identification.\"}",
+ "usage": {
+  "completion_tokens": 961,
+  "prompt_tokens": 981,
+  "total_tokens": 1942,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 981,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01157200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C02-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: nAChR upregulation\n\nATOM NACHR-C02-S1-01 (S1): Long-term tobacco smoking or nicotine application induces up-regulation of nicotinic acetylcholine receptors (nAChRs), which in most cases also facilitates their functions.\n\nEVIDENCE:\n[NACHR-p0020-s04] Interestingly, long-term tobacco smoking or nicotine application induces up-regulation of nAChRs and, in most cases, facilitates their functions (Brody et al. 2013; Govind et al. 2009).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Receptor upregulation and facilitation of receptor function are independently assessable claims. / Joins two separable claims: long-term smoking/nicotine induces nAChR up-regulation, and this up-regulation usually facilitates nAChR functions.",
+ "raw": "{\"atoms\": [{\"statement\": \"Long-term tobacco smoking or nicotine application induces up-regulation of nicotinic acetylcholine receptors (nAChRs).\", \"scope\": \"S1\", \"evidence_ids\": [\"NACHR-p0020-s04\"]}, {\"statement\": \"Up-regulation of nicotinic acetylcholine receptors (nAChRs) induced by long-term tobacco smoking or nicotine application, in most cases, facilitates their functions.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0020-s04\"]}], \"note\": \"\"}",
+ "usage": {
+  "completion_tokens": 202,
+  "prompt_tokens": 679,
+  "total_tokens": 881,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 202
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 679,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00337800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

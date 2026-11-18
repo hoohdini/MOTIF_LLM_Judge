@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C07-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Microglial GLAST regulation\n\nATOM NACHR-C07-S2-02 (S2): In rat cortical microglia, α7 nAChR stimulation raises cytosolic Ca2+ transiently through phospholipase C and release from IP3-sensitive intracellular stores rather than extracellular Ca2+ influx, and blocking the IP3 receptor, but not removing extracellular Ca2+, inhibits nicotine-induced GLAST expression.\n\nEVIDENCE:\n[NACHR-p0086-s16] In rat cortical microglia, stimulation of the α7 nAChR induced a rapid and transient increase in the concentration of cytosolic Ca2+ through the activation of phospholipase C (PLC) and the release of Ca2+ from inositol triphosphate (IP3)-sensitive intracellular stores, but not through the influx of extracellular Ca2+ (Suzuki et al. 2006).\n[NACHR-p0086-s17] Increased cytosolic Ca2+ concentration through an IP3 receptor-dependent mechanism is one of the key events underlying nicotine-α7 nAChR-mediated GLAST expression, block of the IP3 receptor, but not removal of extracellular Ca2+, inhibits nicotine’s effect.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the mechanism of calcium mobilization with intervention effects on GLAST expression. / Joins the mechanism of α7 nAChR-induced Ca2+ elevation with the pharmacological blocking results on GLAST expression.\n- L1_ONLY: hold — Separate the intracellular calcium pathway from the IP3-blockade and extracellular-calcium-removal experiments.",
+ "raw": "{\"atoms\": [{\"statement\": \"In rat cortical microglia, α7 nAChR stimulation induces a rapid, transient rise in cytosolic Ca2+ through phospholipase C activation and release of Ca2+ from IP3-sensitive intracellular stores, not through influx of extracellular Ca2+.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0086-s16\"]}, {\"statement\": \"Nicotine-induced, α7 nAChR-mediated GLAST expression depends on an IP3 receptor-dependent rise in cytosolic Ca2+: blocking the IP3 receptor inhibits nicotine's effect, whereas removing extracellular Ca2+ does not.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0086-s17\"]}], \"note\": \"Split into the Ca2+ mobilization mechanism and the dependence of nicotine-induced GLAST expression on the IP3 receptor.\"}",
+ "usage": {
+  "completion_tokens": 330,
+  "prompt_tokens": 976,
+  "total_tokens": 1306,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 330
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 976,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00525200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

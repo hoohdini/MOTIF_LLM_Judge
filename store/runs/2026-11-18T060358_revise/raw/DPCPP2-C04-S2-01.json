@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C04-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Data dependences\n\nATOM DPCPP2-C04-S2-01 (S2): In a task graph, which is a directed acyclic graph whose nodes are tasks and whose edges are dependences, the edges are one-way because a dependence means task A must happen before task B.\n\nEVIDENCE:\n[DPCPP2-p0111-s07] This task graph is specifically a directed acyclic graph (DAG) where the nodes are the tasks and the edges are the dependences.\n[DPCPP2-p0111-s08] The graph is directed because dependences are one-way: task A must happen before task B.\n[DPCPP2-p0111-s09] The graph is acyclic because it cannot contain any cycles or paths from a node that lead back to itself.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the task graph's DAG structure, its node/edge interpretation, and the ordering meaning of directed edges. / Joins the structural definition of a task graph (DAG, nodes=tasks, edges=dependences) with the reason edges are one-way.\n- L1_ONLY: hold — Remove the embedded DAG definition and node/edge mapping; retain the recall-level fact that dependence edges express task ordering.",
+ "raw": "{\"atoms\": [{\"statement\": \"A task graph is a directed acyclic graph (DAG) in which the nodes are tasks and the edges are dependences.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0111-s07\"]}, {\"statement\": \"A task graph is directed because dependences are one-way: task A must happen before task B.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0111-s08\"]}], \"note\": \"Split the original atom into the structural definition (S1) and the reason edges are directed (S2). The acyclic property was not needed for the original claim and was left out.\"}",
+ "usage": {
+  "completion_tokens": 210,
+  "prompt_tokens": 797,
+  "total_tokens": 1007,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 210
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 797,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00369400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

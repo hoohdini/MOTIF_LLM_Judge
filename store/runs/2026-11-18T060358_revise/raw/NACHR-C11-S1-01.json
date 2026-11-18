@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C11-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Shati/Nat8l\n\nATOM NACHR-C11-S1-01 (S1): In the mouse hippocampus, Shati/Nat8l mRNA colocalized with the neuronal marker NeuN but not with the astrocyte marker GFAP or the microglia marker Iba1, which the authors take to show that it is expressed only in neuronal cells there.\n\nEVIDENCE:\n[NACHR-p0112-s04] Shati/Nat8l mRNA positive cells colocalized with NeuN (a marker for neurons)- positive cells but not with GFAP (a marker for astrocytes)- or Iba1 (a marker for microglia)-positive cells.\n[NACHR-p0112-s05] These results show that Shati/Nat8l mRNA is only expressed in neuronal cells of the mouse hippocampus.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines marker colocalization observations with an inference of exclusively neuronal expression. / Combines experimental colocalization findings with the conclusion of neuron-exclusive expression.\n- L1_ONLY: revise — Retain the neuronal-expression fact; remove the marker-by-marker experimental observations and interpretive attribution. / Remove experimental marker details (NeuN, GFAP, Iba1) and author attribution; keep only the core fact of neuronal expression.\n- SOURCE_INDEPENDENT: hold — Reports a particular study's localization observations and interpretation, rather than a source-independent established property. / Drop 'which the authors take to show' attribution and experimental study details.",
+ "raw": "{\"atoms\": [{\"statement\": \"Shati/Nat8l mRNA is expressed only in neuronal cells of the mouse hippocampus.\", \"scope\": \"S1\", \"evidence_ids\": [\"NACHR-p0112-s05\"]}], \"note\": \"Dropped the marker colocalization details (NeuN, GFAP, Iba1) and the attribution, as the auditors asked. Kept the single claim of neuron-only expression, which s05 states directly.\"}",
+ "usage": {
+  "completion_tokens": 156,
+  "prompt_tokens": 923,
+  "total_tokens": 1079,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 156
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 923,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00340600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

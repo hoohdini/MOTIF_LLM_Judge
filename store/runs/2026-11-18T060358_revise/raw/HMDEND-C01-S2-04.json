@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C01-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Normal dendroidal set\n\nATOM HMDEND-C01-S2-04 (S2): A dendroidal set $X$ is normal if $\\mathrm{Aut}(T)$ acts freely on the set of non-degenerate $T$-dendrices of $X$ for every tree $T$; more generally, a monomorphism $u:X\\to Y$ is normal if $\\mathrm{Aut}(T)$ acts freely on the non-degenerate $T$-dendrices in $Y_T-u(X_T)$.\n\nEVIDENCE:\n[HMDEND-p0138-s32] Proposition 3.24 If X is a dendroidal set such that Aut(T) acts freely on the set nd(XT) of non-degenerateT-dendrices for everyT, then X is normal.\n[HMDEND-p0138-s33] More generally, if u : X →Y is a monomorphism and Aut(T) acts freely on the non-degenerate Tdendrices in YT −u(XT), then u is normal.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — States separate sufficient criteria for normal objects and normal monomorphisms. / Joins the criterion for a normal object and the criterion for a normal monomorphism; keep only the general monomorphism statement or split.\n- L1_ONLY: hold — Keep the general monomorphism criterion alone; the preceding object criterion adds a second fact.",
+ "raw": "{\"atoms\":[{\"statement\":\"If $u:X\\\\to Y$ is a monomorphism of dendroidal sets and $\\\\mathrm{Aut}(T)$ acts freely on the non-degenerate $T$-dendrices in $Y_T-u(X_T)$, then $u$ is normal.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0138-s33\"]},{\"statement\":\"If $X$ is a dendroidal set such that $\\\\mathrm{Aut}(T)$ acts freely on the set of non-degenerate $T$-dendrices of $X$ for every tree $T$, then $X$ is normal.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0138-s32\"]}],\"note\":\"Split the object and monomorphism criteria. The evidence states them as sufficient conditions, not as a definition, so the 'is normal if' wording became 'if ..., then ... is normal'.\"}",
+ "usage": {
+  "completion_tokens": 740,
+  "prompt_tokens": 862,
+  "total_tokens": 1602,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 862,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00912400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

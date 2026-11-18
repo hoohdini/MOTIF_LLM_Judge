@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C06-S1-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: USM allocation types\n\nATOM DPCPP2-C06-S1-03 (S1): A USM shared allocation is accessible on both host and device like a host allocation, but differs in that it is free to migrate automatically between host memory and device-attached memory without programmer intervention.\n\nEVIDENCE:\n[DPCPP2-p0183-s11] Like host allocations, shared allocations are accessible on both the host and device.\n[DPCPP2-p0183-s12] The difference between them is that shared allocations are free to migrate between host memory and device-attached memory, automatically, without our intervention.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Host/device accessibility and automatic migration capability are independently assessable properties. / Combines accessibility on both host and device with automatic migration behavior.",
+ "raw": "{\"atoms\": [{\"statement\": \"A USM shared allocation is free to migrate between host memory and device-attached memory automatically, without programmer intervention.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0183-s12\"]}, {\"statement\": \"A USM shared allocation is accessible on both the host and the device.\", \"scope\": \"S1\", \"evidence_ids\": [\"DPCPP2-p0183-s11\"]}], \"note\": \"Split into migration behavior (the distinguishing property) and dual accessibility. The comparison with host allocations is retained only implicitly, because the migration claim stands alone.\"}",
+ "usage": {
+  "completion_tokens": 209,
+  "prompt_tokens": 656,
+  "total_tokens": 865,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 209
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 656,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00340200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

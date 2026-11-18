@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C04-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: COMET\n\nATOM KGBDP-C04-S1-01 (S1): COMET is a context-aware RDF molecule matching framework that creates, identifies, and matches contextually equivalent RDF entities, merging entities that are equivalent according to a system-supplied context.\n\nEVIDENCE:\n[KGBDP-p0137-s07] COMET is an entity matching framework designed to create, identify, and match contextually equivalent RDF entities.\n[KGBDP-p0137-s08] Grounded on the entity matching component from the data integration technique proposed by Collarana et al. [84], we propose COMET, an entity matching approach to merge equivalent RDF entities based on context.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Delete “system-supplied”; the evidence states matching based on context but does not identify who supplies it. / Evidence says 'entity matching framework/approach', not 'RDF molecule matching framework', and 'based on context', not 'system-supplied context'. Soften wording to match evidence.\n- SOURCE_INDEPENDENT: hold — COMET is a specific system proposed by the authors in this source, not a general domain concept.",
+ "raw": "{\"atoms\": [{\"statement\": \"COMET is an entity matching framework designed to create, identify, and match contextually equivalent RDF entities.\", \"scope\": \"S1\", \"evidence_ids\": [\"KGBDP-p0137-s07\"]}, {\"statement\": \"COMET merges equivalent RDF entities based on context.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0137-s08\"]}], \"note\": \"Removed 'RDF molecule matching framework' and 'system-supplied context', which the evidence does not state. Split into a definition and a mechanism claim.\"}",
+ "usage": {
+  "completion_tokens": 198,
+  "prompt_tokens": 775,
+  "total_tokens": 973,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 198
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 775,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00353000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

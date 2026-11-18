@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C10-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intra-abdominal hypertension\n\nATOM IVFLUID-C10-S3-03 (S3): The IAP measurement standard is intermittent estimation via the bladder, with a maximal instillation of 20 to 25 mL of sterile saline through a urinary catheter, at end-expiration in the supine position with no abdominal muscle contractions, with the transducer zeroed where the midaxillary line crosses the iliac crest.\n\nEVIDENCE:\n[IVFLUID-p0452-s07] However, the gold standard for intermittent IAP estimation is via the bladder with a maximal instillation of 20–25 mL (1 mL/kg in children up to 10 kg) of sterile saline through a urinary catheter.\n[IVFLUID-p0452-s08] The transducer should be zeroed at the level where the midaxillary line crosses the iliac crest and IAP should be expressed in mmHg (conversion factor from mmHg to cmH2O is 1.36).\n[IVFLUID-p0452-s09] IAP should be measured at end-expiration in the supine position whilst abdominal muscle contractions are absent.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Soften the universal instillation-volume wording; the evidence specifies a pediatric exception of 1 mL/kg in children up to 10 kg. / Evidence specifies 'in adults' implicitly by noting '(1 mL/kg in children up to 10 kg)' for instillation volume; dropping the pediatric qualifier makes 20-25 mL overgeneralized.\n- SINGLE_CLAIM: revise — Measurement route, instillation volume, respiratory timing, posture, muscle relaxation, and transducer zeroing are independently assessable requirements. / Bundles route, instillation volume, respiratory/body/muscle conditions, and transducer zeroing level into one sentence.\n- SCOPE_LABEL: revise — S2: This describes how IAP is measured. / S2: Measurement procedure and standards belong in S2 (how it works/is measured), not S3.\n- L1_ONLY: revise — The sentence stacks multiple procedural conditions; split the measurement requirements into individual recall-level atoms. / Stacks four separate procedural criteria into one sentence, creating excessive load for a single recall item.",
+ "raw": "{\"atoms\": [{\"statement\": \"The gold standard for intermittent intra-abdominal pressure estimation is measurement via the bladder, with a maximal instillation of 20–25 mL of sterile saline through a urinary catheter (1 mL/kg in children up to 10 kg).\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0452-s07\"]}, {\"statement\": \"Intra-abdominal pressure should be measured at end-expiration in the supine position while abdominal muscle contractions are absent.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0452-s09\"]}, {\"statement\": \"For intra-abdominal pressure measurement, the transducer should be zeroed at the level where the midaxillary line crosses the iliac crest.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0452-s08\"]}], \"note\": \"Split the bundled atom into three procedural claims; added the pediatric volume exception; relabeled the scope from S3 to S2.\"}",
+ "usage": {
+  "completion_tokens": 350,
+  "prompt_tokens": 1162,
+  "total_tokens": 1512,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 350
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1162,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00582400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

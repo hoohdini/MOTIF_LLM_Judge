@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C03-S3-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Expected runtime transformer\n\nATOM FPPROG-C03-S3-04 (S3): Under demonic nondeterminism, the ert of a nondeterministic choice $\\{c_1\\}\\,\\square\\,\\{c_2\\}$ is the maximum of the two branches' expected runtimes, $\\max\\{\\mathrm{ert}[c_1](t),\\mathrm{ert}[c_2](t)\\}$, since the choice itself consumes no time and the program with the worst expected runtime is assumed to be executed.\n\nEVIDENCE:\n[FPPROG-p0211-s19] In particular, no probability distribution guiding which of the two programs is executed is known.\n[FPPROG-p0212-s02] Following the “demonic nondeterminism\" school of thought (cf. McIver and Morgan, 2004; Dijkstra, 1976), we assume that the program with the worst expected runtime will be executed, i.e. we take the maximum of both expected runtimes.\n[FPPROG-p0212-s04] ert � {c1} □{c2} � (t) = max � ert[c1](t),ert[c2](t) � .\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence does not state that 'the choice itself consumes no time'; delete that clause.\n- SCOPE_LABEL: revise — S2: This is the transformer’s operational rule for demonic choice, not a limitation or applicability boundary. / S2: This is a core compositional rule of how the ert transformer works on nondeterministic choice.",
+ "raw": "{\"atoms\":[{\"statement\":\"Under demonic nondeterminism, the expected runtime transformer of a nondeterministic choice is the maximum of the branches' expected runtimes: $\\\\mathrm{ert}[\\\\{c_1\\\\}\\\\,\\\\square\\\\,\\\\{c_2\\\\}](t)=\\\\max\\\\{\\\\mathrm{ert}[c_1](t),\\\\mathrm{ert}[c_2](t)\\\\}$, because the program with the worst expected runtime is assumed to be executed.\",\"scope\":\"S2\",\"evidence_ids\":[\"FPPROG-p0212-s02\",\"FPPROG-p0212-s04\"]}],\"note\":\"Removed the unsupported clause that the choice consumes no time; changed scope from S3 to S2 as the rule describes how ert works.\"}",
+ "usage": {
+  "completion_tokens": 265,
+  "prompt_tokens": 894,
+  "total_tokens": 1159,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 265
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 894,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00443800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

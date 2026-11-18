@@ -1,0 +1,30 @@
+{
+ "atom_id": "NACHR-C09-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Galantamine allosteric potentiation\n\nATOM NACHR-C09-S2-01 (S2): The authors infer that galantamine-enhanced microglial Aβ phagocytosis requires the combined actions of an acetylcholine-competitive agonist and the APL on nAChRs, supported by the finding that depleting choline (an acetylcholine-competitive α7 nAChR agonist) from the culture medium impedes the enhancement.\n\nEVIDENCE:\n[NACHR-p0151-s09] From these findings, we can assume that the galantamine-enhanced microglial Aβ phagocytosis requires the combined actions of an acetylcholine competitive agonist and the APL for nAChRs.\n[NACHR-p0151-s10] In fact, depletion of choline, an acetylcholine-competitive α7 nAChR agonist, from the culture medium impedes the enhancement.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines an inferred co-agonist requirement, choline's agonist identity, and a depletion-experiment result. / Combines the requirement for combined agonist/APL action with the experimental finding about choline depletion and the definition of choline as an alpha7 agonist.\n- L1_ONLY: revise — Retain the co-agonist requirement alone; remove the experimental support and embedded choline characterization. / Carries extra load by stacking the experimental proof (choline depletion in culture medium) onto the core mechanistic requirement.\n- SOURCE_INDEPENDENT: hold — As written, tests the authors' inference and a particular culture experiment rather than a source-independent mechanism claim. / Phrased as 'The authors infer...' and cites a specific experiment; drop attribution to state the general requirement for a co-agonist like choline.",
+ "raw": "{\"atoms\": [{\"statement\": \"Galantamine-enhanced microglial Aβ phagocytosis requires the combined actions of an acetylcholine-competitive agonist and the allosteric potentiating ligand (APL) for nicotinic acetylcholine receptors.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0151-s09\"]}, {\"statement\": \"Depleting choline, an acetylcholine-competitive α7 nAChR agonist, from the culture medium impedes galantamine's enhancement of microglial Aβ phagocytosis.\", \"scope\": \"S2\", \"evidence_ids\": [\"NACHR-p0151-s10\"]}], \"note\": \"Split the inferred co-agonist requirement from the choline-depletion result. The attribution was dropped, and each claim cites only the sentence that states it.\"}",
+ "usage": {
+  "completion_tokens": 282,
+  "prompt_tokens": 987,
+  "total_tokens": 1269,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 282
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 987,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00479400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

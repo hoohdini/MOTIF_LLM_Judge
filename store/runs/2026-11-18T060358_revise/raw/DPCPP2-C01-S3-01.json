@@ -1,0 +1,27 @@
+{
+ "atom_id": "DPCPP2-C01-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Memory ordering\n\nATOM DPCPP2-C01-S3-01 (S3): Devices are required to support at least memory_order::relaxed for atomic operations, but fence operations must support at least relaxed, acquire, release, and acq_rel, a stronger minimum than for atomics.\n\nEVIDENCE:\n[DPCPP2-p0560-s15] All devices are required to support at least memory_order::relaxed.\n[DPCPP2-p0561-s03] All devices are required to support at least memory_order::relaxed, memory_order::acquire, memory_order::release, and memory_order::acq_rel.\n[DPCPP2-p0561-s04] Note that the minimum requirement for fences is stronger than the minimum requirement for atomic operations, since such fences are essential for reasoning about memory order in the presence of barriers.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The minimum supported orders for atomics and fences are separate, independently assessable requirements. / Combines minimum device requirements for atomic operations and minimum device requirements for fence operations.\n- SOURCE_INDEPENDENT: hold — Must specify 'In SYCL' because 'Devices' without context is ambiguous to a general domain expert.",
+ "raw": "{\"atoms\":[{\"statement\":\"In SYCL, all devices are required to support at least memory_order::relaxed for atomic operations.\",\"scope\":\"S3\",\"evidence_ids\":[\"DPCPP2-p0560-s15\",\"DPCPP2-p0561-s04\"]},{\"statement\":\"In SYCL, all devices are required to support at least memory_order::relaxed, memory_order::acquire, memory_order::release, and memory_order::acq_rel for fence operations.\",\"scope\":\"S3\",\"evidence_ids\":[\"DPCPP2-p0561-s03\",\"DPCPP2-p0561-s04\"]}],\"note\":\"Split the atomics and fences minimums into separate atoms. The evidence never names the subject of the two sentences about supported orders. I took atomics for the relaxed-only sentence and fences for the four-order sentence from the comparison in DPCPP2-p0561-s04. 'In SYCL' was added at the auditor's request; the evidence sentences themselves do not name SYCL.\"}",
+ "usage": {
+  "completion_tokens": 982,
+  "prompt_tokens": 805,
+  "total_tokens": 1787,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 805,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01143000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

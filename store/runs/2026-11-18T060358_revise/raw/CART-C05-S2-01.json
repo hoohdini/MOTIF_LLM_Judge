@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C05-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: antigen loss\n\nATOM CART-C05-S2-01 (S2): Biallelic events at the BCMA locus, namely homozygous BCMA gene deletions in two case reports and a heterozygous BCMA deletion combined with a BCMA mutation in a third, were identified as a molecular mechanism of irreversible BCMA loss after anti-BCMA CAR-T therapy.\n\nEVIDENCE:\n[CART-p0024-s14] However, three case reports described irreversible BCMA loss after anti-BCMA CAR-T cell treatment (Da Via et al. 2021; Samur et al. 2020; Leblay et al. 2020).\n[CART-p0024-s15] In two of these cases, homozygous BCMA gene deletions were identified as the biological underpinning of antigen loss.\n[CART-p0024-s16] In the third case, the authors found a heterozygous BCMA deletion together with a BCMA mutation, leading to antigen loss.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence does not establish that the heterozygous deletion and mutation affect different alleles, as the biallelic characterization requires. / Evidence does not use the term 'Biallelic events at the BCMA locus'; drop that framing or stick to homozygous deletion and heterozygous deletion plus mutation.\n- SINGLE_CLAIM: revise — Combines two distinct genetic mechanisms and their independently assessable case-report counts. / Combines two distinct genetic mechanisms of BCMA loss and specific case report counts.\n- L1_ONLY: revise — Remove case-report counts and separate the genetic mechanisms into individual recall-level facts. / Carries extra load by requiring recall of exact numbers of case reports ('in two case reports... in a third').\n- SOURCE_INDEPENDENT: hold — The exact distribution of mechanisms across three case reports is a source-specific finding. / Tied to specific case report counts rather than stating the general molecular mechanisms of irreversible BCMA loss.",
+ "raw": "{\"atoms\": [{\"statement\": \"Homozygous BCMA gene deletions were identified as the biological basis of irreversible BCMA loss after anti-BCMA CAR-T cell treatment.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0024-s14\", \"CART-p0024-s15\"]}, {\"statement\": \"A heterozygous BCMA deletion together with a BCMA mutation was identified as the cause of irreversible BCMA loss after anti-BCMA CAR-T cell treatment.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0024-s14\", \"CART-p0024-s16\"]}], \"note\": \"Removed the unsupported 'biallelic' framing and the case-report counts; split the two genetic mechanisms into separate atoms.\"}",
+ "usage": {
+  "completion_tokens": 268,
+  "prompt_tokens": 1071,
+  "total_tokens": 1339,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 268
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1071,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00482200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

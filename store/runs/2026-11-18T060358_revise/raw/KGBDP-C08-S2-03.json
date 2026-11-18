@@ -1,0 +1,27 @@
+{
+ "atom_id": "KGBDP-C08-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Feature-based semantic similarity\n\nATOM KGBDP-C08-S2-03 (S2): In SANSA's neighbourhood-based feature measures, the feature set $f(u)$ of a node $u$ is the set of all neighbours of $u$, and $|f(u)|$ is its cardinality, i.e. the number of elements in that set.\n\nEVIDENCE:\n[KGBDP-p0120-s23] Here, f(u) is the subset of all neighbours of the node u and |f(u)| the cardinality of f(u) that counts the number of elements in f(u).\n[KGBDP-p0121-s16] For any node u, the notation f(u) stands for the set of all neighbours of u.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The definition of the feature set and the meaning of its cardinality notation are separately assessable. / Joins the definition of the feature set f(u) with the notation for its cardinality |f(u)|.\n- SOURCE_INDEPENDENT: hold — Drop 'In SANSA's neighbourhood-based feature measures'; representing a node's features by its neighbor set f(u) is general.",
+ "raw": "{\"atoms\":[{\"statement\":\"In a neighbourhood-based feature representation, the feature set $f(u)$ of a node $u$ is the set of all neighbours of $u$.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0121-s16\"]},{\"statement\":\"For a node $u$ with feature set $f(u)$, $|f(u)|$ is the cardinality of $f(u)$, that is, the number of elements in $f(u)$.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0120-s23\"]}],\"note\":\"Split the definition of f(u) from the cardinality notation, and removed the SANSA framing as the auditors asked.\"}",
+ "usage": {
+  "completion_tokens": 536,
+  "prompt_tokens": 773,
+  "total_tokens": 1309,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 773,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00690600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

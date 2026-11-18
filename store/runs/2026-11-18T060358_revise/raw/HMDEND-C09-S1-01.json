@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C09-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Left Bousfield localization\n\nATOM HMDEND-C09-S1-01 (S1): An object $E$ of a model category is $\\lambda$-local if, for every morphism $A\\to B$ in $\\lambda$, the map $\\mathrm{Map}_{\\mathcal{E}}(B,E)\\to \\mathrm{Map}_{\\mathcal{E}}(A,E)$ is a weak equivalence of simplicial sets, and it is $\\lambda$-fibrant if it is in addition fibrant in $\\mathcal{E}$.\n\nEVIDENCE:\n[HMDEND-p0480-s01] Definition 11.19 An object E in E is λ-local (or just local if λ is clear from context) if for any morphism A →B in λ, the morphism\n[HMDEND-p0480-s02] MapE(B, E) →MapE(A, E).\n[HMDEND-p0480-s03] is a weak equivalence of simplicial sets.\n[HMDEND-p0480-s04] If E is in addition fibrant in E, we say that E is λ-fibrant.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Defines both λ-local and λ-fibrant objects; these definitions can be assessed separately. / Defines two separate concepts: lambda-local object and lambda-fibrant object.\n- L1_ONLY: hold — Keep one definition per atom; the additional λ-fibrant definition introduces a second technical concept.",
+ "raw": "{\"atoms\": [{\"statement\": \"An object $E$ of a model category $\\\\mathcal{E}$ is $\\\\lambda$-local if, for every morphism $A\\\\to B$ in $\\\\lambda$, the map $\\\\mathrm{Map}_{\\\\mathcal{E}}(B,E)\\\\to \\\\mathrm{Map}_{\\\\mathcal{E}}(A,E)$ is a weak equivalence of simplicial sets.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0480-s01\", \"HMDEND-p0480-s02\", \"HMDEND-p0480-s03\"]}, {\"statement\": \"A $\\\\lambda$-local object of a model category $\\\\mathcal{E}$ that is also fibrant in $\\\\mathcal{E}$ is called $\\\\lambda$-fibrant.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0480-s01\", \"HMDEND-p0480-s04\"]}], \"note\": \"Split the definition into separate atoms for λ-local and λ-fibrant objects.\"}",
+ "usage": {
+  "completion_tokens": 361,
+  "prompt_tokens": 878,
+  "total_tokens": 1239,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 361
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 878,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00536600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

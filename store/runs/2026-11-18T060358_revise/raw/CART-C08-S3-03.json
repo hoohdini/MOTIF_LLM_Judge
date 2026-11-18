@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C08-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: lymphodepletion\n\nATOM CART-C08-S3-03 (S3): Lymphodepleting conditioning has negative effects including pancytopenia and prolonged immune suppression, which add to the enhanced risk of viral infections after CAR-T cell treatment.\n\nEVIDENCE:\n[CART-p0129-s05] The negative effects of conditioning regimens include pancytopenia and pro-\n[CART-p0129-s06] longed immune suppression and add to the enhanced risk of (viral) infections seen after CAR-T cell treatment.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Causing pancytopenia and prolonged immune suppression, and contributing to infection risk, are separately assessable adverse-effect claims. / Combines the direct toxicities (pancytopenia and prolonged immune suppression) with the downstream consequence (enhanced risk of viral infections).\n- L1_ONLY: hold — Separate the adverse-effect list from its additional downstream infection-risk claim.",
+ "raw": "{\"atoms\": [{\"statement\": \"The negative effects of lymphodepleting conditioning regimens include pancytopenia and prolonged immune suppression.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0129-s05\", \"CART-p0129-s06\"]}, {\"statement\": \"The negative effects of conditioning regimens add to the enhanced risk of viral infections seen after CAR-T cell treatment.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0129-s05\", \"CART-p0129-s06\"]}], \"note\": \"Split the direct toxicities from the downstream infection-risk contribution. The evidence sentences refer to 'conditioning regimens' generally, so the wording is kept at that level.\"}",
+ "usage": {
+  "completion_tokens": 248,
+  "prompt_tokens": 734,
+  "total_tokens": 982,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 248
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 734,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00394800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

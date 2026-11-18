@@ -1,0 +1,27 @@
+{
+ "atom_id": "DPCPP2-C06-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: USM allocation types\n\nATOM DPCPP2-C06-S2-02 (S2): When a host allocation is accessed from a device, its data does not migrate to device-local memory but is typically sent over a bus such as PCI Express that connects the device to the host.\n\nEVIDENCE:\n[DPCPP2-p0103-s12] However, when such a pointer is accessed, the data always comes from host memory.\n[DPCPP2-p0103-s13] If it is accessed on a device, the\n[DPCPP2-p0104-s01] data does not migrate from the host to device-local memory.\n[DPCPP2-p0104-s02] Instead, data is typically sent over a bus, such as PCI Express (PCI-E), that connects the device to the host.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentences describe an unidentified pointer; they do not establish that the nonmigration and bus-transfer behavior belongs to host allocations.\n- SINGLE_CLAIM: revise — Nonmigration and the typical bus-transfer mechanism can be assessed independently. / Combines the lack of migration to device-local memory with the hardware transport mechanism (sending over a bus like PCIe).",
+ "raw": "{\"atoms\":[{\"statement\":\"When a pointer whose data always comes from host memory is accessed on a device, the data does not migrate from the host to device-local memory.\",\"scope\":\"S2\",\"evidence_ids\":[\"DPCPP2-p0103-s12\",\"DPCPP2-p0103-s13\",\"DPCPP2-p0104-s01\"]},{\"statement\":\"When a pointer whose data always comes from host memory is accessed on a device, the data is typically sent over a bus, such as PCI Express, that connects the device to the host.\",\"scope\":\"S2\",\"evidence_ids\":[\"DPCPP2-p0103-s12\",\"DPCPP2-p0103-s13\",\"DPCPP2-p0104-s02\"]}],\"note\":\"The evidence only says 'such a pointer' (data always from host memory) and never names host allocations, so the atoms are worded in terms of that stated property instead. The original claim is split into nonmigration and bus transfer.\"}",
+ "usage": {
+  "completion_tokens": 655,
+  "prompt_tokens": 789,
+  "total_tokens": 1444,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 789,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00812800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

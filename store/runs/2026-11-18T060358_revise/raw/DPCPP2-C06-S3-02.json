@@ -1,0 +1,27 @@
+{
+ "atom_id": "DPCPP2-C06-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: USM allocation types\n\nATOM DPCPP2-C06-S3-02 (S3): If a device cannot migrate memory on demand, shared allocations are limited by the total memory attached to the device, whereas a device supporting on-demand migration can oversubscribe its attached memory, possibly with a performance penalty from extra data movement.\n\nEVIDENCE:\n[DPCPP2-p0199-s18] that allocations are limited by the total amount of memory attached to a device.\n[DPCPP2-p0199-s19] If a device cannot migrate memory on demand, it cannot migrate data to the host to make room to bring in different data.\n[DPCPP2-p0199-s20] If a device does support on-demand migration, it is possible to oversubscribe its attached memory, allowing a kernel to compute on more data than the device’s memory could normally contain, although this flexibility may come with a performance penalty due to extra data movement.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence states memory-capacity and oversubscription consequences but does not identify shared allocations as their allocation-type scope.\n- SINGLE_CLAIM: revise — The restricted-migration capacity limit, on-demand oversubscription capability, and possible performance penalty are independently assessable claims. / Combines the memory capacity limit when lacking on-demand migration with the ability to oversubscribe memory (and its performance penalty) when supported.\n- L1_ONLY: hold — Split the two migration regimes and remove the performance-penalty add-on to produce individual recall-level facts.",
+ "raw": "{\"atoms\":[{\"statement\":\"If a device cannot migrate memory on demand, allocations are limited by the total amount of memory attached to that device.\",\"scope\":\"S3\",\"evidence_ids\":[\"DPCPP2-p0199-s18\",\"DPCPP2-p0199-s19\"]},{\"statement\":\"A device that supports on-demand migration can oversubscribe its attached memory, allowing a kernel to compute on more data than the device's memory could normally contain.\",\"scope\":\"S2\",\"evidence_ids\":[\"DPCPP2-p0199-s20\"]}],\"note\":\"The evidence never names shared allocations, so the claims refer to allocations generally. Split the original into the two migration regimes. Dropped the performance-penalty add-on.\"}",
+ "usage": {
+  "completion_tokens": 525,
+  "prompt_tokens": 905,
+  "total_tokens": 1430,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 905,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00706000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

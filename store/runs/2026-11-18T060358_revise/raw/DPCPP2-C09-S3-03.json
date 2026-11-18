@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C09-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Group barrier\n\nATOM DPCPP2-C09-S3-03 (S3): Communication and synchronization between work-items in the same work-group is guaranteed to be safe only when performed with the provided barrier and collective functions, and hand-coded synchronization routines may deadlock.\n\nEVIDENCE:\n[DPCPP2-p0146-s12] Communication and synchronization between work-items in the same work-group is only guaranteed to be safe when performed using the barrier and collective functions provided, and hand-coded synchronization routines may deadlock.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the restriction on guaranteed-safe synchronization with a separate possible-deadlock claim about hand-coded routines. / Combines the guarantee of safety using provided barrier/collective functions with the claim that hand-coded routines may deadlock.\n- L1_ONLY: hold — Retain the guaranteed-safety restriction; remove the additional claim about hand-coded routines.",
+ "raw": "{\"atoms\": [{\"statement\": \"Communication and synchronization between work-items in the same work-group is only guaranteed to be safe when performed using the provided barrier and collective functions.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0146-s12\"]}, {\"statement\": \"Hand-coded synchronization routines between work-items in the same work-group may deadlock.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0146-s12\"]}], \"note\": \"Split the original atom into the safety-guarantee restriction and the separate deadlock risk for hand-coded routines.\"}",
+ "usage": {
+  "completion_tokens": 208,
+  "prompt_tokens": 724,
+  "total_tokens": 932,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 208
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 724,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00352800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

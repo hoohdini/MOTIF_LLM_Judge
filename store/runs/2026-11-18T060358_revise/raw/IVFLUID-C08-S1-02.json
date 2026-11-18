@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C08-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Deresuscitation\n\nATOM IVFLUID-C08-S1-02 (S1): Late Conservative Fluid Management (LCFM) is defined as 2 consecutive days of negative fluid balance within the first week of the ICU stay, and describes a moderate fluid management strategy after the initial early adequate fluid management to avoid or reverse fluid overload.\n\nEVIDENCE:\n[IVFLUID-p0207-s02] Late Conservative Fluid Management (LCFM) describes a moderate fluid management strategy following the initial EAFM in order to avoid (or reverse) fluid overload.\n[IVFLUID-p0207-s15] Definitions and Key Messages • Late Conservative Fluid Management (LCFM) is defined as 2 consecutive days\n[IVFLUID-p0207-s16] of negative fluid balance within the first week of the ICU stay.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Separately asserts the operational definition and the strategy's timing and purpose. / Combines the operational definition (2 consecutive days of negative balance) with its strategic role/rationale.\n- L1_ONLY: hold — Keep the negative-balance definition; remove the additional strategy description and early-management sequencing.",
+ "raw": "{\"atoms\": [{\"statement\": \"Late Conservative Fluid Management (LCFM) is defined as 2 consecutive days of negative fluid balance within the first week of the ICU stay.\", \"scope\": \"S1\", \"evidence_ids\": [\"IVFLUID-p0207-s15\", \"IVFLUID-p0207-s16\"]}], \"note\": \"Dropped the strategy description (moderate strategy after initial EAFM to avoid or reverse fluid overload) per the auditor findings, keeping only the operational definition. The dropped part could be a separate atom, but the auditors asked to remove it.\"}",
+ "usage": {
+  "completion_tokens": 201,
+  "prompt_tokens": 813,
+  "total_tokens": 1014,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 201
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 813,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00363600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

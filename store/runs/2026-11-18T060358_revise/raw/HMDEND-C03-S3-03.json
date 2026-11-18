@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C03-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Shuffles of trees\n\nATOM HMDEND-C03-S3-03 (S3): Condition (4) in the definition of a shuffle (a stump above a non-leaf edge $(s,t)$ requires $s$ to be a leaf or have a stump above it in $S$ and $t$ to be a leaf or have a stump above it in $T$) is needed for maximality, since a labelled tree satisfying conditions (1)–(3) but not (4) can be a proper face of a genuine shuffle and so fail to be a shuffle.\n\nEVIDENCE:\n[HMDEND-p0156-s09] (4) If (s, t) is not a leaf of A and the vertex above it is a stump (i.e., has no input\n[HMDEND-p0156-s10] edges), then s is either a leaf or has a stump above it in S and t is either a leaf or has a stump above it in T.\n[HMDEND-p0156-s17] the tree on the left below satisfies conditions (1)–(3), but it is not ‘maximal’ in the sense that it is a face (contract b2 and c2) of the labelled tree on the right, which is a shuffle.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Soften “needed for maximality” to “excludes some nonmaximal labelled trees”; the evidence supplies an example, not a general maximality theorem.\n- SINGLE_CLAIM: hold — It repeats the stump condition and separately asserts its role in excluding nonmaximal candidates.\n- SCOPE_LABEL: hold — S1: Explains the role of one of the defining axioms of a shuffle.\n- L1_ONLY: hold — Remove the full parenthetical definition and numbered-condition dependencies; retain a standalone fact about the stump condition's maximality role.\n- SOURCE_INDEPENDENT: hold — References 'Condition (4)' and 'conditions (1)–(3)' by the book's numbering; replace with the substantive names of the conditions.\n- NO_OVERLAP: hold — Repeats the entire definition of the stump condition already stated in HMDEND-C03-S1-03.",
+ "raw": "{\"atoms\":[{\"statement\":\"A labelled tree can satisfy the first three conditions of the definition of a shuffle and still fail to be maximal, because it can be a face of a labelled tree that is a shuffle.\",\"scope\":\"S3\",\"evidence_ids\":[\"HMDEND-p0156-s17\"]}],\"note\":\"Evidence does not state that condition (4) is what rules out the nonmaximal example, so the atom drops the claim that condition (4) is needed for maximality. The stump-condition definition is dropped as a duplicate.\"}",
+ "usage": {
+  "completion_tokens": 715,
+  "prompt_tokens": 1095,
+  "total_tokens": 1810,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1095,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00934000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

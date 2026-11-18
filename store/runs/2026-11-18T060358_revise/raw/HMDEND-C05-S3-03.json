@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C05-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Inner Kan complex\n\nATOM HMDEND-C05-S3-03 (S3): For a general simplicial set $X$ the category $\\tau(X)$ is hard to control because it is defined only by generators and relations, but when $X$ is an inner Kan complex $\\tau(X)$ is much easier to describe.\n\nEVIDENCE:\n[HMDEND-p0183-s07] For a general simplicial set X, the category τ(X) is hard to control, since it is only defined by generators and relations.\n[HMDEND-p0183-s08] But if X is an inner Kan complex the category τ(X) is much easier to describe.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — It combines the general generators-and-relations characterization with separate judgments about difficulty in general and inner Kan cases. / Combines the generators-and-relations nature of tau(X) for general simplicial sets with the comparative ease of describing tau(X) for inner Kan complexes.\n- L1_ONLY: revise — Remove the evaluative difficulty judgments and contrast; retain a concrete recall-level characterization. / Carries evaluative/motivational add-ons ('hard to control', 'much easier to describe') rather than stating a clean factual contrast.\n- SOURCE_INDEPENDENT: hold — “Hard to control” and “much easier” are subjective author evaluations, not fixed mathematical properties. / Evaluative phrasing ('hard to control', 'much easier to describe') reflects the authors' narrative framing rather than a strictly objective mathematical claim.\n- CENTRALITY: fail — Comparative ease of description is peripheral; the actual homotopy-category construction is the central knowledge. / Merely a transitional/motivational remark introducing the concrete description of tau(X), not a substantive mathematical property.",
+ "raw": "{\"atoms\": [{\"statement\": \"For a general simplicial set $X$, the category $\\\\tau(X)$ is defined only by generators and relations.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0183-s07\"]}], \"note\": \"Dropped the evaluative claims ('hard to control', 'much easier to describe'), because the evidence gives no concrete description of $\\\\tau(X)$ for inner Kan complexes. Only the factual definitional statement about general simplicial sets remains.\"}",
+ "usage": {
+  "completion_tokens": 420,
+  "prompt_tokens": 998,
+  "total_tokens": 1418,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 998,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00619600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

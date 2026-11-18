@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C10-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: immune monitoring\n\nATOM CART-C10-S1-02 (S1): CAR-T cell expansion and persistence are described as critical parameters for both therapeutic efficacy and toxicity, which is why they are the central targets of post-infusion monitoring.\n\nEVIDENCE:\n[CART-p0167-s07] CAR-T cell expansion and persistence are critical parameters for therapeutic efficacy and toxicity (Locke et al. 2020).\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence states importance for efficacy and toxicity, not their characterization as the central targets of post-infusion monitoring. / Evidence does not explicitly state 'which is why they are the central targets of post-infusion monitoring'; delete this clause.\n- SINGLE_CLAIM: hold — Joins clinical importance with a separate claim about monitoring priorities.\n- L1_ONLY: hold — Remove the explanatory conclusion about central monitoring targets; retain their importance for efficacy and toxicity.\n- SOURCE_INDEPENDENT: revise — Replace 'are described as' with a direct statement of the general claim. / Drop 'are described as' to state the fact directly.",
+ "raw": "{\"atoms\": [{\"statement\": \"CAR-T cell expansion and persistence are critical parameters for both therapeutic efficacy and toxicity.\", \"scope\": \"S1\", \"evidence_ids\": [\"CART-p0167-s07\"]}], \"note\": \"Removed the unsupported clause about being the central targets of post-infusion monitoring and dropped the 'are described as' hedge, as the auditors asked.\"}",
+ "usage": {
+  "completion_tokens": 138,
+  "prompt_tokens": 792,
+  "total_tokens": 930,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 138
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 792,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00296400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

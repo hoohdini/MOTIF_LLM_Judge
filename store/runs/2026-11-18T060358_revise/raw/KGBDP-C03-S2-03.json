@@ -1,0 +1,27 @@
+{
+ "atom_id": "KGBDP-C03-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Federated query processing\n\nATOM KGBDP-C03-S2-03 (S2): Federated query engines use five join methods: nested loop join, bound-join, hash join, symmetric join, and multiple join; bound-join differs from nested loop join by executing the inner sub-query for a set of bindings rather than for every single binding of the outer intermediate results.\n\nEVIDENCE:\n[KGBDP-p0091-s16] Five different join methods are used in federated query engines: nested loop join, bound-join, hash join, symmetric join, and multiple join [335].\n[KGBDP-p0091-s19] Bound-join, like NLJ, executes inner sub-query for the set of bindings, unlike NLJ which executes the inner sub-query for every single binding of the intermediate results from the outer sub-query.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The inventory of five join methods and the bound-join versus nested-loop execution distinction are independently assessable claims. / Joins two separate claims: the five join methods used in federated query engines, and how bound-join differs from nested loop join.\n- L1_ONLY: revise — Both facts are recall-level, but combining the method inventory with an execution comparison adds load. Retain one and separate the other. / Combining the five join methods list with the operational mechanism of bound-join vs. NLJ creates excessive recall load in one sentence.\n- SOURCE_INDEPENDENT: hold — Saying there are 'five join methods' (including non-standard terms like 'multiple join') reflects the specific taxonomy of the cited survey [335], not a fixed universal count.",
+ "raw": "{\"atoms\":[{\"statement\":\"Bound-join executes the inner sub-query for a set of bindings, whereas nested loop join executes the inner sub-query for every single binding of the intermediate results from the outer sub-query.\",\"scope\":\"S2\",\"evidence_ids\":[\"KGBDP-p0091-s19\"]},{\"statement\":\"Five join methods are used in federated query engines: nested loop join, bound-join, hash join, symmetric join, and multiple join.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0091-s16\"]}],\"note\":\"Split into two atoms. The sentence in s19 says bound-join is 'like NLJ' but then contrasts it with NLJ. The atom keeps only the clear contrast, that bound-join uses a set of bindings and NLJ uses every single binding.\"}",
+ "usage": {
+  "completion_tokens": 593,
+  "prompt_tokens": 927,
+  "total_tokens": 1520,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 927,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00778400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

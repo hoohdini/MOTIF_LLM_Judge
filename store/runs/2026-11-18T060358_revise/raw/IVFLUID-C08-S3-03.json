@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C08-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Deresuscitation\n\nATOM IVFLUID-C08-S3-03 (S3): De-resuscitation is an active fluid removal to treat fluid accumulation causing organ dysfunction, whereas de-escalation means discontinuing or reducing IV fluids to prevent fluid accumulation.\n\nEVIDENCE:\n[IVFLUID-p0515-s09] De-escalation means discontinuation or reducing IV fluids to prevent fluid accumulation.\n[IVFLUID-p0515-s10] De-resuscitation is an active fluid removal to treat fluid accumulation causing organ dysfunction.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Joins independently assessable definitions of de-resuscitation and de-escalation. / States two separate definitions (de-resuscitation and de-escalation).\n- SCOPE_LABEL: revise — S1: Defines and distinguishes two strategies rather than stating a stopping criterion or applicability limit. / S1: Distinguishing the definition of de-resuscitation from de-escalation belongs in what it is (S1).\n- L1_ONLY: hold — The de-escalation clause introduces a second technical concept; separate it from the de-resuscitation definition.\n- NO_OVERLAP: hold — Its de-resuscitation definition repeats the active-removal and organ-damage-treatment claim stated more fully in IVFLUID-C08-S1-03.",
+ "raw": "{\"atoms\":[{\"statement\":\"De-resuscitation is an active fluid removal to treat fluid accumulation causing organ dysfunction.\",\"scope\":\"S1\",\"evidence_ids\":[\"IVFLUID-p0515-s10\"]},{\"statement\":\"De-escalation means discontinuation or reduction of IV fluids to prevent fluid accumulation.\",\"scope\":\"S1\",\"evidence_ids\":[\"IVFLUID-p0515-s09\"]}],\"note\":\"Split the joined definitions into two atoms and relabeled both as S1 (definitions). The auditors flagged overlap of the de-resuscitation definition with IVFLUID-C08-S1-03, so a downstream deduplication step may drop it.\"}",
+ "usage": {
+  "completion_tokens": 239,
+  "prompt_tokens": 876,
+  "total_tokens": 1115,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 239
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 876,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00414200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

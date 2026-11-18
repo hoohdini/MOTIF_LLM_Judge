@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C04-S3-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: tumour antigen\n\nATOM CART-C04-S3-04 (S3): Pan-B cell antigens (CD19, CD20, CD22) and maturation antigens such as BCMA are abundantly expressed on both malignant and normal cells, and count as good CAR-T targets only because depletion of normal B cells is generally well tolerated.\n\nEVIDENCE:\n[CART-p0019-s11] nize tumour-specific target antigens but pan-B cell antigens (CD19, CD20, CD22) or maturation antigens (e.g., BCMA), which are abundantly expressed cell surface molecules on both malignant and normal cells (Sadelain et al. 2017; June and Sadelain 2018).\n[CART-p0019-s12] In reality, these are only ‘ideal’ or ‘good’ tumour antigens because the depletion of normal B cells is generally well tolerated.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines antigen expression on normal and malignant cells with tolerability as the reason for target suitability. / Joins the expression pattern of pan-B/maturation antigens with the reason they are considered good targets.\n- L1_ONLY: hold — Keep the tolerability-based target-selection fact and separate the antigen-expression list.\n- NO_OVERLAP: hold — The first clause duplicates the antigen expression claim in CART-C04-S1-05.",
+ "raw": "{\"atoms\": [{\"statement\": \"Pan-B cell antigens (CD19, CD20, CD22) and maturation antigens such as BCMA are only 'ideal' or 'good' tumour antigens because depletion of normal B cells is generally well tolerated.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0019-s12\"]}], \"note\": \"Split per auditors: the expression-pattern claim (abundant on malignant and normal cells) duplicates CART-C04-S1-05 and is dropped; the tolerability-based limitation is kept as one atom. The evidence says 'ideal' or 'good' tumour antigens, not specifically CAR-T targets, so the wording follows the evidence.\"}",
+ "usage": {
+  "completion_tokens": 241,
+  "prompt_tokens": 861,
+  "total_tokens": 1102,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 241
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 861,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00413200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C03-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Shuffles of trees\n\nATOM HMDEND-C03-S1-01 (S1): A shuffle of two trees $S$ and $T$ is a tree $A$ whose edges are labelled by pairs $(s,t)$ of edges of $S$ and $T$ such that the root is labelled $(r_S,r_T)$ and the set of leaf labels is the cartesian product of the leaf sets of $S$ and $T$.\n\nEVIDENCE:\n[HMDEND-p0156-s01] Definition 4.6 A shuffle of two trees S and T is a tree A together with a labelling of its edges by pairs (s, t), where s and t are edges of S and T respectively, satisfying the following conditions:\n[HMDEND-p0156-s02] (1) The root of A is labelled by the pair (rS, rT) of root edges of S and T.\n[HMDEND-p0156-s03] (2) The set of labels of the leaves of A is the cartesian products of the sets of leaves\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Replace definitional wording with necessary-condition wording; root and leaf labels alone do not supply the complete definition.\n- SINGLE_CLAIM: revise — Root labelling and the Cartesian-product leaf-label condition are independently assessable requirements. / Combines two separate conditions (root label and leaf label set) and states 'is a tree... such that' as if these two conditions alone define a shuffle.",
+ "raw": "{\"atoms\": [{\"statement\": \"In a shuffle of two trees $S$ and $T$, the root of the shuffle tree $A$ is labelled by the pair $(r_S, r_T)$ of the root edges of $S$ and $T$.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0156-s01\", \"HMDEND-p0156-s02\"]}, {\"statement\": \"In a shuffle of two trees $S$ and $T$, the set of labels of the leaves of the shuffle tree $A$ is the cartesian product of the leaf sets of $S$ and $T$.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0156-s01\", \"HMDEND-p0156-s03\"]}], \"note\": \"Split into two separate conditions. Each is stated as a condition on a shuffle rather than as a full definition, because the evidence shows the definition is truncated and the list of conditions may be incomplete.\"}",
+ "usage": {
+  "completion_tokens": 319,
+  "prompt_tokens": 871,
+  "total_tokens": 1190,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 319
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 871,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00493200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

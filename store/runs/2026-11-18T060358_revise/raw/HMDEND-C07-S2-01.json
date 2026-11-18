@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C07-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Minimal fibration\n\nATOM HMDEND-C07-S2-01 (S2): Any fibrewise J-homotopy equivalence over $S$ between two minimal J-fibrations $p:X\\to S$ and $q:Y\\to S$ of ∞-categories is an isomorphism, and the same holds for minimal Kan fibrations between general simplicial sets.\n\nEVIDENCE:\n[HMDEND-p0224-s17] Proposition 5.70 Let p : X →S and q : Y →S be minimal J-fibrations between ∞-categories.\n[HMDEND-p0224-s18] Then any fibrewise J-homotopy equivalence ϕ : X →Y over S is an isomorphism.\n[HMDEND-p0224-s19] The same is true for minimal Kan fibrations between general simplicial sets.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The rigidity statements for minimal J-fibrations and minimal Kan fibrations are separately assessable; split them. / Joins two separately assessable claims: one for minimal J-fibrations between ∞-categories and one for minimal Kan fibrations between simplicial sets.",
+ "raw": "{\"atoms\": [{\"statement\": \"Let $p:X\\\\to S$ and $q:Y\\\\to S$ be minimal J-fibrations between ∞-categories; then any fibrewise J-homotopy equivalence $\\\\phi:X\\\\to Y$ over $S$ is an isomorphism.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0224-s17\", \"HMDEND-p0224-s18\"]}, {\"statement\": \"For minimal Kan fibrations between general simplicial sets, any fibrewise homotopy equivalence over the base is an isomorphism.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0224-s18\", \"HMDEND-p0224-s19\"]}], \"note\": \"Split into the J-fibration case and the Kan fibration case, as the auditors asked. The second atom rests on the evidence statement that 'the same is true' for Kan fibrations.\"}",
+ "usage": {
+  "completion_tokens": 313,
+  "prompt_tokens": 785,
+  "total_tokens": 1098,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 313
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 785,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00470000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

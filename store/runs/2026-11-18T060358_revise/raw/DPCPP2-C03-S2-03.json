@@ -1,0 +1,27 @@
+{
+ "atom_id": "DPCPP2-C03-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: atomic_ref\n\nATOM DPCPP2-C03-S2-03 (S2): Because atomic_ref wraps an existing non-atomic variable, non-atomic data can be created on the host, transferred to the device, and treated as atomic data only after the transfer.\n\nEVIDENCE:\n[DPCPP2-p0564-s05] These are exactly the semantics needed by SYCL, since they allow us to create non-atomic data on the host, transfer that data to the device, and treat it as atomic data only after it has been transferred.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence states the host-to-device workflow but does not state the added mechanism that atomic_ref wraps an existing non-atomic variable. / Evidence says 'These are exactly the semantics...', referring to previous sentences not cited here. Drop the 'Because atomic_ref wraps...' clause.\n- SINGLE_CLAIM: hold — Combines wrapping semantics with the host-to-device workflow those semantics enable.\n- L1_ONLY: hold — Remove the causal wrapping clause and retain the supported host-to-device usage fact.",
+ "raw": "{\"atoms\":[{\"statement\":\"SYCL atomic semantics allow non-atomic data to be created on the host, transferred to the device, and treated as atomic data only after the transfer.\",\"scope\":\"S2\",\"evidence_ids\":[\"DPCPP2-p0564-s05\"]}],\"note\":\"Removed the unsupported claim that atomic_ref wraps an existing non-atomic variable, since the cited sentence does not state it. Kept only the host-to-device workflow the evidence supports.\"}",
+ "usage": {
+  "completion_tokens": 399,
+  "prompt_tokens": 768,
+  "total_tokens": 1167,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 768,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00552600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

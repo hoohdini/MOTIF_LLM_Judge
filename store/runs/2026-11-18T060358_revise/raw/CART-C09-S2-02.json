@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C09-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: B-cell aplasia\n\nATOM CART-C09-S2-02 (S2): Monitoring B-cell aplasia can guide the interval of monitoring of the malignant disease (e.g., imaging, MRD) and decisions on subsequent allogeneic HSCT in cases of CAR-T cell failure, so it should be monitored together with remission status and CAR persistence.\n\nEVIDENCE:\n[CART-p0141-s17] Monitoring B-cell aplasia can guide decisions on the interval of monitoring of the malignant disease (e.g., imaging, MRD) and subsequent allogeneic HSCT in cases of CAR-T cell failure.\n[CART-p0141-s18] Therefore, B-cell aplasia should be monitored together with remission\n[CART-p0142-s01] status and CAR persistence.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines guidance of surveillance intervals, guidance of transplantation decisions, and a recommendation for concurrent monitoring. / Combines three claims: guiding disease monitoring intervals, guiding allogeneic HSCT decisions, and co-monitoring with remission and CAR persistence.\n- L1_ONLY: revise — Retain one monitoring fact; remove the stacked clinical decisions, failure condition, and concluding concurrent-monitoring recommendation. / Carries extra load by stacking multiple clinical decision scenarios and co-monitoring requirements into one sentence.",
+ "raw": "{\"atoms\": [{\"statement\": \"Monitoring B-cell aplasia can guide decisions on the interval of monitoring of the malignant disease (e.g., imaging, MRD).\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0141-s17\"]}, {\"statement\": \"Monitoring B-cell aplasia can guide decisions on subsequent allogeneic HSCT in cases of CAR-T cell failure.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0141-s17\"]}, {\"statement\": \"B-cell aplasia should be monitored together with remission status and CAR persistence.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0141-s18\", \"CART-p0142-s01\"]}], \"note\": \"Split into three atoms; the first two come from the same evidence sentence, the third from the recommendation sentence spanning two evidence lines.\"}",
+ "usage": {
+  "completion_tokens": 303,
+  "prompt_tokens": 889,
+  "total_tokens": 1192,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 303
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 889,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00480800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C05-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: antigen loss\n\nATOM CART-C05-S1-02 (S1): Complete loss of the target antigen is a phenomenon that typically occurs after T-cell-based therapy such as CAR-T cells or T cell engaging bispecific antibodies, and rarely after antibody-drug conjugates, whereas mere downregulation or dim expression is well known after therapeutic IgG antibodies in lymphoma and myeloma.\n\nEVIDENCE:\n[CART-p0024-s03] While antigen downregulation or dim expression is a well-known event in lymphoma and myeloma treated with therapeutic IgG antibodies (Plesner et al. 2020; Jilani et al. 2003), complete target loss is a phenomenon typically occurring after T-cell-based therapy, such as CAR-T cell or T cell engaging bispecific antibodies (TCE) therapy, and rarely after treatment with antibody-drug conjugates (ADCs).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines typical complete loss after T-cell therapy, rare loss after antibody-drug conjugates, and downregulation after therapeutic IgG. / Combines claims about complete target loss after T-cell therapies/ADCs and mere downregulation after therapeutic IgG antibodies.\n- SCOPE_LABEL: hold — S3: The claim delineates therapy-dependent occurrence and frequency rather than defining antigen loss.\n- L1_ONLY: revise — Remove the stacked therapy comparisons; retain one recall-level association per atom. / Stacks multiple therapies, disease contexts, and levels of antigen loss into one sentence.",
+ "raw": "{\"atoms\": [{\"statement\": \"Complete target antigen loss is a phenomenon typically occurring after T-cell-based therapy, such as CAR-T cell therapy or T cell engaging bispecific antibody therapy.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0024-s03\"]}, {\"statement\": \"Complete target antigen loss occurs rarely after treatment with antibody-drug conjugates.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0024-s03\"]}, {\"statement\": \"Antigen downregulation or dim expression is a well-known event in lymphoma and myeloma treated with therapeutic IgG antibodies.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0024-s03\"]}], \"note\": \"Split the stacked claim into three single-claim atoms; relabeled to S3 since they describe therapy-dependent occurrence.\"}",
+ "usage": {
+  "completion_tokens": 309,
+  "prompt_tokens": 952,
+  "total_tokens": 1261,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 309
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 952,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00499400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

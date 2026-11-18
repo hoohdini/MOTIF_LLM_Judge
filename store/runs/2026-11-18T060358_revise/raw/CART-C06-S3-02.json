@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C06-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: allogeneic CAR-T cells\n\nATOM CART-C06-S3-02 (S3): In theory, complete absence of HLA class I molecules may increase NK-mediated rejection through 'missing self' responses, and in modelling this can be prevented by expressing nonpolymorphic HLA molecules such as HLA-E.\n\nEVIDENCE:\n[CART-p0058-s04] In theory, the complete absence of HLA class I molecules may increase NK-mediated rejection through ‘missing self’ responses, and in modelling, this can be prevented by the expression of nonpolymorphic HLA molecules, such as HLA-E.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the missing-self rejection risk of HLA class I absence with a separate HLA-E-based prevention strategy. / Joins the limitation (HLA class I absence increases NK rejection via missing self) with the engineering solution (expressing nonpolymorphic HLA-E).\n- SCOPE_LABEL: hold — S2: The second half of the atom describes a mechanism to prevent NK-mediated rejection (expressing HLA-E); split S3 limitation from S2 solution.\n- L1_ONLY: hold — Separate the missing-self limitation from the additional nonpolymorphic-HLA prevention mechanism.",
+ "raw": "{\"atoms\": [{\"statement\": \"In theory, complete absence of HLA class I molecules may increase NK-cell-mediated rejection through 'missing self' responses.\", \"scope\": \"S3\", \"evidence_ids\": [\"CART-p0058-s04\"]}, {\"statement\": \"In modelling, expression of nonpolymorphic HLA molecules such as HLA-E can prevent NK-mediated 'missing self' rejection of cells lacking HLA class I.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0058-s04\"]}], \"note\": \"Split the limitation (S3) from the HLA-E prevention strategy (S2), per auditor findings.\"}",
+ "usage": {
+  "completion_tokens": 226,
+  "prompt_tokens": 837,
+  "total_tokens": 1063,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 226
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 837,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00393400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

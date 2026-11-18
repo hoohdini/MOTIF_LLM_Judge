@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C09-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Left Bousfield localization\n\nATOM HMDEND-C09-S2-02 (S2): For a Quillen pair $f_!:\\mathcal{E}\\rightleftarrows\\mathcal{F}:f^*$ and the left Bousfield localization $\\mathcal{E}_\\lambda$ of $\\mathcal{E}$ with respect to a set $\\lambda$ of cofibrations between cofibrant objects, the pair factors through $\\mathcal{E}_\\lambda$ as a Quillen pair if and only if $f^*$ sends fibrant objects of $\\mathcal{F}$ to $\\lambda$-fibrant objects, if and only if $f_!$ sends the morphisms in $\\lambda$ to weak equivalences in $\\mathcal{F}$.\n\nEVIDENCE:\n[HMDEND-p0481-s10] Proposition 11.24 Let Eλ be the left Bousfield localization of model category E with respect to a set λ of cofibrations between cofibrant objects, and let f! : E ⇄F : f ∗\n[HMDEND-p0481-s11] be a Quillen pair. Then the following are equivalent:\n[HMDEND-p0481-s12] (i) The pair above factors through Eλ by a Quillen pair Eλ ⇄F, as in\n[HMDEND-p0481-s13] (ii) The functor f ∗sends fibrant objects in F to λ-fibrant objects in E.\n[HMDEND-p0481-s14] (iii) The functor f! sends the morphisms in λ to weak equivalences in F.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The two characterizations of Quillen factorization can be assessed separately. / Joins a three-way equivalence (at least two distinct equivalence claims) into a single atom.\n- L1_ONLY: hold — Split the chained equivalences into separate recall-level criteria for Quillen factorization.",
+ "raw": "{\"atoms\": [{\"statement\": \"For a Quillen pair $f_!:\\\\mathcal{E}\\\\rightleftarrows\\\\mathcal{F}:f^*$ and the left Bousfield localization $\\\\mathcal{E}_\\\\lambda$ of $\\\\mathcal{E}$ with respect to a set $\\\\lambda$ of cofibrations between cofibrant objects, the pair factors through $\\\\mathcal{E}_\\\\lambda$ by a Quillen pair $\\\\mathcal{E}_\\\\lambda\\\\rightleftarrows\\\\mathcal{F}$ if and only if $f^*$ sends fibrant objects in $\\\\mathcal{F}$ to $\\\\lambda$-fibrant objects in $\\\\mathcal{E}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0481-s10\", \"HMDEND-p0481-s11\", \"HMDEND-p0481-s12\", \"HMDEND-p0481-s13\"]}, {\"statement\": \"For a Quillen pair $f_!:\\\\mathcal{E}\\\\rightleftarrows\\\\mathcal{F}:f^*$ and the left Bousfield localization $\\\\mathcal{E}_\\\\lambda$ of $\\\\mathcal{E}$ with respect to a set $\\\\lambda$ of cofibrations between cofibrant objects, the pair factors through $\\\\mathcal{E}_\\\\lambda$ by a Quillen pair $\\\\mathcal{E}_\\\\lambda\\\\rightleftarrows\\\\mathcal{F}$ if and only if $f_!$ sends the morphisms in $\\\\lambda$ to weak equivalences in $\\\\mathcal{F}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0481-s10\", \"HMDEND-p0481-s11\", \"HMDEND-p0481-s12\", \"HMDEND-p0481-s14\"]}], \"note\": \"Split the three-way equivalence into two atoms, each linking factorization to one other condition.\"}",
+ "usage": {
+  "completion_tokens": 681,
+  "prompt_tokens": 1039,
+  "total_tokens": 1720,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 681
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1039,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00888800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

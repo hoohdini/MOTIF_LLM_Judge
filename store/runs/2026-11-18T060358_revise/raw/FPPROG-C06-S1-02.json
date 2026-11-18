@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C06-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Type-2 computability\n\nATOM FPPROG-C06-S1-02 (S1): A real $x\\in\\mathbb{R}$ is computable if one can enumerate, uniformly in an enumeration of rationals, a fast Cauchy sequence of rationals that converges to $x$, where a fast Cauchy sequence satisfies $|q_n-q_{n+1}|<2^{-n}$ for all $n$.\n\nEVIDENCE:\n[FPPROG-p0094-s14] When |qn −qn+1| < 2−n for all n, we call (qn)n∈N a fast Cauchy sequence.\n[FPPROG-p0094-s16] A real x ∈R is computable if we can enumerate (uniformly in an enumeration of rationals) a fast Cauchy sequence that converges to x.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines the definition of a computable real with the separately assessable definition of a fast Cauchy sequence. / Combines the definition of a computable real and the definition of a fast Cauchy sequence.\n- L1_ONLY: hold — Remove the appended fast Cauchy sequence definition; it adds a second technical fact to the computable-real definition.",
+ "raw": "{\"atoms\": [{\"statement\": \"A real $x\\\\in\\\\mathbb{R}$ is computable if one can enumerate, uniformly in an enumeration of rationals, a fast Cauchy sequence that converges to $x$.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0094-s16\"]}, {\"statement\": \"A sequence $(q_n)_{n\\\\in\\\\mathbb{N}}$ is called a fast Cauchy sequence when $|q_n-q_{n+1}|<2^{-n}$ for all $n$.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0094-s14\"]}], \"note\": \"Split the definition of a computable real from the definition of a fast Cauchy sequence. The word 'of rationals' attached to the sequence was dropped because the evidence does not state it.\"}",
+ "usage": {
+  "completion_tokens": 287,
+  "prompt_tokens": 798,
+  "total_tokens": 1085,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 287
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 798,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00446600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C01-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: RDF Mapping Language\n\nATOM KGBDP-C01-S2-03 (S2): RML's Logical Source extends R2RML's Logical Table by using rml:source to specify the source of the original data, whereas the R2RML Logical Table only determines a database table through rr:tableName.\n\nEVIDENCE:\n[KGBDP-p0070-s03] Logical Source. RML’s Logical Source (rml:LogicalSource, Listing 4.5) extends R2RML’s Logical Table and determines the data source with the data to generate the knowledge graph.\n[KGBDP-p0070-s05] In the case of RML, a broader reference to any input source is required.\n[KGBDP-p0070-s06] Thus, the Logical Source (rml:source) is introduced to specify the source with the original data.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied evidence does not state that R2RML's Logical Table only determines a database table through rr:tableName. / Drop 'whereas the R2RML Logical Table only determines a database table through rr:tableName', which is not in the cited evidence.\n- SINGLE_CLAIM: revise — RML's source specification and the restriction asserted for R2RML's Logical Table can be judged separately. / Combines how RML's Logical Source works with how R2RML's Logical Table works.\n- L1_ONLY: hold — Remove the appended R2RML-only restriction; retain how Logical Source specifies original data through rml:source.",
+ "raw": "{\"atoms\": [{\"statement\": \"RML's Logical Source (rml:LogicalSource) extends R2RML's Logical Table and uses rml:source to specify the source of the original data, because RML requires a broader reference to any input source.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0070-s03\", \"KGBDP-p0070-s05\", \"KGBDP-p0070-s06\"]}], \"note\": \"Removed the unsupported claim that R2RML's Logical Table only determines a database table through rr:tableName; kept the RML-side mechanism stated in the evidence.\"}",
+ "usage": {
+  "completion_tokens": 200,
+  "prompt_tokens": 880,
+  "total_tokens": 1080,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 200
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 880,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00376000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

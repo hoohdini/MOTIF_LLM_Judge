@@ -1,0 +1,27 @@
+{
+ "atom_id": "LAPINF-C08-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Boundary triplet\n\nATOM LAPINF-C08-S2-04 (S2): The extension $A_\\Theta$ is symmetric if and only if the linear relation $\\Theta$ is symmetric and $n_\\pm(A_\\Theta)=n_\\pm(\\Theta)$, so in particular $A_\\Theta$ is self-adjoint if and only if $\\Theta$ is self-adjoint.\n\nEVIDENCE:\n[LAPINF-p0212-s03] (iii) A‚ is symmetric if and only if ‚ is symmetric and n˙.A‚/ D n˙.‚/ holds.\n[LAPINF-p0212-s04] In particular, A‚ is self-adjoint if and only if ‚ is self-adjoint.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Separate symmetry correspondence, equality of deficiency indices, and self-adjointness correspondence. / Joins the equivalence for symmetry/deficiency indices with the separate equivalence for self-adjointness.\n- L1_ONLY: hold — Retain one correspondence per atom; the deficiency-index equality and self-adjointness clause add independently assessable technical facts.\n- NO_OVERLAP: hold — Duplicates the correspondence claims in the atom that explicitly supplies the boundary-triplet context.",
+ "raw": "{\"atoms\":[{\"statement\":\"For the extension $A_\\\\Theta$ associated with a linear relation $\\\\Theta$ via a boundary triplet, $A_\\\\Theta$ is symmetric if and only if $\\\\Theta$ is symmetric and $n_\\\\pm(A_\\\\Theta)=n_\\\\pm(\\\\Theta)$.\",\"scope\":\"S2\",\"evidence_ids\":[\"LAPINF-p0212-s03\"]},{\"statement\":\"For the extension $A_\\\\Theta$ associated with a linear relation $\\\\Theta$ via a boundary triplet, $A_\\\\Theta$ is self-adjoint if and only if $\\\\Theta$ is self-adjoint.\",\"scope\":\"S2\",\"evidence_ids\":[\"LAPINF-p0212-s04\"]}],\"note\":\"Split the symmetry correspondence from the self-adjointness correspondence. The deficiency-index equality stays inside the symmetry equivalence, because dropping it would change that claim.\"}",
+ "usage": {
+  "completion_tokens": 609,
+  "prompt_tokens": 844,
+  "total_tokens": 1453,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 844,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00777800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

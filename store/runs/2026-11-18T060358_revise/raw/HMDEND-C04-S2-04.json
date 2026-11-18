@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C04-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Tensor product of dendroidal sets\n\nATOM HMDEND-C04-S2-04 (S2): The functor $i_!:\\mathbf{sSets}\\to\\mathbf{dSets}$ sends products to tensor products, giving a natural isomorphism $i_!(M\\times N)\\simeq i_!M\\otimes i_!N$ for simplicial sets $M$ and $N$, because for categories the operadic tensor product coincides with the Cartesian product.\n\nEVIDENCE:\n[HMDEND-p0152-s10] (iii) The functor i! : sSets →dSets sends products to tensor products, i.e., there is a\n[HMDEND-p0152-s11] natural isomorphism i!(M × N) ≃i!M ⊗i!N for simplicial sets M and N.\n[HMDEND-p0152-s17] Finally, (iii) follows from the fact that for categories C and D the tensor product C ⊗D coincides with the Cartesian product C × D, as one easily checks. □\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Compatibility of i! and agreement of operadic and Cartesian products for categories are separately assessable. / Combines the property of i_! with the underlying reason about tensor products of categories.\n- L1_ONLY: hold — Remove the explanatory clause introducing the tensor product of categories as a second technical fact.",
+ "raw": "{\"atoms\": [{\"statement\": \"The functor $i_!:\\\\mathbf{sSets}\\\\to\\\\mathbf{dSets}$ sends products to tensor products: there is a natural isomorphism $i_!(M\\\\times N)\\\\simeq i_!M\\\\otimes i_!N$ for simplicial sets $M$ and $N$.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0152-s10\", \"HMDEND-p0152-s11\"]}], \"note\": \"The explanatory clause was removed as a separate claim. The evidence only cites it as the reason, so it is not made into its own atom.\"}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 852,
+  "total_tokens": 1063,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 211
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 852,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00381400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

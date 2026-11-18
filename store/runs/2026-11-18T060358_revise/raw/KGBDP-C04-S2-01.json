@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C04-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: COMET\n\nATOM KGBDP-C04-S2-01 (S2): COMET works in two steps: it first computes similarity across RDF entities and uses Formal Concept Analysis to map contextually equivalent entities, then combines these results and runs a 1-1 perfect matching algorithm on the combined scores to synthesize a contextualized RDF graph.\n\nEVIDENCE:\n[KGBDP-p0140-s01] of entity matching in RDF graphs in a context-aware manner: First, COMET computes the similarity measures across RDF entities and resorts to the Formal Concept Analysis algorithm to map contextually equivalent RDF entities.\n[KGBDP-p0140-s02] Finally, COMET combines the results of the first step and executes a 1-1 perfect matching algorithm for matching RDF entities based on the combined scores to finally synthesize the matching into a contextualized RDF graph.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Similarity/FCA mapping and combined-score perfect matching with graph synthesis are separately assessable stages. / Joins multiple distinct algorithmic steps (computing similarity, FCA mapping, 1-1 matching, graph synthesis) into one claim.\n- L1_ONLY: hold — Split the accumulated technical operations into separate recall-level facts about the individual stages.\n- SOURCE_INDEPENDENT: hold — Describes the architecture of a single study's proposed system (COMET).",
+ "raw": "{\"atoms\": [{\"statement\": \"In its first step, COMET computes similarity measures across RDF entities and uses the Formal Concept Analysis algorithm to map contextually equivalent RDF entities.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0140-s01\"]}, {\"statement\": \"COMET combines the results of its first step and runs a 1-1 perfect matching algorithm on the combined scores to match RDF entities, synthesizing the matching into a contextualized RDF graph.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0140-s02\"]}], \"note\": \"\"}",
+ "usage": {
+  "completion_tokens": 214,
+  "prompt_tokens": 887,
+  "total_tokens": 1101,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 214
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 887,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00391400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

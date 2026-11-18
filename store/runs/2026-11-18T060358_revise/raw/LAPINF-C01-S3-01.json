@@ -1,0 +1,30 @@
+{
+ "atom_id": "LAPINF-C01-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Cable system\n\nATOM LAPINF-C01-S3-01 (S3): A minimal cable system for $(V,m;b)$ need not exist; for example, the combinatorial Laplacian on an infinite path graph $\\mathbb Z_{\\ge0}$, which is an antitree with sphere numbers $s_n=1$, has no minimal cable system because the antitree positivity condition fails.\n\nEVIDENCE:\n[LAPINF-p0113-s09] (ii) We stress that, by the above results, the combinatorial Laplacian on an infinite path graph Gd D Z�0 has no minimal cable system.\n[LAPINF-p0113-s10] Indeed, every infinite path graph is an antitree with sphere numbers sn D 1 for all n �0 and (6.2) clearly fails to hold in this case (see also Proposition 5.20).\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence cites failure of condition (6.2), but does not identify it as an antitree positivity condition. / Evidence cites '(6.2) clearly fails', not 'the antitree positivity condition fails'; drop the 'because...' clause or stick to the counterexample.\n- SINGLE_CLAIM: revise — Combines nonexistence for the infinite path, its antitree classification and sphere numbers, and the reason for nonexistence. / Combines non-existence of minimal cable systems, the infinite path graph counterexample, its antitree characterization, and the reason it fails.\n- L1_ONLY: revise — Remove the antitree classification, sphere numbers, and positivity-condition explanation; these introduce a separate technical concept beyond the recall-level nonexistence example. / Drop the secondary technical details about antitrees, sphere numbers, and the antitree positivity condition.",
+ "raw": "{\"atoms\": [{\"statement\": \"The combinatorial Laplacian on an infinite path graph $\\\\mathbb Z_{\\\\ge0}$ has no minimal cable system.\", \"scope\": \"S3\", \"evidence_ids\": [\"LAPINF-p0113-s09\"]}], \"note\": \"Removed the antitree classification, sphere numbers, and the 'positivity condition' label, since the evidence refers only to condition (6.2) failing. Also dropped the general claim that a minimal cable system need not exist, keeping the specific counterexample the evidence states.\"}",
+ "usage": {
+  "completion_tokens": 188,
+  "prompt_tokens": 989,
+  "total_tokens": 1177,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 188
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 989,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00385800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

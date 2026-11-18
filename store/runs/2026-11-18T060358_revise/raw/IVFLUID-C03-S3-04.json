@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C03-S3-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fluid responsiveness\n\nATOM IVFLUID-C03-S3-04 (S3): The classical fluid challenge (4 mL/kg over 5–15 min) inherently induces fluid overload when continued until the patient is no longer fluid responsive, whereas a mini-fluid challenge of 100–150 mL (1–2 mL/kg over 1–5 min) was demonstrated to also predict volume responsiveness with less inherent fluid accumulation.\n\nEVIDENCE:\n[IVFLUID-p0144-s11] Finally, since the “classical” fluid challenge (4 ml/\n[IVFLUID-p0144-s12] kg/5–15 min) inherently induces fluid overload (when continued until the patient becomes no longer fluid responsive), a “mini-fluid challenge” made up of only 100–150 mL (1–2 ml/kg/1–5 min) of fluid was demonstrated to also predict volume responsiveness but with less inherent fluid accumulation (14).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines classical-challenge dosing and overload risk with mini-challenge dosing, predictive ability, and reduced accumulation. / Combines the fluid overload risk of repeated classical fluid challenges with the definition and benefit of a mini-fluid challenge.\n- L1_ONLY: hold — Split the conditional overload claim from mini-challenge dosing and predictive performance.\n- SOURCE_INDEPENDENT: hold — Drop study-specific phrasing ('was demonstrated to').",
+ "raw": "{\"atoms\": [{\"statement\": \"A mini-fluid challenge of 100–150 mL (1–2 mL/kg over 1–5 min) can predict volume responsiveness with less inherent fluid accumulation than the classical fluid challenge.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0144-s12\"]}, {\"statement\": \"The classical fluid challenge (4 mL/kg over 5–15 min) inherently induces fluid overload when it is continued until the patient is no longer fluid responsive.\", \"scope\": \"S3\", \"evidence_ids\": [\"IVFLUID-p0144-s11\", \"IVFLUID-p0144-s12\"]}], \"note\": \"Split into the mini-challenge claim (dosing, predictive ability, less accumulation) and the classical-challenge overload limitation. Removed 'was demonstrated to' phrasing, and the S3 label was moved to the overload atom while the mini-challenge atom is S2.\"}",
+ "usage": {
+  "completion_tokens": 327,
+  "prompt_tokens": 919,
+  "total_tokens": 1246,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 327
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 919,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00510800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

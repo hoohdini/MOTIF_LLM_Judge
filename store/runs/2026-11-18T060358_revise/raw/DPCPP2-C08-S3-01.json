@@ -1,0 +1,27 @@
+{
+ "atom_id": "DPCPP2-C08-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Asynchronous error handling\n\nATOM DPCPP2-C08-S3-01 (S3): Relying on error detection during program teardown does not work in all cases; for example, if a program terminates only when a convergence criterion is met that requires successful device kernel execution, an asynchronous exception may mean convergence never occurs and teardown, where the error would be noticed, is never reached.\n\nEVIDENCE:\n[DPCPP2-p0178-s07] Relying on error detection during program teardown doesn’t work\n[DPCPP2-p0178-s08] in all cases, though. For example, if a program will only terminate when some algorithm convergence criteria are achieved and if those criteria are only achievable by successful execution of device kernels, then an asynchronous exception may signal that the algorithm will never converge and begin the teardown (where the error would be noticed).\n\nAUDITOR FINDINGS:\n- L1_ONLY: revise — Remove the convergence example with stacked conditions; retain the limitation that teardown-based detection is not always sufficient. / Carries a multi-condition hypothetical example ('if a program terminates only when... and...'). Keep only the core fact that teardown detection fails if an error prevents reaching teardown.",
+ "raw": "{\"atoms\": [{\"statement\": \"Relying on error detection during program teardown does not work in all cases for handling asynchronous errors.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0178-s07\", \"DPCPP2-p0178-s08\"]}], \"note\": \"Removed the convergence-criterion example, which stacked several conditions. Also removed the claim that teardown is never reached, because the evidence does not state it.\"}",
+ "usage": {
+  "completion_tokens": 421,
+  "prompt_tokens": 786,
+  "total_tokens": 1207,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 786,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00578200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

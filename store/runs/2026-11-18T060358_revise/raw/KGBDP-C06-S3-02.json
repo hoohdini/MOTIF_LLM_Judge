@@ -1,0 +1,27 @@
+{
+ "atom_id": "KGBDP-C06-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Layered perspective\n\nATOM KGBDP-C06-S3-02 (S3): The order of the layers can be viewed in different ways: some communities see it top-down with the application as the focus, others bottom-up with knowledge representation as the focus, and the data management community often sees the middle management system as the focus.\n\nEVIDENCE:\n[KGBDP-p0030-s12] – There are generally two ways of looking at the order of these layers.\n[KGBDP-p0030-s13] Some communities tend to see it top-down with the application that the KG solves as the focus, others tend to see it as bottom-up, with the representation of knowledge as the focus.\n[KGBDP-p0030-s14] Interestingly, there is even another one, as the data management community often sees the management system in the middle as the focus. – The borders between these layers are fuzzy.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — Joins three claims about how three different groups view the layer focus.\n- SCOPE_LABEL: revise — S2: The three orientations describe how the layered perspective is used, not its boundaries. / S1: Describes the conceptual perspectives/orientations on the layers, not boundaries or limitations.",
+ "raw": "{\"atoms\":[{\"statement\":\"Some communities view the order of the layers of a knowledge graph top-down, with the application that the knowledge graph solves as the focus.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0030-s13\"]},{\"statement\":\"Other communities view the order of the layers of a knowledge graph bottom-up, with the representation of knowledge as the focus.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0030-s13\"]},{\"statement\":\"The data management community often views the layers of a knowledge graph with the management system in the middle as the focus.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0030-s14\"]}],\"note\":\"Split into three atoms, one per community orientation. Scope changed from S3 to S1 because the claims describe the perspectives themselves, not limits.\"}",
+ "usage": {
+  "completion_tokens": 519,
+  "prompt_tokens": 783,
+  "total_tokens": 1302,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 783,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00675600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

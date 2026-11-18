@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C03-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: atomic_ref\n\nATOM DPCPP2-C03-S3-02 (S3): Unlike atomic_ref, std::atomic cannot be used in SYCL device kernels because its instances own their data and cannot be moved or copied, so atomic objects cannot be created on the host and transferred to the device; attempting to use it in a kernel causes a compiler error.\n\nEVIDENCE:\n[DPCPP2-p0563-s07] Instances of the atomic class own their data, cannot be moved or copied, and can only be updated using atomic operations.\n[DPCPP2-p0563-s09] Unfortunately, they also prevent the class from being used in SYCL kernels—it is impossible to create atomic objects on the host and transfer them to the device!\n[DPCPP2-p0563-s10] We are free to continue using std::atomic in our host code, but attempting to use it inside of device kernels will result in a compiler error.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence does not mention 'Unlike atomic_ref'. Delete 'Unlike atomic_ref,'.\n- SINGLE_CLAIM: revise — Combines ownership, non-copyability, transfer impossibility, and device-kernel rejection, which are separately assessable. / Joins multiple claims: std::atomic owns data, cannot be moved/copied, cannot transfer to device, and causes a compiler error in kernels.\n- L1_ONLY: revise — Retain the device-kernel limitation; remove the stacked ownership, copying, and transfer explanation. / Carries extra load with stacked causal clauses and properties of std::atomic rather than focusing on a single recall fact.",
+ "raw": "{\"atoms\": [{\"statement\": \"Attempting to use std::atomic inside SYCL device kernels results in a compiler error.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0563-s10\"]}, {\"statement\": \"Atomic objects cannot be created on the host and transferred to the device, because instances of the atomic class own their data and cannot be moved or copied.\", \"scope\": \"S3\", \"evidence_ids\": [\"DPCPP2-p0563-s07\", \"DPCPP2-p0563-s09\"]}], \"note\": \"Removed the 'Unlike atomic_ref' comparison, which the evidence does not state. Split the device-kernel compiler error from the host-to-device transfer limitation.\"}",
+ "usage": {
+  "completion_tokens": 243,
+  "prompt_tokens": 946,
+  "total_tokens": 1189,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 243
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 946,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00432200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

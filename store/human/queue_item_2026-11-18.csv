@@ -1,4 +1,10 @@
 ﻿stage,kind,unit_id,unit_hash,check,llm,why,content,human_v,human_note
+item,sample,CART-C01-S1-01-M1-OPEN,ab7174d4e68a396a,_UNIT,,,"What is the underlying cause of cytokine release syndrome (CRS), and in what clinical setting is it particularly seen?
+정답: ['Rapid release of cytokines (mild to massive) from immune cells involved in immune reactions', 'Particularly after immunotherapy']
+atom: Cytokine release syndrome is caused by a rapid, mild-to-massive release of cytokines from immune cells involved in immune reactions, particularly after immunotherapy.",,
+item,sample,CART-C02-S1-01-M1-OPEN,3728e547838c2743,_UNIT,,,"What speech and writing changes are prominent early features of ICANS, and what can they progress to if the syndrome worsens?
+정답: ['Early hesitancy of speech and deterioration in handwriting', 'Can progress to aphasia with expressive and receptive components (patient alert but mute)']
+atom: A prominent and early feature of ICANS is hesitancy of speech and deterioration in handwriting, which can progress to aphasia with expressive and receptive components in which the patient is alert but mute.",,
 item,sample,CART-C03-S1-01-M1-OPEN,6721b4e15001d670,_UNIT,,,"What is a chimeric antigen receptor (CAR), and in which cells is it expressed?
 정답: ['Synthetic transmembrane protein (receptor)', 'Expressed at the surface of immune effector cells reprogrammed in vitro or in vivo']
 atom: A chimeric antigen receptor (CAR) is a synthetic transmembrane protein expressed at the surface of immune effector cells that have been reprogrammed either in vitro or in vivo.",,
@@ -6,14 +12,6 @@ item,sample,CART-C03-S1-02-M2-TF,085869bede5ed905,_UNIT,,,"True or False?
 ""The DNA sequence encoding a CAR fuses domains derived from immunoglobulins with a chain of the T cell receptor and, usually, domains from costimulatory molecules that participate in T cell activation.""
 정답: True
 atom: A CAR is encoded by a DNA sequence that combines domains from immunoglobulins, one chain of the T cell receptor, and typically domains from costimulatory molecules involved in T cell activation.",,
-item,sample,CART-C05-S2-03-M3-YN,4dbe6803503f0b80,_UNIT,,,"A patient with B-ALL relapses after CD19-directed therapy. Sequencing of the relapsed blasts reveals a point mutation in the CD19 gene, and the resulting CD19 protein is not properly anchored to the cell membrane, so little CD19 is detectable on the blast surface.
-Is this an instance of surface antigen loss caused by a CD19 point mutation? (Yes/No)
-정답: Yes
-atom: In B-ALL, point mutations in CD19 can cause nonfunctional anchoring of the CD19 protein to the cell membrane and consequently loss of surface antigen.",,
-item,sample,CART-C06-S1-03-M3-YN,b2f4f41d9550f73a,_UNIT,,,"A company manufactures CAR-T cells in large batches from a single healthy donor's T cells and edits out TRAC. The product is cryopreserved and stored. A patient with rapidly progressing lymphoma is infused from this stock within days. The patient's own T cells are never collected, and no individualized production run is needed, so there are no weeks of waiting and no risk that the patient's cells fail to expand.
-Is this an allogeneic off-the-shelf CAR-T approach that avoids the limitations of autologous T cell manufacturing (personalized production, weeks of manufacturing time, risk of manufacturing failure)? (Yes/No)
-정답: Yes
-atom: Allogeneic off-the-shelf CAR-T cells avoid certain limitations of autologous T cells, namely a personalized production process, several weeks of manufacturing time, and the risk of manufacturing failure.",,
 item,sample,CART-C07-S1-01-M1-OPEN,08dd372ba4ef1f61,_UNIT,,,"During the CAR-T cell treatment workflow, at what point is bridging therapy given relative to leukapheresis and lymphodepletion?
 정답: ['After leukapheresis', 'Before lymphodepletion (during CAR-T cell manufacturing)']
 atom: Bridging therapy is therapy given after leukapheresis and before lymphodepletion during CAR-T cell manufacturing.",,
@@ -21,10 +19,6 @@ item,sample,CART-C07-S1-02-M2-TF,f52bc57ea2e0358a,_UNIT,,,"True or False?
 ""Bridging therapy is mainly intended to keep the underlying disease from progressing uncontrollably while the CAR-T cells are being manufactured, before they are infused.""
 정답: True
 atom: The primary goal of bridging therapy is to prevent uncontrolled progression of the underlying disease during the manufacturing period before CAR-T cell infusion.",,
-item,sample,CART-C08-S3-02-M2-TF,38a8ab2903b918c3,_UNIT,,,"True or False?
-""It has been clearly established that an even more intensive lymphodepleting regimen is required in solid tumours.""
-정답: False
-atom: Whether an even more intensive lymphodepleting regimen is needed in solid tumours is currently unknown.",,
 item,sample,CART-C09-S2-03-M3-YN,ff8debba835067f2,_UNIT,,,"A cohort of patients received anti-CD19 and anti-CD22 CAR-T cells, which attack B-lineage precursors. During long-term follow-up, hypogammaglobulinaemia or agammaglobulinaemia is described as a rare event, seen only in isolated patients after CAR-T treatment.
 Is this description consistent with the typical long-term finding of hypogammaglobulinaemia/agammaglobulinaemia after anti-CD19/anti-CD22 CAR-T therapy? (Yes/No)
 정답: No
@@ -64,6 +58,13 @@ atom: Work-items in a sub-group can exchange data directly, without explicit mem
 item,sample,DPCPP2-C08-S1-01-M1-OPEN,b2cf453ad0406e14,_UNIT,,,"In SYCL, what defines an error as an ""asynchronous error"", i.e., who detects it and how does its occurrence relate to the host program's command execution?
 정답: ['Detected by the SYCL runtime (or an underlying backend)', 'Occurs independently of the execution of commands in the host program']
 atom: In SYCL, asynchronous errors are errors detected by the SYCL runtime (or an underlying backend) that occur independently of the execution of commands in the host program.",,
+item,sample,DPCPP2-C09-S2-02-M2-MCQ,ac96c25e4bd40a75,_UNIT,,,"What does synchronizing execution at a barrier allow one work-item in a group to ensure?
+A) That another work-item in a different work-group has completed an operation before the first work-item uses the result of that operation
+B) That another work-item in the same group has completed an operation before the first work-item uses the result of that operation
+C) That another work-item in the same group has not yet started an operation, so the first work-item can overwrite the result of that operation
+D) That another work-item in the same group will begin an operation only after the first work-item has used its result
+정답: B
+atom: By synchronizing execution at a barrier, one work-item can ensure that another work-item in the same group has completed an operation before using the result of that operation.",,
 item,sample,DPCPP2-C10-S1-01-M1-OPEN,231b40a9074a32db,_UNIT,,,"In SYCL, what is a kernel bundle?
 정답: ['A container', 'Holds the SYCL kernels or functions used by an application']
 atom: A SYCL kernel bundle is a container for the SYCL kernels or SYCL functions used by an application.",,
@@ -71,10 +72,6 @@ item,sample,DPCPP2-C10-S1-03-M3-YN,05078f485f59997b,_UNIT,,,"A SYCL application 
 Is this kernel bundle in the executable state? (Yes/No)
 정답: Yes
 atom: A kernel bundle in the executable state is fully compiled to device code and is ready to be executed on the device.",,
-item,sample,DPCPP2-C10-S3-02-M2-TF,73378db2320880da,_UNIT,,,"True or False?
-""Explicitly requesting an executable-state kernel bundle is expensive even if all kernels were ahead-of-time compiled or already just-in-time compiled, because the bundle must still be recompiled.""
-정답: False
-atom: Explicitly requesting an executable-state kernel bundle is effectively free if all kernels were ahead-of-time compiled or were already just-in-time compiled, because all kernels would already be in the executable state.",,
 item,sample,FPPROG-C01-S1-01-M1-OPEN,8d2283d4c1217877,_UNIT,,,"What does it mean for a kernel $k: X \rightsquigarrow Y$ between measurable spaces to be s-finite?
 정답: ['k is a countable sum (sequence-indexed) of kernels', 'each kernel in the sum is a finite kernel']
 atom: A kernel $k:X\rightsquigarrow Y$ between measurable spaces is s-finite if there is a sequence $k_1,k_2,\ldots$ of finite kernels with $\sum_{i=1}^\infty k_i = k$.",,
@@ -90,13 +87,16 @@ item,sample,FPPROG-C02-S1-03-M3-YN,4898ca69286f8b24,_UNIT,,,"A probabilistic pro
 Is $P$ finitely terminating, i.e. positively almost-surely terminating? (Yes/No)
 정답: Yes
 atom: A probabilistic program is finitely terminating (also called positively almost-surely terminating) if the expected termination time $\mathbb{E}^{\sigma}_{\mathbf{x}_{init}}[Term]$ is finite under every scheduler $\sigma$.",,
+item,sample,FPPROG-C03-S2-02-M2-MCQ,c039e626f8ad0023,_UNIT,,,"For a sequential composition $c_1;c_2$ and continuation $t$, which expression gives its expected runtime transformer?
+A) $\mathrm{ert}[c_2](\mathrm{ert}[c_1](t))$
+B) $\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))$
+C) $\mathrm{ert}[c_1](t)+\mathrm{ert}[c_2](t)$
+D) $\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))\cdot t$
+정답: B
+atom: The ert of a sequential composition is $\mathrm{ert}[c_1;c_2](t)=\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))$, so the runtime of $c_2$ with respect to continuation $t$ is computed first and then used as the continuation for $c_1$.",,
 item,queue,FPPROG-C04-S1-01-M1-OPEN,977d729af78d92fa,KEY_CORRECT,judge_a=fail judge_b=pass,judge_a: The key omits the required inequality when X_n < 0: the conditional expectation must still be at most X_n.,"What conditions must a discrete-time stochastic process $\{X_n\}$ adapted to a filtration $\{\mathcal{F}_n\}$ satisfy to be a ranking supermartingale (RSM)?
 정답: ['Integrability and a.s. lower bound: $\\mathbb{E}[|X_n|]<\\infty$ and $X_n\\ge K$ for some $K\\le 0$', 'Ranking condition: $\\mathbb{E}[X_{n+1}\\mid\\mathcal{F}_n]\\le X_n-\\epsilon$ whenever $X_n\\ge 0$ (for some $\\epsilon>0$)']
 atom: A ranking supermartingale (RSM) is a discrete-time stochastic process $\{X_n\}_{n\in\mathbb{N}_0}$ adapted to a filtration $\{\mathcal{F}_n\}$ for which there exist reals $\epsilon>0$ and $K\le 0$ such that, for all $n$, $\mathbb{E}[|X_n|]<\infty$, almost surely $X_n\ge K$, and almost surely $\mathbb{E}[X_{n+1}\mid\mathcal{F}_n]\le X_n-\epsilon\cdot\mathbf{1}_{X_n\ge 0}$.",,
-item,queue,FPPROG-C04-S1-02-M2-TF,a51366642396c686,ONE_ELEMENT_CHANGE,judge_a=pass judge_b=fail,"judge_b: Changes two elements: applies (C3) to the output location instead of non-output locations, and claims non-output locations only require nonnegativity.","True or False?
-""In the definition of an RSM-map with respect to an invariant $I$, condition (C3) requires that $\mathrm{pre}_\eta(\ell,\mathbf{x})\le\eta(\ell,\mathbf{x})-\epsilon$ at the output location $\ell_{out}$ (with $\mathbf{x}\in I(\ell)$), whereas at non-output locations $\eta$ is only required to be nonnegative.""
-정답: False
-atom: A ranking-supermartingale map (RSM-map) with respect to an invariant $I$ is a function $\eta: L\times\mathbb{R}^{|V|}\to\mathbb{R}$ for which there exist $\epsilon>0$ and $K,K'<0$ such that, for all configurations $(\ell,\mathbf{x})$ with $\mathbf{x}\in I(\ell)$: (C1) $\eta(\ell,\mathbf{x})\ge 0$ if $\ell\ne\ell_{out}$; (C2) $K\le\eta(\ell,\mathbf{x})\le K'$ if $\ell=\ell_{out}$; (C3) $\mathrm{pre}_\eta(\ell,\mathbf{x})\le\eta(\ell,\mathbf{x})-\epsilon$ if $\ell\ne\ell_{out}$.",,
 item,queue,FPPROG-C04-S1-03-M3-YN,9bcf8efe5af3f4e9,G1_SINGLE_ATOM,judge_a=fail judge_b=pass,judge_a: The case does not guarantee that every visit to location l_0 has x = 5; later visits could violate I(l_0).,"A probabilistic program has locations $\ell_0,\ell_1,\ell_{out}$ and a single integer variable $x$, with initial configuration $(\ell_0, x=5)$. In every possible execution from this initial configuration, $x$ at $\ell_1$ only ever takes values in $\{0,1,\dots,5\}$. Define $I(\ell_0)=\{5\}$, $I(\ell_1)=\{x : 0\le x\le 100\}$, and $I(\ell_{out})=\mathbb{Z}$. Some values in $I(\ell_1)$ are never actually reached.
 Is $I$ a valid invariant for this initial configuration? (Yes/No)
 정답: Yes
@@ -127,16 +127,12 @@ C) $\mu_1\,(=)^\sharp\,\mu_2$ holds if and only if $\mu_1$ and $\mu_2$ are indep
 D) $\mu_1=\mu_2$ if and only if $\mu_1\,(=)^\sharp\,\mu_2$
 정답: D
 atom: Two sub-distributions $\mu_1$ and $\mu_2$ over the same set are equal if and only if they are related by the lifting of the equality relation, $\mu_1\,(=)^\sharp\,\mu_2$.",,
-item,queue,FPPROG-C06-S3-01-M1-OPEN,4dccae1725304ff3,NO_LEAK,judge_a=pass judge_b=fail,judge_b: The second key point is stated verbatim in the question prompt itself.,"Why can the comparison $<$ at type $\mathrm{Real}\to\mathrm{Real}\to\mathrm{Bool}$ not have the standard semantics of deciding between $<$ and $\geq$ in a Type-2 computable setting?
-정답: ['Equality on reals is not decidable', 'Hence one cannot always decide between $<$ and $\\geq$ (so the comparison cannot have its standard semantics)']
-atom: Because equality on reals is not decidable, the comparison $<$ at type $\mathrm{Real}\to\mathrm{Real}\to\mathrm{Bool}$ cannot have the standard semantics of deciding between $<$ and $\geq$.",,
+item,sample,FPPROG-C06-S1-01-M1-OPEN,70687ca38a428e21,_UNIT,,,"In Type-Two Theory of Effectivity, under what condition is a machine said to compute a partial function $f:\Sigma^\omega \rightharpoonup \Sigma^\omega$ on infinite streams over a finite alphabet?
+정답: ['Given input $w$ on the input tape, the machine can write any initial segment (finite prefix) of $f(w)$ on the output tape', 'Each such initial segment is written in finite time']
+atom: In Type-Two Theory of Effectivity, a machine computes a partial function $f:\Sigma^\omega \rightharpoonup \Sigma^\omega$ if, given $w$ on an input tape, it can write any initial segment of $f(w)\in\Sigma^\omega$ on the output tape in finite time, where $\Sigma^\omega$ is the set of streams over a finite alphabet $\Sigma$.",,
 item,sample,FPPROG-C07-S1-01-M1-OPEN,3b15c08541259188,_UNIT,,,"In quantitative information flow, what is a hyper-distribution produced by a channel acting on a prior, and what are its outcomes and the probabilities attached to them?
 정답: ['A distribution on posterior distributions (distribution over distributions)', 'Each posterior is the prior conditioned on a particular output (normalised joint-matrix column)', 'Weights are the output marginal probabilities']
 atom: A hyper-distribution is a distribution on posterior distributions: the output marginal of a channel's joint input-output distribution, taken as a distribution over the posterior input distributions obtained by conditioning the prior on each particular output (the normalised joint-matrix columns).",,
-item,queue,FPPROG-C07-S3-03-M3-YN,3a658dddd1d16dda,NO_LEAK,judge_a=fail judge_b=pass,"judge_a: The case closely paraphrases the answer's rationale: both programs reveal exactly b, leave state unchanged, and abstract away their differing outputs.","Program P leaks the Boolean secret $b$ by outputting $b$, and program Q leaks it by outputting $\mathrm{not}\ b$. Neither changes the state, and an adversary who knows the source code can deduce $b$ exactly in both cases. A theorist models both using hyper-distributions that abstract away the actual observed output values.
-Under this hyper-distribution semantics, are P and Q given the same denotation (and hence regarded as behaviourally equal)? (Yes/No)
-정답: Yes
-atom: Hyper-distributions abstract away the actual values of observations, retaining only the deductions an adversary can make, so that programs such as observing $b$ and observing $(\mathrm{not}\ b)$ are treated as the same, and two programs are behaviourally equal just when their denotations are equal (full abstraction).",,
 item,sample,FPPROG-C08-S1-01-M1-OPEN,35f2cb1b06ed1626,_UNIT,,,"In quantitative equational logic, what is a quantitative $\Omega$-algebra, and what condition must the interpretation of each operation symbol satisfy?
 정답: ['Carrier is an extended metric space $(A,d)$', 'Each operation symbol $f:\\kappa$ is interpreted as a function $A^\\kappa\\to A$ (from the $\\kappa$-fold product of the metric space)', 'Each interpretation must be non-expansive']
 atom: A quantitative $\Omega$-algebra consists of an extended metric space $(A,d)$ together with a non-expansive interpretation $f_\mathcal{A}: A^\kappa\to A$ of each operation symbol $f:\kappa\in\Omega$, where $A^\kappa$ is the $\kappa$-fold cartesian product of the metric space $A$.",,
@@ -156,12 +152,10 @@ item,sample,FPPROG-C08-S2-03-M3-YN,5c1f67155968cf87,_UNIT,,,"Let $\mathcal{U}$ b
 Does this judgement belong to $\mathcal{U}$? (Yes/No)
 정답: No
 atom: Quantitative equational logic is complete: a quantitative equational theory $\mathcal{U}$ semantically entails a judgement $\Gamma\vdash\phi$ if and only if that judgement belongs to $\mathcal{U}$.",,
-item,queue,FPPROG-C09-S2-01-M1-OPEN,159337bf630447ca,G1_SINGLE_ATOM,judge_a=pass judge_b=fail,judge_b: First key point requires external mathematical reasoning (dividing by a smaller value yields a larger quotient) not explicitly stated in the atom.,"In abstract normalization for a probabilistic domain with bounds on per-state probability and total mass, why is the maximum per-state probability bound divided by the lower bound on total mass rather than the upper bound?
-정답: ['Dividing by the smallest possible total mass gives the largest possible normalized probability', 'so the over-approximation $p^{\\max}$ stays sound (an under-approximation of mass is needed)']
-atom: Abstract normalization divides the maximum point bound by the lower mass bound $m^{\min}$ (an under-approximation of total mass) so that the over-approximation $p^{\max}$ of a state's probability remains sound.",,
-item,queue,FPPROG-C09-S2-01-M1-OPEN,159337bf630447ca,KP_IN_ATOM,judge_a=pass judge_b=fail,judge_b: The first key point ('Dividing by the smallest possible total mass gives the largest possible normalized probability') is not in the atom.,"In abstract normalization for a probabilistic domain with bounds on per-state probability and total mass, why is the maximum per-state probability bound divided by the lower bound on total mass rather than the upper bound?
-정답: ['Dividing by the smallest possible total mass gives the largest possible normalized probability', 'so the over-approximation $p^{\\max}$ stays sound (an under-approximation of mass is needed)']
-atom: Abstract normalization divides the maximum point bound by the lower mass bound $m^{\min}$ (an under-approximation of total mass) so that the over-approximation $p^{\max}$ of a state's probability remains sound.",,
+item,sample,FPPROG-C09-S1-02-M2-TF,2a7e492d2e8dbd2f,_UNIT,,,"True or False?
+""In a probabilistic upper-bound domain over a state domain, an abstract element pairs a base element $a$ with a bound $p$, and it represents the distributions that assign probability at most $p$ to every state in $\gamma(a)$.""
+정답: True
+atom: A probabilistic upper-bound domain $\overline{\mathbb{D}}(\mathbb{A})$ built from a state domain $\mathbb{A}$ pairs a base element $a$ with a bound $p$ and concretizes to the distributions $X$ with $X(\sigma)\le p$ for all $\sigma\in\gamma(a)$, adding a probability bound on all states represented by the base element.",,
 item,sample,FPPROG-C09-S2-02-M2-MCQ,64eb0ae1c3290b77,_UNIT,,,"A dual-bounded probabilistic region $a_1$ has $m_1^{\min}>0$. Which describes its abstract normalization $a_2$?
 A) $p_2^{\min}=p_1^{\min}/m_1^{\min}$, $p_2^{\max}=p_1^{\max}/m_1^{\min}$, support and size bounds unchanged, and $m_2^{\min}=m_2^{\max}=1$
 B) $p_2^{\min}=p_1^{\min}/m_1^{\max}$, $p_2^{\max}=p_1^{\max}/m_1^{\min}$, support and size bounds unchanged, and $m_2^{\min}=m_2^{\max}=1$
@@ -178,10 +172,10 @@ atom: In Rely, the reliability of an integer expression e is the probability tha
 item,queue,FPPROG-C10-S3-01-M1-OPEN,b34397cc0f090a5c,NO_LEAK,judge_a=pass judge_b=fail,"judge_b: The question explicitly states the two scenarios from the key points ('no faults encountered, or faults encountered but n returned by chance').","Of the two ways an unreliable evaluation can return the correct value n (no faults encountered, or faults encountered but n returned by chance), which does Rely's analysis consider when approximating reliability, and what is the nature of this approximation?
 정답: ['Only considers the scenario in which the unreliable evaluation encounters no faults', 'Conservative approximation that ignores the case where faults occur but the correct value is returned by chance']
 atom: Rely's analysis conservatively approximates the reliability of a computation by considering only the scenario in which the unreliable evaluation encounters no faults, and ignores the scenario in which faults occur but the correct value is still returned by chance.",,
-item,sample,FPPROG-C10-S3-02-M2-TF,64e183095045977e,_UNIT,,,"True or False?
-""For an unbounded while loop, a variable that is modified unreliably in the loop body and has a loop-carried dependence has a reliability that decreases monotonically with the number of iterations, so the only sound approximation of its reliability is zero.""
+item,sample,HMDEND-C01-S1-02-M2-TF,ac915f29c3d2c8f6,_UNIT,,,"True or False?
+""A dendroidal set $X$ is normal exactly when the map from the empty dendroidal set to $X$ is a normal monomorphism.""
 정답: True
-atom: For an unbounded while loop, a variable that is modified unreliably within the loop and has a loop-carried dependence has reliability that decreases monotonically with the number of iterations, so the only sound approximation of its reliability is zero.",,
+atom: A dendroidal set $X$ is normal precisely if the inclusion of the empty dendroidal set into $X$ is a normal monomorphism.",,
 item,sample,HMDEND-C01-S3-01-M1-OPEN,51bd7023617d158d,_UNIT,,,"Is the terminal dendroidal set $N\mathbf{Com}$, the nerve of the commutative operad, a normal dendroidal set?
 정답: ['No, it is not normal']
 atom: The terminal dendroidal set $N\mathbf{Com}$ is not normal.",,
@@ -192,9 +186,6 @@ item,sample,HMDEND-C02-S1-02-M2-TF,4fc73c3b90b25033,_UNIT,,,"True or False?
 ""An operation of $W(P)(c_1,\dots,c_n;c)$ is represented by a tree with colour-labelled edges and vertices labelled by operations of $P$, where every edge has a length in $[0,1]$ and the external edges (leaves and root) all have length 0.""
 정답: False
 atom: An operation of $W(P)(c_1,\dots,c_n;c)$ is represented by a tree with leaves labelled $c_1,\dots,c_n$, root labelled $c$, edges labelled by colours, vertices labelled by operations of $P$, and in addition every edge given a length in $[0,1]$ such that the external edges (leaves and root) all have length 1.",,
-item,queue,HMDEND-C02-S2-01-M1-OPEN,845197e8cd7593fa,KP_IN_ATOM,judge_a=pass judge_b=fail,"judge_b: The first key point includes 'colours, operations', which are mentioned in the evidence and question prompt, not in the atom.","Operations of the Boardman–Vogt resolution $W(P)$ are represented by trees with coloured, length-labelled edges and vertices labelled by operations of $P$. Which three kinds of identification generate the equivalence relation on these trees?
-정답: ['Isomorphisms of trees respecting the labellings (colours, operations, lengths)', 'Contraction of edges of length zero', 'Erasure of vertices labelled by a unit operation']
-atom: The equivalence relation on length-labelled trees defining $W(P)$ is generated by three kinds of identification: isomorphisms of trees respecting labellings (including lengths), contraction of edges of length zero, and erasure of vertices labelled by a unit operation.",,
 item,sample,HMDEND-C03-S1-02-M2-TF,3708a41567b297ed,_UNIT,,,"True or False?
 ""Let $A$ be a shuffle of trees $S$ and $T$, and let $(s,t)$ label an edge of $A$ that is not a leaf. Then the vertex above this edge has inputs labelled either $(s_1,t),\dots,(s_n,t)$, where $s_1,\dots,s_n$ are the inputs of the vertex above $s$ in $S$, or $(s,t_1),\dots,(s,t_m)$, where $t_1,\dots,t_m$ are the inputs of the vertex above $t$ in $T$.""
 정답: True
@@ -203,21 +194,17 @@ item,sample,HMDEND-C04-S1-02-M2-TF,b0a8e9a95afc7e1b,_UNIT,,,"True or False?
 ""For the tensor product of dendroidal sets, there are internal hom objects $\mathbf{Hom}(Y,Z)$ such that maps $X\otimes Y\to Z$ correspond naturally to maps $X\to\mathbf{Hom}(Y,Z)$.""
 정답: True
 atom: The tensor product of dendroidal sets has inner hom objects $\mathbf{Hom}(Y,Z)$ adjoint to it, characterized by natural isomorphisms $\mathbf{dSets}(X\otimes Y,Z)\simeq\mathbf{dSets}(X,\mathbf{Hom}(Y,Z))$.",,
-item,sample,HMDEND-C05-S2-03-M3-YN,c8077c7b7a40bc54,_UNIT,,,"Let $X=\Lambda^1[2]$, the simplicial set consisting of two composable non-degenerate edges $a:0\to1$ and $b:1\to2$ and no 2-simplex filling them. Define $\tau_1(X)$ as follows: the objects are the vertices of $X$, and arrows $x\to y$ are classes of 1-simplices $f$ with $d_1f=x$ and $d_0f=y$, where $f\sim f'$ if some 2-simplex $e$ has $d_2e=f$, $d_1e=f'$ and $d_0e=s_0y$. Consider the evident comparison functor $\tau_1(X)\to\tau(X)$ to the homotopy category.
-Is this functor an isomorphism of categories for this $X$, as it is for inner Kan complexes? (Yes/No)
-정답: No
-atom: If $X$ is an inner Kan complex, the homotopy category $\tau(X)$ is isomorphic to the category $\tau_1(X)$ whose objects are the vertices of $X$ and whose arrows $x\to y$ are equivalence classes of 1-simplices $f$ with $d_1f=x$ and $d_0f=y$, where $f\sim f'$ if some 2-simplex $e$ has $d_2e=f$, $d_1e=f'$ and $d_0e=s_0y$.",,
 item,sample,HMDEND-C05-S3-02-M2-TF,dd578c3031726505,_UNIT,,,"True or False?
 ""If $\mathbf{P}$ is a simplicial operad such that $\mathbf{P}(x_1,\dots,x_n;y)$ is a Kan complex for every tuple of colours, then its homotopy-coherent nerve $w^*\mathbf{P}$ is a Kan complex.""
 정답: False
 atom: If $\mathbf{P}$ is a simplicial operad such that $\mathbf{P}(x_1,\dots,x_n;y)$ is a Kan complex for every tuple of colours $(x_1,\dots,x_n,y)$, then its homotopy-coherent nerve $w^*\mathbf{P}$ is an ∞-operad.",,
+item,sample,HMDEND-C07-S2-03-M3-YN,03ebde283dc4b5a5,_UNIT,,,"Let $p: X\to S$ be a minimal J-fibration between ∞-categories. Take $T=\Delta[1]$ and two maps $f,g:\Delta[1]\to S$ that are J-homotopic, i.e. there is a map $H: J\times\Delta[1]\to S$ restricting to $f$ and $g$ at the two endpoints of $J$.
+Are the pullbacks $f^*p$ and $g^*p$ isomorphic minimal J-fibrations over $T$? (Yes/No)
+정답: Yes
+atom: If $p : X\to S$ is a minimal J-fibration between ∞-categories and $f,g : T\to S$ are J-homotopic maps from an ∞-category $T$, then the pullbacks $f^*p$ and $g^*p$ are isomorphic minimal J-fibrations over $T$.",,
 item,sample,HMDEND-C08-S1-01-M1-OPEN,67d853d3d88a5eb6,_UNIT,,,"What data and axioms define a Reedy category, in particular what kind of factorization must every morphism admit?
 정답: ['Category R with a degree function d: ob(R) → N and two subcategories R^+ (positive) and R^- (negative) of morphisms', 'Every morphism factors as f = p∘n with p positive and n negative', 'This factorization is unique up to isomorphism']
 atom: A Reedy category is a category R equipped with a degree function $d:\mathrm{ob}(R)\to\mathbb{N}$ and subcategories $R^+$ (positive) and $R^-$ (negative) of morphisms, such that every morphism factors as $f=p\circ n$ with $p$ positive and $n$ negative, uniquely up to isomorphism.",,
-item,sample,HMDEND-C08-S1-02-M2-TF,45b2c999b8fc6b03,_UNIT,,,"True or False?
-""Let R be a Reedy category and Y → X a map of E-valued presheaves on R. If for every object r of R the map from Y(r) to the pullback of Y(∂r) → X(∂r) ← X(r) is a fibration (resp. trivial fibration) in E, where X(∂r) is the limit of X over all strictly positive morphisms into r, then Y → X is a Reedy fibration (resp. Reedy trivial fibration).""
-정답: True
-atom: For a Reedy category R and a map Y→X of E-valued presheaves, the map Y is a Reedy (trivial) fibration if, for each object r of R, the matching map $Y(r)\to Y(\partial r)\times_{X(\partial r)}X(r)$ is a (trivial) fibration in E, where $X(\partial r)$ is the limit of X over strictly positive morphisms into r.",,
 item,sample,HMDEND-C08-S2-03-M3-YN,cf862b437a562f93,_UNIT,,,"Let R be a Reedy category and E a model category. Y → X is a Reedy fibration in E^{R^{op}}, and Y(r) → X(r) is a weak equivalence in E for every object r of R except one object r_0, where Y(r_0) → X(r_0) is not a weak equivalence.
 Is Y → X a Reedy trivial fibration? (Yes/No)
 정답: No
@@ -230,14 +217,17 @@ item,queue,HMDEND-C11-S1-02-M2-TF,068378a57694c306,KEY_CORRECT,judge_a=fail judg
 ""The complete dendroidal Segal spaces are exactly the cofibrant objects of the left Bousfield localization $\mathbf{dSpaces}_{RSC}$ of $\mathbf{dSpaces}_{RS}$ with respect to either of the two morphisms $\eta\to J$.""
 정답: False
 atom: The complete dendroidal Segal spaces are exactly the fibrant objects of the left Bousfield localization $\mathbf{dSpaces}_{RSC}$ of $\mathbf{dSpaces}_{RS}$ with respect to either of the two morphisms $\eta\to J$.",,
+item,sample,HMDEND-C11-S2-02-M2-MCQ,8212f60ae60f4b3b,_UNIT,,,"Which statement correctly describes the adjoint pair $(\mathrm{dis}_!,\mathrm{dis}^*)$ relating dendroidal sets and dendroidal spaces?
+A) It is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RS}$ for dendroidal Segal spaces without completeness.
+B) It is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+C) The pair $(\mathrm{dis}^*,\mathrm{dis}_!)$, with $\mathrm{dis}^*$ as the left adjoint, is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+D) It is a Quillen adjunction, but not a Quillen equivalence, between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+정답: B
+atom: The adjoint pair $(\mathrm{dis}_!,\mathrm{dis}^*)$ is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.",,
 item,sample,IVFLUID-C02-S1-03-M3-YN,aea4e6b0664eeb6b,_UNIT,,,"A researcher wants to measure the equilibrium pressure of the circulation when there is no flow. In an animal model, she stops the heart and measures the pressure that equilibrates throughout the whole circulatory system, including the systemic vessels, the heart chambers and the pulmonary circulation, all in open communication.
 Does this measurement correspond to mean systemic pressure (Pms) as it is defined, i.e., equilibrium pressure in the systemic circulation alone, with the heart and pulmonary circulation excluded? (Yes/No)
 정답: No
 atom: Mean systemic pressure (Pms) is defined as the equilibrium pressure in the systemic circulation in the absence of any flow, ignoring the heart and pulmonary circulation (e.g., by clamping the aorta and venae cavae).",,
-item,sample,IVFLUID-C02-S3-02-M2-TF,7942ada0cfdef84d,_UNIT,,,"True or False?
-""A fluid bolus increases venous return and cardiac output provided that stressed volume and mean systemic pressure rise substantially, with a marked concurrent rise in right atrial pressure, and the ventricles operate on the steep portion of the cardiac function curve.""
-정답: False
-atom: A fluid bolus raises venous return and cardiac output only if stressed volume and mean systemic pressure increase significantly with minimal change in right atrial pressure and both ventricles operate on the steep portion of the cardiac function curve.",,
 item,sample,IVFLUID-C04-S2-01-M1-OPEN,eed14739beefc468,_UNIT,,,"How does positive pressure ventilation affect right atrial pressure, the pressure gradient for venous return, and venous return itself, and through what mechanism?
 정답: ['Pleural pressure rises and is partially transmitted to the right atrium, raising right atrial pressure', 'The venous return pressure gradient falls, so venous return decreases']
 atom: During positive pressure ventilation, pleural pressure increases and is partially transmitted to the right atrium, so right atrial pressure rises, the pressure gradient for venous return falls, and venous return decreases.",,
@@ -252,9 +242,6 @@ item,sample,IVFLUID-C04-S2-03-M3-YN,612debdac68cb5ed,_UNIT,,,"A patient is place
 Does this patient show a net reduction in left ventricular afterload? (Yes/No)
 정답: Yes
 atom: During positive pressure ventilation or PEEP, rising intrathoracic pressure lowers the transmural pressure of the left ventricle and, to a lesser extent, of the intrathoracic aorta, while transmural pressure in the abdominal aorta remains higher, producing a net reduction in left ventricular afterload.",,
-item,sample,IVFLUID-C05-S1-01-M1-OPEN,f6c19ffb42361277,_UNIT,,,"In the Stewart physicochemical approach to acid-base balance, plasma [HCO3-] and pH are treated as dependent variables. Which three independent variables determine them?
-정답: ['Total CO2 content', 'Strong ion difference (SID)', 'Total concentration of weak nonvolatile acids (Atot)']
-atom: In the Stewart physicochemical approach to acid-base balance, plasma [HCO3-] and pH are dependent variables determined by three independent variables: total CO2 content, strong ion difference (SID), and the concentration of weak nonvolatile acids (Atot).",,
 item,queue,IVFLUID-C05-S1-03-M3-YN,cf57714f625bb9eb,NO_LEAK,judge_a=pass judge_b=fail,judge_b: The prompt gives away the exact definition of apparent SID ('computes the difference between the summed strong cations and the summed strong anions').,"A clinician analyzing a patient's plasma uses the routinely measured values Na+ 140, K+ 4, Ca2+ 2.5 and Mg2+ 1 mEq/L as the strong cations, and Cl- (the main strong anion) 105 mEq/L as the strong anion. She computes the difference between the summed strong cations and the summed strong anions.
 Is the value she calculates the apparent strong ion difference (SID) in the Stewart approach? (Yes/No)
 정답: Yes
@@ -262,9 +249,6 @@ atom: In the Stewart approach, the apparent strong ion difference (SID) is the s
 item,sample,IVFLUID-C05-S2-01-M1-OPEN,19d463e8215f7c70,_UNIT,,,"In the Stewart approach, what is the effect on plasma SID and on acid-base status of infusing large volumes of zero-SID fluids such as 0.9% saline, dextrose, or mannitol solutions, and by what mechanism does it occur?
 정답: ['Plasma SID is reduced', 'Via admixture and equilibration with the plasma', 'Pushes acid-base balance toward metabolic acidosis']
 atom: In the Stewart approach, infusing large volumes of zero-SID fluids (saline with equal [Na+] and [Cl-], or dextrose or mannitol solutions without strong ions) reduces plasma SID by admixture and equilibration, pushing acid-base balance toward metabolic acidosis.",,
-item,sample,IVFLUID-C07-S1-01-M1-OPEN,4162cba10956f640,_UNIT,,,"In critical care fluid management, what are the four dynamic phases of fluid therapy described by the ROSE concept?
-정답: ['Resuscitation', 'Optimization', 'Stabilization and evacuation']
-atom: The ROSE concept describes four dynamic fluid phases of fluid therapy: resuscitation, optimization, stabilization and evacuation.",,
 item,sample,IVFLUID-C08-S1-01-M1-OPEN,57460480b0d39c53,_UNIT,,,"In critical care fluid management, what is Late Goal-Directed Fluid Removal (LGFR), also called de-resuscitation, and what methods and time window define it?
 정답: ['Active fluid removal using diuretics or renal replacement therapy with net ultrafiltration', 'Started within the first week of ICU stay']
 atom: Late Goal-Directed Fluid Removal (LGFR), also called de-resuscitation, is defined as active fluid removal with diuretics or renal replacement therapy with net ultrafiltration, started within the first week of ICU stay.",,
@@ -279,6 +263,10 @@ item,sample,IVFLUID-C10-S1-02-M2-TF,a40bc9623c9f223c,_UNIT,,,"True or False?
 ""Abdominal compartment syndrome is defined as a sustained increase in intra-abdominal pressure above 12 mmHg that is associated with new organ dysfunction or failure.""
 정답: False
 atom: Abdominal compartment syndrome (ACS) is defined as a sustained increase in IAP above 20 mmHg that is associated with new organ dysfunction or failure.",,
+item,sample,IVFLUID-C10-S1-03-M3-YN,14870518261984dd,_UNIT,,,"A critically ill patient with pancreatitis has repeated, sustained bladder-measured intra-abdominal pressure readings of 22 mmHg. The team classifies this as grade II intra-abdominal hypertension.
+Is this classification consistent with the standard IAH grading by IAP (grade I 12-15, grade II 15-20, grade III 20-25, grade IV above 25 mmHg)? (Yes/No)
+정답: No
+atom: IAH is graded by IAP: grade I is 12 to 15 mmHg, grade II is 15 to 20 mmHg, grade III is 20 to 25 mmHg, and grade IV is above 25 mmHg.",,
 item,sample,IVFLUID-C11-S1-03-M3-YN,53ad1ef453052c5e,_UNIT,,,"A research group develops a mathematical model that borrows the compartment-based framework of pharmacokinetic theory. They use it to analyze and simulate how an infused crystalloid solution is distributed among body fluid spaces and how it is later eliminated. The model is built on serial measurements of blood hemoglobin dilution.
 Is this model an example of volume kinetics? (Yes/No)
 정답: No
@@ -319,22 +307,18 @@ atom: The main objective of federated query processing is to transform a query p
 item,sample,KGBDP-C03-S2-01-M1-OPEN,1f67f7b8f651e3b5,_UNIT,,,"What are the four conceptual sub-problems (components) of federated query processing?
 정답: ['Data source description', 'Query decomposition and source selection', 'Query planning and optimization, and query execution']
 atom: Federated query processing conceptually involves four main sub-problems: data source description, query decomposition and source selection, query planning and optimization, and query execution.",,
-item,sample,KGBDP-C04-S1-03-M3-YN,7b413aa88dafa5c5,_UNIT,,,"Let G and D be two RDF graphs with molecule sets $\Phi(G)$ and $\Phi(D)$. The system context C is the Boolean condition 'both molecules describe a drug entity'. Molecule $M_G$ from G and molecule $M_D$ from D are such that $C(M_G, M_D) = true$, and $Sim_f(M_G, M_D)$ is 0.92, which is the maximum of $Sim_f(M_G, m)$ over all $m \in \Phi(D)$.
-Are $M_G$ and $M_D$ contextually equivalent? (Yes/No)
-정답: Yes
-atom: Two RDF molecules $M_G \in \Phi(G)$ and $M_D \in \Phi(D)$ are defined as contextually equivalent iff they satisfy the context, $C(M_1, M_2) = true$, and $Sim_f(M_G, M_D) = \max_{m \in \Phi(D)} Sim_f(M_G, m)$, i.e., they have the highest similarity value.",,
 item,queue,KGBDP-C05-S1-01-M1-OPEN,aecd4e4187a9d625,KEY_CORRECT,judge_a=fail judge_b=pass,"judge_a: The key adds continuity, which neither the atom nor the evidence explicitly establishes.","What do knowledge graph embedding models do with the entities and relations of a knowledge graph whose facts are stored as (head, relation, tail) triples?
 정답: ['They map entities and relations into a vector space', 'The vector space is low-dimensional (continuous)']
 atom: Knowledge graph embedding models map the entities and relations of a knowledge graph, whose facts are triples $(h, r, t)$ of head, relation and tail, into a low-dimensional vector space.",,
 item,queue,KGBDP-C05-S1-01-M1-OPEN,aecd4e4187a9d625,KP_IN_ATOM,judge_a=fail judge_b=pass,"judge_a: Low dimensionality is stated, but continuity is not part of the atom.","What do knowledge graph embedding models do with the entities and relations of a knowledge graph whose facts are stored as (head, relation, tail) triples?
 정답: ['They map entities and relations into a vector space', 'The vector space is low-dimensional (continuous)']
 atom: Knowledge graph embedding models map the entities and relations of a knowledge graph, whose facts are triples $(h, r, t)$ of head, relation and tail, into a low-dimensional vector space.",,
+item,sample,KGBDP-C09-S3-01-M1-OPEN,59e40e591a31818c,_UNIT,,,"Why do HMM-based NILM approaches suffer from error propagation?
+정답: ['HMM assumes the current state depends on the previous state', 'Errors in estimating previous states significantly affect predictions of current states']
+atom: HMM-based NILM suffers from error propagation because an HMM presumes the current state depends on the previous one, so mistakes in estimating previous states significantly influence predictions of current states.",,
 item,sample,KGBDP-C10-S1-01-M1-OPEN,d95ee3bfe7fad26c,_UNIT,,,"When a Knowledge Graph is viewed as a knowledge management system, which database-world concept is it analogous to, and what functions does such a system provide?
 정답: ['Analogous to a database management system for databases', 'A system to create, manipulate and retrieve data']
 atom: Viewing a Knowledge Graph as a knowledge management system is analogous to a database management system for databases: a system to create, manipulate and retrieve data.",,
-item,sample,LAPINF-C01-S3-01-M1-OPEN,914800d1836ff3a5,_UNIT,,,"Does every graph $(V,m;b)$ admit a minimal cable system? If not, give an example of a graph that has none and say why.
-정답: ['No: for example the combinatorial Laplacian on the infinite path graph $\\mathbb Z_{\\ge 0}$, an antitree with sphere numbers $s_n=1$', 'The positivity condition required for a minimal cable system (on antitrees) fails']
-atom: A minimal cable system for $(V,m;b)$ need not exist; for example, the combinatorial Laplacian on an infinite path graph $\mathbb Z_{\ge0}$, which is an antitree with sphere numbers $s_n=1$, has no minimal cable system because the antitree positivity condition fails.",,
 item,sample,LAPINF-C03-S2-02-M2-MCQ,2bfd18d00862c321,_UNIT,,,"Let a weighted metric graph have a model of finite intrinsic size, and let a vertex function $\mathbf f$ belong to $H^1(\mathcal V)$. Which statement about the corresponding continuous edgewise affine function $\iota_{\mathcal V}^{-1}(\mathbf f)$ holds?
 A) It belongs to $L^\infty(\mathcal G)$ but not necessarily to $H^1(\mathcal G)$.
 B) It belongs to $H^1(\mathcal G)$ only if the model has infinite intrinsic size.
@@ -342,21 +326,9 @@ C) It belongs to $H^2(\mathcal G)$ but not necessarily to $H^1(\mathcal G)$.
 D) It belongs to $H^1(\mathcal G)$.
 정답: D
 atom: If a model has finite intrinsic size and a vertex function $\mathbf f$ belongs to $H^1(\mathcal V)$, then the corresponding continuous edgewise affine function $\iota_{\mathcal V}^{-1}(\mathbf f)$ belongs to $H^1(\mathcal G)$.",,
-item,queue,LAPINF-C04-S1-01-M1-OPEN,17592f4d539b1a4d,KEY_CORRECT,judge_a=hold judge_b=pass,judge_a: The evidence renders the contractivity space as “L1”; the garbled exponent prevents verification of the key’s L-infinity contractivity.,"What does it mean for a Laplacian (on a manifold, graph, or metric graph) to have Markovian uniqueness, and which properties must the heat semigroup of the relevant self-adjoint extensions have?
-정답: ['Uniqueness of self-adjoint extensions that enjoy the Markov property', 'Heat semigroup is positivity preserving and $L^\\infty$ contractive']
-atom: Markovian uniqueness of a Laplacian means uniqueness of its self-adjoint extensions that enjoy the Markov property, that is, extensions whose heat semigroup $(e^{t\Delta})_{t>0}$ is positivity preserving and $L^\infty$ contractive.",,
-item,sample,LAPINF-C04-S1-02-M2-TF,44137fe87c9b1dda,_UNIT,,,"True or False?
-""For a non-positive Laplacian, Markovian uniqueness is equivalent to the following: for every $\lambda>0$, the equation $\Delta u=\lambda u$ has exactly one solution $u\in L^2$ with finite Dirichlet integral $\mathfrak{Q}[u]<\infty$.""
-정답: True
-atom: For a non-positive Laplacian, Markovian uniqueness can be restated as follows: the Helmholtz equation $\Delta u=\lambda u$ with $\lambda>0$ admits a unique solution $u\in L^2$ having finite energy, i.e. finite Dirichlet integral $\mathfrak{Q}[u]<\infty$.",,
-item,queue,LAPINF-C05-S1-02-M2-TF,c7b4b68ce9fc81c9,KEY_CORRECT,judge_a=hold judge_b=pass,"judge_a: The evidence's boundary-area formula is truncated and its symbols are garbled, so the summand and indexing cannot be verified.","True or False?
-""Let $\mathcal K$ be a finite subgraph of a model of a weighted metric graph. Its boundary vertices are those vertices of $\mathcal K$ whose degree in $\mathcal K$ is strictly smaller than their degree in the whole graph $\mathcal G$. The boundary area $\mathrm{area}(\partial\mathcal K)$ is obtained by summing $\sqrt{\mu\nu}(e)$ over the edges $e$ of $\mathcal K$ incident to each such boundary vertex.""
-정답: True
-atom: For a finite subgraph $\mathcal K$ of a model, the boundary area $\mathrm{area}(\partial\mathcal K)$ is the sum of $\sqrt{\mu\nu}(e)$ over the edges $e$ of $\mathcal K$ incident to each boundary vertex $v\in\partial\mathcal K$, where $\partial\mathcal K$ consists of the vertices of $\mathcal K$ whose degree in $\mathcal K$ is smaller than their degree in $\mathcal G$.",,
-item,queue,LAPINF-C08-S1-03-M3-YN,6375280883eef871,G2_NO_COMPUTATION,judge_a=fail judge_b=pass,judge_a: Requires combining the constructed domain’s membership of g with g’s exclusion from dom(A*) to establish failure of the containment condition.,"Let $A$ be the minimal operator $-\frac{d^2}{dx^2}$ with domain $H^2_0(0,1)$ in $L^2(0,1)$, so $A^*$ is the maximal operator with domain $H^2(0,1)$. Pick a function $g\in L^2(0,1)$ with $g\notin H^2(0,1)$, for example $g(x)=|x-\tfrac12|^{1/2}$. Define $\widetilde A$ on $\mathrm{dom}(\widetilde A)=H^2_0(0,1)\dotplus\mathrm{span}\{g\}$ by $\widetilde A h=Ah$ for $h\in H^2_0(0,1)$ and $\widetilde A g=0$.
-Is $\widetilde A$ a proper extension of $A$, that is, does $\widetilde A$ belong to $\mathrm{Ext}(A)$? (Yes/No)
-정답: No
-atom: A proper extension of a symmetric operator $A$ is an operator $\widetilde A$ with $\mathrm{dom}(A)\subset\mathrm{dom}(\widetilde A)\subset\mathrm{dom}(A^*)$, and the set of all proper extensions is denoted $\mathrm{Ext}(A)$.",,
+item,sample,LAPINF-C07-S1-01-M1-OPEN,500d81762a29b23c,_UNIT,,,"What does it mean for a heat semigroup $(e^{-tH})_{t>0}$ to be stochastically complete, and for how many values of $t>0$ does the defining identity need to be checked?
+정답: ['$e^{-tH}\\mathbb{1}=\\mathbb{1}$ (the constant function $\\mathbb{1}$ is preserved)', 'it suffices to check it for some $t>0$, which then gives it for all $t>0$']
+atom: Stochastic completeness of a heat semigroup $(e^{-tH})_{t>0}$ means that $e^{-tH}\mathbb{1}=\mathbb{1}$ for some (and hence for all) $t>0$.",,
 item,sample,LAPINF-C08-S2-01-M1-OPEN,704d33e188877fa9,_UNIT,,,"Given a boundary triplet $\{\mathcal{H},\Gamma_0,\Gamma_1\}$ for $A^*$, how can all proper extensions of the symmetric operator $A$ be parametrized? Describe the parametrizing objects and the map.
 정답: ['Parametrized by linear relations $\\Theta$ in $\\mathcal{H}$ via $\\Theta\\mapsto A_\\Theta=A^*\\restriction\\{f\\in\\mathrm{dom}(A^*):(\\Gamma_0 f,\\Gamma_1 f)\\in\\Theta\\}$', 'This map is a bijection between $\\mathrm{Ext}(A)$ and the set of all linear relations in $\\mathcal{H}$']
 atom: Given a boundary triplet for $A^*$, the map $\Theta\mapsto A_\Theta=A^*\restriction\{f\in\mathrm{dom}(A^*):(\Gamma_0 f,\Gamma_1 f)\in\Theta\}$ is a bijective correspondence between the proper extensions of $A$ and the set of all linear relations in $\mathcal{H}$.",,
@@ -381,12 +353,6 @@ atom: Geometrically, the second Hodge bundle $\mathcal{E}$ consists of the middl
 item,sample,MAVVOM-C05-S1-01-M1-OPEN,f7069e020187b84a,_UNIT,,,"How is the canonical extension of an automorphic vector bundle $\mathcal{E}_{\lambda,k}$ over a toroidal compactification $X(I)^\Sigma$ defined in terms of the $I$-trivialization $\mathcal{E}_{\lambda,k}\simeq V(I)_{\lambda,k}\otimes\mathcal{O}$?
 정답: ['The extension is defined so that the $I$-trivialization isomorphism extends over $X(I)^\\Sigma$', 'Frames of $\\mathcal{E}_{\\lambda,k}$ coming from a basis of $V(I)_{\\lambda,k}$ extend to frames of the extended bundle']
 atom: The canonical extension of the automorphic vector bundle $\mathcal{E}_{\lambda,k}$ over $X(I)^\Sigma$ is defined by requiring that the $I$-trivialization $\mathcal{E}_{\lambda,k}\simeq V(I)_{\lambda,k}\otimes\mathcal{O}$ extends, i.e., that the frame of $\mathcal{E}_{\lambda,k}$ over $X(I)$ corresponding to a basis of $V(I)_{\lambda,k}$ extends to a frame of the extended bundle.",,
-item,sample,MAVVOM-C05-S2-01-M1-OPEN,ac48c8a9d32984f6,_UNIT,,,"Why does the canonical extension of $\mathcal{E}_{\lambda,k}$ over $\overline{\mathcal{X}(J)}$ not depend on which rank 1 primitive sublattice $I\subset J$ is used to define it?
-정답: [""The transition between the $I$- and $I'$-trivializations is a $GL$-valued holomorphic function on $\\mathcal{X}(J)$"", 'It is constant on each fiber of $\\mathcal{X}(J)\\to\\mathcal{V}_J$, so it extends holomorphically over $\\overline{\\mathcal{X}(J)}$ and the two extensions agree']
-atom: The canonical extension of $\mathcal{E}_{\lambda,k}$ over $\overline{\mathcal{X}(J)}$ does not depend on the choice of the rank 1 primitive sublattice $I\subset J$, because the transition between the $I$- and $I'$-trivializations is a $GL$-valued holomorphic function that is constant on each fiber of $\mathcal{X}(J)\to\mathcal{V}_J$ and hence extends holomorphically over $\overline{\mathcal{X}(J)}$.",,
-item,sample,MAVVOM-C05-S3-01-M1-OPEN,942568975147b642,_UNIT,,,"Over the partial compactification $\overline{\mathcal{X}(J)}$ the canonical extension of $\mathcal{E}_{\lambda,k}$ has a trivialization by construction. Why does this fail to carry over to the full toroidal compactifications?
-정답: ['Around $\\Delta_J$ one must additionally take the quotient by $\\overline{\\Gamma(J)}_{\\mathbb{Z}}$', 'This quotient does not preserve the trivialization']
-atom: Although the canonical extension over $\overline{\mathcal{X}(J)}$ retains a trivialization by construction, this no longer holds on the full toroidal compactifications, since around $\Delta_J$ one must further take the quotient by $\overline{\Gamma(J)}_\mathbb{Z}$, which does not preserve the trivialization.",,
 item,sample,MAVVOM-C06-S2-02-M2-MCQ,b4249d6d477c69bf,_UNIT,,,"The geometric definition of the Fourier–Jacobi expansion at a 1-dimensional cusp $J$ uses a special normal parameter $\omega_J$. How does the resulting expansion depend on the choice of $\omega_J$?
 A) The expansion and the sections are independent of $\omega_J$, but they are determined by $J$ only after also choosing a 0-dimensional cusp $I\subset J$.
 B) The expansion and the sections of $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ depend on the choice of $\omega_J$, so they are determined only after fixing it.
@@ -394,52 +360,14 @@ C) The expansion is independent of $\omega_J$, but the sections of $\mathcal{E}_
 D) The expansion and the sections of $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ are independent of the choice of $\omega_J$, so they are canonically determined by $J$.
 정답: D
 atom: The Fourier–Jacobi expansion is canonical: although the special normal parameter $\omega_J$ is needed to define it, the resulting expansion and the sections of $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ do not depend on the choice of $\omega_J$ and are determined by $J$ alone.",,
-item,sample,MAVVOM-C07-S1-01-M1-OPEN,d6814f0b1a12675d,_UNIT,,,"How is a (vector-valued) Jacobi form of weight $(\lambda,k)$ and index $m$ for the integral Jacobi group defined as a section of a line/vector bundle over $\Delta_J$? State the bundle, the invariance condition, and the condition at the boundary.
-정답: ['A section of $\\mathcal{E}_{\\lambda,k}\\otimes\\Theta_J^{\\otimes m}$ over $\\Delta_J$ that is invariant under the integral Jacobi group', 'Holomorphic at every cusp $I\\subset J$ of $\\mathbb{H}_J$']
-atom: A Jacobi form of weight $(\lambda,k)$ and index $m$ for the integral Jacobi group $\overline{\Gamma(J)}_{\mathbb Z}$ is a $\overline{\Gamma(J)}_{\mathbb Z}$-invariant section of $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ over $\Delta_J$ that is holomorphic at every cusp $I\subset J$ of $\mathbb{H}_J$ (the space is denoted $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})$).",,
-item,queue,MAVVOM-C07-S2-02-M2-MCQ,f1067b1c38fd33e2,KEY_CORRECT,judge_a=hold judge_b=hold,"judge_a: The extracted evidence omits the displayed injection formula, preventing verification of the target’s bounds, weights, index, and multiplicities. / judge_b: The displayed equation for the target space in Proposition 8.15 is missing from the PDF text layer in the evidence.","For $\lambda\neq\det$, vector-valued Jacobi forms $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})$ inject into a sum of scalar-valued Jacobi form spaces. Which description of the target is correct (with $\alpha(r)$ the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$ unless stated otherwise)?
-A) $\bigoplus_{r=0}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-B) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k,m+r}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-C) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\dim V_\lambda}$, with the same multiplicity $\dim V_\lambda$ for every $r$
-D) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-정답: D
-atom: For $\lambda\neq\det$, there is an injective map $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})\hookrightarrow\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$, where $\alpha(r)$ is the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$, so vector-valued Jacobi forms decompose into tuples of scalar-valued Jacobi forms of various weights.",,
-item,queue,MAVVOM-C07-S2-02-M2-MCQ,f1067b1c38fd33e2,SINGLE_ANSWER,judge_a=fail judge_b=pass,"judge_a: C also admits an injection: each graded-piece rank is at most dim Vλ, so the stated injection can be padded into C.","For $\lambda\neq\det$, vector-valued Jacobi forms $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})$ inject into a sum of scalar-valued Jacobi form spaces. Which description of the target is correct (with $\alpha(r)$ the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$ unless stated otherwise)?
-A) $\bigoplus_{r=0}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-B) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k,m+r}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-C) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\dim V_\lambda}$, with the same multiplicity $\dim V_\lambda$ for every $r$
-D) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-정답: D
-atom: For $\lambda\neq\det$, there is an injective map $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})\hookrightarrow\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$, where $\alpha(r)$ is the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$, so vector-valued Jacobi forms decompose into tuples of scalar-valued Jacobi forms of various weights.",,
-item,queue,MAVVOM-C07-S2-02-M2-MCQ,f1067b1c38fd33e2,ONE_ELEMENT_CHANGE,judge_a=fail judge_b=pass,judge_a: B changes two independent slots: the scalar weight from k+r to k and the index from m to m+r.,"For $\lambda\neq\det$, vector-valued Jacobi forms $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})$ inject into a sum of scalar-valued Jacobi form spaces. Which description of the target is correct (with $\alpha(r)$ the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$ unless stated otherwise)?
-A) $\bigoplus_{r=0}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-B) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k,m+r}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-C) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\dim V_\lambda}$, with the same multiplicity $\dim V_\lambda$ for every $r$
-D) $\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$
-정답: D
-atom: For $\lambda\neq\det$, there is an injective map $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})\hookrightarrow\bigoplus_{r=-\lambda_1}^{\lambda_1}J_{k+r,m}(\Gamma(J)_{\mathbb Z})^{\oplus\alpha(r)}$, where $\alpha(r)$ is the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$, so vector-valued Jacobi forms decompose into tuples of scalar-valued Jacobi forms of various weights.",,
-item,sample,MAVVOM-C07-S3-02-M2-TF,04ed1224c72420fb,_UNIT,,,"True or False?
-""For $\lambda\neq\det$, if $k+\lambda_1<n/2-1$ then $J_{\lambda,k,m}(\Gamma(J)_{\mathbb Z})=0$, because every weight $k+r$ appearing in the decomposition is at most $k+\lambda_1$ and scalar-valued Jacobi forms of weight below $n/2-1$ vanish.""
-정답: True
-atom: For $\lambda\neq\det$, the space $J_{\lambda,k,m}(\Gamma(J)_{\mathbb{Z}})$ is zero when $k+\lambda_1<n/2-1$, because every weight $k+r$ in the decomposition satisfies $k+r\le k+\lambda_1<n/2-1$ and scalar-valued Jacobi forms vanish in that weight range.",,
-item,queue,MAVVOM-C09-S2-01-M1-OPEN,e7f2196a126ec047,KEY_CORRECT,judge_a=hold judge_b=hold,"judge_a: The evidence has garbled symbols and omits the denominator, preventing verification of the full pairing formula. / judge_b: The PDF text layer evidence is truncated/garbled and omits the denominator (Im Z, Im Z), making it impossible to verify the full fraction against the evidence.","On the tube domain $\mathcal D_I$ attached to an isotropic line $I$, let $s_{v_1}, s_{v_2}$ be the distinguished sections of the Hodge bundle $\mathcal E$ corresponding to vectors $v_1,v_2\in V(I)_{\mathbb R}$. What is the Petersson pairing $(s_{v_1}(Z),s_{v_2}(Z))_{\mathcal E}$ as a function of $Z\in\mathcal D_I$?
-정답: ['$-(v_1,v_2)$ as the first term', 'Plus $2(v_1,\\mathrm{Im}Z)(v_2,\\mathrm{Im}Z)/(\\mathrm{Im}Z,\\mathrm{Im}Z)$', '$(\\ ,\\ )$ is the natural quadratic form on $V(I)_{\\mathbb R}\\simeq U(I)_{\\mathbb R}$']
-atom: On the tube domain $\mathcal D_I$, for $v_1,v_2\in V(I)_{\mathbb R}$ the Petersson pairing of the distinguished sections of $\mathcal E$ is $(s_{v_1}(Z),s_{v_2}(Z))_{\mathcal E}=-(v_1,v_2)+\frac{2(v_1,\mathrm{Im}Z)(v_2,\mathrm{Im}Z)}{(\mathrm{Im}Z,\mathrm{Im}Z)}$, with $(\,,)$ the natural quadratic form on $V(I)_{\mathbb R}\simeq U(I)_{\mathbb R}$.",,
-item,sample,MAVVOM-C11-S1-02-M2-TF,18f56c9f6abf66ec,_UNIT,,,"True or False?
-""For an irreducible representation of $O(n,\mathbb{C})$ with partition $\lambda\neq 1,\det$, $\mathrm{corank}(\lambda)$ is defined as the minimal index $1\le i\le [n/2]$ such that $\lambda_1=\cdots=\lambda_i$ and $\lambda_n=\lambda_{n-1}=\cdots=\lambda_{n+1-i}=0$.""
-정답: False
-atom: For a partition $\lambda=(\lambda_1\ge\cdots\ge\lambda_n)$ of an irreducible representation of $O(n,\mathbb{C})$ with $\lambda\neq 1,\det$, $\mathrm{corank}(\lambda)$ is defined as the maximal index $1\le i\le [n/2]$ such that $\lambda_1=\lambda_2=\cdots=\lambda_i$ and $\lambda_n=\lambda_{n-1}=\cdots=\lambda_{n+1-i}=0$.",,
-item,queue,NACHR-C01-S3-01-M1-OPEN,d84738c539d37608,AUTHOR_OPINION_RESOLVED,judge_a=fail judge_b=pass,judge_a: The question presents an experimental finding as a universal fact without specifying the observed experimental context.,"Does the PI3K inhibitor LY294002 block the protection against Aβ- and glutamate-induced cytotoxicity produced by α4β2 nAChR stimulation, and what does this suggest about PI3K's role in α4β2-mediated neuroprotection?
-정답: ['α4β2 protection is not inhibited by LY294002', 'PI3K is not directly involved in α4β2 nAChR-mediated neuroprotection']
-atom: Although α4β2 nAChR stimulation also protected against Aβ- and glutamate-induced cytotoxicity, this protection was not inhibited by LY294002, suggesting that the PI3K system is not directly involved in α4β2 nAChR-mediated neuroprotection.",,
 item,sample,NACHR-C02-S1-03-M3-YN,ba8bbe1274548448,_UNIT,,,"A researcher exposes cultured cortical neurons for several days to donepezil, an acetylcholinesterase inhibitor used in Alzheimer's disease, and then measures nAChR protein levels in the cells.
 Is it expected that this treatment will produce a significant up-regulation of nAChRs? (Yes/No)
 정답: Yes
 atom: Acetylcholinesterase (AChE) inhibitors, including donepezil, also induce significant up-regulation of nAChRs.",,
-item,sample,NACHR-C03-S2-03-M3-YN,02ec8fa9783781d2,_UNIT,,,"In cultured cortical neurons, donepezil is added at the same time as glutamate and gives no protection. When neurons are pretreated with donepezil, protection increases with longer pretreatment and higher concentration. An investigator considers whether the protection is explained by AChE inhibition.
-Does this pattern of results strongly suggest that donepezil's protection acts through a mechanism other than AChE inhibition? (Yes/No)
-정답: No
-atom: The authors report that donepezil lacked protection when applied simultaneously with glutamate and acted in a manner dependent on pretreatment duration and concentration, which they say strongly suggests a mechanism other than AChE inhibition.",,
 item,sample,NACHR-C06-S1-01-M1-OPEN,c612f677aaac9b02,_UNIT,,,"Why has a specific acetylcholine transport system (AChT) been postulated for postsynaptic neurons that carry intracellular acetylcholine receptors?
 정답: ['ACh is hydrophilic, so it cannot readily cross membranes by itself', 'A transporter would carry ACh across the postsynaptic plasma and endosomal membranes to reach intracellular receptors']
 atom: Because acetylcholine is a hydrophilic molecule, a specific acetylcholine transport system (AChT) has been postulated to let acetylcholine cross the postsynaptic plasma and endosomal membranes to reach and activate intracellular acetylcholine receptors.",,
+item,sample,NACHR-C09-S1-02-M2-TF,32b5835bd1016b09,_UNIT,,,"True or False?
+""Galantamine's allosteric potentiating effect is found on both α7 and α4β2 nicotinic acetylcholine receptor subtypes.""
+정답: True
+atom: The APL effect of galantamine is present on both α7 and α4β2 nAChRs.",,

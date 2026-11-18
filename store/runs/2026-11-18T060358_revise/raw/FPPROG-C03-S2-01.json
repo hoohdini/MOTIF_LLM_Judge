@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C03-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Expected runtime transformer\n\nATOM FPPROG-C03-S2-01 (S2): The ert of a loop $\\mathrm{while}(\\varphi)\\{c\\}$ with respect to continuation $t$ is defined as the least fixed point of the characteristic functional $F_t(X)=1+[\\varphi]\\cdot\\mathrm{ert}[c](X)+[\\neg\\varphi]\\cdot t$, which equals $\\lim_{n\\to\\infty}F_t^n(0)$ by the Kleene Fixed Point Theorem, since $\\mathbb{T}$ is a complete lattice and $F_t$ is continuous.\n\nEVIDENCE:\n[FPPROG-p0212-s13] Ft : T →T, X �→1 + [ϕ] · ert[c](X) + [¬ϕ] · t ,\n[FPPROG-p0212-s20] The Kleene Fixed Point Theorem (Kleene, 1952) then ensures by continuity that the least fixed point of Ft, which we denote by lfp Ft, exists and coincides with the limit of Fn t (0) for n →∞.\n[FPPROG-p0212-s22] ert[while (ϕ) {c}](t) = lfp Ft = lim n→∞Fn t (0) .\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The functional and Kleene limit are stated, but the substantive characterization of T as a complete lattice is not. / Evidence does not state that T is a complete lattice; drop 'T is a complete lattice and'.\n- SINGLE_CLAIM: revise — Combines loop semantics with a fixed-point theorem and its mathematical prerequisites. / Joins the lfp definition of loop ert and characteristic functional with the Kleene Fixed Point Theorem limit characterization.\n- L1_ONLY: hold — Retain the loop functional and least-fixed-point definition; remove the theorem attribution and lattice/continuity justification.",
+ "raw": "{\"atoms\": [{\"statement\": \"The expected runtime transformer of a loop $\\\\mathrm{while}(\\\\varphi)\\\\{c\\\\}$ with respect to continuation $t$ is the least fixed point of the functional $F_t(X)=1+[\\\\varphi]\\\\cdot\\\\mathrm{ert}[c](X)+[\\\\neg\\\\varphi]\\\\cdot t$.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0212-s13\", \"FPPROG-p0212-s22\"]}, {\"statement\": \"The least fixed point of $F_t$ exists and equals $\\\\lim_{n\\\\to\\\\infty}F_t^n(0)$, so $\\\\mathrm{ert}[\\\\mathrm{while}(\\\\varphi)\\\\{c\\\\}](t)=\\\\lim_{n\\\\to\\\\infty}F_t^n(0)$.\", \"scope\": \"S2\", \"evidence_ids\": [\"FPPROG-p0212-s20\", \"FPPROG-p0212-s22\"]}], \"note\": \"Split the definition from the Kleene limit characterization; removed the unstated claim that T is a complete lattice and the theorem attribution.\"}",
+ "usage": {
+  "completion_tokens": 394,
+  "prompt_tokens": 1050,
+  "total_tokens": 1444,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 394
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1050,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00604000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

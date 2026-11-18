@@ -1,0 +1,30 @@
+{
+ "atom_id": "DPCPP2-C09-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Group barrier\n\nATOM DPCPP2-C09-S2-01 (S2): The set of work-items that synchronize at a group_barrier is determined entirely by the group object passed to it, while the optional memory-scope argument only affects the memory operations performed by the barrier, so passing a different scope cannot synchronize more or fewer work-items.\n\nEVIDENCE:\n[DPCPP2-p0260-s05] Please note that the explicit scope only affects the memory operations\n[DPCPP2-p0260-s06] that are performed by the barrier, and that the set of work-items that synchronize execution at the barrier is determined entirely by the group object passed to the barrier.\n[DPCPP2-p0260-s07] We cannot synchronize more or fewer work-items by passing a different memory scope to the barrier, but we can synchronize a different set of work-items by passing a different group object to the barrier.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Split group-controlled execution participation from the memory-scope argument’s restriction to memory operations; these are independently assessable claims. / Combines two distinct claims: the group object determines synchronizing work-items, and the memory-scope argument only affects memory operations.",
+ "raw": "{\"atoms\": [{\"statement\": \"The set of work-items that synchronize execution at a group_barrier is determined entirely by the group object passed to the barrier, so passing a different group object can synchronize a different set of work-items.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0260-s06\", \"DPCPP2-p0260-s07\"]}, {\"statement\": \"The explicit memory-scope argument to a group_barrier only affects the memory operations performed by the barrier and cannot make the barrier synchronize more or fewer work-items.\", \"scope\": \"S2\", \"evidence_ids\": [\"DPCPP2-p0260-s05\", \"DPCPP2-p0260-s06\", \"DPCPP2-p0260-s07\"]}], \"note\": \"\"}",
+ "usage": {
+  "completion_tokens": 257,
+  "prompt_tokens": 792,
+  "total_tokens": 1049,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 257
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 792,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00415400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

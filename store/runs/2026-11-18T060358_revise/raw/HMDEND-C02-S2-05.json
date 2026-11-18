@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C02-S2-05",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Boardman–Vogt resolution\n\nATOM HMDEND-C02-S2-05 (S2): Composition in $W(P)$ is defined by grafting trees, identifying a leaf of one tree with the root of another (both have the same colour and length 1) and carrying along all labels, so compositions of subtree operations can be recognized by edges of length 1.\n\nEVIDENCE:\n[HMDEND-p0051-s05] sends operations represented by trees T, S1, . . ., Sn to the operation represented by identifying the ith leaf of T with the root of Si and carrying along all the labels.\n[HMDEND-p0051-s06] Note that this ith leaf has the same colour as the root of Si, as well as the same length (namely 1).\n[HMDEND-p0051-s07] Thus, one can recognize operations in W(P) that arise as a composition of operations represented by subtrees by looking for edges of length 1.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — Evidence does not use the word 'grafting'; replace or drop 'by grafting trees' to match the cited text.\n- SINGLE_CLAIM: revise — Combines the definition of composition by grafting with a separately assessable criterion for recognizing subtree compositions. / Combines the definition of composition in W(P) with the consequent rule for recognizing composite operations via length-1 edges.\n- L1_ONLY: hold — Remove the concluding recognition clause; it adds an evaluative consequence to the recall-level grafting rule.",
+ "raw": "{\"atoms\": [{\"statement\": \"In $W(P)$, composition sends operations represented by trees T, S1, ..., Sn to the operation represented by identifying the ith leaf of T with the root of Si and carrying along all the labels.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0051-s05\"]}, {\"statement\": \"In $W(P)$, operations that arise as a composition of operations represented by subtrees can be recognized by looking for edges of length 1.\", \"scope\": \"S2\", \"evidence_ids\": [\"HMDEND-p0051-s07\"]}], \"note\": \"Split the definition of composition from the recognition criterion. Dropped 'grafting' because the evidence does not use the word. The same-colour and length-1 remark is omitted as a separate add-on, since it is not needed for the main claims.\"}",
+ "usage": {
+  "completion_tokens": 277,
+  "prompt_tokens": 890,
+  "total_tokens": 1167,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 277
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 890,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00455000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

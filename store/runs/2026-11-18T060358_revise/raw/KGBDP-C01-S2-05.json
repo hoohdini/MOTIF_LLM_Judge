@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C01-S2-05",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: RDF Mapping Language\n\nATOM KGBDP-C01-S2-05 (S2): RML's logical reference generalizes R2RML's column name reference, and its value must be a valid expression according to the Reference Formulation defined at the Logical Source.\n\nEVIDENCE:\n[KGBDP-p0072-s02] In the case of RML, a more generic notion is introduced, the logical reference.\n[KGBDP-p0072-s03] Its value must be a valid reference to the data of the input dataset according to the specified reference formulation.\n[KGBDP-p0072-s04] Thus, the reference’s value should be a valid expression according to the Reference Formulation defined at the Logical Source.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence states logical-reference validity but does not identify R2RML's column-name reference as what it generalizes. / Drop 'generalizes R2RML's column name reference', which is not stated in the cited evidence sentences.\n- SINGLE_CLAIM: revise — Generalizing an R2RML column reference and requiring a valid Reference Formulation expression are independently assessable. / Combines the generalization of R2RML's column name reference with the requirement that its value be a valid expression.",
+ "raw": "{\"atoms\": [{\"statement\": \"In RML, the value of a logical reference must be a valid expression according to the Reference Formulation defined at the Logical Source.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0072-s03\", \"KGBDP-p0072-s04\"]}], \"note\": \"Dropped the claim that the logical reference generalizes R2RML's column name reference. The evidence only says RML introduces a more generic notion, the logical reference, and never names the column name reference.\"}",
+ "usage": {
+  "completion_tokens": 168,
+  "prompt_tokens": 796,
+  "total_tokens": 964,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 168
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 796,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00327200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

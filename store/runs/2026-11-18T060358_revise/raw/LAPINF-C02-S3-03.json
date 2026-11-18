@@ -1,0 +1,27 @@
+{
+ "atom_id": "LAPINF-C02-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intrinsic metric\n\nATOM LAPINF-C02-S3-03 (S3): The star path metric $\\varrho_m$ is in general not intrinsic, because it contains no information on $b$ beyond the underlying combinatorial structure.\n\nEVIDENCE:\n[LAPINF-p0120-s07] (iii) Let us stress that the star path metric %m is not intrinsic in general since it does not contain any information on b except the underlying combinatorial structure.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — The metric's general non-intrinsicness and its dependence only on combinatorial structure are separately assessable.\n- L1_ONLY: hold — 'Star path metric \\varrho_m' is a specialized secondary concept not defined in the atom.\n- SOURCE_INDEPENDENT: hold — 'Star path metric \\varrho_m' is book-specific terminology/notation that an expert cannot evaluate without the text's definition.\n- CENTRALITY: hold — The star path metric is a peripheral example/counterexample rather than core to the concept of intrinsic metrics.",
+ "raw": "{\"atoms\": [], \"note\": \"The only evidence sentence says that the star path metric $\\\\varrho_m$ is in general not intrinsic because it carries no information on $b$ beyond the combinatorial structure. Neither $\\\\varrho_m$ nor $b$ is defined in the evidence, so the claim cannot be stated without the source. Splitting it would not fix this. Rewriting it as a general statement about metrics that carry only combinatorial information would go beyond the evidence. The sentence is also a side remark, not a core statement about intrinsic metrics.\"}",
+ "usage": {
+  "completion_tokens": 687,
+  "prompt_tokens": 760,
+  "total_tokens": 1447,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 760,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00839000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "MAVVOM-C10-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Small-weight vanishing theorem\n\nATOM MAVVOM-C10-S1-02 (S1): As a consequence of the vanishing theorem, on the regular locus $X$ of the modular variety $\\Gamma\\backslash\\mathcal D$, there are no nonzero holomorphic tensors $H^0(X,(\\Omega^1_X)^{\\otimes k})$ for $0<k<n/2-1$.\n\nEVIDENCE:\n[MAVVOM-p0125-s01] Theorem 9.5. When 0 < k < n=2 �1, we have H 0.X; .�1 X/˝k/ D 0.\n[MAVVOM-p0125-s02] In particular, H 0. z X; .�1 z X/˝k/ D 0 for any smooth projective model z X of F .�/.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The supplied sentences do not identify X as the regular locus of Γ\\𝒟 or identify this result as a consequence of the vanishing theorem. / The cited evidence does not define X as 'the regular locus of the modular variety \\Gamma\\backslash\\mathcal D'; drop that phrase or cite its definition.\n- NO_OVERLAP: hold — The tensor-vanishing conclusion is also stated in the more informative proof atom.",
+ "raw": "{\"atoms\":[{\"statement\":\"For $0<k<n/2-1$, the space of global holomorphic sections $H^0(X,(\\\\Omega^1_X)^{\\\\otimes k})$ of the $k$-th tensor power of the cotangent sheaf on $X$ is zero.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0125-s01\"]},{\"statement\":\"For $0<k<n/2-1$, $H^0(\\\\tilde X,(\\\\Omega^1_{\\\\tilde X})^{\\\\otimes k})=0$ for any smooth projective model $\\\\tilde X$ of $F(\\\\Gamma)$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MAVVOM-p0125-s01\",\"MAVVOM-p0125-s02\"]}],\"note\":\"Removed the unsupported identification of X as the regular locus of Γ\\\\𝒟 and the 'consequence of the vanishing theorem' framing, since the evidence supports neither. The evidence does not define X, n, or F(Γ), so those symbols stay as written. The result is stated directly as Theorem 9.5 and its corollary for smooth projective models.\"}",
+ "usage": {
+  "completion_tokens": 942,
+  "prompt_tokens": 826,
+  "total_tokens": 1768,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 826,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01107200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

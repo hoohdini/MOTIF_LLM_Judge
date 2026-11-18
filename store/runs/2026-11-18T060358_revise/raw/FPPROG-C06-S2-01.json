@@ -1,0 +1,30 @@
+{
+ "atom_id": "FPPROG-C06-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Type-2 computability\n\nATOM FPPROG-C06-S2-01 (S2): A computable metric space is a tuple $(X,d,S)$ where $(X,d)$ is a complete metric space, $S$ is a countable, enumerable, dense subset, and the real $d(s_i,s_j)$ is computable for all $s_i,s_j\\in S$.\n\nEVIDENCE:\n[FPPROG-p0096-s14] Definition 3.9 A computable metric space is a tuple (X, d,S) such that (1) (X, d) is a complete metric space, (2) S is a countable, enumerable, and dense subset, and (3) the real d(si, sj) is computable for si, sj ∈S (see Hoyrup and Rojas, 2009, Def. 2.4.1).\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — S1: This defines what a computable metric space is, rather than describing how computation works. / S1: This is the formal definition of a computable metric space.",
+ "raw": "{\"atoms\": [{\"statement\": \"A computable metric space is a tuple $(X,d,S)$ where $(X,d)$ is a complete metric space, $S$ is a countable, enumerable, dense subset, and the real $d(s_i,s_j)$ is computable for all $s_i,s_j\\\\in S$.\", \"scope\": \"S1\", \"evidence_ids\": [\"FPPROG-p0096-s14\"]}], \"note\": \"Statement unchanged; the scope label is changed from S2 to S1 because the atom is a definition of what a computable metric space is.\"}",
+ "usage": {
+  "completion_tokens": 188,
+  "prompt_tokens": 721,
+  "total_tokens": 909,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 188
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 721,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00332200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,27 @@
+{
+ "atom_id": "FPPROG-C02-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Positive almost-sure termination\n\nATOM FPPROG-C02-S3-02 (S3): Almost-sure termination does not imply positive almost-sure termination: the one-dimensional symmetric random walk (a fair step left or right until reaching position 0 from position 10) reaches position 0 with probability one but needs infinitely many steps on average, so its expected runtime is infinite.\n\nEVIDENCE:\n[FPPROG-p0208-s01] which models a one-dimensional random walk of a particle: Starting from position 10, in each step the particle moves randomly one step to the left or one step to the right, until reaching position 0.\n[FPPROG-p0208-s02] The particle reaches position 0 with probability one.\n[FPPROG-p0208-s03] The program crw thus terminates almost-surely.\n[FPPROG-p0208-s04] However, doing so requires infinitely many steps on average (cf. Ibe, 2013, Chapter 3.7.3).\n[FPPROG-p0208-s05] The expected runtime of crw is thus infinite.\n\nAUDITOR FINDINGS:\n- GROUNDED: hold — The evidence says steps are random left or right, but does not specify equal probabilities or a symmetric walk. / Evidence does not explicitly state 'Almost-sure termination does not imply positive almost-sure termination' or 'fair' step; soften or cite s06/s07.\n- SINGLE_CLAIM: revise — Combines the general failure of implication with the random walk's probability-one hitting property and infinite expected hitting time. / Joins the general non-implication claim with the specific random-walk counterexample.",
+ "raw": "{\"atoms\":[{\"statement\":\"The random-walk program crw, in which a particle starts at position 10 and moves randomly one step left or right each step until reaching position 0, requires infinitely many steps on average, so its expected runtime is infinite.\",\"scope\":\"S3\",\"evidence_ids\":[\"FPPROG-p0208-s01\",\"FPPROG-p0208-s04\",\"FPPROG-p0208-s05\"]},{\"statement\":\"The random-walk program crw, in which a particle starts at position 10 and moves randomly one step left or right each step until reaching position 0, terminates almost-surely because the particle reaches position 0 with probability one.\",\"scope\":\"S1\",\"evidence_ids\":[\"FPPROG-p0208-s01\",\"FPPROG-p0208-s02\",\"FPPROG-p0208-s03\"]}],\"note\":\"The evidence does not say the steps are fair or symmetric, and it does not state the general non-implication from almost-sure to positive almost-sure termination. I removed both and split the specific facts about crw into two atoms.\"}",
+ "usage": {
+  "completion_tokens": 739,
+  "prompt_tokens": 928,
+  "total_tokens": 1667,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 928,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00924600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

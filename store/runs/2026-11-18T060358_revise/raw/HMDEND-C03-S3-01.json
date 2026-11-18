@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C03-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Shuffles of trees\n\nATOM HMDEND-C03-S3-01 (S3): The subsets $E(A)\\subseteq E(S)\\times E(T)$ characterizing shuffles correspond only to isomorphism classes of shuffles, so 'the' shuffles of $S$ and $T$ are taken to be those arising from such subsets.\n\nEVIDENCE:\n[HMDEND-p0158-s03] Remark 4.9 To be precise, the subsets E(A) considered in Proposition 4.8 correspond to isomorphism classes of shuffles.\n[HMDEND-p0158-s04] When we speak of ‘the’ shuffles of S andT, we will from now on always mean the ones arising from subsets E(A) ⊆E(S)×E(T) as above.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The correspondence with isomorphism classes and the convention selecting subset-based representatives are separate claims. / Joins a mathematical fact (subsets correspond to isomorphism classes) with a terminological convention ('the' shuffles are taken to be those arising from such subsets).\n- SCOPE_LABEL: revise — S1: This clarifies what shuffles denote and how their representatives are defined, rather than a boundary of applicability. / S1: This clarifies the foundational definition and identification of shuffles via edge subsets, not a boundary or limitation of the concept.\n- SOURCE_INDEPENDENT: hold — Taking 'the' shuffles to mean particular subset-based representatives is the authors' convention, not a source-independent mathematical fact. / The second clause states the authors' specific convention for the text ('are taken to be'); drop the convention clause to keep only the general mathematical fact.",
+ "raw": "{\"atoms\": [{\"statement\": \"The subsets $E(A)\\\\subseteq E(S)\\\\times E(T)$ that characterize shuffles of trees $S$ and $T$ correspond to isomorphism classes of shuffles.\", \"scope\": \"S1\", \"evidence_ids\": [\"HMDEND-p0158-s03\"]}], \"note\": \"Dropped the convention clause ('the' shuffles meaning those arising from subsets E(A)) because it is an authors' notational convention, not a source-independent claim. Relabeled S3 to S1 since the statement identifies what the subsets correspond to, not a limit of applicability.\"}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 974,
+  "total_tokens": 1185,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 211
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 974,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00405800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

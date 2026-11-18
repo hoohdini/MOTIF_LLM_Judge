@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C10-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Knowledge Graph Management System\n\nATOM KGBDP-C10-S1-02 (S1): Bellomarini et al. define a knowledge graph as a semi-structured datamodel with three components: a ground extensional component (relational constructs for schema and data, modelable as graphs or generalizations), an intensional component (inference rules over the ground extensional constructs), and a derived extensional component produced by applying the rules to the ground component through reasoning.\n\nEVIDENCE:\n[KGBDP-p0035-s11] “A semi-structured datamodel characterized by three components: (i) a ground extensional component, that is, a set of relational constructs for schema and data (which can be effectively modeled as graphs or generalizations thereof); (ii) an intensional component, that is, a set of inference rules over the constructs of the ground extensional component; (iii) a derived extensional component that can be produced as the result of the application of the inference rules over the ground extensional component (with the so-called “reasoning” process).” – Bellomarini et al., 2019 – [40].\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The three component definitions are independently assessable; separate them from the claim that the model has three components. / Joins the overall three-component definition with detailed definitions of each of the three components.\n- SOURCE_INDEPENDENT: hold — Drop the attribution to Bellomarini et al.; assess the three-component definition itself. / Specific definition by one author group (Bellomarini et al., 2019); not a fixed consensus definition without the citation.",
+ "raw": "{\"atoms\": [{\"statement\": \"A knowledge graph can be defined as a semi-structured data model made up of three components: a ground extensional component, an intensional component, and a derived extensional component.\", \"scope\": \"S1\", \"evidence_ids\": [\"KGBDP-p0035-s11\"]}, {\"statement\": \"In this definition of a knowledge graph, the ground extensional component is a set of relational constructs for schema and data, which can be effectively modeled as graphs or generalizations thereof.\", \"scope\": \"S1\", \"evidence_ids\": [\"KGBDP-p0035-s11\"]}, {\"statement\": \"In this definition of a knowledge graph, the intensional component is a set of inference rules over the constructs of the ground extensional component, and the derived extensional component is produced by applying these rules to the ground extensional component through reasoning.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0035-s11\"]}], \"note\": \"Split the overall three-component definition from the per-component details. Removed the attribution to Bellomarini et al. so each claim is stated as a definition.\"}",
+ "usage": {
+  "completion_tokens": 360,
+  "prompt_tokens": 898,
+  "total_tokens": 1258,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 360
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 898,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00539600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

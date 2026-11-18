@@ -1,0 +1,30 @@
+{
+ "atom_id": "CART-C02-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: ICANS\n\nATOM CART-C02-S2-02 (S2): ICANS grade is determined by the most severe event among ICE score, level of consciousness, seizure, motor findings and raised ICP/cerebral oedema that is not attributable to any other cause, so a patient with an ICE score of 3 who has a generalized seizure is grade 3.\n\nEVIDENCE:\n[CART-p0139-s07] ICANS grade is determined by the most severe event (ICE score, level of consciousness, seizure, motor findings, raised ICP/cerebral oedema) not attributable to any other cause; for example, a patient with an ICE score of 3 who has a generalized seizure is classified as having grade 3 ICANS N/A indicates not applicable aA patient with an ICE score of 0 may be classified as having grade 3 ICANS if awake with global aphasia, but a patient with an ICE score of 0 may be classified as having grade 4 ICANS if unarousable b Depressed level of consciousness should be attributable to no other cause (e.g., no sedating medication) c Tremors and myoclonus associated with immune effector cell therapies may be graded according to CTCAE v5.0, but they do not influence ICANS grading d Intracranial haemorrhage with or without associated oedema is not considered a neurotoxicity feature and is excluded from ICANS grading.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The general grading rule and the classification of a particular patient are separately assessable. / Joins the general grading rule with a specific illustrative example.\n- L1_ONLY: revise — Remove the patient example; it adds application of the grading rule to an otherwise recall-level fact. / Remove the illustrative patient example at the end to keep only the core recall fact.",
+ "raw": "{\"atoms\": [{\"statement\": \"ICANS grade is determined by the most severe event among ICE score, level of consciousness, seizure, motor findings and raised ICP/cerebral oedema that is not attributable to any other cause.\", \"scope\": \"S2\", \"evidence_ids\": [\"CART-p0139-s07\"]}], \"note\": \"Removed the patient example (ICE score 3 with generalized seizure = grade 3) so the atom is a single recall-level claim, as the auditors asked.\"}",
+ "usage": {
+  "completion_tokens": 164,
+  "prompt_tokens": 979,
+  "total_tokens": 1143,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 164
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 979,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00359800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

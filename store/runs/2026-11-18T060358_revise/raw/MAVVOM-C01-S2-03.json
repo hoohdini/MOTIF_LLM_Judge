@@ -1,0 +1,30 @@
+{
+ "atom_id": "MAVVOM-C01-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Second Hodge bundle\n\nATOM MAVVOM-C01-S2-03 (S2): The stabilizer $K\\subset\\mathrm{O}^+(L_\\mathbb{R})$ of a point $[\\omega]\\in\\mathcal{D}$ acts on the fiber $\\mathcal{E}_{[\\omega]}$ as the standard $\\mathbb{C}$-representation of $\\mathrm{O}(n,\\mathbb{R})\\subset K$, so with $V=\\mathbb{C}^n$ the standard representation of $\\mathrm{O}(n,\\mathbb{C})$ one has an $\\mathrm{O}^+(L_\\mathbb{R})$-equivariant isomorphism $\\mathcal{E}\\simeq \\mathrm{O}^+(L_\\mathbb{R})\\times_K V$.\n\nEVIDENCE:\n[MAVVOM-p0025-s14] The stabilizer K �OC.LR/ of a point Œ!�2 D acts on the fiber EŒ!�of E as the standard C-representation of O.n; R/ �K, because we have a natural isomorphism H ? ! ˝R C ' !?=C!.\n[MAVVOM-p0025-s15] Therefore, if we denote by V D Cn the standard representation space of O.n; C/, we have an OC.LR/-equivariant isomorphism\n[MAVVOM-p0025-s16] E ' OC.LR/ �K EŒ!�' OC.LR/ �K V: (2.3)\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — States both the stabilizer's fiber representation and the associated homogeneous-bundle isomorphism. / Combines the stabilizer action on the fiber $\\mathcal{E}_{[\\omega]}$ with the global homogeneous vector bundle isomorphism $\\mathcal{E}\\simeq \\mathrm{O}^+(L_\\mathbb{R})\\times_K V$.",
+ "raw": "{\"atoms\": [{\"statement\": \"The stabilizer $K\\\\subset\\\\mathrm{O}^+(L_\\\\mathbb{R})$ of a point $[\\\\omega]\\\\in\\\\mathcal{D}$ acts on the fiber $\\\\mathcal{E}_{[\\\\omega]}$ as the standard $\\\\mathbb{C}$-representation of $\\\\mathrm{O}(n,\\\\mathbb{R})\\\\subset K$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0025-s14\"]}, {\"statement\": \"With $V=\\\\mathbb{C}^n$ the standard representation space of $\\\\mathrm{O}(n,\\\\mathbb{C})$, there is an $\\\\mathrm{O}^+(L_\\\\mathbb{R})$-equivariant isomorphism $\\\\mathcal{E}\\\\simeq \\\\mathrm{O}^+(L_\\\\mathbb{R})\\\\times_K V$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MAVVOM-p0025-s15\", \"MAVVOM-p0025-s16\"]}], \"note\": \"Split into the fiber representation claim and the homogeneous bundle isomorphism claim.\"}",
+ "usage": {
+  "completion_tokens": 411,
+  "prompt_tokens": 1052,
+  "total_tokens": 1463,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 411
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1052,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00621400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

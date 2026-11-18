@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C09-S3-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Non-Intrusive Load Monitoring\n\nATOM KGBDP-C09-S3-04 (S3): Missing data is a problem in most NILM datasets whose severity varies by appliance: it can be neglected for cyclically operating refrigerators, but dropping activation sequences is unacceptable for washing machines, which are used about twice a week on average, making enough training data hard to collect.\n\nEVIDENCE:\n[KGBDP-p0173-s07] The first one, present in most of the data sets, is the presence of the missing data.\n[KGBDP-p0173-s09] For example, in the case of refrigerators, this is a minor problem which can be neglected because it works circularly, so each approximately 20 min it turns on or off, leading to numerous examples of both active and inactive working periods.\n[KGBDP-p0173-s10] By contrast, when, for example, a washing machine is considered, dropping down the sequence of its activation is unacceptable as it is turned on twice a week in a household on average, so it is difficult to collect enough data for training purposes.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Combines missing-data prevalence, refrigerator tolerance, washing-machine frequency, and consequences for training-data collection. / Combines the general claim that missing data impact varies by appliance usage pattern with specific numerical/behavioral details for refrigerators and washing machines.\n- L1_ONLY: revise — Retain appliance-dependent missing-data severity; remove the stacked examples, usage-frequency statistic, and acceptability judgment. / Carries extra load via illustrative examples and specific frequencies ('used about twice a week on average'); simplify to cyclic vs. infrequently used appliances.\n- SOURCE_INDEPENDENT: hold — Unqualified judgments that missing refrigerator data can be neglected and lost washing-machine activations are unacceptable depend on unspecified evaluation criteria.",
+ "raw": "{\"atoms\": [{\"statement\": \"In non-intrusive load monitoring, missing data affects appliances differently: it is a minor problem for cyclically operating appliances such as refrigerators, but it is a serious problem for rarely activated appliances such as washing machines, because enough training data is hard to collect.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0173-s09\", \"KGBDP-p0173-s10\"]}, {\"statement\": \"Missing data is present in most non-intrusive load monitoring data sets.\", \"scope\": \"S3\", \"evidence_ids\": [\"KGBDP-p0173-s07\"]}], \"note\": \"Split into two claims. Removed the 'about twice a week' statistic, the 20-minute cycle detail, and the 'unacceptable' judgment. The first atom keeps the cyclic versus rarely-used contrast, with the refrigerator and washing machine as examples.\"}",
+ "usage": {
+  "completion_tokens": 306,
+  "prompt_tokens": 1034,
+  "total_tokens": 1340,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 306
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1034,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00512800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

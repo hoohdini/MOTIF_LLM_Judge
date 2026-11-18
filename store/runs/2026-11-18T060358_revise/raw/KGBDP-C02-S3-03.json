@@ -1,0 +1,30 @@
+{
+ "atom_id": "KGBDP-C02-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Data integration system\n\nATOM KGBDP-C02-S3-03 (S3): GAV mappings specify directly how to compute tuples of the global schema relations from tuples in the sources, which makes them easier to use for query unfolding.\n\nEVIDENCE:\n[KGBDP-p0083-s02] Conceptually, GAV mappings specify directly how to compute tuples of the global schema relations from tuples in the sources.\n[KGBDP-p0083-s03] This characteristics of GAV mappings makes them easier for query unfolding strategy.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — Direct tuple computation and ease of query unfolding are separately assessable claims.\n- SCOPE_LABEL: hold — S2: Describes how GAV mappings work conceptually and facilitate query unfolding, rather than a boundary or limitation.\n- L1_ONLY: hold — Remove the explanatory computation clause if retaining the S3 claim about ease of query unfolding.",
+ "raw": "{\"atoms\": [{\"statement\": \"GAV mappings specify directly how to compute tuples of the global schema relations from tuples in the sources.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0083-s02\"]}, {\"statement\": \"GAV mappings are easier to use for the query unfolding strategy because they specify directly how to compute global schema tuples from source tuples.\", \"scope\": \"S2\", \"evidence_ids\": [\"KGBDP-p0083-s02\", \"KGBDP-p0083-s03\"]}], \"note\": \"Split the joined claim into two. Both are mechanism statements (S2), not limits, so the S3 label was changed. The second atom keeps the causal link because s03 refers back to the characteristic stated in s02.\"}",
+ "usage": {
+  "completion_tokens": 253,
+  "prompt_tokens": 725,
+  "total_tokens": 978,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 253
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 725,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00398000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

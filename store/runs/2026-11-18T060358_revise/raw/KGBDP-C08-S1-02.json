@@ -1,0 +1,27 @@
+{
+ "atom_id": "KGBDP-C08-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Feature-based semantic similarity\n\nATOM KGBDP-C08-S1-02 (S1): Tversky was the first to formulate semantic similarity using the feature model, and a family of semantic measures has been derived from it.\n\nEVIDENCE:\n[KGBDP-p0120-s19] Tversky was the first to formulate the concept of semantic similarity using the feature model, from which a family of semantic measures has been derived.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Historical priority and the derivation of a family of measures are independently assessable claims. / Joins two claims: Tversky being the first to formulate it and a family of measures being derived from it.\n- CENTRALITY: hold — Historical priority and an unspecified family of descendants do not explain feature-based similarity.",
+ "raw": "{\"atoms\":[{\"statement\":\"A family of semantic similarity measures has been derived from the feature model of semantic similarity.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0120-s19\"]},{\"statement\":\"Tversky was the first to formulate the concept of semantic similarity using the feature model.\",\"scope\":\"S1\",\"evidence_ids\":[\"KGBDP-p0120-s19\"]}],\"note\":\"Split the joined claim into two atoms. The auditors' centrality concern remains, because the evidence gives no detail on the feature model or the derived measures.\"}",
+ "usage": {
+  "completion_tokens": 404,
+  "prompt_tokens": 653,
+  "total_tokens": 1057,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 653,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00534600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

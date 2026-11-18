@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C11-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Volume kinetics\n\nATOM IVFLUID-C11-S3-01 (S3): During general anesthesia, elimination of crystalloid fluid is greatly retarded owing to reduced arterial pressure, whereas the intravascular persistence of colloid fluid does not seem to be affected by arterial pressure.\n\nEVIDENCE:\n[IVFLUID-p0122-s04] The elimination of crystalloid fluid is greatly retarded during general anesthesia due to\n[IVFLUID-p0122-s05] the reduction in arterial pressure [21].\n[IVFLUID-p0122-s06] By contrast, the intravascular persistence of a colloid fluid does not seem to be affected by the arterial pressure.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — Pressure-dependent crystalloid elimination and pressure-independent colloid persistence can be true or false separately. / Combines two claims: retardation of crystalloid elimination during anesthesia/hypotension and the lack of arterial pressure effect on colloid persistence.",
+ "raw": "{\"atoms\": [{\"statement\": \"During general anesthesia, the elimination of crystalloid fluid is greatly retarded due to the reduction in arterial pressure.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0122-s04\", \"IVFLUID-p0122-s05\"]}, {\"statement\": \"The intravascular persistence of a colloid fluid does not seem to be affected by arterial pressure.\", \"scope\": \"S3\", \"evidence_ids\": [\"IVFLUID-p0122-s06\"]}], \"note\": \"Split the two claims. The crystalloid claim is relabeled S2 because it states a mechanism; the colloid claim stays S3.\"}",
+ "usage": {
+  "completion_tokens": 230,
+  "prompt_tokens": 748,
+  "total_tokens": 978,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 230
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 748,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00379600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

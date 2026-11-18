@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C06-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Anodyne morphism\n\nATOM HMDEND-C06-S3-03 (S3): For a non-empty subset $E\\subseteq\\{0,\\dots,n\\}$, the inclusion $\\Lambda^E[n]\\to\\Delta[n]$ is always anodyne, but it is inner anodyne only if $E\\subseteq\\{1,\\dots,n-1\\}$, left anodyne if $E\\subseteq\\{0,\\dots,n-1\\}$, and right anodyne if $E\\subseteq\\{1,\\dots,n\\}$.\n\nEVIDENCE:\n[HMDEND-p0193-s09] Lemma 5.23 Let E ⊂{0, . . ., n} be a non-empty subset and let ΛE[n] ⊆∆[n] be the union of all the faces ∂i∆[n] for i not in E; or, to put it more positively, the union of those faces containing all the vertices in E.\n[HMDEND-p0193-s11] (i) ΛE[n] →∆[n] is an anodyne morphism,\n[HMDEND-p0193-s12] (ii) ΛE[n] →∆[n] is inner anodyne if E ⊆{1, . . ., n −1},\n[HMDEND-p0193-s13] (iii) ΛE[n] →∆[n] is left anodyne if E ⊆{0, . . ., n −1},\n[HMDEND-p0193-s14] (iv) ΛE[n] →∆[n] is right anodyne if E ⊆{1, . . ., n}.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Replace 'only if' with 'if': the evidence gives a sufficient condition for inner anodyneness, not a necessary condition. / Evidence says 'if E ⊆ {1,...,n-1}' (sufficient condition), whereas the atom says 'only if' (necessary condition); change 'only if' to 'if' and define Λ^E[n].\n- SINGLE_CLAIM: revise — Ordinary anodyneness and the three variant criteria are four independently assessable claims. / Joins four distinct conditions for when the generalized horn inclusion is anodyne, inner anodyne, left anodyne, and right anodyne.\n- SCOPE_LABEL: hold — S2: States sufficient conditions for generalized horn inclusions to be (inner/left/right) anodyne.\n- L1_ONLY: hold — Split the ordinary anodyne fact and the three differently conditioned variant facts into separate recall atoms.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a non-empty subset $E\\\\subseteq\\\\{0,\\\\dots,n\\\\}$, the inclusion $\\\\Lambda^E[n]\\\\to\\\\Delta[n]$, where $\\\\Lambda^E[n]$ is the union of the faces $\\\\partial_i\\\\Delta[n]$ for $i\\\\notin E$, is an anodyne morphism.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0193-s09\",\"HMDEND-p0193-s11\"]},{\"statement\":\"For a non-empty subset $E\\\\subseteq\\\\{0,\\\\dots,n\\\\}$, if $E\\\\subseteq\\\\{1,\\\\dots,n-1\\\\}$ then the inclusion $\\\\Lambda^E[n]\\\\to\\\\Delta[n]$, where $\\\\Lambda^E[n]$ is the union of the faces $\\\\partial_i\\\\Delta[n]$ for $i\\\\notin E$, is inner anodyne.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0193-s09\",\"HMDEND-p0193-s12\"]},{\"statement\":\"For a non-empty subset $E\\\\subseteq\\\\{0,\\\\dots,n\\\\}$, if $E\\\\subseteq\\\\{0,\\\\dots,n-1\\\\}$ then the inclusion $\\\\Lambda^E[n]\\\\to\\\\Delta[n]$, where $\\\\Lambda^E[n]$ is the union of the faces $\\\\partial_i\\\\Delta[n]$ for $i\\\\notin E$, is left anodyne.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0193-s09\",\"HMDEND-p0193-s13\"]}],\"note\":\"The original 'only if' was wrong: the evidence gives only sufficient conditions. The atom was split by claim. The right-anodyne claim (E ⊆ {1,…,n}) is omitted because of the three-atom limit; it is supported by HMDEND-p0193-s14.\"}",
+ "usage": {
+  "completion_tokens": 1057,
+  "prompt_tokens": 1231,
+  "total_tokens": 2288,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1231,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01303200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

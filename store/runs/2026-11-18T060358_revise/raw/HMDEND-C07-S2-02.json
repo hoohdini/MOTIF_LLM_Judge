@@ -1,0 +1,30 @@
+{
+ "atom_id": "HMDEND-C07-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Minimal fibration\n\nATOM HMDEND-C07-S2-02 (S2): For a J-fibration $p: X\\to S$ between ∞-operads, a minimal J-fibration $M\\to S$ that is a fibrewise J-deformation retract exists when $X$ is normal, but the retraction $r:X\\to M$ is shown to be a trivial fibration only when $S$ is also normal.\n\nEVIDENCE:\n[HMDEND-p0275-s04] Theorem 6.56 Let p : X →S be a J-fibration between ∞-operads.\n[HMDEND-p0275-s05] If X is normal, then there exists a minimal J-fibration q : M →S which is a fibrewise J-deformation retract of X →S.\n[HMDEND-p0275-s06] If S is also normal, then the retraction r : X →M is a trivial fibration.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — Replace “is shown to be a trivial fibration only when” with “is a trivial fibration if”; the evidence gives sufficiency, not necessity. / Replace 'only when S is also normal' with 'if S is also normal'; the evidence does not state 'only when'.\n- SINGLE_CLAIM: revise — Combines existence of a minimal deformation retract with the additional conclusion that its retraction is a trivial fibration. / Joins two separate claims: existence of the minimal deformation retract when X is normal, and trivial fibration of r when S is normal.\n- L1_ONLY: hold — Separate the existence fact from the additional normality condition and trivial-fibration conclusion.\n- SOURCE_INDEPENDENT: revise — Replace the source-dependent wording “is shown ... only when” with the general conditional claim “is a trivial fibration if”. / Drop 'is shown to be', which frames the mathematical fact as a textual report.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a J-fibration $p: X\\\\to S$ between ∞-operads with $X$ normal, there exists a minimal J-fibration $q: M\\\\to S$ that is a fibrewise J-deformation retract of $X\\\\to S$.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0275-s04\",\"HMDEND-p0275-s05\"]},{\"statement\":\"For a J-fibration $p: X\\\\to S$ between ∞-operads with $X$ normal, if $S$ is also normal, then the retraction $r: X\\\\to M$ onto the minimal J-fibration $M\\\\to S$ is a trivial fibration.\",\"scope\":\"S2\",\"evidence_ids\":[\"HMDEND-p0275-s04\",\"HMDEND-p0275-s05\",\"HMDEND-p0275-s06\"]}],\"note\":\"Split into two atoms. Replaced 'only when' with a sufficient-condition ('if') formulation, since the evidence does not state necessity.\"}",
+ "usage": {
+  "completion_tokens": 337,
+  "prompt_tokens": 1013,
+  "total_tokens": 1350,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 337
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1013,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00539600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

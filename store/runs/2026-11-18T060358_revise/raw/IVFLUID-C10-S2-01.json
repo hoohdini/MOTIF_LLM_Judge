@@ -1,0 +1,30 @@
+{
+ "atom_id": "IVFLUID-C10-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intra-abdominal hypertension\n\nATOM IVFLUID-C10-S2-01 (S2): Abdominal perfusion pressure (APP) is calculated by subtracting IAP from mean arterial pressure, $APP = MAP - IAP$, and ideally should be higher than 60 mmHg.\n\nEVIDENCE:\n[IVFLUID-p0452-s19] The abdominal perfusion pressure (APP), ideally a value higher than 60 mmHg, is calculated by subtracting the IAP from the mean arterial pressure (MAP).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — The APP calculation and its ideal threshold are independently assessable claims. / Combines the formula for calculating APP with its ideal target value (>60 mmHg).\n- L1_ONLY: hold — Keep the recall-level calculation; move the additional target-pressure recommendation to a separate atom.",
+ "raw": "{\"atoms\": [{\"statement\": \"Abdominal perfusion pressure (APP) is calculated by subtracting intra-abdominal pressure (IAP) from mean arterial pressure (MAP), $APP = MAP - IAP$.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0452-s19\"]}, {\"statement\": \"Abdominal perfusion pressure ideally should be higher than 60 mmHg.\", \"scope\": \"S2\", \"evidence_ids\": [\"IVFLUID-p0452-s19\"]}], \"note\": \"Split the formula and the ideal target value into separate atoms.\"}",
+ "usage": {
+  "completion_tokens": 212,
+  "prompt_tokens": 702,
+  "total_tokens": 914,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 212
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 702,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00352400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}

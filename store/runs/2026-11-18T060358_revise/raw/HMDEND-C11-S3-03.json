@@ -1,0 +1,27 @@
+{
+ "atom_id": "HMDEND-C11-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).\n- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.\n- Drop attributions such as \"the authors state\" when the claim itself is general.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Complete dendroidal Segal space\n\nATOM HMDEND-C11-S3-03 (S3): For a simplicial operad $P$ whose spaces of operations are Kan complexes and which has one colour with contractible unary operations space $P(1)$, the nerve $NP$ is fibrant in $\\mathbf{dSpaces}_{PSC}$ but not necessarily fibrant in $\\mathbf{dSpaces}_{RSC}$.\n\nEVIDENCE:\n[HMDEND-p0509-s06] Example 12.27 Let P be a simplicial operad and assume all its spaces of operations are Kan complexes.\n[HMDEND-p0509-s08] In many examples, P has just one colour and the space P(1) of unary operations is contractible.\n[HMDEND-p0509-s12] Hence NP itself is a fibrant object in dSpacesPSC, but not necessarily in dSpacesRSC.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: hold — Asserts fibrancy in the PSC model structure and separately denies guaranteed fibrancy in the RSC model structure.\n- L1_ONLY: revise — Stacks operation-space, colour, and contractibility conditions while introducing a second model structure; simplify to a single recall-level distinction. / Stacks multiple hypotheses on P and introduces a second technical model structure (dSpaces_PSC) outside the assessment scope.\n- CENTRALITY: fail — This specialized nerve example concerns the PSC–RSC distinction rather than the stated core completeness characterizations and equivalence results. / Peripheral example comparing projective (dSpaces_PSC) and Reedy (dSpaces_RSC) fibrancy of operadic nerves, which is outside the assessment scope.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a simplicial operad $P$ whose spaces of operations are all Kan complexes, the nerve $NP$ is fibrant in $\\\\mathbf{dSpaces}_{PSC}$ but not necessarily fibrant in $\\\\mathbf{dSpaces}_{RSC}$.\",\"scope\":\"S3\",\"evidence_ids\":[\"HMDEND-p0509-s06\",\"HMDEND-p0509-s12\"]}],\"note\":\"The one-colour and contractible $P(1)$ conditions were dropped. The evidence only says these hold in many examples, not that the fibrancy claim requires them. Centrality was not addressed because the evidence has no information on it.\"}",
+ "usage": {
+  "completion_tokens": 520,
+  "prompt_tokens": 990,
+  "total_tokens": 1510,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 990,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00718000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null
+}
