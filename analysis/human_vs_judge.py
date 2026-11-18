@@ -25,7 +25,7 @@ PH = {st: reg.prompt_hash(g) for st, g in GROUP.items()}
 CHECKS = {st: [c for c in reg.groups[g]["checks"] if c not in ("NO_OVERLAP", "CENTRALITY", "NO_INTRA_CARD_OVERLAP", "CONCEPT_SCOPE")]
           for st, g in GROUP.items()}
 J = {"judge_a": "GPT", "judge_b": "Gemini"}
-ORDER = {"fail": 3, "revise": 2, "hold": 1, "pass": 0}
+ORDER = {"fail": 3, "hold": 2, "revise": 1, "pass": 0}   # 파이프라인과 같은 순서
 NP = ("fail", "revise")
 b = lambda v: "pass" if v == "pass" else "nonpass"
 
@@ -48,10 +48,12 @@ def judge_unit(st, u, j):
 
 
 def combined(st, u):
-    """decision 합산: 두 저지의 단위 판정이 같으면 그것, 다르면 hold"""
+    """decision 합산(파이프라인과 같음): 어느 저지든 hold면 hold, 통과/불통과가 같으면 그것, 다르면 hold"""
     a, g = judge_unit(st, u, "judge_a"), judge_unit(st, u, "judge_b")
     if a is None or g is None:
         return None
+    if "hold" in (a, g):
+        return "hold"
     return a if b(a) == b(g) else "hold"
 
 

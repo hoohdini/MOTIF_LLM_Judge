@@ -1,9 +1,9 @@
 {
  "unit_card_calib": {
-  "n": 99,
-  "agree": 0.747,
-  "kappa": 0.321,
-  "llm_only": 25,
+  "n": 92,
+  "agree": 0.772,
+  "kappa": 0.366,
+  "llm_only": 21,
   "human_only": 0
  },
  "unit_card_adjudication": {
