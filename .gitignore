@@ -1,0 +1,4 @@
+.env
+store_mock/
+__pycache__/
+.venv/

@@ -1,0 +1,503 @@
+﻿stage,kind,unit_id,unit_hash,check,llm,why,content,human_v,human_note
+item,calib,CART-C02-S3-03-M3-YN,549bb61c9144cb83,_UNIT,,,"A patient on day 4 after CAR-T infusion has a fully normal ICE score of 10, is awake, has no seizures, and shows no raised intracranial pressure, but has marked myoclonus. The team assigns grade 3 ICANS on the basis of the myoclonus.
+Is it correct that this myoclonus determines the ICANS grade? (Yes/No)
+정답: No
+atom: Tremors and myoclonus associated with immune effector cell therapies may be graded by CTCAE v5.0 but do not influence ICANS grading.",,
+item,calib,CART-C07-S3-01-M1-OPEN,1de6871b0449c2f2,_UNIT,,,"Why may prior CD19-directed therapy, such as blinatumomab, be detrimental before CD19 CAR-T cell therapy?
+정답: ['Prior CD19-directed therapy may be detrimental to subsequent CD19 CAR-T cells', 'It can select for CD19-negative clones']
+atom: Prior CD19-directed therapy such as blinatumomab is reported as possibly detrimental before CD19 CAR-T cells, particularly through selection of CD19-negative clones, according to accumulating data.",,
+item,calib,MAVVOM-C01-S1-03-M3-YN,a67e4ae6b24b7a78,_UNIT,,,"Let $L$ have signature $(2,3)$ and let $\mathcal{D}$ be its associated period domain. Consider the $\mathrm{O}^+(L_\mathbb{R})$-equivariant vector bundle $\mathcal{F}$ on $\mathcal{D}$ whose fiber over a point $[\omega]\in\mathcal{D}$ is the whole orthogonal complement $\omega^\perp\subset L_\mathbb{C}$, with no quotient taken.
+Is $\mathcal{F}$ the second Hodge bundle $\mathcal{E}$ of rank $n$ on $\mathcal{D}$? (Yes/No)
+정답: No
+atom: The second Hodge bundle $\mathcal{E}$ is an $\mathrm{O}^+(L_{\mathbb{R}})$-equivariant vector bundle of rank $n$ over $\mathcal{D}$ whose fiber over a point $[\omega]\in\mathcal{D}$ is $\omega^\perp/\mathbb{C}\omega$.",,
+item,calib,IVFLUID-C07-S1-02-M2-TF,7bd3a5db4b92f6b4,_UNIT,,,"True or False?
+""The ROSE concept serves as a framework intended to help clinicians avoid fluid overload during fluid therapy.""
+정답: True
+atom: The ROSE concept is presented as a framework for avoiding fluid overload.",,
+item,calib,MAVVOM-C09-S3-01-M1-OPEN,0dd508ea7244d656,_UNIT,,,"Let $f$ be an orthogonal modular form of weight $(\lambda,k)$ with $\lambda\ne 1,\det$, on a finite-index subgroup of $\mathrm{O}^+(L)$ for $L$ of signature $(2,n)$. When the weight $k$ is sufficiently large, how is square integrability of $f$ related to $f$ being a cusp form? State the weight bound and the resulting characterization.
+정답: ['The bound is $k\\ge n+|\\bar\\lambda|-1$', '$f$ is a cusp form if and only if $\\int_{\\mathcal F(\\Gamma)}(f,f)_{\\lambda,k}\\,\\mathrm{vol}_{\\mathcal D}<\\infty$, i.e. $f$ is square integrable']
+atom: For $f\in M_{\lambda,k}(\Gamma)$ with $\lambda\neq 1,\det$ and weight $k\ge n+|\bar\lambda|-1$, $f$ is a cusp form if and only if $\int_{\mathcal F(\Gamma)}(f,f)_{\lambda,k}\,\mathrm{vol}_{\mathcal D}<\infty$.",,
+item,calib,HMDEND-C06-S2-01-M1-OPEN,a460e811b2130746,_UNIT,,,"Give a characterization of anodyne maps of simplicial sets in terms of the horn inclusions $\Lambda^k[n]\to\Delta[n]$ and cellular maps.
+정답: ['A map is anodyne iff it is a retract of a cellular map', 'Cellular with respect to the set of horn inclusions $\\Lambda^k[n]\\to\\Delta[n]$']
+atom: A map of simplicial sets is anodyne if and only if it is a retract of an $\mathcal{I}$-cellular map, where $\mathcal{I}$ is the set of horn inclusions $\Lambda^k[n]\to\Delta[n]$, with analogous statements for inner, left, and right anodyne maps using the corresponding horn inclusions.",,
+item,calib,HMDEND-C06-S1-01-M1-OPEN,04e9552bab31bed6,_UNIT,,,"How are inner, left, and right anodyne morphisms of simplicial sets defined in terms of lifting properties?
+정답: ['Defined by the left lifting property', 'With respect to inner, left, or right fibrations, respectively']
+atom: An inner, left, or right anodyne morphism of simplicial sets is defined as a morphism having the left lifting property with respect to inner, left, or right fibrations, respectively.",,
+item,calib,CART-C01-S2-02-M2-MCQ,2a176132ffd07db6,_UNIT,,,"Which combination of factors appears to be associated with a higher risk of cytokine release syndrome after CAR-T cell therapy?
+A) High tumour burden and low CAR-T cell dose
+B) High tumour burden and prior tocilizumab prophylaxis
+C) Low tumour burden and high CAR-T cell dose
+D) High tumour burden and high CAR-T cell dose
+정답: D
+atom: High tumour burden and high CAR-T cell dose seem to be associated with a higher risk of cytokine release syndrome after CAR-T cell therapy.",,
+item,calib,MAVVOM-C06-S2-03-M3-YN,5d73badde091386f,_UNIT,,,"A modular form is expanded at a 1-dimensional cusp $J$ using a special normal parameter $\omega_J$. A second parameter $\tilde\omega_J$ is proposed, with $\tilde\omega_J/\omega_J = g$, where $g$ is a holomorphic function on the total space of $\overline{\mathcal{X}(J)}$ that is not a pullback from $\Delta_J$: it varies along the fibers of $\pi_1$, so $\tilde\omega_J$ is not linear on the fibers. One wants to use $\tilde\omega_J$ in place of $\omega_J$ in the splitting map $\phi\otimes\omega_J^{\otimes m}\mapsto\omega_J^m\cdot\pi_1^*\phi$ and still obtain the same map.
+Is $\tilde\omega_J$ a special normal parameter of the kind for which the splitting map is guaranteed to be independent of the choice, i.e. with $\tilde\omega_J/\omega_J=\pi_1^*\xi$ for a nowhere vanishing holomorphic function $\xi$ on $\Delta_J$? (Yes/No)
+정답: No
+atom: Independence of the choice of $\omega_J$ holds because two special normal parameters satisfy $\tilde\omega_J/\omega_J=\pi_1^*\xi$ for a nowhere vanishing holomorphic function $\xi$ on $\Delta_J$ (both being linear on fibers of $\pi_1$), so the splitting map sends $\phi\otimes\omega_J^{\otimes m}$ to $\omega_J^m\cdot\pi_1^*\phi$ regardless of which parameter is used.",,
+item,calib,DPCPP2-C04-S1-01-M1-OPEN,a225cc5c4854f1ff,_UNIT,,,"In the context of data dependences between tasks or kernels, what is a Read-after-Write (RAW) dependence?
+정답: ['One task needs to read data produced (written) by a different task', 'Describes the flow of data between the two kernels/tasks']
+atom: A Read-after-Write (RAW) dependence occurs when one task needs to read data produced by a different task, and it describes the flow of data between the two kernels.",,
+item,calib,HMDEND-C01-S2-01-M1-OPEN,599e332531741611,_UNIT,,,"For a normal dendroidal set $X$ and $n>0$, how is the skeleton $\mathrm{sk}_n X$ built from $\mathrm{sk}_{n-1}X$?
+정답: ['Pushout (cell attachment) along boundary inclusions $\\partial\\Omega[T]\\to\\Omega[T]$', 'One copy of $\\Omega[T]$ for each isomorphism class of pairs $(T,x)$ with $T$ having exactly $n$ vertices and $x$ a non-degenerate dendrex in $X_T$']
+atom: For a normal dendroidal set $X$ and each $n>0$, the $n$-skeleton $\mathrm{sk}_n X$ is obtained from $\mathrm{sk}_{n-1}X$ by a pushout attaching one copy of $\Omega[T]$ along $\partial\Omega[T]$ for each isomorphism class of pairs $(T,x)$ with $T$ a tree with exactly $n$ vertices and $x\in X_T$ a non-degenerate dendrex.",,
+item,calib,HMDEND-C07-S2-03-M3-YN,03ebde283dc4b5a5,_UNIT,,,"Let $p: X\to S$ be a minimal J-fibration between ∞-categories. Take $T=\Delta[1]$ and two maps $f,g:\Delta[1]\to S$ that are J-homotopic, i.e. there is a map $H: J\times\Delta[1]\to S$ restricting to $f$ and $g$ at the two endpoints of $J$.
+Are the pullbacks $f^*p$ and $g^*p$ isomorphic minimal J-fibrations over $T$? (Yes/No)
+정답: Yes
+atom: If $p : X\to S$ is a minimal J-fibration between ∞-categories and $f,g : T\to S$ are J-homotopic maps from an ∞-category $T$, then the pullbacks $f^*p$ and $g^*p$ are isomorphic minimal J-fibrations over $T$.",,
+item,calib,IVFLUID-C04-S3-03-M3-YN,e84e25528e7b9312,_UNIT,,,"A clinician estimates the transmural pressure of the right atrium as right atrial pressure minus pleural pressure, taking pleural and pericardial pressure to equal a single intrathoracic pressure value measured at one site (e.g., esophageal). The clinician applies this value to all regions of the heart and lungs, although intrathoracic pressure is not homogeneously distributed through the thorax.
+Is the assumption that a single intrathoracic pressure represents the external pressure around the heart and lungs a limited, approximate assumption in this case? (Yes/No)
+정답: Yes
+atom: Clinical practice assumes pleural and pericardial pressures equal intrathoracic pressure as the external pressure around the heart and lungs, but intrathoracic pressure is not homogeneously distributed throughout the thorax, which limits this assumption.",,
+item,calib,DPCPP2-C08-S3-03-M3-YN,5044cdc6ef1ace31,_UNIT,,,"A SYCL runtime designer considers reporting every device-side error to the host the instant it occurs in a multithreaded application. This would require extra synchronizations between host and device and make safe multithreaded programming harder and more expensive. Because of this, SYCL instead defers reporting of asynchronous errors.
+Is deferring the reporting of asynchronous errors, rather than reporting them immediately, consistent with SYCL's design rationale? (Yes/No)
+정답: Yes
+atom: SYCL does not report asynchronous errors immediately as they occur because immediate reporting would make error management and safe (particularly multithreaded) programming more difficult and expensive, for example through additional host-device synchronizations.",,
+item,calib,DPCPP2-C07-S3-02-M2-TF,72248a0b94f488d4,_UNIT,,,"True or False?
+""SYCL does not require sub-group work-items to provide specific forward progress guarantees, so an implementation may run each work-item in a sub-group sequentially and switch between them only when a sub-group collective function is reached.""
+정답: True
+atom: Sub-group work-items are not required to provide any specific forward progress guarantees, so an implementation may execute each work-item sequentially and switch between work-items only when a sub-group collective function is encountered.",,
+item,calib,NACHR-C13-S3-03-M3-YN,bbee4be649e7584c,_UNIT,,,"Cortico-striatal slice cultures are treated with thrombin to mimic ICH injury, and nicotine reduces cell death and inflammation. The protective and anti-inflammatory effects of nicotine are largely abolished by methyllycaconitine (α7 antagonist) and also by dihydro-β-erythroidine (α4β2 antagonist).
+Does this in vitro result indicate involvement of both major central nAChR subtypes (α7 and α4β2) in nicotine's effects? (Yes/No)
+정답: Yes
+atom: In thrombin-treated cortico-striatal slice cultures, the protective and anti-inflammatory effects of nicotine were largely abrogated by antagonists of α7 and of α4β2 nAChRs, which suggests involvement of both major central subtypes in that in vitro model, in contrast to the α7-dominant picture in the mouse striatal ICH model.",,
+item,calib,MAVVOM-C08-S1-01-M1-OPEN,b2404f2b1c334531,_UNIT,,,"Let $f$ be a vector-valued modular form in $M_{\lambda,k}(\Gamma)$ with vanishing order $\nu$ along a sub orthogonal domain $\mathcal{D}'\subset\mathcal{D}$. How is the quasi-pullback $f\|_{\mathcal{D}'}$ defined, and in which space does it lie?
+정답: ['It is the image of $f$ under the last map of the exact sequence (of invariant global sections)', ""It lies in $\\bigoplus_\\alpha M_{\\lambda'(\\alpha),k+\\nu}(\\Gamma')\\otimes((K_{\\mathbb{C}})_{\\lambda''(\\alpha)}\\otimes \\mathrm{Sym}^\\nu K_{\\mathbb{C}})^G$, so the scalar weight becomes $k+\\nu$""]
+atom: For a vector-valued modular form $f\in M_{\lambda,k}(\Gamma)$ with vanishing order $\nu$ along the sub orthogonal domain $\mathcal{D}'$, the quasi-pullback $f\|_{\mathcal{D}'}$ is defined as the image of $f$ under the last map of the exact sequence, and it lies in $\bigoplus_\alpha M_{\lambda'(\alpha),k+\nu}(\Gamma')\otimes((K_{\mathbb{C}})_{\lambda''(\alpha)}\otimes \mathrm{Sym}^\nu K_{\mathbb{C}})^G$.",,
+item,calib,NACHR-C15-S2-02-M2-MCQ,ae2fb61553bde16b,_UNIT,,,"In non-diabetic hemodialysis patients (n = 57), what were the average dialyzer removal efficiencies for Aβ1–40 at the 1-h and 4-h points of a session?
+A) 61.1% at 1 h and 52.0% at 4 h
+B) 52.0% at 1 h and 66.0% at 4 h
+C) 66.0% at 1 h and 49.2% at 4 h
+D) 66.0% at 1 h and 52.0% at 4 h
+정답: D
+atom: In 57 non-diabetic hemodialysis patients, average dialyzer Aβ removal efficiency was 66.0% at 1 h and 52.0% at 4 h for Aβ1–40, and 61.1% and 49.2% for Aβ1–42.",,
+item,calib,CART-C07-S2-02-M2-MCQ,b1f63dbc1d7d8f1b,_UNIT,,,"In a single-centre phase 1 trial of CD19 CAR-T cells in relapsed/refractory adult ALL, what was observed regarding disease burden changes during the bridging period?
+A) Reductions in disease burden during bridging were associated with unfavourable outcomes after CAR-T therapy.
+B) Increases in disease burden during bridging were associated with favourable outcomes after CAR-T therapy.
+C) Reductions in disease burden during bridging were not associated with any difference in outcomes after CAR-T therapy.
+D) Reductions in disease burden during bridging were associated with favourable outcomes after CAR-T therapy.
+정답: D
+atom: In a single-centre phase 1 trial of CD19 CAR-T cells in relapsed/refractory adult ALL, reductions in disease burden during the bridging period were associated with favourable outcomes after CAR-T therapy.",,
+item,calib,FPPROG-C01-S3-03-M3-YN,39d7bfeb556b9871,_UNIT,,,"Let $k: \mathbb{N} \rightsquigarrow 1$ be the kernel with $k(n,\{*\})=n$ (with $\mathbb{N}$ discrete). No single finite $r$ bounds $k(n,1)$ for all $n$, so $k$ is not a finite kernel. Define $k_i(n,\{*\}) = n$ if $n=i$ and $0$ otherwise. Each $k_i$ is a finite kernel bounded by $i+1$, the same sequence $(k_i)_i$ is used for every argument $n$, and $\sum_{i=0}^\infty k_i = k$.
+Is $k$ an s-finite kernel? (Yes/No)
+정답: Yes
+atom: The finiteness bound and the choice of sequence of finite kernels in the definition of s-finiteness must be uniform across all arguments to the kernel, and the notion differs from that of a $\sigma$-finite measure.",,
+item,calib,LAPINF-C09-S2-03-M3-YN,f7741aa4dba3cc49,_UNIT,,,"A weighted metric graph $(\mathcal{G},\mu,\nu)$ has a simple model whose vertex set $V$ carries the discrete-time random walk with transition probabilities $p_\nu(u,v)=b_\nu(u,v)/m_\nu(v)$. This random walk is recurrent (it returns to each vertex almost surely).
+Is the heat semigroup generated by the Dirichlet Laplacian $\mathbf H_D$ on this graph recurrent? (Yes/No)
+정답: Yes
+atom: For a weighted metric graph, the heat semigroup generated by the Dirichlet Laplacian $\mathbf H_D$ is recurrent if and only if, for some (and hence all) simple models, the discrete time random walk on the vertex set with transition probabilities $p_\nu(u,v)=b_\nu(u,v)/m_\nu(v)$ is recurrent.",,
+item,calib,KGBDP-C04-S2-02-M2-MCQ,f95812c8af5a6cf5,_UNIT,,,"In COMET's bipartite graph over the RDF molecules of two graphs, how does the similarity threshold $\gamma$ affect which edges are kept?
+A) Edges with weights lower than $\gamma$ are discarded, so $\gamma = 0.0$ removes all edges and a high value such as 0.8 keeps nearly all edges.
+B) Edges with weights lower than $\gamma$ are discarded, so $\gamma = 0.0$ keeps all edges and a high value such as 0.8 leaves only a few edges.
+C) Edges with weights lower than $\gamma$ are discarded, so $\gamma = 0.0$ keeps all edges and a high value such as 0.8 also keeps nearly all edges.
+D) Edges with weights higher than $\gamma$ are discarded, so $\gamma = 0.0$ keeps all edges and a high value such as 0.8 leaves only a few edges.
+정답: B
+atom: COMET builds a bipartite graph between the molecule sets of the two RDF graphs, weighting edges by a user-supplied similarity function, and discards edges whose weights are lower than a threshold $\gamma$, so that $\gamma = 0.0$ keeps all edges and high thresholds such as 0.8 leave only a few.",,
+item,calib,FPPROG-C09-S3-02-M2-TF,0081679236f8e696,_UNIT,,,"True or False?
+""Defining abstractions with non-trivial widening operators for probabilistic semantics with sound conditioning is a solved problem, since admitting infinite state counts into counting-based techniques for integer-valued programs still yields tight probability bounds.""
+정답: False
+atom: Defining abstractions with non-trivial widening operators for probabilistic semantics with sound conditioning remains an open problem, since admitting infinite state counts into the counting-based techniques for integer-valued programs yields probability bounds that are uselessly between 0 and 1.",,
+item,calib,IVFLUID-C07-S3-03-M3-YN,ca2a87594fcfaebf,_UNIT,,,"In the resuscitation phase of ROSE, a team treats a septic patient with early fluid management. They apply the same fixed fluid target to every patient, ignoring premorbid conditions such as chronic heart failure or chronic kidney disease.
+Is this approach consistent with the ROSE concept's description of the resuscitation phase? (Yes/No)
+정답: No
+atom: In the resuscitation phase of the ROSE concept, early adequate fluid management is described as lifesaving, but its goal should be individualized for each patient, taking the patient's premorbid conditions into account.",,
+item,calib,NACHR-C01-S2-01-M1-OPEN,d2adaf60c976b295,_UNIT,,,"In cultured cortical neurons, what happens to Bcl-2 and Bcl-x protein levels after 24 h of nicotine treatment, and what does the effect of the PI3K inhibitor LY294002 on this change indicate?
+정답: ['Nicotine for 24 h increases Bcl-2 and Bcl-x levels', 'LY294002 inhibits the increase, indicating PI3K pathway involvement']
+atom: In cultured cortical neurons, 24 h nicotine treatment increased Bcl-2 and Bcl-x protein levels, and LY294002 inhibited this increase, indicating involvement of the PI3K pathway in nicotine-induced Bcl-2 and Bcl-x upregulation.",,
+item,calib,HMDEND-C07-S3-01-M1-OPEN,ccf58e1a33c3b65a,_UNIT,,,"In the dendroidal setting, for minimal J-fibrations $p:X\to S$ and $q:Y\to S$ between ∞-operads, what hypothesis is imposed to conclude that a fibrewise J-homotopy equivalence $X\to Y$ over $S$ is an isomorphism?
+정답: ['Both $X$ and $Y$ must be normal', 'Conclusion: the fibrewise J-homotopy equivalence is an isomorphism']
+atom: In the dendroidal setting, the rigidity result that any fibrewise J-homotopy equivalence over $S$ between minimal J-fibrations of ∞-operads is an isomorphism is stated under the assumption that both $X$ and $Y$ are normal.",,
+item,calib,LAPINF-C05-S3-03-M3-YN,f310363d9784fd0d,_UNIT,,,"A weighted metric graph has finite intrinsic size, and the chosen model contains pairs of vertices joined by several parallel edges. For this model, $\inf_{e\in\mathcal E} p_\eta(e_\iota,e_\tau)/\eta(e)=0.3>0$, where $p_\eta$ is the intrinsic weight and $\eta(e)$ the intrinsic length of the edge $e$.
+Is this a case in which positivity of $\mathrm{Ch}(\mathcal G)$ is equivalent to positivity of the discrete isoperimetric constant, despite the multiple edges? (Yes/No)
+정답: Yes
+atom: For models of finite intrinsic size that may have multiple edges, the equivalence between positivity of $\mathrm{Ch}(\mathcal G)$ and positivity of the discrete isoperimetric constant still holds if $\inf_{e\in\mathcal E} p_\eta(e_\iota,e_\tau)/\eta(e)>0$, a condition that allows an adapted version of the edge-weight identity to be recovered.",,
+item,calib,FPPROG-C03-S3-02-M2-TF,2f05c0e389cd436d,_UNIT,,,"True or False?
+""The lower-bound rule that only requires $I\le F_t(I)$ is unsound for probabilistic loops, because the least fixed point may need a limit in $n$, so that $\mathrm{lfp}\,F_t(\sigma)>F_t^n(0)(\sigma)$ for every $n\in\mathbb{N}$ even for a fixed state $\sigma$.""
+정답: True
+atom: The simple lower-bound rule $I\le F_t(I)$ is sound for non-probabilistic loops but unsound for probabilistic loops, because for probabilistic programs the least fixed point may need a limit in $n$ so that $\mathrm{lfp}\,F_t(\sigma)>F_t^n(0)(\sigma)$ for all $n\in\mathbb{N}$ even for a fixed state $\sigma$.",,
+item,calib,KGBDP-C04-S1-02-M2-TF,b2c6c143ed88ce40,_UNIT,,,"True or False?
+""In COMET, a context C is defined as a function that takes a single RDF molecule and returns a numeric relevance score between 0 and 1 indicating how well it fits the system criteria.""
+정답: False
+atom: In COMET, a context C is defined as any Boolean expression representing system criteria, i.e., a Boolean function that takes two RDF molecules M1 and M2 and returns true if they are similar according to the system context and false otherwise.",,
+item,calib,FPPROG-C02-S3-03-M3-YN,ee2d5e74c94f23d6,_UNIT,,,"A program starts a particle at position 10 and in each step moves it one unit left or right with probability 1/2 each, stopping when it reaches position 0. There is no lower or upper barrier other than 0. The particle reaches 0 with probability one, but the expected number of steps to do so is infinite.
+Is this program almost-surely terminating but not positively almost-surely terminating? (Yes/No)
+정답: Yes
+atom: The converse of the implication from positive almost-sure termination to almost-sure termination fails: an unbounded fair random walk (e.g. the term RW, or the program crw starting at position 10) reaches its base case with probability one but requires infinitely many steps on average, so it is almost-surely terminating but not positively so.",,
+item,calib,DPCPP2-C06-S1-01-M1-OPEN,a52d87ba6180ffaa,_UNIT,,,"In SYCL Unified Shared Memory, where does a device allocation reside, and who can read/write it directly (kernels on a device versus host code)?
+정답: ['Resides in device-attached memory (e.g., (G)DDR or HBM)', 'Kernels on a specific device can read/write it', 'Host code cannot access it directly']
+atom: A USM device allocation resides in device-attached memory (such as (G)DDR or HBM), can be read and written by kernels running on a specific device, but cannot be directly accessed from host code.",,
+item,calib,KGBDP-C08-S2-02-M2-MCQ,33cf34639fd87452,_UNIT,,,"How does the Tversky ratio model compare two semantic objects $u$ and $v$ through their feature sets $f(u)$ and $f(v)$?
+A) Via a weighted combination of $|f(u)\setminus f(v)|$, $|f(v)\setminus f(u)|$ and $|f(u)\cup f(v)|$ with parameters $\alpha$, $\beta$, $\gamma \ge 0$
+B) Via an unweighted sum of $|f(u)\setminus f(v)|$, $|f(v)\setminus f(u)|$ and $|f(u)\cap f(v)|$ with no free parameters
+C) Via a weighted combination of $|f(u)\setminus f(v)|$, $|f(v)\setminus f(u)|$ and $|f(u)\cap f(v)|$ with parameters $\alpha$, $\beta$, $\gamma \ge 0$
+D) Via a weighted combination of $|f(u)\setminus f(v)|$, $|f(v)\setminus f(u)|$ and $|f(u)\cap f(v)|$ with parameters $\alpha$, $\beta$, $\gamma \le 0$
+정답: C
+atom: The Tversky ratio model compares two semantic objects through their feature sets using a weighted combination of $|f(u)\setminus f(v)|$, $|f(v)\setminus f(u)|$ and $|f(u)\cap f(v)|$ with parameters $\alpha$, $\beta$, $\gamma \ge 0$.",,
+item,calib,IVFLUID-C04-S1-03-M3-YN,0914d4ee02020268,_UNIT,,,"In a patient, the right and left ventricles lie within the same pericardial sac and are separated by a common interventricular septum. When right ventricular diastolic pressure rises markedly, the septum shifts toward the left and the diastolic filling of the left ventricle is reduced.
+Is this an example of interventricular dependence? (Yes/No)
+정답: Yes
+atom: Interventricular dependence is the phenomenon in which, because the ventricles share an interventricular septum and are constrained by the pericardium, the diastolic pressure of one ventricle directly affects the diastolic filling of the other.",,
+item,calib,HMDEND-C03-S2-01-M1-OPEN,ea85b257eddbde6d,_UNIT,,,"How can the shuffles of two trees $S$ and $T$ be characterized as subsets $E(A)\subseteq E(S)\times E(T)$ of pairs of edges? Give the conditions on the subset.
+정답: ['$E(A)$ is a poset satisfying the tree-poset conditions (Lemma 3.2), with maximal element $(r_S,r_T)$ and minimal elements exactly the product of the minimal elements of $E(S)$ and $E(T)$', 'The path from each minimal element $(s,t)$ to the root is a classical shuffle of the path from $s$ to $r_S$ in $S$ and the path from $t$ to $r_T$ in $T$']
+atom: Shuffles of two trees $S$ and $T$ correspond precisely to subsets $E(A)\subseteq E(S)\times E(T)$ such that $E(A)$ satisfies the conditions of Lemma 3.2, its maximal element is $(r_S,r_T)$ and its minimal elements form the product of the minimal elements of $E(S)$ and $E(T)$, and the path from each minimal $(s,t)$ to the root is a classical shuffle of the paths from $s$ to $r_S$ in $S$ and from $t$ to $r_T$ in $T$.",,
+item,calib,IVFLUID-C03-S3-01-M1-OPEN,afdfa144f252ec15,_UNIT,,,"What conditions must be met for pulse pressure variation and stroke volume variation to be accurate, and which factors can cause false positives or false negatives?
+정답: ['Require fixed heart rate and a significant positive-pressure-induced rise in intrathoracic pressure', 'Spontaneous breathing, arrhythmias, low tidal volume, low lung compliance, raised intra-abdominal pressure, right heart failure cause false results']
+atom: PPV and SVV require a fixed heart rate and a significant positive-pressure-induced rise in intrathoracic pressure, and spontaneous respiratory activity, arrhythmias, low tidal volumes, low pulmonary compliance, raised intra-abdominal pressure, and right heart failure may produce false positives and false negatives, so neither is usable in all patients with cardiovascular insufficiency.",,
+item,calib,IVFLUID-C01-S1-02-M2-TF,e9265c9ea4c83525,_UNIT,,,"True or False?
+""In non-sinusoidal tissues, the endothelial surface layer is discontinuous and freely permeable to proteins, and the paracellular barrier is layered: the glycocalyx with its endothelial surface layer, the breaks in the tight junction strand, and the adherens junction.""
+정답: False
+atom: In non-sinusoidal tissues, the endothelial surface layer is continuous and largely impermeable to proteins, and the paracellular barrier is layered: the glycocalyx with its endothelial surface layer, the breaks in the tight junction strand, and the adherens junction.",,
+item,calib,IVFLUID-C10-S1-03-M3-YN,14870518261984dd,_UNIT,,,"A critically ill patient with pancreatitis has repeated, sustained bladder-measured intra-abdominal pressure readings of 22 mmHg. The team classifies this as grade II intra-abdominal hypertension.
+Is this classification consistent with the standard IAH grading by IAP (grade I 12-15, grade II 15-20, grade III 20-25, grade IV above 25 mmHg)? (Yes/No)
+정답: No
+atom: IAH is graded by IAP: grade I is 12 to 15 mmHg, grade II is 15 to 20 mmHg, grade III is 20 to 25 mmHg, and grade IV is above 25 mmHg.",,
+item,calib,HMDEND-C04-S1-03-M3-YN,0b91443a5a4f2621,_UNIT,,,"Let $\mathbf{P}$ be an operad with colour set $C=\{a,b\}$ and $\mathbf{Q}$ an operad with colour set $D=\{x,y,z\}$. Consider the operad $\mathbf{P}\otimes\mathbf{Q}$ presented by generators $p\otimes d$ (for operations $p$ of $\mathbf{P}$ and colours $d\in D$) and $c\otimes q$ (for colours $c\in C$ and operations $q$ of $\mathbf{Q}$), subject to relations making $-\otimes d$ and $c\otimes -$ operad maps, together with the Boardman–Vogt interchange relation between $p\otimes q$-type composites.
+Is this operad $\mathbf{P}\otimes\mathbf{Q}$ the Boardman–Vogt tensor product, with colour set of 6 elements $C\times D$? (Yes/No)
+정답: Yes
+atom: The Boardman–Vogt tensor product of operads $\mathbf{P}\otimes\mathbf{Q}$ has colour set $C\times D$ and is defined by generators $p\otimes d$ and $c\otimes q$ together with relations making $-\otimes d$ and $c\otimes -$ maps of operads and imposing the Boardman–Vogt interchange relation.",,
+item,calib,KGBDP-C10-S2-03-M3-YN,1f2578f2087606cd,_UNIT,,,"A research group builds a reasoning engine for knowledge graphs. Its language supports full recursion (at least Datalog) and OWL 2 QL-style ontological reasoning. However, even its core fragment has reasoning that is EXPTIME-hard in data complexity. The group presents its algorithms and data structures in technical detail.
+Does this engine meet the combination of high expressive power, ontological reasoning and low complexity that the Vadalog system's algorithms and data structures were designed to meet at the same time? (Yes/No)
+정답: No
+atom: The Vadalog system was presented in technical detail with a focus on algorithms and data structures that meet the requirements of high expressive power, ontological reasoning and low complexity at the same time.",,
+item,calib,NACHR-C03-S2-02-M2-MCQ,7d9501dbb52f7c14,_UNIT,,,"Nicotine's protection against glutamate cytotoxicity is antagonized by CNS nAChR antagonists and requires long exposure. What is therefore estimated to be the major route of nicotine-induced neuroprotection?
+A) Brief, transient stimulation of nAChRs
+B) Persistent stimulation of nAChRs
+C) Persistent direct inhibition of NMDA receptors
+D) Persistent stimulation of nAChRs, with direct NMDA receptor interaction ruled out as unable to contribute in any way
+정답: B
+atom: Because nicotine's protection against glutamate cytotoxicity was antagonized by CNS nAChR antagonists and requires long exposure, the authors estimate that persistent nAChR stimulation, rather than direct NMDA receptor inhibition, is the major route of nicotine-induced neuroprotection.",,
+item,calib,LAPINF-C08-S3-03-M3-YN,7b6a6bc6c945e085,_UNIT,,,"Let $A$ be a closed symmetric operator that is lower semibounded with lower bound $a=0$, so it is not positive definite. A boundary triplet for $A^*$ with $A_0=A_F$ is given, and $\Theta$ is a parameter for which the negative part $A_\Theta^-$ of $A_\Theta$ belongs to the Schatten class $\mathfrak{S}_1$.
+Does the general Schatten-class result guarantee that the negative part $\Theta(0)^-$ also belongs to $\mathfrak{S}_1$? (Yes/No)
+정답: No
+atom: The Schatten-class equivalence between $A_\Theta^-$ and $\Theta(0)^-$ requires $A$ to be positive definite; if $A$ is not positive definite, only the implication from the $\Theta(0)^-$ condition to the $A_\Theta^-$ condition is retained.",,
+item,calib,KGBDP-C01-S3-03-M3-YN,ff44584a93ae7db0,_UNIT,,,"A mapping language for non-relational (NoSQL) databases originally required the author to state the format of the data retrieved from the database through a dedicated property (xrr:format) and fixed exactly which query language was used. In a later version, to converge with RML, it optionally allowed a reference formulation.
+Does this describe xR2RML's approach, in contrast to RML's reference-formulation mechanism that allows other query languages to be introduced? (Yes/No)
+정답: Yes
+atom: Unlike RML, which allows other query languages to be introduced through reference formulations, xR2RML originally specified the data format explicitly via xrr:format and decided exactly which query language to use, and later optionally considered a reference formulation to converge with RML.",,
+item,calib,IVFLUID-C08-S3-01-M1-OPEN,94c4e5ead46bb178,_UNIT,,,"During de-resuscitation, when should fluid removal be stopped, and how should management proceed afterward?
+정답: ['Stop upon hemodynamic instability or obvious hypovolemia; suspend removal and judiciously re-administer fluid if needed', 'Restart removal at a lower rate once hypovolemia or hypoperfusion is mitigated']
+atom: De-resuscitation should be stopped when hemodynamic instability or obvious hypovolemia occurs, in which case fluid removal is suspended and fluid may be judiciously re-administered, and removal may be restarted at a lower rate once hypovolemia or hypoperfusion is mitigated.",,
+item,calib,DPCPP2-C09-S3-03-M3-YN,7f5ed6654fb98121,_UNIT,,,"A developer implements a custom spin-lock using a shared local-memory flag so that work-items in a work-group wait for one another, instead of using group_barrier or the provided collective functions. Under SYCL guarantees, the developer asks whether this approach is something that may deadlock rather than being guaranteed safe.
+Is this hand-coded synchronization routine one that is not guaranteed to be safe and may deadlock? (Yes/No)
+정답: Yes
+atom: Communication and synchronization between work-items in the same work-group is guaranteed to be safe only when performed with the provided barrier and collective functions, and hand-coded synchronization routines may deadlock.",,
+item,calib,NACHR-C06-S3-03-M3-YN,a4cd2723124a0221,_UNIT,,,"Rat brain segments are incubated with [3H]ACh in the presence of an irreversible acetylcholinesterase inhibitor, so that the ACh is protected from hydrolysis during the assay.
+Under these conditions, is [3H]ACh uptake into the brain segments clearly observable? (Yes/No)
+정답: Yes
+atom: [3H]ACh uptake was observed in the presence of irreversible but not reversible AChE inhibitors, and was potently suppressed by AChE inhibitors including donepezil, galantamine and rivastigmine, which raises the possibility that synaptic ACh is regulated by both AChE and postsynaptic uptake, a possibility the authors describe as relevant to cholinergic therapy in Alzheimer's disease.",,
+item,calib,NACHR-C02-S2-02-M2-MCQ,8146e0ab41ffb0fb,_UNIT,,,"In primary cortical neuron cultures, what changes in α7-nAChR were observed after long-term donepezil treatment?
+A) Total α7-nAChR protein expression increased and more α7-nAChR-expressing cells appeared in the cell membrane.
+B) Total α7-nAChR protein expression increased and more α7-nAChR-expressing cells appeared in the nuclear compartment.
+C) Total α7-nAChR protein expression decreased and more α7-nAChR-expressing cells appeared in the cell membrane.
+D) Total α7-nAChR protein expression increased, but the number of α7-nAChR-expressing cells in the cell membrane decreased.
+정답: A
+atom: In cortical neuron cultures, long-term donepezil treatment increased α7-nAChR protein expression and increased the number of α7-nAChR-expressing cells in the cell membrane, suggesting that long-term stimulation both increases expressed α7-nAChR protein and shifts expression to the membrane.",,
+item,calib,MAVVOM-C04-S3-02-M2-TF,82642d91505d5ef6,_UNIT,,,"True or False?
+""For a partition $\lambda\neq\det$, the graded quotients of the J-filtration on $\mathcal{E}_\lambda$ satisfy $\mathrm{rank}\,\mathrm{Gr}^r\mathcal{E}_\lambda>\mathrm{rank}\,\mathrm{Gr}^{-r}\mathcal{E}_\lambda$ whenever $r>0$.""
+정답: False
+atom: For a partition $\lambda\ne\det$, the graded quotients $\mathrm{Gr}^r\mathcal{E}_\lambda$ and $\mathrm{Gr}^{-r}\mathcal{E}_\lambda$ of the J-filtration have the same rank.",,
+item,calib,MAVVOM-C11-S3-01-M1-OPEN,ff2bb98923c80cb3,_UNIT,,,"The corank vanishing bound $n+\lambda_1-\mathrm{corank}(\lambda)-1$ is numerically larger than the bound $n/2+\lambda_1-1$ in another vanishing theorem, since $\mathrm{corank}(\lambda)\le[n/2]$. Why does the corank bound theorem nevertheless not supersede that other theorem?
+정답: ['the corank bound applies only to square integrable modular forms', 'the other theorem concerns the whole space $M_{\\lambda,k}(\\Gamma)$ of modular forms']
+atom: The corank vanishing bound concerns only square integrable modular forms, so although the bound $n/2+\lambda_1-1$ of the other vanishing theorem is smaller than $n+\lambda_1-\mathrm{corank}(\lambda)-1$ (because $\mathrm{corank}(\lambda)\le[n/2]$), it does not supersede that theorem, which concerns the whole space $M_{\lambda,k}(\Gamma)$.",,
+item,calib,LAPINF-C01-S3-03-M3-YN,1ac5d7298ec3a45f,_UNIT,,,"A locally finite graph b over (V,m) has vertex set $V=\{x,y,z\}$ and edges between x and y and between y and z. A cable system is built by adding a loop at each of x, y and z to the simple graph $G_b$, with lengths and weights chosen from the weighted degree function and b. Another cable system of the same graph is built with different edge lengths.
+Is the loop-based cable system a non-minimal cable system, that is, one that cannot be minimal because of its loops? (Yes/No)
+정답: Yes
+atom: The loop-based cable system built at every vertex is never minimal because it has a loop at every vertex, and cable systems of a given graph are not unique: every locally finite graph b over (V,m) has a large number of them.",,
+item,calib,IVFLUID-C01-S3-03-M3-YN,e92f439c76d43697,_UNIT,,,"In the intestinal mucosa, an adjacent secreting epithelium continuously delivers protein-free solvent into the interstitium. This keeps the interstitial colloid osmotic pressure low. The capillaries beneath it show net fluid absorption that is maintained over time.
+Is this an instance of steady-state absorption across capillaries, an exception to the usual steady-state filtration rule? (Yes/No)
+정답: Yes
+atom: Steady-state absorption can occur where a secreting epithelium supplies protein-free solvent to the interstitium and keeps interstitial colloid osmotic pressure low, as in intestinal mucosal microvasculature, renal peritubular capillaries and ascending vasa recta.",,
+item,calib,FPPROG-C07-S2-03-M3-YN,99c844d8f9e93087,_UNIT,,,"A nearly perfect channel acts on a skewed prior $(0.9, 0.1)$ and yields a hyper-distribution whose posteriors are almost point distributions. An analyst wants to compute the conditional Shannon Entropy (about 0.02) and the Bayes Risk (about 0.001) of the channel, and she has only the resulting hyper-distribution, not the channel matrix.
+Does the hyper-distribution contain enough information for her to compute both quantities? (Yes/No)
+정답: Yes
+atom: A hyper-distribution, as an abstraction, contains all the information needed to compute the conditional Shannon Entropy, the Bayes Risk, and any other well-behaved entropy, as when the nearly perfect channel on a 0.9/0.1 skewed prior yields a hyper that gives conditional Shannon Entropy about 0.02 and Bayes Risk 0.001.",,
+item,calib,FPPROG-C06-S1-01-M1-OPEN,70687ca38a428e21,_UNIT,,,"In Type-Two Theory of Effectivity, under what condition is a machine said to compute a partial function $f:\Sigma^\omega \rightharpoonup \Sigma^\omega$ on infinite streams over a finite alphabet?
+정답: ['Given input $w$ on the input tape, the machine can write any initial segment (finite prefix) of $f(w)$ on the output tape', 'Each such initial segment is written in finite time']
+atom: In Type-Two Theory of Effectivity, a machine computes a partial function $f:\Sigma^\omega \rightharpoonup \Sigma^\omega$ if, given $w$ on an input tape, it can write any initial segment of $f(w)\in\Sigma^\omega$ on the output tape in finite time, where $\Sigma^\omega$ is the set of streams over a finite alphabet $\Sigma$.",,
+item,calib,DPCPP2-C02-S1-03-M3-YN,0faa8c21debea41d,_UNIT,,,"A kernel author assumes that, within a sub-group, every work-item is scheduled to run concurrently with the others. Hence, one work-item spin-waits on a flag that another work-item of the same sub-group will set later, using a hand-written atomic loop with no sub-group collective function involved. The device's implementation executes each work-item of the sub-group sequentially and switches between them only at sub-group collective calls.
+Is the author's assumption that sub-group work-items have a forward progress guarantee making this spin-wait safe valid under the SYCL execution model? (Yes/No)
+정답: No
+atom: Work-items within a sub-group are not required to provide any specific forward progress guarantees, so an implementation may execute each work-item sequentially and switch between work-items only when a sub-group collective function is encountered.",,
+item,calib,MAVVOM-C06-S3-01-M1-OPEN,ecaabe09201b5ab4,_UNIT,,,"Beyond a general Taylor expansion along a divisor, what two special structural properties does the canonical geometric construction of the Fourier–Jacobi expansion rely on?
+정답: ['A projection $\\pi_1:\\overline{\\mathcal{X}(J)}\\to\\Delta_J$ with an isomorphism $\\mathcal{E}_{\\lambda,k}\\simeq\\pi_1^*(\\mathcal{E}_{\\lambda,k}|_{\\Delta_J})$', 'A special generator $\\omega_J$ of the ideal sheaf of $\\Delta_J$ that is linear on each fiber of $\\pi_1$']
+atom: The canonical construction relies on two special properties beyond a general Taylor expansion: the projection $\pi_1:\overline{\mathcal{X}(J)}\to\Delta_J$ with the isomorphism $\mathcal{E}_{\lambda,k}\simeq\pi_1^*(\mathcal{E}_{\lambda,k}|_{\Delta_J})$, and a special generator $\omega_J$ of the ideal sheaf that is linear on each fiber of $\pi_1$.",,
+item,calib,DPCPP2-C08-S2-02-M2-MCQ,8f19a6441823348d,_UNIT,,,"In SYCL, what does the default asynchronous handler do when the application supplies no handler and asynchronous errors are present in the exception list?
+A) It displays information about the errors and then retries the failed kernel launches on the host device until they succeed.
+B) It displays information about the errors and then ends the application through a normal return from main, so the operating system reports successful termination.
+C) It silently discards the errors and then lets the application continue running normally.
+D) It displays information about the errors and then ends the application through std::terminate, which should cause the operating system to report abnormal termination.
+정답: D
+atom: If no asynchronous handler is supplied, the default handler should display information about the errors in the exception list and then end the application through std::terminate, which should cause the operating system to report abnormal termination.",,
+item,calib,LAPINF-C01-S1-03-M3-YN,a8e4a17deac827ae,_UNIT,,,"A cable system for a graph b over (V,m) has vertex set $V=\{v_1,v_2,v_3\}$. Its underlying graph has the edges $e_{12}$ between $v_1$ and $v_2$, $e_{23}$ between $v_2$ and $v_3$, and a loop $e_3$ at $v_3$. There are no multiple edges. On every edge the two edge weights satisfy $\mu(e)=\nu(e)$. The edges $e_{12}$ and $e_{23}$ have length 1, and the loop $e_3$ has length 2.
+Is this cable system canonical? (Yes/No)
+정답: No
+atom: A cable system is called canonical if its underlying graph has no multiple edges, its edge weights satisfy $\mu(e)=\nu(e)$ for all edges, and every loop has length 1 with $\sup_{e}|e|<\infty$.",,
+item,calib,FPPROG-C01-S2-01-M1-OPEN,d87cc6bb8ca31cef,_UNIT,,,"Given s-finite kernels $k: X\times Y \rightsquigarrow Z$ and $l: X \rightsquigarrow Y$, how is their composite $k \star l$ defined, what kind of kernel is it, and which language construct does this composition interpret in the semantics of a probabilistic language?
+정답: ['$(k\\star l)(x,U)=\\int_{l(x)} k(x,y,U)\\,dy$, integrating over $y$ with respect to the measure $l(x)$', 'the composite is again an s-finite kernel $X\\rightsquigarrow Z$', 'it interprets $\\mathsf{let}$']
+atom: For s-finite kernels $k:X\times Y\rightsquigarrow Z$ and $l:X\rightsquigarrow Y$, the composite $(k\star l)(x,U)=\int_{l(x)} k(x,y,U)\,dy$ is again an s-finite kernel $X\rightsquigarrow Z$, and this composition is what interprets $\mathsf{let}$ in the semantics.",,
+item,calib,IVFLUID-C07-S2-01-M1-OPEN,05ed9a9b2e88db09,_UNIT,,,"In the ROSE concept, what happens to the patient at the resuscitation phase after the first hit (e.g., sepsis, burns, pancreatitis, trauma): which phase of shock is entered, how quickly, and what characterizes it?
+정답: ['Enters the ""ebb"" phase of shock within minutes', 'Low mean arterial pressure', 'Microcirculatory impairment']
+atom: In the ROSE concept, the resuscitation phase follows the first hit (for example sepsis, burns, pancreatitis or trauma), and the patient enters the ""ebb"" phase of shock, which occurs within minutes and is characterized by low mean arterial pressure and microcirculatory impairment.",,
+item,calib,HMDEND-C01-S1-02-M2-TF,ac915f29c3d2c8f6,_UNIT,,,"True or False?
+""A dendroidal set $X$ is normal exactly when the map from the empty dendroidal set to $X$ is a normal monomorphism.""
+정답: True
+atom: A dendroidal set $X$ is normal precisely if the inclusion of the empty dendroidal set into $X$ is a normal monomorphism.",,
+item,calib,FPPROG-C10-S3-03-M3-YN,1954f4f8775bbedf,_UNIT,,,"A reliability analysis computes only the probability that a result is computed fully reliably. Its sole hardware input is a table giving, for each arithmetic/logical operation and each memory operation, the probability that it executes correctly. It takes no information about the distribution of program inputs and has no model of how a soft error changes the result's value.
+Is this analysis consistent with Rely's analysis in terms of its input requirements, being oblivious to the input distribution and not needing a full model of soft-error effects? (Yes/No)
+정답: Yes
+atom: Because Rely's analysis considers only the probability that a result is computed fully reliably, it requires only a hardware reliability specification giving the probability that each arithmetic/logical and memory operation executes correctly, is oblivious to the computation's input distribution, and does not require a full model of how soft errors affect its result.",,
+item,calib,DPCPP2-C07-S3-03-M3-YN,3365fc2229921c02,_UNIT,,,"A developer wants portable sub-group code in SYCL. They launch a kernel with a two-dimensional work-group of size $\{5, 7\}$ (the highest-numbered dimension is 7), and the kernel requires a sub-group size of 4. They assume the mapping of work-items to sub-groups is known, and consider this one of the best ways to write portable sub-group code.
+Is this work-group configuration one of the recommended approaches for portable sub-group code (a one-dimensional work-group, or a multidimensional one whose highest-numbered dimension is divisible by the required sub-group size)? (Yes/No)
+정답: No
+atom: SYCL currently provides no way to query how work-items are mapped to sub-groups nor a mechanism to request a specific mapping, so portable sub-group code is best written with one-dimensional work-groups or multidimensional work-groups whose highest-numbered dimension is divisible by the kernel's required sub-group size.",,
+item,calib,DPCPP2-C03-S2-02-M2-MCQ,7b6f95ff52de08ba,_UNIT,,,"For a SYCL atomic_ref, which operations are affected by the DefaultOrder and DefaultScope template arguments?
+A) Only operations where the order and scope are not or cannot be overridden, such as shorthand operators like +=
+B) All operations, because runtime order and scope arguments cannot override the template defaults
+C) Only operations that perform loads, since stores and read-modify-write operations always require explicit arguments
+D) Only operations where the order and scope are explicitly passed as runtime arguments to the call
+정답: A
+atom: DefaultOrder and DefaultScope affect only atomic_ref operations whose behavior is not or cannot be overridden, such as shorthand operators like +=, because other orderings and scopes can be passed as runtime arguments to specific operations.",,
+item,calib,LAPINF-C10-S1-01-M1-OPEN,d3a8e28b89361f97,_UNIT,,,"What conditions must a map $\phi: X_1\to X_2$ between metric spaces satisfy in order to be a quasi-isometry?
+정답: ['Two-sided distance control: $a^{-1}(\\varrho_1(x,y)-d)\\le \\varrho_2(\\phi(x),\\phi(y))\\le a(\\varrho_1(x,y)+d)$ for some constants $a>0$, $d\\ge 0$ and all $x,y$', 'Coarse surjectivity: balls of some radius $R>0$ around the image points $\\phi(x)$ cover $X_2$']
+atom: A map $\phi: X_1\to X_2$ between metric spaces $(X_1,\varrho_1)$ and $(X_2,\varrho_2)$ is a quasi-isometry if there are constants $a,R>0$ and $d\ge 0$ such that $a^{-1}(\varrho_1(x,y)-d)\le \varrho_2(\phi(x),\phi(y))\le a(\varrho_1(x,y)+d)$ for all $x,y\in X_1$ and the balls of radius $R$ around the images $\phi(x)$ cover $X_2$.",,
+item,calib,CART-C06-S2-03-M3-YN,a6e9711932bca1d9,_UNIT,,,"A research group builds allogeneic CAR-T cells and uses TALEN genome editing to knock out CD52 in them. The goal is to let the cells survive anti-CD52 antibody treatment. They do not target the TCR, CD3ζ, or any TCRαβ-related component.
+Is this an example of a strategy to reduce TCRαβ activity in allogeneic CAR-T cells? (Yes/No)
+정답: No
+atom: Strategies to reduce TCRαβ activity in allogeneic CAR-T cells include truncated dominant-negative CD3ζ proteins, protein expression blockers, small hairpin RNA, and genome editing with platforms such as ZFNs, meganucleases, TALENs, megaTALs, CRISPR/Cas9, and base editors.",,
+item,calib,HMDEND-C11-S2-02-M2-MCQ,8212f60ae60f4b3b,_UNIT,,,"Which statement correctly describes the adjoint pair $(\mathrm{dis}_!,\mathrm{dis}^*)$ relating dendroidal sets and dendroidal spaces?
+A) It is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RS}$ for dendroidal Segal spaces without completeness.
+B) It is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+C) The pair $(\mathrm{dis}^*,\mathrm{dis}_!)$, with $\mathrm{dis}^*$ as the left adjoint, is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+D) It is a Quillen adjunction, but not a Quillen equivalence, between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.
+정답: B
+atom: The adjoint pair $(\mathrm{dis}_!,\mathrm{dis}^*)$ is a Quillen equivalence between the operadic model structure on $\mathbf{dSets}$ and the model category $\mathbf{dSpaces}_{RSC}$ for complete dendroidal Segal spaces.",,
+item,calib,CART-C03-S2-03-M3-YN,5d12c643e4c420e3,_UNIT,,,"In a CAR construct, a segment spans the cell membrane and connects the extracellular scFv to the intracellular CD3 zeta domain. Changing this segment alters the flexibility and conformation of the receptor and how efficiently it binds its target epitope.
+Is this segment functioning as the transmembrane region of the CAR? (Yes/No)
+정답: Yes
+atom: The transmembrane region of a CAR links the extracellular and intracellular domains through the cell membrane and plays an important role in determining the conformation and flexibility of the CAR and its ability to efficiently bind the targeted antigen or epitope.",,
+item,calib,LAPINF-C07-S1-02-M2-TF,f0bfd5bab0daea64,_UNIT,,,"True or False?
+""For the heat semigroup of a Kirchhoff Laplacian, stochastic completeness is equivalent to the following two statements: for some $\lambda>0$ every bounded non-negative $\lambda$-harmonic function is constant, and for all $\lambda>0$ every bounded non-negative $\lambda$-superharmonic function is constant.""
+정답: False
+atom: Stochastic completeness of the heat semigroup of a Kirchhoff Laplacian is equivalent to the statement that for some $\lambda>0$ every bounded non-negative $\lambda$-harmonic function is constant, and also to the statement that for all $\lambda>0$ every bounded non-negative $\lambda$-subharmonic function is constant.",,
+item,calib,FPPROG-C09-S1-02-M2-TF,2a7e492d2e8dbd2f,_UNIT,,,"True or False?
+""In a probabilistic upper-bound domain over a state domain, an abstract element pairs a base element $a$ with a bound $p$, and it represents the distributions that assign probability at most $p$ to every state in $\gamma(a)$.""
+정답: True
+atom: A probabilistic upper-bound domain $\overline{\mathbb{D}}(\mathbb{A})$ built from a state domain $\mathbb{A}$ pairs a base element $a$ with a bound $p$ and concretizes to the distributions $X$ with $X(\sigma)\le p$ for all $\sigma\in\gamma(a)$, adding a probability bound on all states represented by the base element.",,
+item,calib,IVFLUID-C02-S2-03-M3-YN,6f98dbd7565995a9,_UNIT,,,"In a patient, the mean systemic pressure is found to be elevated. Investigation shows that this is due to elastic recoil stored in the walls of the vessels, which are stretched by a large stressed volume. The stressed volume is high because total circulatory volume has increased after resuscitation and the capacitance of the circulatory system has decreased.
+Is this an example of mean systemic pressure being determined by stressed volume, which depends on total circulatory volume and circulatory capacitance? (Yes/No)
+정답: Yes
+atom: Pms results from the elastic recoil stored in the walls of the circulatory vessels and is determined by stressed volume, which depends on total circulatory volume and the capacitance of the circulatory system.",,
+item,calib,KGBDP-C01-S2-02-M2-MCQ,224b55bb147bea36,_UNIT,,,"In the RML extension aligning RML with FnO, what is a Function Map (fnml:FunctionMap)?
+A) A Term Map whose generated term is a constant value declared in the mapping, rather than the output of an executed function.
+B) A Term Map whose generated term is the output value of an executed function, rather than a constant or a reference to raw data values.
+C) A Term Map whose generated term is the output value of an executed function, defined as part of R2RML's core model rather than as an RML extension.
+D) A Logical Source whose generated term is the output value of an executed function, rather than a constant or a reference to raw data values.
+정답: B
+atom: The Function Map (fnml:FunctionMap) is a Term Map introduced as an RML extension to align RML with FnO, generating its term as the output value of an executed function instead of from a constant or a reference to raw data values.",,
+item,calib,CART-C02-S2-01-M1-OPEN,b7e1b8b01c5f40f4,_UNIT,,,"What is the proposed mechanism by which inflammatory cytokines are thought to cause ICANS?
+정답: ['Cytokines released by macrophages and monocytes', 'Increase vascular permeability and endothelial activation', 'Leading to blood–brain barrier breakdown']
+atom: The mechanism underlying ICANS is not fully understood, but there is evidence that inflammatory cytokines secreted by macrophages and monocytes increase vascular permeability and endothelial activation, leading to blood–brain barrier breakdown.",,
+item,calib,LAPINF-C07-S1-01-M1-OPEN,500d81762a29b23c,_UNIT,,,"What does it mean for a heat semigroup $(e^{-tH})_{t>0}$ to be stochastically complete, and for how many values of $t>0$ does the defining identity need to be checked?
+정답: ['$e^{-tH}\\mathbb{1}=\\mathbb{1}$ (the constant function $\\mathbb{1}$ is preserved)', 'it suffices to check it for some $t>0$, which then gives it for all $t>0$']
+atom: Stochastic completeness of a heat semigroup $(e^{-tH})_{t>0}$ means that $e^{-tH}\mathbb{1}=\mathbb{1}$ for some (and hence for all) $t>0$.",,
+item,calib,KGBDP-C03-S2-02-M2-MCQ,67cd125f44b0427c,_UNIT,,,"In federated query processing, what does the query decomposition and source selection sub-problem do, and what bounds the set of sources it can choose from?
+A) It decomposes the federated query into subqueries and assigns each to selected data sources, with candidate sources bounded by the number of join operators in the query plan.
+B) It decomposes the federated query into subqueries and assigns each to selected data sources, with candidate sources unbounded because the engine may contact any source on the web.
+C) It decomposes the federated query into subqueries and assigns each to selected data sources, with candidate sources bounded by the data source descriptions given to the engine.
+D) It merges the subquery results into a single answer and assigns each to selected data sources, with candidate sources bounded by the data source descriptions given to the engine.
+정답: C
+atom: Query decomposition and source selection decomposes the federated query into subqueries and associates each with the data sources selected to execute it, with the candidate sources bounded by the data source descriptions given to the engine.",,
+item,calib,HMDEND-C04-S3-03-M3-YN,451dc6e1657669b1,_UNIT,,,"Consider the tensor product $\otimes$ on the category $\mathbf{dSets}$ of dendroidal sets, obtained by extending the Boardman–Vogt tensor product of free operads on trees via the nerve and colimit-preservation in each variable. The Boardman–Vogt tensor product on the category $\mathbf{Op}$ of operads is symmetric and associative up to coherent natural isomorphism.
+Does $\otimes$ make $\mathbf{dSets}$ into a symmetric monoidal category? (Yes/No)
+정답: Yes
+atom: The tensor product of dendroidal sets is not associative up to coherent isomorphism, so it does not give $\mathbf{dSets}$ a symmetric monoidal structure, even though the Boardman–Vogt tensor product makes operads a symmetric monoidal category.",,
+item,calib,IVFLUID-C13-S2-01-M1-OPEN,bad34eb502827c9f,_UNIT,,,"How do macrophages regulate local interstitial electrolyte composition when interstitial tonicity rises, and what is the downstream effect on lymphatics?
+정답: ['A tonicity-responsive enhancer-binding protein in macrophages induces VEGF-C production as tonicity rises', 'VEGF-C acts on VEGF Receptor 3 to stimulate lymphangiogenesis']
+atom: Macrophages regulate local interstitial electrolyte composition through a tonicity-responsive enhancer-binding protein that induces VEGF-C production as interstitial tonicity rises, with VEGF-C acting on VEGF Receptor 3 to stimulate lymphangiogenesis.",,
+item,calib,KGBDP-C09-S3-01-M1-OPEN,59e40e591a31818c,_UNIT,,,"Why do HMM-based NILM approaches suffer from error propagation?
+정답: ['HMM assumes the current state depends on the previous state', 'Errors in estimating previous states significantly affect predictions of current states']
+atom: HMM-based NILM suffers from error propagation because an HMM presumes the current state depends on the previous one, so mistakes in estimating previous states significantly influence predictions of current states.",,
+item,calib,NACHR-C06-S2-03-M3-YN,48f5d60493b52fe0,_UNIT,,,"In a superfusion experiment with rat striatal tissue preloaded with [3H] label, electrical stimulation evokes [3H]efflux. Muscarinic receptors and acetylcholinesterase are completely inhibited. TEA is then added at a concentration that suppresses ACh uptake, and the evoked [3H]efflux increases significantly.
+Is this result consistent with a portion of released ACh being taken up into postsynaptic neurons by AChT, and thereby helping to regulate synaptic ACh concentrations? (Yes/No)
+정답: Yes
+atom: In rat striatal superfusion experiments, concentrations of TEA and HC-3 that suppress ACh uptake significantly increased electrically evoked [3H]efflux even when mAChRs and AChE were completely inhibited, suggesting that a portion of released ACh is taken up into postsynaptic neurons by AChT and thereby helps regulate synaptic ACh concentrations.",,
+item,calib,CART-C03-S1-03-M3-YN,b732866455044822,_UNIT,,,"A research group describes an early CAR construct. It contains an extracellular scFv that recognizes a tumour antigen, a transmembrane region, and an intracellular portion made of the CD3 zeta signalling domain plus the intracellular domain of CD28 as a costimulatory domain.
+Is this construct a first generation CAR? (Yes/No)
+정답: No
+atom: First generation CARs were characterized by the association of only three functional domains: the extracellular antigen-recognition domain, the transmembrane region, and the intracellular CD3 zeta signalling domain.",,
+item,calib,KGBDP-C08-S3-01-M1-OPEN,dfd91e4de5eb0974,_UNIT,,,"What does a feature-based semantic similarity approach require of the semantic objects it compares?
+정답: ['Objects must be representable as sets of features']
+atom: Most approaches in SANSA's similarity assessment module are feature-based, which requires the semantic objects to be representable as sets of features.",,
+item,calib,IVFLUID-C07-S3-02-M2-TF,6fe948ff87932806,_UNIT,,,"True or False?
+""In the evacuation phase of the ROSE concept, the main risk is persistent fluid overload from continued fluid administration, which may induce a ""fourth hit"".""
+정답: False
+atom: In the evacuation phase of the ROSE concept, the main risk is excessive fluid removal, which may induce hypotension, hypoperfusion, and a ""fourth hit"".",,
+item,calib,DPCPP2-C08-S1-02-M2-TF,7785e4de0235cd9d,_UNIT,,,"True or False?
+""In SYCL, asynchronous errors arise because errors on a device or when launching work on a device are typically tightly synchronized with the host program's execution, so they integrate cleanly with regular C++ exception handling.""
+정답: False
+atom: In SYCL, asynchronous errors arise because some errors occur on a device or when launching work on a device, and such errors are typically decoupled in time from the host program's execution, so they do not integrate cleanly with regular C++ exception handling.",,
+item,calib,CART-C04-S3-01-M1-OPEN,b878d5ccfb06517d,_UNIT,,,"What are the limitations of dual-antigen targeting for CAR-T cells in terms of cytokine release syndrome (CRS) risk and on-target off-tumour and off-target off-tumour toxicity?
+정답: ['Not expected to reduce the risk of CRS', 'On-target off-tumour risk is hard to estimate because it depends on CAR-T cells discriminating combined from single antigen expression', 'Single-antigen expression on normal cells carries potential off-target off-tumour risk']
+atom: Dual-antigen targeting is not expected to ameliorate the risk of CRS, its on-target off-tumour toxicity risk is difficult to estimate because it depends on the CAR-T cells' ability to discriminate combined from single antigen expression, and single-antigen expression on normal cells carries potential off-target off-tumour risk.",,
+item,calib,NACHR-C15-S1-02-M2-TF,0fdeac166b511bc1,_UNIT,,,"True or False?
+""A rapid reduction of blood Aβ concentrations has been hypothesized to suppress Aβ excretion from the brain, resulting in cognitive improvement.""
+정답: False
+atom: The authors hypothesize that a rapid reduction of blood Aβ concentrations could act as a trigger that enhances Aβ excretion from the brain, resulting in cognitive improvement.",,
+item,calib,KGBDP-C07-S2-02-M2-MCQ,f2bf60de6521e3c8,_UNIT,,,"In SANSA DataLake, how many ParSets does the Data Wrapper generate for each identified star, and how is the ParSet formed when more than one entity is relevant to that star?
+A) One ParSet per triple pattern in the star; formed as a union when more than one entity is relevant
+B) Exactly one ParSet per star; formed as a union only when a single entity is relevant
+C) Exactly one ParSet per star; formed as a join when more than one entity is relevant
+D) Exactly one ParSet per star; formed as a union when more than one entity is relevant
+정답: D
+atom: In SANSA DataLake, the Data Wrapper generates exactly one ParSet for each identified star, and the ParSet is formed as a union when more than one entity is relevant to the star.",,
+item,calib,FPPROG-C04-S2-02-M2-MCQ,d949d5b21e352ee4,_UNIT,,,"Which statement correctly describes the completeness of RSM-maps for bounded termination of probabilistic programs?
+A) If all program variables are real-valued and the supremum over schedulers of the expected termination time is finite, then an RSM-map exists with respect to some invariant.
+B) If all program variables are integer-valued and the supremum over schedulers of the expected termination time is finite, then an RSM-map exists only with respect to the trivial invariant that assigns all valuations to every location.
+C) If all program variables are integer-valued and the supremum over schedulers of the expected termination time is finite, then an RSM-map exists with respect to some invariant.
+D) If all program variables are integer-valued and the program terminates almost surely (with possibly infinite expected termination time), then an RSM-map exists with respect to some invariant.
+정답: C
+atom: If all program variables of a probabilistic program are integer-valued and $\sup_\sigma\mathbb{E}^\sigma_{\mathbf{x}_{init}}[Term]<\infty$, then an RSM-map exists with respect to some invariant, which together with soundness makes RSM-maps sound and complete for bounded termination.",,
+item,calib,CART-C01-S1-01-M1-OPEN,ab7174d4e68a396a,_UNIT,,,"What is the underlying cause of cytokine release syndrome (CRS), and in what clinical setting is it particularly seen?
+정답: ['Rapid release of cytokines (mild to massive) from immune cells involved in immune reactions', 'Particularly after immunotherapy']
+atom: Cytokine release syndrome is caused by a rapid, mild-to-massive release of cytokines from immune cells involved in immune reactions, particularly after immunotherapy.",,
+item,calib,LAPINF-C09-S3-03-M3-YN,33e252da84864bfd,_UNIT,,,"A weighted metric graph is a model with a boundary at infinity such that $\mathbf H^0$ has more than one Markovian extension (so Markovian uniqueness fails and $\mathbf H_D\neq\mathbf H_N$). Consider the Neumann Laplacian $\mathbf H_N$ on this graph, whose Neumann conditions act as a reflecting boundary. Could the heat semigroup of $\mathbf H_N$ nevertheless be recurrent?
+Is it possible for $\mathbf H_N$ to be recurrent despite the failure of Markovian uniqueness? (Yes/No)
+정답: Yes
+atom: Markovian uniqueness is not necessary for the Neumann Laplacian to be recurrent, which the authors intuitively explain by Neumann boundary conditions being considered a reflecting boundary.",,
+item,calib,DPCPP2-C09-S2-02-M2-MCQ,ac96c25e4bd40a75,_UNIT,,,"What does synchronizing execution at a barrier allow one work-item in a group to ensure?
+A) That another work-item in a different work-group has completed an operation before the first work-item uses the result of that operation
+B) That another work-item in the same group has completed an operation before the first work-item uses the result of that operation
+C) That another work-item in the same group has not yet started an operation, so the first work-item can overwrite the result of that operation
+D) That another work-item in the same group will begin an operation only after the first work-item has used its result
+정답: B
+atom: By synchronizing execution at a barrier, one work-item can ensure that another work-item in the same group has completed an operation before using the result of that operation.",,
+item,calib,DPCPP2-C03-S2-03-M3-YN,36459975fbda170a,_UNIT,,,"A programmer fills an ordinary int array on the host with initial values and copies it to device memory. Inside the kernel, each work-item wraps an element in an atomic_ref and performs atomic increments. The array was never declared as an atomic type on the host.
+Does this approach, creating non-atomic data on the host and treating it as atomic only after the transfer, work with atomic_ref? (Yes/No)
+정답: Yes
+atom: Because atomic_ref wraps an existing non-atomic variable, non-atomic data can be created on the host, transferred to the device, and treated as atomic data only after the transfer.",,
+item,calib,NACHR-C06-S1-03-M3-YN,e9e5507d6c93a28f,_UNIT,,,"Rat brain segments are incubated with [3H]ACh, and radioactivity accumulating in the tissue is measured. Accumulation rises steadily as incubation time increases at 37 °C. It is markedly lower when the same incubation is carried out at 4 °C.
+Does this pattern qualify as active, time- and temperature-dependent [3H]ACh uptake into brain segments? (Yes/No)
+정답: Yes
+atom: [3H]ACh uptake into brain segments has been confirmed to be active and to depend on time and temperature.",,
+item,calib,FPPROG-C05-S2-01-M1-OPEN,dcce66f07e9b4489,_UNIT,,,"How does the total variation distance between two sub-distributions $\mu_1,\mu_2$ over a set $\mathcal{A}$ relate to the probability that the two components differ under a coupling $\mu$ of them, and is the bound attainable?
+정답: ['$d_{tv}(\\mu_1,\\mu_2)\\le \\Pr_{(a_1,a_2)\\sim\\mu}[a_1\\neq a_2]$ for any coupling', 'A maximal coupling exists that attains equality']
+atom: For any coupling $\mu$ of sub-distributions $\mu_1,\mu_2$ over $\mathcal{A}$, the total variation distance satisfies $d_{tv}(\mu_1,\mu_2)\le \Pr_{(a_1,a_2)\sim\mu}[a_1\neq a_2]$, and a maximal coupling exists that attains equality.",,
+item,calib,KGBDP-C10-S3-02-M2-TF,9e6ab9a42695104b,_UNIT,,,"True or False?
+""Question answering, recommender systems, entity resolution and link prediction can all be classified as application services, because each offers a clearly defined application. A management system, by contrast, offers a query language that supports such applications.""
+정답: True
+atom: The authors treat question answering, recommender systems, entity resolution and link prediction as application services because they offer a well-defined application, in contrast to a management system that offers a query language supporting such applications.",,
+item,calib,HMDEND-C02-S3-02-M2-TF,0b87ddabcbffff6b,_UNIT,,,"True or False?
+""For a category $C$ viewed as an operad with only unary operations, a $W(C)$-algebra $A$ is a strict functor on $C$ itself, even though $A_t(f_2,f_1)$ provides a homotopy between $A(f_2f_1)$ and $A(f_2)\circ A(f_1)$.""
+정답: False
+atom: For a category $C$ viewed as an operad with only unary operations, a $W(C)$-algebra $A$ is not a functor on $C$ itself: it respects identities, but respects composition only up to homotopy, since $A_t(f_2,f_1)$ is a homotopy between $A(f_2f_1)$ and $A(f_2)\circ A(f_1)$.",,
+item,calib,FPPROG-C03-S2-02-M2-MCQ,c039e626f8ad0023,_UNIT,,,"For a sequential composition $c_1;c_2$ and continuation $t$, which expression gives its expected runtime transformer?
+A) $\mathrm{ert}[c_2](\mathrm{ert}[c_1](t))$
+B) $\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))$
+C) $\mathrm{ert}[c_1](t)+\mathrm{ert}[c_2](t)$
+D) $\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))\cdot t$
+정답: B
+atom: The ert of a sequential composition is $\mathrm{ert}[c_1;c_2](t)=\mathrm{ert}[c_1](\mathrm{ert}[c_2](t))$, so the runtime of $c_2$ with respect to continuation $t$ is computed first and then used as the continuation for $c_1$.",,
+item,calib,LAPINF-C05-S1-03-M3-YN,b1011bc2614fd929,_UNIT,,,"Let $(\mathcal G,\mu,\nu)$ be a weighted metric graph. For each finite connected subgraph $\mathcal K$, let $\mathrm{Ch}_{\mathcal K}(\mathcal G)$ be the infimum of $\mathrm{area}(\partial\mathcal K')/\mu(\mathcal K')$ over finite connected subgraphs $\mathcal K'\subseteq\mathcal G\setminus\mathcal K$. Define the number $c(\mathcal G)=\inf_{\mathcal K}\mathrm{Ch}_{\mathcal K}(\mathcal G)$, with the infimum taken over all finite connected subgraphs $\mathcal K$.
+Is $c(\mathcal G)$ the isoperimetric constant at infinity $\mathrm{Ch}^{\mathrm{ess}}(\mathcal G)$ of the graph? (Yes/No)
+정답: No
+atom: The isoperimetric constant at infinity is $\mathrm{Ch}^{\mathrm{ess}}(\mathcal G)=\sup_{\mathcal K}\mathrm{Ch}_{\mathcal K}(\mathcal G)=\lim_{\mathcal K}\mathrm{Ch}_{\mathcal K}(\mathcal G)$, where $\mathrm{Ch}_{\mathcal K}(\mathcal G)$ is the infimum of $\mathrm{area}(\partial\mathcal K')/\mu(\mathcal K')$ over finite connected subgraphs $\mathcal K'\subseteq\mathcal G\setminus\mathcal K$, and the supremum and net limit are taken over all finite connected subgraphs $\mathcal K$.",,
+item,calib,CART-C08-S1-03-M3-YN,4323147f7bcb5ab3,_UNIT,,,"A centre reviews a lymphodepleting regimen given before CAR-T infusion. In its patients, the regimen is effective, yet CAR-T cells show poorer proliferation and shorter persistence after infusion than in patients who received no conditioning.
+Is this an example of the expected effect of an effective lymphodepleting regimen on CAR-T cells? (Yes/No)
+정답: No
+atom: An effective lymphodepleting regimen increases the proliferation and persistence of CAR-T cells.",,
+item,calib,IVFLUID-C03-S3-02-M2-TF,1fc520af2839eade,_UNIT,,,"True or False?
+""Finding that a patient is fluid responsive does not obligate the clinician to give fluids, and using responsiveness as an automatic trigger for fluid administration regardless of tissue perfusion status is a misuse of the concept.""
+정답: True
+atom: Presence of fluid responsiveness does not mean that fluids need to be given at all times, and treating fluid responsiveness as a mandatory trigger for fluid administration irrespective of tissue perfusion status is an inadequate use of the concept.",,
+item,calib,CART-C02-S1-01-M1-OPEN,3728e547838c2743,_UNIT,,,"What speech and writing changes are prominent early features of ICANS, and what can they progress to if the syndrome worsens?
+정답: ['Early hesitancy of speech and deterioration in handwriting', 'Can progress to aphasia with expressive and receptive components (patient alert but mute)']
+atom: A prominent and early feature of ICANS is hesitancy of speech and deterioration in handwriting, which can progress to aphasia with expressive and receptive components in which the patient is alert but mute.",,
+item,calib,MAVVOM-C01-S2-03-M3-YN,977f43f02e55a3f5,_UNIT,,,"Let $L$ have signature $(2,n)$ and let $K\subset\mathrm{O}^+(L_\mathbb{R})$ be the stabilizer of a point $[\omega]\in\mathcal{D}$. Let $W=\mathbb{C}^n$ with the subgroup $\mathrm{O}(n,\mathbb{R})\subset K$ acting trivially on $W$ (every element acts as the identity). Form the $\mathrm{O}^+(L_\mathbb{R})$-equivariant bundle $\mathcal{W}=\mathrm{O}^+(L_\mathbb{R})\times_K W$ on $\mathcal{D}$.
+Is $\mathcal{W}$ equivariantly isomorphic to the second Hodge bundle $\mathcal{E}$? (Yes/No)
+정답: No
+atom: The stabilizer $K\subset\mathrm{O}^+(L_\mathbb{R})$ of a point $[\omega]\in\mathcal{D}$ acts on the fiber $\mathcal{E}_{[\omega]}$ as the standard $\mathbb{C}$-representation of $\mathrm{O}(n,\mathbb{R})\subset K$, so with $V=\mathbb{C}^n$ the standard representation of $\mathrm{O}(n,\mathbb{C})$ one has an $\mathrm{O}^+(L_\mathbb{R})$-equivariant isomorphism $\mathcal{E}\simeq \mathrm{O}^+(L_\mathbb{R})\times_K V$.",,
+item,calib,NACHR-C09-S1-02-M2-TF,32b5835bd1016b09,_UNIT,,,"True or False?
+""Galantamine's allosteric potentiating effect is found on both α7 and α4β2 nicotinic acetylcholine receptor subtypes.""
+정답: True
+atom: The APL effect of galantamine is present on both α7 and α4β2 nAChRs.",,
+item,calib,DPCPP2-C10-S1-02-M2-TF,fdc9947ffbceb3cc,_UNIT,,,"True or False?
+""A SYCL kernel bundle, together with the kernels or functions it contains, can be in one of four states: input, object, linked, or executable.""
+정답: False
+atom: A SYCL kernel bundle, together with the kernels or functions it contains, can be in one of three states: input, object, or executable.",,
+item,calib,FPPROG-C03-S2-01-M1-OPEN,d57ac86d2c327b22,_UNIT,,,"How is the expected runtime $\mathrm{ert}[\mathtt{while}(\varphi)\{c\}](t)$ of a loop defined, and why does this definition coincide with a limit of iterates?
+정답: ['It is the least fixed point of the characteristic functional $F_t(X)=1+[\\varphi]\\cdot\\mathrm{ert}[c](X)+[\\neg\\varphi]\\cdot t$', 'By the Kleene Fixed Point Theorem (complete lattice, continuous $F_t$) it equals $\\lim_{n\\to\\infty}F_t^n(0)$']
+atom: The ert of a loop $\mathrm{while}(\varphi)\{c\}$ with respect to continuation $t$ is defined as the least fixed point of the characteristic functional $F_t(X)=1+[\varphi]\cdot\mathrm{ert}[c](X)+[\neg\varphi]\cdot t$, which equals $\lim_{n\to\infty}F_t^n(0)$ by the Kleene Fixed Point Theorem, since $\mathbb{T}$ is a complete lattice and $F_t$ is continuous.",,
+item,calib,NACHR-C11-S1-03-M3-YN,16b4d404be713e5a,_UNIT,,,"A researcher studies a protein first discovered as 'Shati'. Biochemical analysis shows it is an N-acetyltransferase-8-like protein that, in neurons, catalyzes formation of N-acetylaspartate from aspartate and acetyl-coenzyme A.
+Is this protein appropriately referred to as Shati/Nat8l? (Yes/No)
+정답: Yes
+atom: Shati was later identified as an N-acetyltransferase-8-like protein (Nat8l) that catalyzes the synthesis of N-acetylaspartate (NAA) from aspartate and acetyl-coenzyme A, and it was therefore renamed Shati/Nat8l.",,
+item,calib,HMDEND-C03-S1-03-M3-YN,6414e3efb0e3e0ba,_UNIT,,,"Let $S$ be the tree with a single vertex that has no inputs (a stump) and root edge $r_S$. Let $T$ be the tree consisting of a single edge $r_T$, which is both its root and its leaf. Let $A$ be the tree with one vertex that is a stump, whose output edge is labelled $(r_S,r_T)$.
+Does $A$ satisfy the stump condition required of a shuffle of $S$ and $T$ (for a non-leaf edge $(s,t)$ with a stump above it, $s$ is a leaf or has a stump above it in $S$, and $t$ is a leaf or has a stump above it in $T$)? (Yes/No)
+정답: Yes
+atom: A shuffle of two trees $S$ and $T$ must satisfy the stump condition: if an edge $(s,t)$ is not a leaf of $A$ and the vertex above it is a stump, then $s$ is either a leaf or has a stump above it in $S$, and $t$ is either a leaf or has a stump above it in $T$.",,
+item,calib,KGBDP-C06-S3-01-M1-OPEN,0af7806f6fe3609c,_UNIT,,,"How clear are the borders between the representation, management, and application layers in the layered perspective on Knowledge Graphs, and what does this mean for real systems?
+정답: ['The borders between layers are fuzzy', 'Many academic and industrial systems cover two or three layers', 'Representation tools can partly fulfill characteristics of management systems']
+atom: The borders between the representation, management and application layers are fuzzy: many academic and industrial systems cover two or three of the layers, and representation tools can partly fulfill characteristics of management systems.",,
+item,calib,DPCPP2-C03-S1-03-M3-YN,4f11300238e2f207,_UNIT,,,"A team is porting a SYCL 1.2.1 code base that uses cl::sycl::atomic accessors to update counters inside kernels. They are now targeting SYCL 2020 and plan to rewrite those updates to wrap the counter storage in atomic_ref objects instead.
+Is this rewrite consistent with SYCL 2020 guidance on replacing the deprecated cl::sycl::atomic class? (Yes/No)
+정답: Yes
+atom: The SYCL atomic_ref class replaces the cl::sycl::atomic class from SYCL 1.2.1, which is deprecated in SYCL 2020, and the atomic_ref class should be used in its place.",,
+item,calib,LAPINF-C09-S2-02-M2-MCQ,8f151831ac064e12,_UNIT,,,"Let $(\mathcal{G},\mu,\nu)$ be a weighted metric graph such that $(\mathcal{G},\varrho_\eta)$ is complete for the intrinsic metric $\varrho_\eta$. Which volume-growth condition, for some (hence all) $x\in\mathcal{G}$ with $B_r(x)$ the intrinsic ball, guarantees that the heat semigroup of the Kirchhoff Laplacian $H$ is recurrent?
+A) $\int_1^\infty \frac{\mu(B_r(x))}{r}\,dr=\infty$
+B) $\int_1^\infty \frac{1}{r\,\mu(B_r(x))}\,dr=\infty$
+C) $\int_1^\infty \frac{r}{\mu(B_r(x))}\,dr<\infty$
+D) $\int_1^\infty \frac{r}{\mu(B_r(x))}\,dr=\infty$
+정답: D
+atom: If a weighted metric graph $(\mathcal{G},\mu,\nu)$ is such that $(\mathcal{G},\varrho_\eta)$ is complete, then the heat semigroup of the Kirchhoff Laplacian $H$ is recurrent whenever $\int_1^\infty \frac{r}{\mu(B_r(x))}\,dr=\infty$ for some (and hence for all) $x\in\mathcal{G}$, where $B_r(x)$ is the intrinsic metric ball.",,
+item,calib,CART-C09-S3-02-M2-TF,5ba957864d3a808e,_UNIT,,,"True or False?
+""Data on the efficacy of prophylactic IgG replacement in CAR-T recipients are abundant, and current expert recommendations are extrapolated from data for individuals with primary immune deficiencies.""
+정답: False
+atom: Data on the efficacy of prophylactic IgG replacement in CAR-T cell therapy recipients are limited, and current expert recommendations are extrapolated from data for individuals with primary immune deficiencies.",,
+item,calib,MAVVOM-C04-S1-03-M3-YN,89386bebbefcee8b,_UNIT,,,"Let $L$ be an even lattice of signature $(2,n)$ with period domain $\mathcal{D}$ and second Hodge bundle $\mathcal{E}$ (fiber $\omega^\perp/\mathbb{C}\omega$ at $[\omega]$). Fix a primitive isotropic rank-2 sublattice $J$. Define $\mathcal{E}_J$ as the sub line bundle whose fiber at $[\omega]$ is the image of $\omega^\perp\cap J_{\mathbb{C}}$ in $\omega^\perp/\mathbb{C}\omega$, and $\mathcal{E}_J^\perp$ as the sub bundle whose fiber is the image of $\omega^\perp\cap J_{\mathbb{C}}^\perp$. Consider the filtration $0\subset\mathcal{E}_J\subset\mathcal{E}_J^\perp\subset\mathcal{E}$.
+Is this filtration the J-filtration on $\mathcal{E}$, and is it therefore automatically invariant under $\Gamma(J)_{\mathbb{R}}$? (Yes/No)
+정답: Yes
+atom: The $J$-filtration on $\mathcal{E}$ is the filtration $0\subset\mathcal{E}_J\subset\mathcal{E}_J^\perp\subset\mathcal{E}$, obtained by taking fiberwise images in $\omega^\perp/\mathbb{C}\omega$ of $0\subset\omega^\perp\cap J_{\mathbb{C}}\subset\omega^\perp\cap J_{\mathbb{C}}^\perp\subset\omega^\perp$, and it is $\Gamma(J)_{\mathbb{R}}$-invariant by construction.",,
+item,calib,HMDEND-C11-S2-01-M1-OPEN,3ea8852a4f817b92,_UNIT,,,"How can one characterize complete dendroidal Segal spaces $X$ in terms of the associated object $\mathrm{tw}(X)$ in $\mathbf{dSets}^{\Delta^{op}}$? State the two conditions on $\mathrm{tw}(X)$.
+정답: ['tw(X) is Reedy fibrant (as an object of dSets^{Δ^op})', 'tw(X) is homotopically constant: for every α:[m]→[n] in Δ, α^*: X_n → X_m is an operadic equivalence of dendroidal sets']
+atom: A dendroidal space $X$ is a complete dendroidal Segal space if and only if $\mathrm{tw}(X)$ is Reedy fibrant as an object of $\mathbf{dSets}^{\Delta^{op}}$ and homotopically constant, meaning that for every $\alpha:[m]\to[n]$ in $\Delta$ the map $\alpha^*:X_n\to X_m$ is an operadic equivalence of dendroidal sets.",,
+item,calib,LAPINF-C01-S1-01-M1-OPEN,e5a92e0fc5f7471b,_UNIT,,,"What is a cable system for a graph b over a vertex set V with vertex measure m, and what condition links it to b and m?
+정답: ['A model of a weighted metric graph (G, μ, ν) whose vertex set is V', 'The vertex weight and edge weight functions defined from the metric graph coincide with m and b respectively']
+atom: A cable system for a graph b over (V,m) is a model of a weighted metric graph (G,\mu,\nu) with vertex set V such that the vertex weight and edge weight functions defined from the metric graph by the model formulas coincide with m and b, respectively.",,
+item,calib,KGBDP-C10-S1-02-M2-TF,f69e0b2a12e5767a,_UNIT,,,"True or False?
+""One definition describes a knowledge graph as a semi-structured data model with three components. The first is a ground extensional component of relational constructs for schema and data, which can be modeled as graphs or generalizations of graphs. The second is an intensional component of inference rules over those ground constructs. The third is a derived extensional component obtained by applying the rules to the ground component through reasoning.""
+정답: True
+atom: Bellomarini et al. define a knowledge graph as a semi-structured datamodel with three components: a ground extensional component (relational constructs for schema and data, modelable as graphs or generalizations), an intensional component (inference rules over the ground extensional constructs), and a derived extensional component produced by applying the rules to the ground component through reasoning.",,
+item,calib,MAVVOM-C06-S1-02-M2-TF,8241079cae03fa2d,_UNIT,,,"True or False?
+""For $m>0$, the $m$-th Fourier–Jacobi coefficient of $f$ is the section $\phi_m\otimes\omega_J^{\otimes m}$ of $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ over $\Delta_J$, with $\Theta_J$ the conormal bundle of $\Delta_J$, while the $0$-th coefficient $\phi_0$ is simply the restriction of $f$ to $\Delta_J$.""
+정답: True
+atom: For $m>0$, the $m$-th Fourier–Jacobi coefficient of $f$ is the section $\phi_m\otimes\omega_J^{\otimes m}$ of the vector bundle $\mathcal{E}_{\lambda,k}\otimes\Theta_J^{\otimes m}$ over $\Delta_J$, where $\Theta_J$ is the conormal bundle of $\Delta_J$, and the $0$-th coefficient $\phi_0$ is just the restriction $f|_{\Delta_J}$.",,
+item,calib,MAVVOM-C09-S1-01-M1-OPEN,387cdda3408bfb00,_UNIT,,,"Let $L$ be a lattice of signature $(2,n)$ with $n\ge 3$, and let $\Gamma$ be a finite-index subgroup of $\mathrm{O}^+(L)$. For two orthogonal modular forms $f,g$ of weight $(\lambda,k)$ for $\Gamma$, what does it mean for them to be square integrable? Name the quantity that must converge and the ingredients in its integrand.
+정답: ['Convergence of the Petersson inner product, i.e. the integral over a fundamental domain $\\mathcal F(\\Gamma)$', 'The integrand is the Petersson metric pairing $(f,g)_{\\lambda,k}$ times the invariant volume form $\\mathrm{vol}_{\\mathcal D}$ on $\\mathcal D$']
+atom: For a lattice $L$ of signature $(2,n)$ with $n\ge 3$ and a finite-index subgroup $\Gamma$ of $\mathrm{O}^+(L)$, square integrability of $f,g\in M_{\lambda,k}(\Gamma)$ is the convergence of the Petersson inner product $\int_{\mathcal F(\Gamma)}(f,g)_{\lambda,k}\,\mathrm{vol}_{\mathcal D}$, where $(\ ,\ )_{\lambda,k}$ is the Petersson metric on the vector bundle $\mathcal E_{\lambda,k}$ and $\mathrm{vol}_{\mathcal D}$ is the invariant volume form on $\mathcal D$.",,
+item,calib,MAVVOM-C04-S2-02-M2-MCQ,0bba68702ce7fb65,_UNIT,,,"On the boundary divisor $\Delta_J$ of the partial toroidal compactification, with projection $\pi_2:\Delta_J\to\mathbb{H}_J$ and $\alpha(r)$ the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$, what is the $\Gamma(J)_{\mathbb{R}}$-equivariant isomorphism type of the $r$-th graded piece $\mathrm{Gr}^r$ of the J-filtration on $\mathcal{E}_{\lambda,k}|_{\Delta_J}$?
+A) $\pi_2^*\mathcal{L}_J^{\otimes (r+k)}$, a single copy
+B) $(\pi_2^*\mathcal{L}_J^{\otimes (r-k)})^{\oplus\alpha(r)}$
+C) $(\pi_2^*\mathcal{L}_J^{\otimes (k-r)})^{\oplus\alpha(r)}$
+D) $(\pi_2^*\mathcal{L}_J^{\otimes (r+k)})^{\oplus\alpha(r)}$
+정답: D
+atom: At the boundary divisor $\Delta_J$ of the partial toroidal compactification, the $r$-th graded piece of the J-filtration on $\mathcal{E}_{\lambda,k}$ is $\Gamma(J)_{\mathbb{R}}$-equivariantly isomorphic to $(\pi_2^*\mathcal{L}_J^{\otimes r+k})^{\oplus\alpha(r)}$, where $\alpha(r)\ge0$ is the rank of $\mathrm{Gr}^r\mathcal{E}_\lambda$ and $\pi_2:\Delta_J\to\mathbb{H}_J$ is the projection.",,
+item,calib,FPPROG-C05-S1-01-M1-OPEN,be5cf25f8bee1ac5,_UNIT,,,"In probability theory, what is a coupling of two sub-distributions $\mu_1$ over $\mathcal{A}_1$ and $\mu_2$ over $\mathcal{A}_2$?
+정답: ['A sub-distribution $\\mu$ over the product $\\mathcal{A}_1\\times\\mathcal{A}_2$', 'Its first marginal equals $\\mu_1$ and its second marginal equals $\\mu_2$']
+atom: A probabilistic coupling of two sub-distributions $\mu_1$ over $\mathcal{A}_1$ and $\mu_2$ over $\mathcal{A}_2$ is a sub-distribution $\mu$ over pairs $\mathcal{A}_1\times\mathcal{A}_2$ whose first and second marginals equal $\mu_1$ and $\mu_2$, i.e. $\pi_1(\mu)=\mu_1$ and $\pi_2(\mu)=\mu_2$.",,
+item,calib,CART-C04-S1-03-M3-YN,9273674d4d575f3f,_UNIT,,,"A research group designs a receptor-based T cell therapy against a tumour. The receptor recognises a short peptide only when it is presented in a specific polymorphic HLA allele on the target cell surface, so patients lacking that allele cannot be treated.
+Does this receptor behave like a chimeric antigen receptor (CAR) in its mode of target recognition? (Yes/No)
+정답: No
+atom: Unlike endogenous T cell receptors, which are HLA-restricted and recognize peptide-MHC complexes, CARs recognize extracellular, membrane-bound targets that are typically nonpolymorphic proteins or glycoproteins.",,
+item,calib,HMDEND-C07-S2-02-M2-MCQ,27976d734d5a92c5,_UNIT,,,"Let $p: X\to S$ be a J-fibration between ∞-operads. Which normality hypotheses guarantee (i) the existence of a minimal J-fibration $M\to S$ that is a fibrewise J-deformation retract of $X$, and (ii) that the retraction $r:X\to M$ is a trivial fibration?
+A) (i) requires $X$ normal; (ii) holds when, in addition, $S$ is normal.
+B) (i) requires $X$ normal; (ii) holds with no further assumption on $S$.
+C) (i) requires $X$ normal; (ii) holds when, in addition, $p$ is a trivial fibration.
+D) (i) requires both $X$ and $S$ to be normal; (ii) holds under those same assumptions.
+정답: A
+atom: For a J-fibration $p: X\to S$ between ∞-operads, a minimal J-fibration $M\to S$ that is a fibrewise J-deformation retract exists when $X$ is normal, but the retraction $r:X\to M$ is shown to be a trivial fibration only when $S$ is also normal.",,
+item,calib,KGBDP-C09-S1-02-M2-TF,1d8cfba23b49f5c0,_UNIT,,,"True or False?
+""In the NILM literature, one main problem is classification, which determines whether individual appliances are active, and the other is regression, which estimates how much each appliance consumes.""
+정답: True
+atom: Two main problems appear in the NILM literature: classification, which gives information about appliance activation, and regression, which estimates each appliance's individual consumption.",,
+item,calib,NACHR-C02-S1-01-M1-OPEN,9148c4d24797f61b,_UNIT,,,"What effect does long-term tobacco smoking or chronic nicotine exposure have on the number of nicotinic acetylcholine receptors (nAChRs), and how does this usually affect their function?
+정답: ['Up-regulation (increase) of nAChRs', 'Receptor function is usually facilitated/enhanced']
+atom: Long-term tobacco smoking or nicotine application induces up-regulation of nicotinic acetylcholine receptors (nAChRs), which in most cases also facilitates their functions.",,

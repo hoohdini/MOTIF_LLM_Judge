@@ -1,0 +1,845 @@
+card_id,concept_ok,atom_id,grounded,single_claim,scope_label_ok,suggested_scope,overlaps_with,centrality,l1_ok,issue
+CART-C01,True,CART-C01-S1-01,supported,True,True,S1,,central,True,
+CART-C01,True,CART-C01-S1-02,supported,False,True,S1,CART-C01-S1-03,central,True,"It joins the typical onset presentation with the progression course, and this fully contains S1-03."
+CART-C01,True,CART-C01-S1-03,supported,True,True,S1,CART-C01-S1-02,useful,True,This atom duplicates the progression clause already contained in S1-02.
+CART-C01,True,CART-C01-S2-01,supported,True,True,S2,,useful,True,
+CART-C01,True,CART-C01-S2-02,partly_supported,True,True,S2,,useful,True,"It adds 'high' to CAR-T cell dose, whereas the source lists only 'CAR-T cell dose'; it should also cite s04 for the hedged 'some factors' framing."
+CART-C01,True,CART-C01-S2-03,supported,True,True,S2,,central,True,
+CART-C01,True,CART-C01-S3-01,partly_supported,True,True,S3,,central,True,"It adds 'only'; the source says laboratory diagnostics 'can be used to monitor organ dysfunction', without restricting them to that use."
+CART-C01,True,CART-C01-S3-02,supported,True,True,S3,,central,True,
+CART-C01,True,CART-C01-S3-03,partly_supported,False,True,S3,CART-C01-S2-02,useful,True,"The appended risk-factor clause drops the source hedge 'seem to be' and is uncited (s04-s05), which also overlaps it with S2-02."
+CART-C02,True,CART-C02-S1-01,supported,True,True,S1,,central,True,
+CART-C02,True,CART-C02-S1-02,supported,True,True,S1,,useful,True,
+CART-C02,True,CART-C02-S1-03,supported,True,True,S1,,central,True,
+CART-C02,True,CART-C02-S1-04,partly_supported,False,True,S1,CART-C02-S1-03,useful,True,"The cited sentence s06 does not say ICANS is diagnosed clinically (that comes from s19), so the atom adds an uncited claim that duplicates S1-03."
+CART-C02,True,CART-C02-S2-01,supported,True,True,S2,,central,True,
+CART-C02,True,CART-C02-S2-02,supported,True,True,S2,,central,True,
+CART-C02,True,CART-C02-S2-03,supported,False,True,S2,,central,True,The atom joins the ICE score's evaluated domains with how the grade is integrated; these two claims are independently assessable.
+CART-C02,True,CART-C02-S3-01,supported,True,False,S2,,useful,True,"This is a mechanistic statement about what mediates ICANS, so it fits S2 rather than a boundary condition."
+CART-C02,True,CART-C02-S3-02,supported,False,True,S3,CART-C02-S3-03,useful,True,"The atom joins two separate grading exclusions, and the tremor/myoclonus part duplicates S3-03."
+CART-C02,True,CART-C02-S3-03,supported,True,True,S3,CART-C02-S3-02,peripheral,True,This claim is already contained in S3-02.
+CART-C03,True,CART-C03-S1-01,supported,True,True,S1,,central,True,
+CART-C03,True,CART-C03-S1-02,supported,True,True,S1,,central,True,
+CART-C03,True,CART-C03-S1-03,supported,False,True,S1,CART-C03-S2-01 CART-C03-S2-02 CART-C03-S2-03,central,False,"Combines the three domains from separate sentences and merges the first-generation definition with domain descriptions, so answering requires combining several facts."
+CART-C03,True,CART-C03-S2-01,supported,True,True,S2,CART-C03-S1-03,central,True,
+CART-C03,True,CART-C03-S2-02,supported,True,True,S2,CART-C03-S1-03,central,True,
+CART-C03,True,CART-C03-S2-03,supported,False,True,S2,CART-C03-S1-03,useful,True,"Joins the linking role with the role in conformation, flexibility and antigen binding."
+CART-C03,True,CART-C03-S2-04,supported,False,True,S2,,central,True,Joins second-generation and third-generation definitions and the examples of costimulatory molecules.
+CART-C03,True,CART-C03-S3-01,supported,False,True,S3,,useful,True,Combines the influence of the costimulatory domain on expansion and persistence with the clinical uncertainty and its reason.
+CART-C03,True,CART-C03-S3-02,supported,False,True,S3,,useful,True,"Joins HLA-independence, universal applicability, and the contrast with TCR-transgenic cells."
+CART-C03,True,CART-C03-S3-03,supported,False,False,S2,,central,True,"Mostly describes fourth-generation structure and function (S2), joined with the preclinical-only status; the label S3 fits only the status."
+CART-C04,True,CART-C04-S1-01,supported,True,True,S1,,central,True,"Lists five criteria in one atom, but they form a single source list; item 3 omits the source's condition that it only occurs if antigen is critical."
+CART-C04,True,CART-C04-S1-02,supported,True,True,S1,CART-C04-S1-04,central,True,Duplicate of CART-C04-S1-04 (only the abbreviation TSAs differs).
+CART-C04,True,CART-C04-S1-03,supported,False,False,S3,,useful,True,"Joins the TCR contrast (HLA-restricted, peptide-MHC) with CAR target properties; it is a distinction the source draws, and is about CAR vs TCR recognition rather than tumour antigen definition."
+CART-C04,True,CART-C04-S1-04,supported,True,True,S1,CART-C04-S1-02,central,True,Duplicate of CART-C04-S1-02.
+CART-C04,True,CART-C04-S1-05,supported,True,False,S3,CART-C04-S3-04,useful,True,"Describes the current clinical practice of targeting non-tumour-specific antigens, a distinction/boundary rather than a definition; largely contained in S3-04."
+CART-C04,True,CART-C04-S2-01,supported,True,True,S2,,central,True,"Source frames dual targeting as based on recent studies and wording is 'may be'; the atom retains this, but the activation requirement is a separate fact joined to the first."
+CART-C04,True,CART-C04-S2-02,supported,True,True,S2,,central,True,
+CART-C04,True,CART-C04-S2-03,supported,False,True,S2,,central,True,Joins low on-target off-tumour likelihood with the separate claim that other toxicities may still occur via CRS or cross-reactivity.
+CART-C04,True,CART-C04-S3-01,supported,False,True,S3,,useful,True,"Joins three independent claims (CRS risk, on-target off-tumour estimation, off-target off-tumour risk)."
+CART-C04,True,CART-C04-S3-02,supported,False,True,S3,,central,True,Joins the absence of nonpolymorphic tumour-specific extracellular antigens with the claim about neopeptide-HLA targets; the second is largely implied by the first.
+CART-C04,True,CART-C04-S3-03,supported,True,True,S3,,central,True,Examples list is a side detail but acceptable.
+CART-C04,True,CART-C04-S3-04,supported,False,True,S3,CART-C04-S1-05,central,True,"Joins abundant expression on normal and malignant cells with the 'only because' tolerability condition; the source says 'only ideal or good' and 'generally well tolerated', and the first part repeats S1-05."
+CART-C05,True,CART-C05-S1-01,supported,True,True,S1,,central,True,
+CART-C05,True,CART-C05-S1-02,supported,True,False,S3,,central,True,"The atom mainly draws the source's contrast between complete loss and downregulation by therapy type, which is a boundary or distinction (S3) rather than a definition."
+CART-C05,True,CART-C05-S1-03,supported,True,True,S1,,useful,True,
+CART-C05,True,CART-C05-S2-01,partly_supported,True,True,S2,,central,True,"The 'biallelic events' framing as a molecular mechanism comes from CART-p0024-s17, which is not cited."
+CART-C05,True,CART-C05-S2-02,supported,True,True,S2,,useful,True,The source frames lineage switch as 'another mechanism of resistance' rather than antigen loss proper.
+CART-C05,True,CART-C05-S2-03,supported,True,True,S2,,central,True,The B-ALL restriction is inferred from the context of s04–s05 rather than stated in s06.
+CART-C05,True,CART-C05-S3-01,partly_supported,True,True,S3,,useful,True,The concluding gloss 'so downregulation is typically not permanent loss' is an added interpretation that is not stated in s13.
+CART-C05,True,CART-C05-S3-02,supported,False,True,S3,,useful,True,The atom joins the rarity claim with the separate claim that soluble BCMA is a putative biomarker.
+CART-C05,True,CART-C05-S3-03,supported,False,True,S3,,useful,True,The atom combines an empirical non-report for FCRH5/GPRC5D with the authors' hypothesis about other myeloma targets.
+CART-C06,True,CART-C06-S1-01,supported,True,True,S1,,central,True,
+CART-C06,True,CART-C06-S1-02,supported,True,False,S2,,central,True,"Describes how the cells are engineered (mechanism), not what the concept is."
+CART-C06,True,CART-C06-S1-03,supported,False,False,S2,,useful,True,"Lists three separate limitations of autologous cells, and the advantage is not a definitional characteristic."
+CART-C06,True,CART-C06-S2-01,partly_supported,True,True,S2,CART-C06-S3-03,central,True,"The source says the antibody suppresses CD52+ cells as an advantage; the card's wording implies disruption itself suppresses them, and it also folds in the drawback via s15."
+CART-C06,True,CART-C06-S2-02,supported,False,True,S2,,central,True,"Joins separate HLA class I and class II strategies, which can be assessed independently."
+CART-C06,True,CART-C06-S2-03,supported,True,True,S2,,useful,True,A long list of platforms makes it a recall-heavy enumeration.
+CART-C06,True,CART-C06-S3-01,supported,False,False,S1,CART-C06-S1-02,central,True,"This is a general barrier statement that fits S1 rather than a boundary or failure case, and it joins GvHD and rejection."
+CART-C06,True,CART-C06-S3-02,supported,False,True,S3,,useful,True,"Joins the missing-self risk and the HLA-E remedy, which are separate claims."
+CART-C06,True,CART-C06-S3-03,partly_supported,True,True,S3,CART-C06-S2-01,useful,True,"The source ties the virus reactivation risk to prolonged immunosuppression generally, not specifically to CD52 disruption, and the card repeats the evidence of S2-01."
+CART-C07,True,CART-C07-S1-01,supported,True,True,S1,,central,True,
+CART-C07,True,CART-C07-S1-02,supported,True,True,S1,,central,True,
+CART-C07,True,CART-C07-S1-03,supported,True,True,S1,,central,True,
+CART-C07,True,CART-C07-S2-01,supported,True,True,S2,,useful,True,
+CART-C07,True,CART-C07-S2-02,supported,True,True,S2,,useful,True,
+CART-C07,True,CART-C07-S2-03,partly_supported,False,False,S3,,useful,True,"The atom attributes the MSKCC group's (Perica) intensity recommendations in s16 to the chapter authors, omits the chemorefractory high-burden arm, and merges these recommendations with the authors' separate tailoring conclusion."
+CART-C07,True,CART-C07-S3-01,supported,True,True,S3,,useful,True,
+CART-C07,True,CART-C07-S3-02,supported,True,True,S3,,useful,True,
+CART-C07,True,CART-C07-S3-03,partly_supported,False,True,S3,,useful,True,"The infection-rate finding comes from s17, which is not cited, and the source does not present it as the reason behind s04's limitation."
+CART-C07,True,CART-C07-S3-04,supported,False,True,S3,,useful,True,"The atom joins the MRD/target-depletion concern with the separate recommendation against inotuzumab before anti-CD22 CAR-T cells, and it omits the stated indication for chemoresistant disease."
+CART-C08,True,CART-C08-S1-01,supported,True,True,S1,,central,True,
+CART-C08,True,CART-C08-S1-02,supported,False,False,S2,,central,True,Joins two claims (most common combination; fludarabine increased efficacy) and is more regimen detail than definition.
+CART-C08,True,CART-C08-S1-03,supported,False,False,S2,CART-C08-S2-02 CART-C08-S2-01,central,True,"Joins proliferation and persistence, and states an effect/mechanism outcome better fitted to S2."
+CART-C08,True,CART-C08-S2-01,supported,False,True,S2,CART-C08-S2-02 CART-C08-S2-03,central,True,Combines environment creation and increased peak expansion; general statement contained in the more specific mechanism atoms.
+CART-C08,True,CART-C08-S2-02,supported,True,True,S2,CART-C08-S1-03,central,True,
+CART-C08,True,CART-C08-S2-03,partly_supported,False,True,S2,CART-C08-S2-01,useful,True,"Merges separate mechanisms and the table's arrows are rearranged: the table links lymphodepletion to fewer anti-CAR/anti-transgene responses, while Treg/MDSC eradication links to IDO and costimulatory molecules."
+CART-C08,True,CART-C08-S3-01,supported,True,True,S3,,useful,True,
+CART-C08,True,CART-C08-S3-02,supported,True,True,S3,,peripheral,True,Narrow statement about an unknown in solid tumours.
+CART-C08,True,CART-C08-S3-03,supported,False,False,S3,,useful,True,"Joins pancytopenia and prolonged immune suppression plus infection risk; it is an adverse effect rather than a boundary or failure case, so S3 fits only loosely."
+CART-C09,True,CART-C09-S1-01,supported,True,True,S1,,central,True,
+CART-C09,True,CART-C09-S1-02,supported,False,True,S1,CART-C09-S1-01,central,True,"Joins the on-target off-tumour classification with the separate infection-risk claim, and partly restates S1-01."
+CART-C09,True,CART-C09-S1-03,supported,False,False,S2,CART-C09-S1-01,useful,True,"Chains consequences (hypogammaglobulinaemia, impaired vaccine responses, need for replacement), which reads as mechanism or consequence rather than definition."
+CART-C09,True,CART-C09-S2-01,supported,True,True,S2,,central,True,
+CART-C09,True,CART-C09-S2-02,supported,False,True,S2,,useful,True,"Bundles disease-monitoring interval, HSCT decisions, and the co-monitoring recommendation."
+CART-C09,True,CART-C09-S2-03,supported,True,True,S2,CART-C09-S1-01,central,True,
+CART-C09,True,CART-C09-S3-01,supported,False,True,S3,,useful,True,"Joins the adult no-consensus claim and the paediatric standard-of-care claim, which are separately assessable."
+CART-C09,True,CART-C09-S3-02,supported,True,True,S3,,useful,True,
+CART-C09,True,CART-C09-S3-03,supported,True,True,S3,,peripheral,True,Evidence-level meta-detail is peripheral to the concept.
+CART-C10,True,CART-C10-S1-01,supported,True,True,S1,,central,True,
+CART-C10,True,CART-C10-S1-02,partly_supported,True,True,S1,,central,True,The claim 'which is why they are the central targets of post-infusion monitoring' is an inference added beyond s07.
+CART-C10,True,CART-C10-S1-03,supported,True,False,S2,,peripheral,True,"This is a procedural recommendation rather than a defining characteristic, so it does not fit S1."
+CART-C10,True,CART-C10-S2-01,supported,False,True,S2,,central,True,It joins the definition of Cmax/AUC0-28 with their clinical association with response and complications.
+CART-C10,True,CART-C10-S2-02,supported,True,True,S2,,useful,True,
+CART-C10,True,CART-C10-S2-03,supported,True,True,S2,,useful,True,
+CART-C10,True,CART-C10-S3-01,supported,True,True,S3,,central,True,
+CART-C10,True,CART-C10-S3-02,partly_supported,False,True,S3,,useful,True,"It bundles three claims and makes the need for further studies follow from the confounders, whereas the source derives it only from the absence of a validated test."
+CART-C10,True,CART-C10-S3-03,partly_supported,False,True,S3,,central,True,The source grounds complementarity in flow cytometry's phenotyping ability; the atom adds a causal link to the expression limitation and omits the mitigating dPCR-flow correlation (s05-s06).
+DPCPP2-C01,True,DPCPP2-C01-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C01,True,DPCPP2-C01-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C01,True,DPCPP2-C01-S1-03,partly_supported,True,True,S1,,central,True,"The cited sentences mention only preventing compiler reordering optimizations, so 'and hardware' is an addition not stated in the evidence."
+DPCPP2-C01,True,DPCPP2-C01-S2-01,partly_supported,False,True,S2,DPCPP2-C01-S2-03,central,True,The atom joins acquire and release; the release half is not backed by the cited evidence (p0557-s03/s04 are missing) and duplicates S2-03.
+DPCPP2-C01,True,DPCPP2-C01-S2-02,supported,True,True,S2,,central,True,
+DPCPP2-C01,True,DPCPP2-C01-S2-03,supported,True,True,S2,DPCPP2-C01-S2-01,central,True,
+DPCPP2-C01,True,DPCPP2-C01-S3-01,supported,True,True,S3,,useful,True,
+DPCPP2-C01,True,DPCPP2-C01-S3-02,supported,False,True,S3,,useful,True,"The atom joins two independently assessable incompatibilities: load with release, and store with acquire."
+DPCPP2-C01,True,DPCPP2-C01-S3-03,supported,True,True,S3,DPCPP2-C01-S3-04,useful,True,This atom duplicates S3-04.
+DPCPP2-C01,True,DPCPP2-C01-S3-04,supported,True,True,S3,DPCPP2-C01-S3-03,useful,True,This atom is a near-verbatim duplicate of S3-03 and should be removed.
+DPCPP2-C02,True,DPCPP2-C02-S1-01,supported,True,True,S1,,useful,True,"The source states this as the basic-kernel execution model and never names it forward progress, so its link to the concept is indirect."
+DPCPP2-C02,True,DPCPP2-C02-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C02,True,DPCPP2-C02-S1-03,supported,True,True,S1,,central,True,
+DPCPP2-C02,True,DPCPP2-C02-S2-01,supported,True,False,S3,,useful,True,"The atom states a safety boundary and a failure case (hand-coded synchronization may deadlock), which fits S3 better than S2."
+DPCPP2-C02,True,DPCPP2-C02-S2-02,supported,True,False,S3,,useful,True,"The source presents this as one of three conditions for the latch to work correctly, so it is a boundary condition (S3) rather than a mechanism."
+DPCPP2-C02,True,DPCPP2-C02-S2-03,supported,True,False,S3,,peripheral,True,This is a code-specific condition for the latch example; it is a boundary condition rather than a mechanism and is example-level detail.
+DPCPP2-C02,True,DPCPP2-C02-S3-01,supported,True,True,S3,,central,True,
+DPCPP2-C02,True,DPCPP2-C02-S3-02,supported,True,True,S3,,central,True,
+DPCPP2-C02,True,DPCPP2-C02-S3-03,supported,True,True,S3,,central,True,
+DPCPP2-C03,True,DPCPP2-C03-S1-01,supported,True,True,S1,DPCPP2-C03-S3-01,central,True,Largely restates the lifetime rule in S3-01 from a different sentence.
+DPCPP2-C03,True,DPCPP2-C03-S1-02,supported,False,True,S1,,central,True,Joins two separately assessable claims: derivation from std::atomic_ref and non-owning construction from a non-atomic variable.
+DPCPP2-C03,True,DPCPP2-C03-S1-03,supported,True,False,S3,,peripheral,True,"This is a historical/deprecation fact rather than a definition, so it does not fit S1."
+DPCPP2-C03,True,DPCPP2-C03-S2-01,supported,True,True,S2,,central,True,"The contrast between C++ defaults and lowest-common-denominator defaults comes from p0565-s02, which is not cited."
+DPCPP2-C03,True,DPCPP2-C03-S2-02,supported,True,True,S2,,useful,True,
+DPCPP2-C03,True,DPCPP2-C03-S2-03,supported,True,True,S2,DPCPP2-C03-S2-04,central,True,
+DPCPP2-C03,True,DPCPP2-C03-S2-04,supported,True,True,S2,DPCPP2-C03-S2-03,useful,True,Largely a buffer-specific restatement of S2-03.
+DPCPP2-C03,True,DPCPP2-C03-S3-01,supported,True,True,S3,DPCPP2-C03-S1-01,central,True,
+DPCPP2-C03,True,DPCPP2-C03-S3-02,supported,False,True,S3,,useful,True,"Bundles three claims: std::atomic's restrictions, the impossibility of host-to-device transfer, and the compiler error."
+DPCPP2-C03,True,DPCPP2-C03-S3-03,supported,False,True,S3,,useful,True,"This is a general atomics rule rather than an atomic_ref-specific one, and it joins the guarantee-scope claim with the undefined-behavior claim."
+DPCPP2-C04,True,DPCPP2-C04-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C04,True,DPCPP2-C04-S1-02,supported,False,True,S1,,central,True,"Joins the WAR definition with its alternate name 'anti-dependence', which can be assessed separately."
+DPCPP2-C04,True,DPCPP2-C04-S1-03,supported,False,True,S1,,central,True,"Joins the WAW definition with its alternate name 'output dependence', which can be assessed separately."
+DPCPP2-C04,True,DPCPP2-C04-S2-01,supported,True,True,S2,,useful,True,"Mainly about task-graph structure rather than data dependences themselves; cites s09 (acyclicity), which the statement does not use."
+DPCPP2-C04,True,DPCPP2-C04-S2-02,supported,True,True,S2,,useful,True,Drawn from a specific example (buffer c_buf); the general claim is a mild generalization.
+DPCPP2-C04,True,DPCPP2-C04-S2-03,supported,False,True,S2,DPCPP2-C04-S1-01,central,True,Combines separate RAW and WAR purpose claims; the RAW half largely repeats S1-01's 'flow of data'.
+DPCPP2-C04,True,DPCPP2-C04-S3-01,supported,True,True,S3,,central,True,
+DPCPP2-C04,True,DPCPP2-C04-S3-02,supported,True,True,S3,,useful,True,
+DPCPP2-C04,True,DPCPP2-C04-S3-03,supported,True,True,S3,,useful,True,'Only' slightly sharpens the source wording 'based on the expressed dependences'.
+DPCPP2-C05,True,DPCPP2-C05-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C05,True,DPCPP2-C05-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C05,True,DPCPP2-C05-S1-03,partly_supported,True,True,S1,DPCPP2-C05-S2-02,central,True,"This atom duplicates S2-02, and its span/array-reduction clause lacks its evidence sentence p0385-s04."
+DPCPP2-C05,True,DPCPP2-C05-S2-01,supported,True,True,S2,,useful,True,
+DPCPP2-C05,True,DPCPP2-C05-S2-02,supported,True,False,S1,DPCPP2-C05-S1-03,central,True,This atom is a verbatim duplicate of S1-03 and is a classification rather than a mechanism.
+DPCPP2-C05,True,DPCPP2-C05-S2-03,supported,False,True,S2,,central,True,This atom joins the existence of combine() with the separately assessable claim that its behavior is implementation-defined.
+DPCPP2-C05,True,DPCPP2-C05-S3-01,supported,True,True,S3,,central,True,
+DPCPP2-C05,True,DPCPP2-C05-S3-02,supported,True,True,S3,,central,True,
+DPCPP2-C05,True,DPCPP2-C05-S3-03,supported,True,True,S3,,central,True,
+DPCPP2-C06,True,DPCPP2-C06-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C06,True,DPCPP2-C06-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C06,True,DPCPP2-C06-S1-03,supported,True,True,S1,,central,True,
+DPCPP2-C06,True,DPCPP2-C06-S2-01,supported,False,True,S2,,central,True,Joins the explicit memcpy mechanism for device allocations with the separate claim that host and shared allocations provide implicit movement.
+DPCPP2-C06,True,DPCPP2-C06-S2-02,supported,True,True,S2,,central,True,
+DPCPP2-C06,True,DPCPP2-C06-S2-03,supported,False,True,S2,,useful,True,Joins the performance benefit of migration with the separate claim that migration is performed by hidden runtime/driver mechanisms.
+DPCPP2-C06,True,DPCPP2-C06-S3-01,supported,True,True,S3,,useful,True,
+DPCPP2-C06,True,DPCPP2-C06-S3-02,supported,False,True,S3,,useful,True,Joins the memory-size limit for non-migrating devices with the separate oversubscription claim for on-demand devices.
+DPCPP2-C06,True,DPCPP2-C06-S3-03,supported,True,True,S3,,useful,True,
+DPCPP2-C07,True,DPCPP2-C07-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C07,True,DPCPP2-C07-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C07,True,DPCPP2-C07-S1-03,supported,True,True,S1,,useful,True,States a design rationale rather than a defining characteristic.
+DPCPP2-C07,True,DPCPP2-C07-S2-01,supported,False,True,S2,,central,True,Joins the fixed one-dimensional size and its queryability via kernel query functions.
+DPCPP2-C07,True,DPCPP2-C07-S2-02,supported,True,True,S2,,central,True,
+DPCPP2-C07,True,DPCPP2-C07-S2-03,supported,True,True,S2,,useful,True,
+DPCPP2-C07,True,DPCPP2-C07-S3-01,supported,True,True,S3,,central,True,
+DPCPP2-C07,True,DPCPP2-C07-S3-02,supported,True,True,S3,,useful,True,
+DPCPP2-C07,True,DPCPP2-C07-S3-03,supported,False,True,S3,DPCPP2-C07-S3-04,useful,True,Combines the no-query/no-request limitation (duplicated in S3-04) with the portability recommendation.
+DPCPP2-C07,True,DPCPP2-C07-S3-04,supported,True,True,S3,DPCPP2-C07-S3-03,useful,True,Fully contained in S3-03.
+DPCPP2-C08,True,DPCPP2-C08-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C08,True,DPCPP2-C08-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C08,True,DPCPP2-C08-S1-03,supported,True,True,S1,,central,True,It omits that invocation happens only at the defined times and only when unprocessed exceptions exist.
+DPCPP2-C08,True,DPCPP2-C08-S2-01,supported,True,True,S2,,central,True,"'Only' paraphrases the source's 'very specific times'; the continuation lines s10, s12, and s14 are not cited."
+DPCPP2-C08,True,DPCPP2-C08-S2-02,partly_supported,True,True,S2,,useful,True,The condition 'if no asynchronous handler is supplied' is not stated in the cited sentences.
+DPCPP2-C08,True,DPCPP2-C08-S2-03,supported,True,True,S2,,central,True,
+DPCPP2-C08,True,DPCPP2-C08-S3-01,supported,True,True,S3,,useful,True,"The atom reasonably reads the source sentence, which is garbled about teardown, as meaning teardown never begins."
+DPCPP2-C08,True,DPCPP2-C08-S3-02,partly_supported,False,True,S3,,useful,True,"It strengthens 'should signal' to 'must be signaled', cites examples from uncited s04, and joins the prohibition with the alternative techniques."
+DPCPP2-C08,True,DPCPP2-C08-S3-03,supported,True,False,S2,,useful,True,"This is a design rationale for the invocation mechanism rather than a boundary, so S2 fits better."
+DPCPP2-C08,True,DPCPP2-C08-S3-04,partly_supported,True,True,S3,,useful,True,"The key conditional is in uncited p0176-s10 and p0177-s01, and the atom strengthens 'should consider terminating' to 'should terminate'."
+DPCPP2-C09,True,DPCPP2-C09-S1-01,supported,False,True,S1,DPCPP2-C09-S2-02 DPCPP2-C09-S1-02,central,True,"Joins the 'most fundamental' claim with the two-purposes claim, and the second purpose is not cited (it is in p0250-s10)."
+DPCPP2-C09,True,DPCPP2-C09-S1-02,supported,True,False,S2,,central,True,"Describes what the fencing mechanism guarantees, which fits S2 better than S1."
+DPCPP2-C09,True,DPCPP2-C09-S1-03,supported,False,True,S1,,useful,True,Joins the general definition of a collective function with the classification of barriers as collectives.
+DPCPP2-C09,True,DPCPP2-C09-S2-01,supported,True,True,S2,,central,True,
+DPCPP2-C09,True,DPCPP2-C09-S2-02,supported,True,True,S2,DPCPP2-C09-S1-01,useful,True,Largely restates the execution-synchronization purpose already given in S1-01.
+DPCPP2-C09,True,DPCPP2-C09-S2-03,supported,False,True,S2,,useful,True,Joins how the default scope is determined with the separate claims that the default is usually correct and that the scope can be broadened.
+DPCPP2-C09,True,DPCPP2-C09-S3-01,supported,True,True,S3,,central,True,
+DPCPP2-C09,True,DPCPP2-C09-S3-02,supported,True,True,S3,,useful,True,
+DPCPP2-C09,True,DPCPP2-C09-S3-03,supported,True,True,S3,,useful,True,Concerns the work-group execution model generally rather than group_barrier specifically.
+DPCPP2-C10,True,DPCPP2-C10-S1-01,supported,True,True,S1,,central,True,
+DPCPP2-C10,True,DPCPP2-C10-S1-02,supported,True,True,S1,,central,True,
+DPCPP2-C10,True,DPCPP2-C10-S1-03,supported,True,True,S1,,central,True,
+DPCPP2-C10,True,DPCPP2-C10-S2-01,supported,False,True,S2,,central,True,"Joins the lazy-compilation mechanism with its separately assessable benefits (fast startup, avoiding unnecessary compilation)."
+DPCPP2-C10,True,DPCPP2-C10-S2-02,supported,True,True,S2,,central,True,
+DPCPP2-C10,True,DPCPP2-C10-S2-03,partly_supported,True,True,S2,,useful,True,"The 'shifting compilation to that explicit point' framing comes from p0286-s08 and the figure caption, which are not cited, and the source describes a specific example rather than a general rule."
+DPCPP2-C10,True,DPCPP2-C10-S3-01,supported,True,True,S3,,peripheral,True,
+DPCPP2-C10,True,DPCPP2-C10-S3-02,supported,True,True,S3,,useful,True,
+DPCPP2-C10,True,DPCPP2-C10-S3-03,supported,True,True,S3,,useful,True,The multi-step dependency chain makes the atom long but it remains a single requirement.
+FPPROG-C01,True,FPPROG-C01-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C01,True,FPPROG-C01-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C01,True,FPPROG-C01-S1-03,supported,True,True,S1,,useful,True,"This defines the general prerequisite notion of a kernel, not s-finiteness itself."
+FPPROG-C01,True,FPPROG-C01-S2-01,supported,False,True,S2,,central,True,"It joins the closure result of Lemma 2.7 with its role in interpreting let; the composite formula is visible only on PDF p.68, not in the cited garbled sentences."
+FPPROG-C01,True,FPPROG-C01-S2-02,supported,True,True,S2,,useful,True,
+FPPROG-C01,True,FPPROG-C01-S2-03,supported,False,True,S2,,useful,True,"Evidence s12 and s13 concern sample and probability kernels, not case; only s08 is relevant, and the closure fact and its use are separate claims."
+FPPROG-C01,True,FPPROG-C01-S3-01,supported,True,True,S3,,central,True,
+FPPROG-C01,True,FPPROG-C01-S3-02,supported,True,True,S3,,useful,True,The statement is long and example-heavy; the core claim (composition fails for arbitrary kernels) could be stated more crisply.
+FPPROG-C01,True,FPPROG-C01-S3-03,supported,False,False,S1,,central,True,"It joins uniformity (a definitional characteristic, S1) with the σ-finite distinction (S3); it also omits the stated push-forward relationship."
+FPPROG-C02,True,FPPROG-C02-S1-01,supported,True,True,S1,,central,True,"The source hedges this framing with 'might be', which the atom's 'proposed as' preserves only loosely."
+FPPROG-C02,True,FPPROG-C02-S1-02,supported,True,True,S1,,useful,True,
+FPPROG-C02,True,FPPROG-C02-S1-03,supported,True,True,S1,,useful,True,
+FPPROG-C02,True,FPPROG-C02-S2-01,supported,True,True,S2,,useful,True,"The supplied pages conflict here: p0246-s04 places positive termination at the 2nd arithmetic level, and the atom does not acknowledge this."
+FPPROG-C02,True,FPPROG-C02-S2-02,supported,True,True,S2,,central,True,
+FPPROG-C02,True,FPPROG-C02-S2-03,supported,True,True,S2,,peripheral,True,This is a worked example; questions on it risk demanding that the series be recomputed rather than recalled.
+FPPROG-C02,True,FPPROG-C02-S3-01,supported,True,True,S3,,central,True,"The atom is long and packs in program details, including omitting the initialisation x:=1 and b:=1."
+FPPROG-C02,True,FPPROG-C02-S3-02,supported,True,True,S3,FPPROG-C02-S3-03,central,True,It duplicates the random-walk counterexample stated in S3-03.
+FPPROG-C02,True,FPPROG-C02-S3-03,partly_supported,True,True,S3,FPPROG-C02-S3-02,central,True,"The atom mentions crw starting at position 10, but the cited sentences (p0152) cover only RW; the crw claim needs p0208 evidence, and the atom largely duplicates S3-02."
+FPPROG-C03,True,FPPROG-C03-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C03,True,FPPROG-C03-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C03,True,FPPROG-C03-S1-03,supported,False,True,S1,FPPROG-C03-S1-04,central,True,"It joins the plain-runtime definition with the runtime-model claim, which S1-04 repeats."
+FPPROG-C03,True,FPPROG-C03-S1-04,supported,False,True,S1,FPPROG-C03-S1-03,useful,True,"It combines inductive definition with the runtime model, and the runtime-model part duplicates S1-03."
+FPPROG-C03,True,FPPROG-C03-S2-01,supported,True,True,S2,,central,True,"The justification (complete lattice, continuity) rests on s19, which is not cited."
+FPPROG-C03,True,FPPROG-C03-S2-02,supported,True,True,S2,,central,True,
+FPPROG-C03,True,FPPROG-C03-S2-03,supported,True,True,S2,,central,True,The rule statement itself (s14–s16) is not cited.
+FPPROG-C03,True,FPPROG-C03-S3-01,supported,True,True,S3,,useful,True,
+FPPROG-C03,True,FPPROG-C03-S3-02,supported,True,True,S3,FPPROG-C03-S3-03,central,True,"Soundness for non-probabilistic loops is stated in s11, which is not cited."
+FPPROG-C03,True,FPPROG-C03-S3-03,partly_supported,True,True,S3,FPPROG-C03-S3-02,useful,True,"It near-duplicates S3-02, and the cited counterexample sentences do not state the supremum reasoning (s04–s05) or non-probabilistic soundness (s11)."
+FPPROG-C03,True,FPPROG-C03-S3-04,supported,True,False,S2,,central,True,"This is a per-statement rule (mechanism), not a boundary, so it belongs in S2; the 'consumes no time' part comes from s20, which is not cited."
+FPPROG-C04,True,FPPROG-C04-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C04,True,FPPROG-C04-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C04,True,FPPROG-C04-S1-03,supported,True,True,S1,,useful,True,This defines an auxiliary notion (invariant) rather than the RSM concept itself.
+FPPROG-C04,True,FPPROG-C04-S2-01,supported,True,True,S2,,central,True,
+FPPROG-C04,True,FPPROG-C04-S2-02,supported,False,True,S2,FPPROG-C04-S2-01,central,True,"It joins the completeness result (with its integer-valued condition) to the combined sound-and-complete conclusion, which partly restates S2-01."
+FPPROG-C04,True,FPPROG-C04-S2-03,supported,True,True,S2,,central,True,
+FPPROG-C04,True,FPPROG-C04-S3-01,supported,True,True,S3,,central,True,
+FPPROG-C04,True,FPPROG-C04-S3-02,supported,True,True,S3,,useful,True,"The 'Zeno-like' label is inferred from the section title and the PRSM discussion (p0258-s10), not from the cited sentence."
+FPPROG-C04,True,FPPROG-C04-S3-03,partly_supported,False,True,S3,,useful,True,"It bundles non-decidability with the synthesis restriction, and the 'linear or polynomial' and 'can fail' details come from uncited sentences (p0254-s09, p0255-s18)."
+FPPROG-C05,True,FPPROG-C05-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C05,True,FPPROG-C05-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C05,True,FPPROG-C05-S1-03,supported,False,True,S1,,useful,True,Joins two claims: the shared-randomness interpretation and the non-uniqueness of couplings.
+FPPROG-C05,True,FPPROG-C05-S2-01,supported,False,True,S2,,central,True,Joins two claims: the TV-distance inequality and the existence of a maximal coupling attaining equality.
+FPPROG-C05,True,FPPROG-C05-S2-02,supported,True,True,S2,,central,True,
+FPPROG-C05,True,FPPROG-C05-S2-03,supported,True,True,S2,,useful,True,
+FPPROG-C05,True,FPPROG-C05-S3-01,partly_supported,False,True,S3,,useful,True,"The uniform-bijection claim is in s01/s05, not in cited s06, and the atom joins it with the separate failure claim."
+FPPROG-C05,True,FPPROG-C05-S3-02,supported,True,True,S3,,useful,True,
+FPPROG-C05,True,FPPROG-C05-S3-03,supported,True,True,S3,,useful,True,"The independent-coupling formula comes from Example 5.6 (p0166-s11/s12), which is not cited."
+FPPROG-C06,True,FPPROG-C06-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C06,True,FPPROG-C06-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C06,True,FPPROG-C06-S2-01,supported,True,True,S2,,central,True,
+FPPROG-C06,True,FPPROG-C06-S2-02,partly_supported,True,False,S1,,central,True,"The source says the algorithm must work for non-computable input sequences, not sequences converging to non-computable reals; this is also a core definition (S1)."
+FPPROG-C06,True,FPPROG-C06-S2-03,supported,True,True,S2,,central,True,
+FPPROG-C06,True,FPPROG-C06-S3-01,supported,True,True,S3,,useful,True,
+FPPROG-C06,True,FPPROG-C06-S3-02,supported,False,True,S3,,useful,True,Joins the general existence claim with the specific halting-problem construction.
+FPPROG-C06,True,FPPROG-C06-S3-03,supported,True,True,S3,FPPROG-C06-S3-04,central,True,Duplicates S3-04.
+FPPROG-C06,True,FPPROG-C06-S3-04,supported,True,True,S3,FPPROG-C06-S3-03,central,True,Near-verbatim duplicate of S3-03; one should be removed.
+FPPROG-C07,True,FPPROG-C07-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C07,True,FPPROG-C07-S1-02,supported,True,True,S1,FPPROG-C07-S1-03,central,True,Near-verbatim duplicate of S1-03.
+FPPROG-C07,True,FPPROG-C07-S1-03,supported,True,True,S1,FPPROG-C07-S1-02,central,True,Duplicates S1-02 with the same evidence; one of the two should be dropped.
+FPPROG-C07,True,FPPROG-C07-S1-04,supported,True,False,S2,FPPROG-C07-S2-01,peripheral,True,"This is an origin/motivation (history) claim rather than a definition, and it largely restates the question behind S2-01."
+FPPROG-C07,True,FPPROG-C07-S2-01,partly_supported,True,True,S2,,central,True,"The source speaks of a 'general class of functions f', not 'any entropy function', and footnote 12 calls additive/multiplicative only 'popular comparisons', not the only options."
+FPPROG-C07,True,FPPROG-C07-S2-02,partly_supported,False,True,S2,FPPROG-C07-S2-01,useful,True,"The gloss on μ as squashing a hyper by removing information-flow properties comes from p0423-s14, which is not cited; the atom also bundles that gloss with the before/after formula."
+FPPROG-C07,True,FPPROG-C07-S2-03,supported,True,True,S2,,useful,True,The numerical values come only from the displayed equations on p. 406 (missing from sentences s12/s13); this detail of the example is peripheral.
+FPPROG-C07,True,FPPROG-C07-S3-01,supported,False,True,S3,,useful,True,Joins two separable claims: the leak-nothing channel case and the leak-everything channel case.
+FPPROG-C07,True,FPPROG-C07-S3-02,supported,True,True,S3,,central,True,
+FPPROG-C07,True,FPPROG-C07-S3-03,partly_supported,False,False,S2,,central,True,"It omits that treating observe b and observe (not b) as the same is a stated design principle, it bundles this with the full-abstraction result, and it describes a semantic property rather than a boundary."
+FPPROG-C08,True,FPPROG-C08-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C08,True,FPPROG-C08-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C08,True,FPPROG-C08-S1-03,supported,True,True,S1,,central,True,
+FPPROG-C08,True,FPPROG-C08-S2-01,supported,True,True,S2,,central,True,"The closing 'give rise to the total variation metric' claim rests on s12–s13, which are not cited."
+FPPROG-C08,True,FPPROG-C08-S2-02,supported,True,True,S2,,central,True,"The definition of IB algebras comes from p0368-s22, which is not cited."
+FPPROG-C08,True,FPPROG-C08-S2-03,supported,True,True,S2,,central,True,
+FPPROG-C08,True,FPPROG-C08-S3-01,supported,True,True,S3,,useful,True,
+FPPROG-C08,True,FPPROG-C08-S3-02,supported,True,True,S3,,central,True,
+FPPROG-C08,True,FPPROG-C08-S3-03,supported,True,False,S2,,useful,True,"This describes the construction mechanism of the term-algebra metric (S2), not a boundary; the kernel/congruence fact in s12 is not cited."
+FPPROG-C09,True,FPPROG-C09-S1-01,supported,True,True,S1,FPPROG-C09-S1-03,central,True,"Largely restates the same definition as S1-03, which gives the formal concretization."
+FPPROG-C09,True,FPPROG-C09-S1-02,supported,True,True,S1,,useful,True,Citing s03 adds little; the claim rests on s20–s21.
+FPPROG-C09,True,FPPROG-C09-S1-03,supported,True,True,S1,FPPROG-C09-S1-01,central,True,"Evidence omits s21, the point-bound line, and the mass-bound line appears only in the PDF; it also duplicates S1-01."
+FPPROG-C09,True,FPPROG-C09-S1-04,supported,True,True,S1,,useful,True,This is the general abstract-interpretation soundness definition and is not specific to probabilistic domains.
+FPPROG-C09,True,FPPROG-C09-S2-01,supported,True,True,S2,FPPROG-C09-S2-02,central,True,
+FPPROG-C09,True,FPPROG-C09-S2-02,supported,True,True,S2,FPPROG-C09-S2-01,central,True,Contains the p^max/m^min rule that S2-01 states.
+FPPROG-C09,True,FPPROG-C09-S2-03,supported,True,True,S2,FPPROG-C09-S2-04,central,True,Near-verbatim duplicate of S2-04.
+FPPROG-C09,True,FPPROG-C09-S2-04,supported,True,True,S2,FPPROG-C09-S2-03,central,True,Duplicate of S2-03; one of the two should be dropped.
+FPPROG-C09,True,FPPROG-C09-S3-01,supported,True,True,S3,,central,True,
+FPPROG-C09,True,FPPROG-C09-S3-02,supported,True,True,S3,,useful,True,
+FPPROG-C09,True,FPPROG-C09-S3-03,supported,True,True,S3,,useful,True,
+FPPROG-C10,True,FPPROG-C10-S1-01,supported,True,True,S1,,central,True,
+FPPROG-C10,True,FPPROG-C10-S1-02,supported,True,True,S1,,central,True,
+FPPROG-C10,True,FPPROG-C10-S1-03,supported,False,True,S1,,useful,True,Joins the general definition of a reliability specification with a worked search_ref example.
+FPPROG-C10,True,FPPROG-C10-S2-01,supported,True,True,S2,,central,True,
+FPPROG-C10,True,FPPROG-C10-S2-02,partly_supported,False,True,S2,FPPROG-C10-S2-03,central,True,"Bundles the array postcondition, precondition form, backward generation and the checker; the postcondition (p0559-s03) and checker (p0558-s04/s06) are not among the cited sentences."
+FPPROG-C10,True,FPPROG-C10-S2-03,supported,True,True,S2,FPPROG-C10-S2-02,central,True,Largely contained in S2-02.
+FPPROG-C10,True,FPPROG-C10-S3-01,supported,True,True,S3,,central,True,
+FPPROG-C10,True,FPPROG-C10-S3-02,supported,True,True,S3,,central,True,
+FPPROG-C10,True,FPPROG-C10-S3-03,supported,False,True,S3,,useful,True,"Combines three separable consequences: only a hardware specification is needed, the analysis is oblivious to the input distribution, and no soft-error model is required."
+HMDEND-C01,True,HMDEND-C01-S1-01,partly_supported,True,True,S1,,central,True,"The definition of a normal monomorphism is in s22, but the atom cites s20–s21, which define a normal dendroidal set instead."
+HMDEND-C01,True,HMDEND-C01-S1-02,supported,True,True,S1,,central,True,
+HMDEND-C01,True,HMDEND-C01-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C01,True,HMDEND-C01-S2-02,partly_supported,False,True,S2,,useful,True,"The 'because' clause gives only half of the proof as the reason (the equality also needs normal monos to be weakly saturated and to contain the boundary inclusions), and it bundles a theorem with its justification."
+HMDEND-C01,True,HMDEND-C01-S2-03,supported,True,True,S2,,useful,True,
+HMDEND-C01,True,HMDEND-C01-S2-04,supported,True,True,S2,,useful,True,"The phrasing 'is normal if' could be misread as a definition, whereas the source gives a sufficient criterion (Proposition 3.24)."
+HMDEND-C01,True,HMDEND-C01-S3-01,supported,True,True,S3,,useful,True,
+HMDEND-C01,True,HMDEND-C01-S3-02,supported,True,True,S3,HMDEND-C01-S2-01,useful,True,The cell-attachment rationale repeats the content of S2-01.
+HMDEND-C01,True,HMDEND-C01-S3-03,supported,True,True,S3,,useful,True,
+HMDEND-C02,True,HMDEND-C02-S1-01,supported,True,True,S1,,central,True,
+HMDEND-C02,True,HMDEND-C02-S1-02,supported,True,True,S1,,central,True,
+HMDEND-C02,True,HMDEND-C02-S1-03,supported,False,True,S1,HMDEND-C02-S3-03,central,True,"Joins the 'coherent homotopy' idea with the separate claim that W(P) is topological even for discrete P, which duplicates S3-03."
+HMDEND-C02,True,HMDEND-C02-S2-01,supported,True,True,S2,,central,True,"The parenthetical 'including lengths' relies on p0049-s01, which is not cited."
+HMDEND-C02,True,HMDEND-C02-S2-02,supported,True,True,S2,,central,True,The source says 'an edge has length zero'; 'inner' is implied only because external edges have length 1.
+HMDEND-C02,True,HMDEND-C02-S2-03,supported,True,True,S2,HMDEND-C02-S2-04,central,True,"Duplicates S2-04, and 'is erased' loosens the source's 'is identified with the tree obtained by erasing'."
+HMDEND-C02,True,HMDEND-C02-S2-04,supported,True,True,S2,HMDEND-C02-S2-03,central,True,Near-verbatim duplicate of S2-03.
+HMDEND-C02,True,HMDEND-C02-S2-05,supported,False,True,S2,,central,True,Bundles the grafting definition with the separate consequence that compositions are recognizable by length-1 edges.
+HMDEND-C02,True,HMDEND-C02-S3-01,supported,True,False,S2,,useful,True,"A variant construction in another setting is not a boundary, exception, or failure case."
+HMDEND-C02,True,HMDEND-C02-S3-02,supported,True,True,S3,,useful,True,The defining equations for A_0 and A_1 (p.34) are not among the cited sentences.
+HMDEND-C02,True,HMDEND-C02-S3-03,supported,True,False,S1,HMDEND-C02-S1-03,useful,True,"Fully contained in S1-03, and it is a characteristic of W(P) rather than a boundary condition."
+HMDEND-C03,True,HMDEND-C03-S1-01,partly_supported,True,True,S1,,central,True,"The atom presents conditions (1) and (2) as if they defined a shuffle, omitting the required conditions (3) and (4) of Definition 4.6."
+HMDEND-C03,True,HMDEND-C03-S1-02,supported,True,True,S1,,central,True,
+HMDEND-C03,True,HMDEND-C03-S1-03,supported,True,True,S1,HMDEND-C03-S3-03,central,True,S3-03 restates this condition verbatim.
+HMDEND-C03,True,HMDEND-C03-S1-04,supported,True,False,S2,,useful,True,"Remark 4.7(b) states a property derived from the definition, not part of the definition, so S2 fits better."
+HMDEND-C03,True,HMDEND-C03-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C03,True,HMDEND-C03-S2-02,supported,True,True,S2,,useful,True,
+HMDEND-C03,True,HMDEND-C03-S2-03,supported,False,True,S2,,central,True,"The atom joins Proposition 4.10(a) (epimorphism) and 4.10(b) (monomorphism), which are separately assessable."
+HMDEND-C03,True,HMDEND-C03-S3-01,supported,True,True,S3,,peripheral,True,This is a terminological convention from Remark 4.9 rather than substantive content.
+HMDEND-C03,True,HMDEND-C03-S3-02,partly_supported,False,True,S3,,useful,True,The classical-shuffle description is garbled ('whose image has complementary image') and is bundled with the linear-tree equivalence claim.
+HMDEND-C03,True,HMDEND-C03-S3-03,supported,True,True,S3,HMDEND-C03-S1-03,useful,True,"The atom restates condition (4) from S1-03, and the source only implies rather than states that the left-hand tree violates (4)."
+HMDEND-C04,True,HMDEND-C04-S1-01,supported,True,True,S1,,central,True,
+HMDEND-C04,True,HMDEND-C04-S1-02,supported,True,False,S2,,useful,True,"The existence of an adjoint inner hom is a property of the tensor product, not its definition."
+HMDEND-C04,True,HMDEND-C04-S1-03,supported,True,False,S2,,useful,True,This describes the operadic input (a component) rather than the dendroidal tensor product itself.
+HMDEND-C04,True,HMDEND-C04-S2-01,partly_supported,False,True,S2,HMDEND-C04-S2-02 HMDEND-C04-S2-04,central,True,"It bundles three properties, two duplicated by other atoms, and cites no sentences for the τ and i! claims (s08–s11)."
+HMDEND-C04,True,HMDEND-C04-S2-02,supported,True,True,S2,HMDEND-C04-S2-01,useful,True,
+HMDEND-C04,True,HMDEND-C04-S2-03,supported,True,True,S2,,central,True,
+HMDEND-C04,True,HMDEND-C04-S2-04,supported,True,True,S2,HMDEND-C04-S2-01,useful,True,
+HMDEND-C04,True,HMDEND-C04-S3-01,supported,True,True,S3,,useful,True,
+HMDEND-C04,True,HMDEND-C04-S3-02,supported,False,True,S3,,central,True,"It joins three separately assessable results (Prop 4.21, Prop 4.26(i), Prop 4.26(ii))."
+HMDEND-C04,True,HMDEND-C04-S3-03,supported,True,True,S3,HMDEND-C04-S3-04,central,True,
+HMDEND-C04,True,HMDEND-C04-S3-04,supported,True,True,S3,HMDEND-C04-S3-03,useful,True,"The failure of associativity largely restates S3-03, with an added example whose 'two shuffles' detail comes only from the figure."
+HMDEND-C05,True,HMDEND-C05-S1-01,supported,True,True,S1,,central,True,
+HMDEND-C05,True,HMDEND-C05-S1-02,supported,True,True,S1,,central,True,
+HMDEND-C05,True,HMDEND-C05-S1-03,supported,True,True,S1,,useful,True,This defines a prerequisite notion (the horn) rather than the target concept itself.
+HMDEND-C05,True,HMDEND-C05-S2-01,partly_supported,False,True,S2,,central,True,"The citations omit conditions (ii) and (iv) of Proposition 5.3 (s12–s14, s16), the atom drops the 'induced by [1]→[n] via (i−1,i)' detail, and it bundles three equivalences."
+HMDEND-C05,True,HMDEND-C05-S2-02,supported,True,True,S2,,central,True,
+HMDEND-C05,True,HMDEND-C05-S2-03,supported,False,True,S2,HMDEND-C05-S3-03,central,True,It combines the construction of τ1(X) with the isomorphism τ1(X)≅τ(X); the cited s12 (composition) is not used in the statement.
+HMDEND-C05,True,HMDEND-C05-S3-01,supported,True,False,S2,,useful,True,"This is a theoretical result giving a source of examples, not a boundary or exception, so S2 fits better."
+HMDEND-C05,True,HMDEND-C05-S3-02,supported,True,False,S2,,useful,True,"This is a theoretical result (the dendroidal analogue), not a boundary; the term ∞-operad is not defined in the supplied pages."
+HMDEND-C05,True,HMDEND-C05-S3-03,supported,True,True,S3,,peripheral,True,This is a vague qualitative remark with little assessable content.
+HMDEND-C06,True,HMDEND-C06-S1-01,partly_supported,True,True,S1,,central,True,"The cited s22 defines plain anodyne (Kan fibrations), but the stated inner/left/right definition is in the uncited s23; the core Kan-anodyne definition is also omitted."
+HMDEND-C06,True,HMDEND-C06-S1-02,supported,False,True,S1,,useful,True,Joins the dendroidal anodyne definition with the separate inner/leaf/root definitions.
+HMDEND-C06,True,HMDEND-C06-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C06,True,HMDEND-C06-S2-02,supported,True,True,S2,,central,True,
+HMDEND-C06,True,HMDEND-C06-S2-03,supported,True,True,S2,,useful,True,
+HMDEND-C06,True,HMDEND-C06-S3-01,supported,True,False,S2,,useful,True,"Proposition 6.39 is a sufficient-condition characterization result, not a boundary or exception, so it fits S2."
+HMDEND-C06,True,HMDEND-C06-S3-02,supported,True,True,S3,,peripheral,True,
+HMDEND-C06,True,HMDEND-C06-S3-03,partly_supported,False,False,S2,,useful,True,"The source gives only sufficient conditions ('if'); the atom's 'only if' for inner anodyne falsely asserts necessity, and it bundles four separate claims."
+HMDEND-C07,True,HMDEND-C07-S1-01,supported,True,True,S1,,central,True,
+HMDEND-C07,True,HMDEND-C07-S1-02,supported,True,True,S1,HMDEND-C07-S3-03,central,True,"The 'rather than requiring x=y' contrast comes from s13–s14, which are not cited."
+HMDEND-C07,True,HMDEND-C07-S1-03,supported,True,True,S1,,useful,True,This is the absolute case (S = Δ[0]) rather than the fibration notion itself.
+HMDEND-C07,True,HMDEND-C07-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C07,True,HMDEND-C07-S2-02,supported,False,False,S3,,central,True,"It joins the existence claim (requires X normal) with the trivial-fibration claim (requires S normal), and its framing is about conditions."
+HMDEND-C07,True,HMDEND-C07-S2-03,supported,True,True,S2,,useful,True,
+HMDEND-C07,True,HMDEND-C07-S3-01,supported,True,True,S3,,useful,True,
+HMDEND-C07,True,HMDEND-C07-S3-02,supported,True,True,S3,HMDEND-C07-S3-03,useful,True,
+HMDEND-C07,True,HMDEND-C07-S3-03,supported,False,True,S3,HMDEND-C07-S1-02 HMDEND-C07-S3-02,useful,True,It combines the dendroidal definition with its rationale and duplicates S1-02 and S3-02.
+HMDEND-C08,True,HMDEND-C08-S1-01,partly_supported,True,True,S1,,central,True,"Presents the factorization axiom as the sole defining condition, omitting the degree, isomorphism and automorphism axioms (b)–(d)."
+HMDEND-C08,True,HMDEND-C08-S1-02,supported,True,True,S1,,central,True,Wording slip: 'the map Y is' should read 'the map Y→X is'.
+HMDEND-C08,True,HMDEND-C08-S1-03,supported,False,True,S1,,central,True,"Joins the degree axiom (b) and the isomorphism axiom (c), which are independently assessable."
+HMDEND-C08,True,HMDEND-C08-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C08,True,HMDEND-C08-S2-02,supported,True,True,S2,,central,True,
+HMDEND-C08,True,HMDEND-C08-S2-03,supported,True,True,S2,,useful,True,
+HMDEND-C08,True,HMDEND-C08-S3-01,supported,True,True,S3,,useful,True,
+HMDEND-C08,True,HMDEND-C08-S3-02,partly_supported,False,True,S3,,useful,True,"The general claim (the model structure exists if each projective E^Aut(r) exists) comes from p0447-s22–s24, which are not cited; the atom also joins it with the trivial-automorphism case."
+HMDEND-C08,True,HMDEND-C08-S3-03,supported,False,True,S3,HMDEND-C08-S2-01,useful,True,Joins Corollary 10.12 with the 'more cofibrations' remark; the clause on equal weak equivalences duplicates S2-01.
+HMDEND-C09,True,HMDEND-C09-S1-01,supported,True,True,S1,,central,True,Omits the context that λ is a set of cofibrations between cofibrant objects in a cofibrantly generated E (p0479-s19/s20).
+HMDEND-C09,True,HMDEND-C09-S1-02,partly_supported,True,True,S1,,central,True,"The consequences about fibrations and local equivalences come from p0342-s12/s14, which are not cited; p0479-s05 alone gives only the definition."
+HMDEND-C09,True,HMDEND-C09-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C09,True,HMDEND-C09-S2-02,supported,True,True,S2,,central,True,
+HMDEND-C09,True,HMDEND-C09-S2-03,supported,True,True,S2,,useful,True,
+HMDEND-C09,True,HMDEND-C09-S3-01,not_supported,True,True,S3,,central,True,"The cited sentences are Definition 11.21, not Proposition 11.28 or Definition 11.27; the evidence should be p0485-s01/s02/s11/s12 and p0483-s28-s30."
+HMDEND-C09,True,HMDEND-C09-S3-02,supported,True,False,S2,,useful,True,"This is a theoretical property (preservation of left properness), not a boundary or condition."
+HMDEND-C09,True,HMDEND-C09-S3-03,partly_supported,True,True,S3,,useful,True,"Property (4) is not on the supplied pages, so the gloss 'a further finiteness property' is unsupported; properties (1)-(3) are paraphrased without citing p0486-s24-s29."
+HMDEND-C11,True,HMDEND-C11-S1-01,supported,True,True,S1,,central,True,
+HMDEND-C11,True,HMDEND-C11-S1-02,supported,True,True,S1,,central,True,
+HMDEND-C11,True,HMDEND-C11-S1-03,supported,True,False,S2,,useful,True,"This is a derived property stated in a remark, not an identifying definition, so S2 fits better."
+HMDEND-C11,True,HMDEND-C11-S2-01,supported,True,True,S2,,central,True,
+HMDEND-C11,True,HMDEND-C11-S2-02,supported,True,True,S2,,central,True,
+HMDEND-C11,True,HMDEND-C11-S3-01,supported,True,True,S3,,useful,True,
+HMDEND-C11,True,HMDEND-C11-S3-02,partly_supported,False,True,S3,,useful,True,"The atom joins three claims, and the final clause about defining essential surjectivity via ho(X)→ho(Y) rests on uncited sentences s22/s24."
+HMDEND-C11,True,HMDEND-C11-S3-03,supported,True,True,S3,,peripheral,True,"This is an example-level detail; the cited evidence omits s07 (NP projectively fibrant and Segal) and s10–s11, which carry the reasoning."
+IVFLUID-C01,True,IVFLUID-C01-S1-01,supported,True,True,S1,IVFLUID-C01-S2-01,central,True,
+IVFLUID-C01,True,IVFLUID-C01-S1-02,supported,False,False,S2,,useful,True,"Joins the continuity/protein-impermeability claim with the enumeration of barrier layers, and the component listing fits S2 better."
+IVFLUID-C01,True,IVFLUID-C01-S1-03,supported,False,False,S3,,useful,True,Joins the 'Diagram to Forget' label with the never-observed claim; it is a contrast with the traditional view rather than a definition.
+IVFLUID-C01,True,IVFLUID-C01-S2-01,supported,True,True,S2,IVFLUID-C01-S1-01,central,True,
+IVFLUID-C01,True,IVFLUID-C01-S2-02,supported,True,True,S2,IVFLUID-C01-S2-03,central,True,
+IVFLUID-C01,True,IVFLUID-C01-S2-03,supported,False,True,S2,IVFLUID-C01-S2-02,central,True,"Bundles several mechanism steps into one atom: the protein-free filtrate, interstitial protein diffusion, and rate-dependence."
+IVFLUID-C01,True,IVFLUID-C01-S3-01,supported,True,True,S3,,central,True,
+IVFLUID-C01,True,IVFLUID-C01-S3-02,supported,False,True,S3,,central,True,"Joins the transient-reversal mechanism with the autotransfusion name, the 0.5 L magnitude, and the return to filtration."
+IVFLUID-C01,True,IVFLUID-C01-S3-03,supported,True,True,S3,,central,True,
+IVFLUID-C02,True,IVFLUID-C02-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C02,True,IVFLUID-C02-S1-02,supported,False,False,S2,IVFLUID-C02-S2-02,central,True,"Bundles a definition of VR with the driving-gradient mechanism and formula, which largely duplicates S2-02 and is S2 content."
+IVFLUID-C02,True,IVFLUID-C02-S1-03,supported,True,True,S1,,central,True,
+IVFLUID-C02,True,IVFLUID-C02-S2-01,supported,False,True,S2,,useful,True,"Joins RVR as the major determinant with the local-factor control of RVR, which relies on uncited s10 and s08."
+IVFLUID-C02,True,IVFLUID-C02-S2-02,supported,True,True,S2,IVFLUID-C02-S1-02,central,True,The formula is duplicated in S1-02.
+IVFLUID-C02,True,IVFLUID-C02-S2-03,supported,False,True,S2,,central,True,"Chains two claims: Pms is determined by stressed volume, and stressed volume is determined by volume and capacitance."
+IVFLUID-C02,True,IVFLUID-C02-S3-01,supported,True,True,S3,,useful,True,
+IVFLUID-C02,True,IVFLUID-C02-S3-02,partly_supported,True,True,S3,,useful,True,"The source states these conditions for an increase in stroke volume or cardiac output, not for venous return, so 'venous return' is an addition."
+IVFLUID-C02,True,IVFLUID-C02-S3-03,supported,True,True,S3,,useful,True,Omits that the source frames this in the context of a fluid bolus raising venous return.
+IVFLUID-C03,True,IVFLUID-C03-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C03,True,IVFLUID-C03-S1-02,supported,True,False,S3,IVFLUID-C03-S3-03,useful,True,"This atom mainly defines fluid tolerance and states a distinction, so it is S3 content rather than a definition of fluid responsiveness."
+IVFLUID-C03,True,IVFLUID-C03-S1-03,supported,True,False,S2,,useful,True,"It describes a test procedure (the fluid challenge), which the S1 definition excludes; it also conflicts with the 5–15 min stated on p144."
+IVFLUID-C03,True,IVFLUID-C03-S2-01,supported,False,True,S2,IVFLUID-C03-S1-01,useful,True,"It joins procedure, mechanism and threshold, and the 5% threshold repeats S1-01."
+IVFLUID-C03,True,IVFLUID-C03-S2-02,supported,False,True,S2,IVFLUID-C03-S1-01,useful,True,"It joins the mechanism with the positivity threshold, and the 10% threshold repeats S1-01."
+IVFLUID-C03,True,IVFLUID-C03-S2-03,supported,True,True,S2,,useful,True,The attribution to Michard and the year 2000 are citation-level details embedded in a threshold claim.
+IVFLUID-C03,True,IVFLUID-C03-S3-01,supported,False,True,S3,,central,True,"It joins the prerequisites (fixed heart rate, intrathoracic pressure rise) with a long list of confounders."
+IVFLUID-C03,True,IVFLUID-C03-S3-02,supported,True,True,S3,IVFLUID-C03-S3-03,central,True,It largely duplicates the 'do not by themselves justify fluid therapy' clause of S3-03.
+IVFLUID-C03,True,IVFLUID-C03-S3-03,supported,False,True,S3,IVFLUID-C03-S3-02 IVFLUID-C03-S1-02,central,True,It joins two independent claims (non-prediction of tolerance; insufficiency as a justification for therapy).
+IVFLUID-C03,True,IVFLUID-C03-S3-04,supported,False,True,S3,,useful,True,It joins the overload limitation of the classical challenge with the mini-challenge's protocol and validity.
+IVFLUID-C04,True,IVFLUID-C04-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C04,True,IVFLUID-C04-S1-02,supported,True,False,S2,,useful,True,"This defines a component quantity (transmural pressure), not heart-lung interactions itself, so S2 fits better."
+IVFLUID-C04,True,IVFLUID-C04-S1-03,supported,True,False,S2,,useful,True,"This defines interventricular dependence, a component mechanism of heart-lung interactions, not the concept itself, so S2 fits better."
+IVFLUID-C04,True,IVFLUID-C04-S2-01,supported,True,True,S2,,central,True,
+IVFLUID-C04,True,IVFLUID-C04-S2-02,supported,True,True,S2,,central,True,
+IVFLUID-C04,True,IVFLUID-C04-S2-03,supported,True,True,S2,,central,True,
+IVFLUID-C04,True,IVFLUID-C04-S3-01,supported,True,True,S3,,useful,True,
+IVFLUID-C04,True,IVFLUID-C04-S3-02,supported,True,True,S3,IVFLUID-C04-S2-02,useful,True,"Partly restates the RV-afterload mechanism in S2-02, adding the at-risk populations."
+IVFLUID-C04,True,IVFLUID-C04-S3-03,supported,True,True,S3,,useful,True,The phrase 'which limits this assumption' is a mild interpretive addition; the source only says the heterogeneity 'must be noted'.
+IVFLUID-C05,True,IVFLUID-C05-S1-01,supported,True,True,S1,,central,True,"The source says 'body fluids', not specifically 'plasma'; this is a minor narrowing."
+IVFLUID-C05,True,IVFLUID-C05-S1-02,supported,True,True,S1,,central,True,"The definitional basis is bundled with historical detail (Peter Stewart, late 1970s), which S1 excludes."
+IVFLUID-C05,True,IVFLUID-C05-S1-03,supported,True,True,S1,,central,True,
+IVFLUID-C05,True,IVFLUID-C05-S2-01,supported,True,True,S2,,useful,True,
+IVFLUID-C05,True,IVFLUID-C05-S2-02,supported,True,True,S2,,central,True,
+IVFLUID-C05,True,IVFLUID-C05-S2-03,partly_supported,True,True,S2,,central,True,"The claim that an increase in SID raises [HCO3-] rests on p0187-s17/s18, which are not cited."
+IVFLUID-C05,True,IVFLUID-C05-S2-04,supported,False,True,S2,,central,True,"The atom joins two separately assessable directional claims, one about increased Atot and one about decreased Atot."
+IVFLUID-C05,True,IVFLUID-C05-S3-01,partly_supported,True,True,S3,,useful,True,"p0187-s24 (the carbonic anhydrase condition) is not cited, and 'only as long as' strengthens the source's 'as long as'."
+IVFLUID-C05,True,IVFLUID-C05-S3-02,supported,True,True,S3,,peripheral,True,The claim is a historical and popularity point and is only marginal to understanding the concept.
+IVFLUID-C05,True,IVFLUID-C05-S3-03,partly_supported,True,True,S3,,useful,True,The added clause 'which is the gap the Stewart approach addresses' is implied by context but not stated in the cited sentences.
+IVFLUID-C07,True,IVFLUID-C07-S1-01,supported,True,True,S1,,central,True,"The cited sentences do not name ROSE; the link comes from p0219-s10 and p0225-s21, which are not cited."
+IVFLUID-C07,True,IVFLUID-C07-S1-02,supported,True,True,S1,,useful,True,This rests only on a table title ('The ROSE concept avoiding fluid overload').
+IVFLUID-C07,True,IVFLUID-C07-S1-03,supported,True,True,S1,,central,True,
+IVFLUID-C07,True,IVFLUID-C07-S2-01,supported,False,True,S2,,central,True,"It joins several separately assessable claims: the first-hit trigger with examples, entry into the ebb phase, its timing, and its haemodynamic characteristics."
+IVFLUID-C07,True,IVFLUID-C07-S2-02,supported,False,True,S2,IVFLUID-C07-S2-04,central,True,"It joins the second-hit timing with the guiding question, and the question part duplicates S2-04."
+IVFLUID-C07,True,IVFLUID-C07-S2-03,supported,True,True,S2,,central,True,'Weighing' slightly paraphrases the source's 'addressing' the benefits.
+IVFLUID-C07,True,IVFLUID-C07-S2-04,supported,True,True,S2,IVFLUID-C07-S2-02,central,True,It is largely contained in S2-02.
+IVFLUID-C07,True,IVFLUID-C07-S2-05,supported,True,True,S2,,central,True,"It omits the source's specification of normal losses (renal, gastrointestinal, insensible)."
+IVFLUID-C07,True,IVFLUID-C07-S2-06,supported,True,True,S2,,central,True,
+IVFLUID-C07,True,IVFLUID-C07-S3-01,supported,True,True,S3,,central,True,
+IVFLUID-C07,True,IVFLUID-C07-S3-02,supported,True,True,S3,,central,True,
+IVFLUID-C07,True,IVFLUID-C07-S3-03,supported,True,True,S3,,useful,True,It omits that the source calls fluid management 'not only useful but also lifesaving' and mentions the autoregulatory threshold target.
+IVFLUID-C08,True,IVFLUID-C08-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C08,True,IVFLUID-C08-S1-02,partly_supported,False,True,S1,,useful,True,"It expands EAFM as 'early adequate fluid management', which the source never spells out, and joins the key-message definition with the separate strategy description."
+IVFLUID-C08,True,IVFLUID-C08-S1-03,supported,True,True,S1,,central,True,
+IVFLUID-C08,True,IVFLUID-C08-S2-01,supported,True,True,S2,,useful,True,
+IVFLUID-C08,True,IVFLUID-C08-S2-02,supported,False,True,S2,,useful,True,"It joins physiological effects from s21 with clinical outcomes from s22, and its IAP-matched PEEP edges toward the excluded IAH-specific management."
+IVFLUID-C08,True,IVFLUID-C08-S2-03,supported,True,True,S2,,central,True,
+IVFLUID-C08,True,IVFLUID-C08-S3-01,supported,True,True,S3,,central,True,
+IVFLUID-C08,True,IVFLUID-C08-S3-02,supported,True,True,S3,,central,True,
+IVFLUID-C08,True,IVFLUID-C08-S3-03,supported,True,True,S3,,central,True,
+IVFLUID-C10,True,IVFLUID-C10-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C10,True,IVFLUID-C10-S1-02,supported,True,True,S1,,central,True,
+IVFLUID-C10,True,IVFLUID-C10-S1-03,supported,True,True,S1,,useful,True,
+IVFLUID-C10,True,IVFLUID-C10-S2-01,supported,True,True,S2,,useful,True,
+IVFLUID-C10,True,IVFLUID-C10-S2-02,supported,True,True,S2,,peripheral,True,This glossary-level renal formula is tangential to the core IAH concept.
+IVFLUID-C10,True,IVFLUID-C10-S2-03,supported,False,True,S2,,central,True,"The atom joins two independently assessable claims: that fluids cause secondary IAH/ACS, and that IAP stimulates ADH-driven retention."
+IVFLUID-C10,True,IVFLUID-C10-S3-01,supported,True,True,S3,,central,True,
+IVFLUID-C10,True,IVFLUID-C10-S3-02,supported,True,True,S3,,useful,True,
+IVFLUID-C10,True,IVFLUID-C10-S3-03,supported,False,False,S2,,useful,True,"The atom bundles several procedural details (volume, timing, position, zeroing), recasts 'gold standard for intermittent estimation' loosely, and is a procedure rather than a boundary."
+IVFLUID-C11,True,IVFLUID-C11-S1-01,supported,True,True,S1,IVFLUID-C11-S1-03,central,True,Its pharmacokinetic-similarity part largely duplicates S1-03.
+IVFLUID-C11,True,IVFLUID-C11-S1-02,supported,False,True,S1,IVFLUID-C11-S2-03,central,True,It joins two independent differences (expandable walls and input variable).
+IVFLUID-C11,True,IVFLUID-C11-S1-03,supported,True,True,S1,IVFLUID-C11-S1-01,central,True,It largely restates S1-01's pharmacokinetic-adaptation definition.
+IVFLUID-C11,True,IVFLUID-C11-S2-01,supported,False,True,S2,,central,True,It joins the data basis (serial Hb and urine) with the separate claim that blood volume is unimportant.
+IVFLUID-C11,True,IVFLUID-C11-S2-02,supported,True,True,S2,IVFLUID-C11-S2-03,useful,True,Its content is fully contained in S2-03.
+IVFLUID-C11,True,IVFLUID-C11-S2-03,partly_supported,False,True,S2,IVFLUID-C11-S2-02 IVFLUID-C11-S1-02,useful,True,"The apparent-analogue and added-requirements claims rest on s05–s07, which are not cited, and the atom duplicates S2-02."
+IVFLUID-C11,True,IVFLUID-C11-S2-04,supported,True,True,S2,,useful,True,
+IVFLUID-C11,True,IVFLUID-C11-S2-05,supported,False,True,S2,IVFLUID-C11-S3-02,useful,True,"It joins two separate findings (interstitial size and half-life), and the 8-min half-life repeats S3-02 without its pressure exception."
+IVFLUID-C11,True,IVFLUID-C11-S3-01,supported,True,True,S3,,central,True,
+IVFLUID-C11,True,IVFLUID-C11-S3-02,supported,False,True,S3,IVFLUID-C11-S2-05,central,True,"It bundles the half-life, the pressure exception and the clinical consequence, and the half-life duplicates S2-05."
+IVFLUID-C11,True,IVFLUID-C11-S3-03,supported,True,True,S3,,peripheral,True,It is a boundary caveat on ratio calculations that the card itself never presents.
+IVFLUID-C13,True,IVFLUID-C13-S1-01,supported,True,True,S1,,central,True,
+IVFLUID-C13,True,IVFLUID-C13-S1-02,supported,True,True,S1,,central,True,
+IVFLUID-C13,True,IVFLUID-C13-S1-03,supported,True,True,S1,,central,True,
+IVFLUID-C13,True,IVFLUID-C13-S2-01,partly_supported,False,True,S2,IVFLUID-C13-S2-03,central,True,"The VEGF Receptor 3/lymphangiogenesis clause comes from p0094-s23, which is not cited, and it duplicates S2-03."
+IVFLUID-C13,True,IVFLUID-C13-S2-02,supported,False,True,S2,,central,True,"Joins the VEGFR2/nitric oxide blood-flow effect with the downstream sodium-excretion and volume-protection outcome, which the source attributes to the whole mechanism ('thus')."
+IVFLUID-C13,True,IVFLUID-C13-S2-03,supported,True,True,S2,IVFLUID-C13-S2-01,central,True,Its content is largely contained in S2-01.
+IVFLUID-C13,True,IVFLUID-C13-S2-04,supported,True,True,S2,,central,True,
+IVFLUID-C13,True,IVFLUID-C13-S3-01,supported,True,True,S3,,useful,True,
+IVFLUID-C13,True,IVFLUID-C13-S3-02,supported,True,True,S3,,useful,True,
+IVFLUID-C13,True,IVFLUID-C13-S3-03,supported,True,False,S2,,useful,True,"This is empirical evidence for osmotic inactivation of sodium, not a boundary or exception, so S3 does not fit."
+KGBDP-C01,True,KGBDP-C01-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C01,True,KGBDP-C01-S1-02,supported,True,True,S1,,central,True,
+KGBDP-C01,True,KGBDP-C01-S1-03,supported,True,True,S1,,central,True,"The atom omits the source's stated reason, that each R2RML processor may be associated with only one database."
+KGBDP-C01,True,KGBDP-C01-S2-01,supported,True,True,S2,,central,True,
+KGBDP-C01,True,KGBDP-C01-S2-02,supported,True,True,S2,,useful,True,
+KGBDP-C01,True,KGBDP-C01-S2-03,partly_supported,True,True,S2,,central,True,"The added 'only' conflicts with p0067-s12/s13, which allow a Logical Table to be a SQL view or an R2RML view, and the rr:tableName claim's source (p0070-s04) is not cited."
+KGBDP-C01,True,KGBDP-C01-S2-04,supported,True,True,S2,,central,True,
+KGBDP-C01,True,KGBDP-C01-S2-05,supported,True,True,S2,KGBDP-C01-S2-01,central,True,"The R2RML column-name basis comes from p0072-s01, which is not cited."
+KGBDP-C01,True,KGBDP-C01-S2-06,supported,False,True,S2,,useful,True,The atom joins the Language Map's data-reference capability with the separate claim that rr:language abbreviates it.
+KGBDP-C01,True,KGBDP-C01-S3-01,supported,True,True,S3,,useful,True,
+KGBDP-C01,True,KGBDP-C01-S3-02,supported,True,False,S2,KGBDP-C01-S1-02,useful,True,Backwards compatibility is a property of the language rather than a boundary or exception.
+KGBDP-C01,True,KGBDP-C01-S3-03,supported,False,True,S3,,peripheral,True,"The atom bundles three xR2RML facts (xrr:format, a fixed query language, and later convergence) that are mainly about xR2RML rather than RML."
+KGBDP-C02,True,KGBDP-C02-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C02,True,KGBDP-C02-S1-02,supported,True,True,S1,,central,True,
+KGBDP-C02,True,KGBDP-C02-S1-03,supported,True,True,S1,,useful,True,
+KGBDP-C02,True,KGBDP-C02-S2-01,supported,True,True,S2,,useful,True,
+KGBDP-C02,True,KGBDP-C02-S2-02,supported,False,True,S2,,central,True,The atom joins the GAV definition (views over the sources) with the separate query-unfolding reformulation claim.
+KGBDP-C02,True,KGBDP-C02-S2-03,supported,True,True,S2,,central,True,
+KGBDP-C02,True,KGBDP-C02-S3-01,supported,True,True,S3,,central,True,
+KGBDP-C02,True,KGBDP-C02-S3-02,supported,True,True,S3,,central,True,
+KGBDP-C02,True,KGBDP-C02-S3-03,supported,True,False,S2,,useful,True,"This is a mechanistic property of GAV mappings rather than a boundary or exception, so S2 fits better than S3."
+KGBDP-C03,True,KGBDP-C03-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C03,True,KGBDP-C03-S1-02,supported,True,True,S1,KGBDP-C03-S1-03,central,True,"Partly overlaps S1-03, since both describe the engine's core query transformation."
+KGBDP-C03,True,KGBDP-C03-S1-03,supported,True,True,S1,KGBDP-C03-S1-02,useful,True,"It largely restates the transformation role given in S1-02, framed as a union of subqueries."
+KGBDP-C03,True,KGBDP-C03-S2-01,supported,True,True,S2,,central,True,
+KGBDP-C03,True,KGBDP-C03-S2-02,supported,False,True,S2,,central,True,It joins the decomposition function with a separate claim that candidate sources are bounded by the source descriptions.
+KGBDP-C03,True,KGBDP-C03-S2-03,supported,False,True,S2,,useful,True,It combines the list of five join methods with a separate bound-join versus nested loop join contrast.
+KGBDP-C03,True,KGBDP-C03-S3-01,supported,True,True,S3,,central,True,
+KGBDP-C03,True,KGBDP-C03-S3-02,supported,False,False,S2,,useful,True,"This is a theoretical result, which fits S2, and it bundles general intractability with the NP-completeness proof under a simplified cost function."
+KGBDP-C03,True,KGBDP-C03-S3-03,supported,False,True,S3,,central,True,It merges the limit on cost-based optimization with a description of heuristic optimization; 'instead' is an inference the source only implies.
+KGBDP-C04,True,KGBDP-C04-S1-01,supported,True,True,S1,,central,True,"'Context-aware RDF molecule matching' wording comes from s04 and 'system-supplied' context from p0139-s16, neither of which is cited."
+KGBDP-C04,True,KGBDP-C04-S1-02,supported,True,True,S1,,central,True,
+KGBDP-C04,True,KGBDP-C04-S1-03,supported,True,True,S1,,central,True,"Reproduces the source's inconsistent notation C(M1, M2) for molecules otherwise named M_G and M_D."
+KGBDP-C04,True,KGBDP-C04-S2-01,supported,True,True,S2,,central,True,
+KGBDP-C04,True,KGBDP-C04-S2-02,supported,False,True,S2,,central,True,"Joins bipartite-graph construction, threshold pruning, and threshold-extreme examples; 'user-supplied' relies on uncited s18, and s17 actually says 'vertices weight', not edge weights."
+KGBDP-C04,True,KGBDP-C04-S2-03,supported,True,True,S2,,central,True,"Edge pruning is stated in s13–s14, which are not cited."
+KGBDP-C04,True,KGBDP-C04-S3-01,supported,False,True,S3,KGBDP-C04-S1-02,useful,True,Combines the Boolean-context limitation with the proposed PSL future direction; the 'more general' claim is in uncited s12.
+KGBDP-C04,True,KGBDP-C04-S3-02,supported,False,True,S3,,useful,True,Joins the quadratic-complexity claim with the distributed-FCA suggestion.
+KGBDP-C04,True,KGBDP-C04-S3-03,partly_supported,False,True,S3,,useful,True,"Source s01 says similar molecules 'within the dataset', not 'within the same context' (configs B and C both have two in-context candidates). 'Perfect only in A' presumes Table 3 values that are not supplied."
+KGBDP-C05,True,KGBDP-C05-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C05,True,KGBDP-C05-S1-02,partly_supported,True,True,S1,,central,True,"The neural network-based category appears in s19/s20, which are not cited; the cited sentences name only the first two categories."
+KGBDP-C05,True,KGBDP-C05-S1-03,supported,True,True,S1,KGBDP-C05-S1-04,useful,True,Fully contained in S1-04.
+KGBDP-C05,True,KGBDP-C05-S1-04,supported,False,True,S1,KGBDP-C05-S1-03,useful,True,"Joins the deductive-reasoning characterization with the downstream-use claim, which duplicates S1-03."
+KGBDP-C05,True,KGBDP-C05-S2-01,supported,False,True,S2,,central,True,"Joins two separately assessable claims: that the model defines score and loss functions, and that it is trained on positive and negative samples."
+KGBDP-C05,True,KGBDP-C05-S2-02,supported,False,True,S2,,central,True,"Combines the rotation mechanism with the relation-pattern capability; the modulus-1 constraint begins in s11, which is not cited."
+KGBDP-C05,True,KGBDP-C05-S2-03,supported,True,True,S2,,useful,True,
+KGBDP-C05,True,KGBDP-C05-S3-01,supported,True,True,S3,,central,True,
+KGBDP-C05,True,KGBDP-C05-S3-02,supported,False,True,S3,,central,True,Joins two limitations without the source's causal link ('due to this fact') between them.
+KGBDP-C05,True,KGBDP-C05-S3-03,supported,True,True,S3,,useful,True,
+KGBDP-C06,True,KGBDP-C06-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C06,True,KGBDP-C06-S1-02,supported,True,True,S1,,useful,True,
+KGBDP-C06,True,KGBDP-C06-S1-03,supported,True,True,S1,,useful,True,
+KGBDP-C06,True,KGBDP-C06-S2-01,supported,False,True,S2,KGBDP-C06-S2-02,central,True,Bundles three independently assessable per-layer reasoning requirements into one atom.
+KGBDP-C06,True,KGBDP-C06-S2-02,supported,True,True,S2,KGBDP-C06-S2-01,peripheral,True,"Fully contained in S2-01, so it is redundant."
+KGBDP-C06,True,KGBDP-C06-S2-03,partly_supported,True,True,S2,,useful,True,Adds an explicit 'because' link; the source only juxtaposes the two clauses with a semicolon.
+KGBDP-C06,True,KGBDP-C06-S3-01,supported,True,True,S3,,central,True,Softens 'in some cases' to 'can' and omits that the same applies to application platforms.
+KGBDP-C06,True,KGBDP-C06-S3-02,supported,True,True,S3,,central,True,
+KGBDP-C06,True,KGBDP-C06-S3-03,partly_supported,False,True,S3,,useful,True,"Omits the authors' decision (p0039-s10) to treat all four as application services, and joins the debatable-border claim with the example classification."
+KGBDP-C07,True,KGBDP-C07-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C07,True,KGBDP-C07-S1-02,supported,True,True,S1,,central,True,
+KGBDP-C07,True,KGBDP-C07-S1-03,supported,True,True,S1,,central,True,
+KGBDP-C07,True,KGBDP-C07-S2-01,supported,True,True,S2,,central,True,
+KGBDP-C07,True,KGBDP-C07-S2-02,supported,True,True,S2,,central,True,
+KGBDP-C07,True,KGBDP-C07-S2-03,partly_supported,True,True,S2,,useful,True,"The claim that join pairs are initially stored in an array comes from s16, which is not cited."
+KGBDP-C07,True,KGBDP-C07-S3-01,supported,True,True,S3,,useful,True,
+KGBDP-C07,True,KGBDP-C07-S3-02,supported,True,True,S3,,useful,True,
+KGBDP-C07,True,KGBDP-C07-S3-03,supported,True,False,S2,,useful,True,The wrapper conversion requirement describes a mechanism of the Data Wrapper rather than a boundary or exception.
+KGBDP-C07,True,KGBDP-C07-S3-04,supported,True,True,S3,,peripheral,True,"This is a time-bound list of supported sources (""currently supports""), which makes it trivia-level detail."
+KGBDP-C08,True,KGBDP-C08-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C08,True,KGBDP-C08-S1-02,supported,True,False,S1,,peripheral,True,"This is a historical attribution, which S1 excludes; no scope label fits it well."
+KGBDP-C08,True,KGBDP-C08-S1-03,supported,False,True,S1,KGBDP-C08-S3-01,central,True,It joins the purpose of semantic similarity with the separate claim that most SANSA approaches are feature-based.
+KGBDP-C08,True,KGBDP-C08-S2-01,supported,True,True,S2,,central,True,
+KGBDP-C08,True,KGBDP-C08-S2-02,partly_supported,True,True,S2,,central,True,It describes the measure only as a 'weighted combination' and omits its ratio structure; the garbled text shows only the denominator.
+KGBDP-C08,True,KGBDP-C08-S2-03,supported,True,True,S2,,central,True,
+KGBDP-C08,True,KGBDP-C08-S3-01,supported,True,False,S1,KGBDP-C08-S1-01 KGBDP-C08-S1-03,peripheral,True,It restates S1-01 and S1-03 and draws no real boundary.
+KGBDP-C08,True,KGBDP-C08-S3-02,partly_supported,False,False,S2,KGBDP-C08-S2-01,useful,False,"'Here, we set' is the authors' stated choice, not evidence that SANSA fixes the parameters, and the Dice inference requires combining it with s09."
+KGBDP-C08,True,KGBDP-C08-S3-03,partly_supported,True,False,S2,,useful,True,The conclusion 'not inherently symmetric' is the card's own inference beyond the source's statement that γ adjusts symmetry.
+KGBDP-C09,True,KGBDP-C09-S1-01,partly_supported,True,True,S1,,central,True,"The claim about meters being installed throughout the household comes from s09, which is not cited, and s10 literally says 'aggregating' rather than 'disaggregating'."
+KGBDP-C09,True,KGBDP-C09-S1-02,supported,True,True,S1,,central,True,
+KGBDP-C09,True,KGBDP-C09-S1-03,supported,True,True,S1,,useful,True,"This is motivation or history rather than definition, so the S1 label is a weak fit, although no other label fits better."
+KGBDP-C09,True,KGBDP-C09-S2-01,supported,True,True,S2,,useful,True,
+KGBDP-C09,True,KGBDP-C09-S2-02,supported,False,True,S2,,useful,True,"The atom joins several independently assessable claims: supervised methods are widespread, NNs are the largest group, the RNN/CNN subtypes, and feature extraction improves performance."
+KGBDP-C09,True,KGBDP-C09-S2-03,supported,False,True,S2,,useful,True,"The atom joins the rationale for unsupervised methods with a list of citation-level examples, and the 'widely applied' wording rests on s12, which is not cited."
+KGBDP-C09,True,KGBDP-C09-S3-01,supported,True,True,S3,,central,True,
+KGBDP-C09,True,KGBDP-C09-S3-02,supported,True,True,S3,,central,True,"The atom omits the source's caveat that houses in a single dataset share a neighbourhood, which makes testing on a different dataset an alternative."
+KGBDP-C09,True,KGBDP-C09-S3-03,supported,True,True,S3,,useful,True,
+KGBDP-C09,True,KGBDP-C09-S3-04,supported,True,True,S3,,peripheral,True,The appliance examples are side details of a data-processing issue rather than core to the concept.
+KGBDP-C10,True,KGBDP-C10-S1-01,supported,True,True,S1,,central,True,
+KGBDP-C10,True,KGBDP-C10-S1-02,supported,True,True,S1,,useful,True,"The source presents this as a definition of a KG under the knowledge-representation view, not as a definition of the management-system view."
+KGBDP-C10,True,KGBDP-C10-S1-03,supported,True,True,S1,,central,True,
+KGBDP-C10,True,KGBDP-C10-S2-01,supported,False,True,S2,,useful,True,"The atom bundles three independently assessable desiderata (expressive power, ontological reasoning, complexity)."
+KGBDP-C10,True,KGBDP-C10-S2-02,supported,True,True,S2,,central,True,
+KGBDP-C10,True,KGBDP-C10-S2-03,supported,True,True,S2,,useful,True,
+KGBDP-C10,True,KGBDP-C10-S3-01,supported,True,True,S3,,useful,True,
+KGBDP-C10,True,KGBDP-C10-S3-02,supported,True,True,S3,,useful,True,
+KGBDP-C10,True,KGBDP-C10-S3-03,supported,True,True,S3,,useful,True,
+LAPINF-C01,True,LAPINF-C01-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C01,True,LAPINF-C01-S1-02,supported,True,True,S1,,central,True,
+LAPINF-C01,True,LAPINF-C01-S1-03,supported,True,True,S1,,useful,True,
+LAPINF-C01,True,LAPINF-C01-S2-01,supported,True,True,S2,,central,True,
+LAPINF-C01,True,LAPINF-C01-S2-02,partly_supported,False,True,S2,,central,True,"Joins the existence theorem with its construction, and omits that the loop weights also depend on m (p0115-s09/s10)."
+LAPINF-C01,True,LAPINF-C01-S2-03,supported,True,True,S2,,useful,True,"The map formula (6.14) comes from p0124-s20/s21, which are not cited."
+LAPINF-C01,True,LAPINF-C01-S3-01,supported,True,True,S3,,useful,True,
+LAPINF-C01,True,LAPINF-C01-S3-02,supported,True,True,S3,LAPINF-C01-S3-03,useful,True,
+LAPINF-C01,True,LAPINF-C01-S3-03,supported,False,True,S3,LAPINF-C01-S3-02,useful,True,Duplicates S3-02 and adds an unrelated non-uniqueness claim.
+LAPINF-C02,True,LAPINF-C02-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C02,True,LAPINF-C02-S1-02,supported,False,True,S1,,central,True,Joins the definition (largest intrinsic metric of H_D) with a separately cited sup-formula representation from [198].
+LAPINF-C02,True,LAPINF-C02-S1-03,supported,False,True,S1,LAPINF-C02-S1-01,central,True,"Bundles two definitions (intrinsic weight and strongly intrinsic path metric), and the weight condition closely mirrors S1-01."
+LAPINF-C02,True,LAPINF-C02-S2-01,supported,True,True,S2,,central,True,"The definition η=√(μ/ν) comes from p116-s18, which is not cited."
+LAPINF-C02,True,LAPINF-C02-S2-02,supported,False,True,S2,,central,True,"The 'because p_η…' mechanism comes from the proof and Remark 6.28 (p121-s08, s11, s13), none of which are cited; cited s02 concerns completeness, which the atom does not state."
+LAPINF-C02,True,LAPINF-C02-S2-03,supported,True,True,S2,,central,True,"The definition of the map (6.14) is on p124-s20/s21, which is not cited."
+LAPINF-C02,True,LAPINF-C02-S2-04,supported,False,True,S2,LAPINF-C02-S2-03,useful,True,"Packs the lemma statement together with several construction details (lengths, weights, loop rule) into one atom."
+LAPINF-C02,True,LAPINF-C02-S3-01,supported,True,True,S3,,useful,True,"The citations omit p116-s08, which states that the classical metric is intrinsic in the sense of [74]."
+LAPINF-C02,True,LAPINF-C02-S3-02,supported,False,True,S3,,useful,True,"Joins two independently assessable claims: non-intrinsicness, and the iff condition for equivalence."
+LAPINF-C02,True,LAPINF-C02-S3-03,supported,True,True,S3,,peripheral,True,This is an example-level remark.
+LAPINF-C02,True,LAPINF-C02-S3-04,supported,False,True,S3,,useful,True,Combines a boundary claim (not all intrinsic metrics are path metrics) with a separate construction result (ϱ≤ϱ_p).
+LAPINF-C03,True,LAPINF-C03-S1-01,supported,True,True,S1,,central,True,Definition 3.16 (p0058-s16) would be a more primary citation than the recall in p0067.
+LAPINF-C03,True,LAPINF-C03-S1-02,supported,True,True,S1,,central,True,
+LAPINF-C03,True,LAPINF-C03-S1-03,supported,True,True,S1,,central,True,"Cites p0058-s19, the graph-level definition, which the statement omits."
+LAPINF-C03,True,LAPINF-C03-S2-01,supported,True,True,S2,,useful,True,
+LAPINF-C03,True,LAPINF-C03-S2-02,supported,True,True,S2,,useful,True,
+LAPINF-C03,True,LAPINF-C03-S2-03,supported,True,True,S2,,central,True,The correspondence is via (3.37); the atom leaves this implicit in 'corresponding'.
+LAPINF-C03,True,LAPINF-C03-S3-01,supported,True,True,S3,,central,True,
+LAPINF-C03,True,LAPINF-C03-S3-02,supported,True,True,S3,LAPINF-C03-S2-01,useful,True,Omits the range 1≤p<∞ stated in the source.
+LAPINF-C03,True,LAPINF-C03-S3-03,partly_supported,False,True,S3,,useful,True,"Drops the theorem's hypotheses (fixed model, n±(H^0)>0) and appends an unsourced inference that finite intrinsic size alone does not suffice."
+LAPINF-C04,True,LAPINF-C04-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C04,True,LAPINF-C04-S1-02,supported,True,False,S2,,useful,True,"An equivalent reformulation via the Helmholtz equation is a theoretical result, so S2 fits better than a definition label."
+LAPINF-C04,True,LAPINF-C04-S1-03,supported,True,True,S1,,central,True,
+LAPINF-C04,True,LAPINF-C04-S2-01,partly_supported,True,True,S2,,central,True,"The cited Theorem 7.24 sentences assume uniformly positive weights (7.7) and cite (v) rather than (iii); the unconditional claim should cite Lemma 4.1 (p0064-s02, p0064-s03) or p0153-s07."
+LAPINF-C04,True,LAPINF-C04-S2-02,supported,True,True,S2,,central,True,
+LAPINF-C04,True,LAPINF-C04-S3-01,supported,True,True,S3,,central,True,
+LAPINF-C04,True,LAPINF-C04-S3-02,supported,True,True,S3,,useful,True,
+LAPINF-C04,True,LAPINF-C04-S3-03,supported,True,False,S2,,peripheral,True,This is an example-specific criterion (Corollary 8.5(ii)) stating a result rather than a boundary of the concept.
+LAPINF-C05,True,LAPINF-C05-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C05,True,LAPINF-C05-S1-02,supported,True,True,S1,,central,True,
+LAPINF-C05,True,LAPINF-C05-S1-03,supported,True,True,S1,,central,True,
+LAPINF-C05,True,LAPINF-C05-S2-01,supported,True,True,S2,,central,True,"The gloss of η_* as 'defined via intrinsic edge lengths' paraphrases a footnote, because (7.2) is not supplied."
+LAPINF-C05,True,LAPINF-C05-S2-02,supported,True,True,S2,,central,True,
+LAPINF-C05,True,LAPINF-C05-S2-03,partly_supported,False,True,S2,,central,True,"The pure-discreteness claim (s18) and the over-all-models qualifier (s17) are not among the cited evidence, and the atom joins two assessable claims."
+LAPINF-C05,True,LAPINF-C05-S3-01,supported,True,True,S3,,useful,True,
+LAPINF-C05,True,LAPINF-C05-S3-02,supported,True,True,S3,,useful,True,This is a statement about λ0 rather than about the isoperimetric constant itself.
+LAPINF-C05,True,LAPINF-C05-S3-03,supported,True,True,S3,,peripheral,True,
+LAPINF-C06,True,LAPINF-C06-S1-01,not_supported,True,True,S1,,central,True,"The atom states the graph version (Theorem 7.11, p0147-s04–s07) but cites the metric-graph Theorem 7.9 sentences (p0146-s07–s10)."
+LAPINF-C06,True,LAPINF-C06-S1-02,partly_supported,True,True,S1,,central,True,"s06 supports only the slogan; the 'self-adjoint uniqueness / H0_α=H_α' gloss (p0146-s10, p0143-s04) and the intrinsic-metric specification are uncited or omitted."
+LAPINF-C06,True,LAPINF-C06-S2-01,supported,True,True,S2,,useful,True,
+LAPINF-C06,True,LAPINF-C06-S2-02,partly_supported,False,True,S2,,useful,True,"The justification that the weight (7.5) is intrinsic comes from the proof (p0149-s14–s17), which is not cited, and the atom joins the result with its reason."
+LAPINF-C06,True,LAPINF-C06-S2-03,partly_supported,False,True,S2,,useful,True,"The mechanism clause relies on uncited proof sentences (p0152-s13–s17), and the fixed-model / corresponding weighted graph setup is omitted."
+LAPINF-C06,True,LAPINF-C06-S3-01,supported,True,True,S3,LAPINF-C06-S3-02,central,True,
+LAPINF-C06,True,LAPINF-C06-S3-02,supported,False,True,S3,LAPINF-C06-S3-01,useful,True,"It joins the Jacobi-matrix fact with its consequence, and its second half duplicates S3-01."
+LAPINF-C06,True,LAPINF-C06-S3-03,supported,False,False,S2,,peripheral,True,"This is an extension of the result rather than a boundary, and it bundles the potential extension with the H^{-1}_loc allowance."
+LAPINF-C07,True,LAPINF-C07-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C07,True,LAPINF-C07-S1-02,supported,False,True,S1,,useful,True,"Joins two separately assessable characterizations, the 'for some λ' harmonic one and the 'for all λ' subharmonic one."
+LAPINF-C07,True,LAPINF-C07-S2-01,partly_supported,True,True,S2,,central,True,"It cites s13, which is part (i), the opposite implication; the claim is Theorem 4.23(ii) (s14–s15, eq. 4.32), which is not cited."
+LAPINF-C07,True,LAPINF-C07-S2-02,supported,True,True,S2,,central,True,
+LAPINF-C07,True,LAPINF-C07-S3-01,supported,True,False,S2,LAPINF-C07-S3-04,peripheral,True,"This is an example-specific criterion rather than a boundary of the concept, and it is fully contained in S3-04."
+LAPINF-C07,True,LAPINF-C07-S3-02,supported,True,True,S3,,central,True,It omits the self-adjointness simplification under which (4.31) is stated.
+LAPINF-C07,True,LAPINF-C07-S3-03,supported,True,True,S3,,useful,True,
+LAPINF-C07,True,LAPINF-C07-S3-04,supported,False,False,S2,LAPINF-C07-S3-01,peripheral,True,It joins both parts of Lemma 5.14 and duplicates S3-01; it is a criterion for a specific operator rather than a boundary of the concept.
+LAPINF-C08,True,LAPINF-C08-S1-01,partly_supported,True,True,S1,,central,True,Omits the standing assumption in s12 that A has equal deficiency indices.
+LAPINF-C08,True,LAPINF-C08-S1-02,supported,True,True,S1,,central,True,
+LAPINF-C08,True,LAPINF-C08-S1-03,supported,True,True,S1,,useful,True,"This defines an auxiliary notion (proper extension), not the boundary triplet itself."
+LAPINF-C08,True,LAPINF-C08-S2-01,supported,True,True,S2,,central,True,
+LAPINF-C08,True,LAPINF-C08-S2-02,supported,True,True,S2,,useful,True,
+LAPINF-C08,True,LAPINF-C08-S2-03,supported,True,True,S2,LAPINF-C08-S2-04,central,True,Duplicates S2-04.
+LAPINF-C08,True,LAPINF-C08-S2-04,supported,True,True,S2,LAPINF-C08-S2-03,central,True,Verbatim duplicate of S2-03; remove one of the two.
+LAPINF-C08,True,LAPINF-C08-S3-01,partly_supported,False,True,S3,,central,True,"The source says 'countably infinite', not just 'countable'; the closing claim that the direct sum is not automatically a boundary triplet is inferred rather than stated, and it is appended to the equivalence as a separate claim."
+LAPINF-C08,True,LAPINF-C08-S3-02,partly_supported,True,True,S3,,useful,True,"Drops the Theorem A.7 hypotheses: A ≥ a I with a ≥ 0, Θ self-adjoint, and M(a) bounded; 'lower semibounded A' alone is too weak."
+LAPINF-C08,True,LAPINF-C08-S3-03,partly_supported,True,True,S3,,peripheral,True,"'Requires' overstates the source, which assumes positive definiteness rather than proving it necessary; the atom also omits the Theorem A.7 setting (A_0 = A_F, M(a) bounded)."
+LAPINF-C09,True,LAPINF-C09-S1-01,supported,True,True,S1,,central,True,"The evidence omits s10 (the limit exists μ-a.e.), but this is minor."
+LAPINF-C09,True,LAPINF-C09-S1-02,supported,True,True,S1,,central,True,This is an equivalent characterization (a cited theorem) and borders on S2.
+LAPINF-C09,True,LAPINF-C09-S1-03,supported,True,True,S1,LAPINF-C09-S1-01,useful,True,The contrast clause restates the recurrence definition already given in S1-01.
+LAPINF-C09,True,LAPINF-C09-S2-01,supported,True,True,S2,,central,True,
+LAPINF-C09,True,LAPINF-C09-S2-02,supported,True,True,S2,,central,True,The volume integral is garbled in the sentence text and is confirmed only from the PDF page.
+LAPINF-C09,True,LAPINF-C09-S2-03,supported,True,True,S2,,central,True,"The transition-probability formula and b_ν, m_ν come from s09/s10 and (7.34), which are not cited."
+LAPINF-C09,True,LAPINF-C09-S3-01,supported,True,True,S3,,central,True,"The parenthetical H_D=H_N relies on s13, which is not cited."
+LAPINF-C09,True,LAPINF-C09-S3-02,supported,True,True,S3,,useful,True,
+LAPINF-C09,True,LAPINF-C09-S3-03,supported,True,True,S3,,useful,True,
+LAPINF-C10,True,LAPINF-C10-S1-01,supported,True,True,S1,,central,True,
+LAPINF-C10,True,LAPINF-C10-S1-02,supported,True,False,S2,,useful,True,"Being an equivalence relation is a theoretical property, not part of the definition."
+LAPINF-C10,True,LAPINF-C10-S1-03,supported,True,False,S2,LAPINF-C10-S2-02,central,True,"This is a result about two specific spaces, not a definition; it is largely contained in S2-02."
+LAPINF-C10,True,LAPINF-C10-S2-01,supported,False,True,S2,,useful,True,It joins the equality of growth rates with the remark that volume growth is a quasi-isometric invariant.
+LAPINF-C10,True,LAPINF-C10-S2-02,supported,True,True,S2,LAPINF-C10-S1-03,central,True,The source writes 'b' (a typo for d) for the additive constant; reading it as d is reasonable.
+LAPINF-C10,True,LAPINF-C10-S2-03,supported,True,True,S2,,useful,True,The atom is a precise formula that is only indirectly about quasi-isometry.
+LAPINF-C10,True,LAPINF-C10-S3-01,supported,True,True,S3,,central,True,
+LAPINF-C10,True,LAPINF-C10-S3-02,supported,False,True,S3,,central,True,"It joins three claims, and the 'no additional local conditions' statement (s18) is made about the results generally, not specifically about Liouville."
+LAPINF-C10,True,LAPINF-C10-S3-03,supported,True,True,S3,,useful,True,
+MAVVOM-C01,True,MAVVOM-C01-S1-01,supported,True,True,S1,,central,True,
+MAVVOM-C01,True,MAVVOM-C01-S1-02,supported,True,True,S1,,central,True,
+MAVVOM-C01,True,MAVVOM-C01-S1-03,supported,True,True,S1,,central,True,
+MAVVOM-C01,True,MAVVOM-C01-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C01,True,MAVVOM-C01-S2-02,supported,False,True,S2,,useful,True,Joins the tangent/cotangent isomorphisms with the separate claim that the tangent isomorphism is the differential of the tautological period map.
+MAVVOM-C01,True,MAVVOM-C01-S2-03,supported,True,True,S2,,central,True,
+MAVVOM-C01,True,MAVVOM-C01-S3-01,supported,True,True,S3,MAVVOM-C01-S2-01,useful,True,Repeats the orthogonal/self-dual property already stated in S2-01; the distinctive content is only the contrast with L and the non-triviality.
+MAVVOM-C01,True,MAVVOM-C01-S3-02,partly_supported,True,True,S3,,peripheral,True,"Wrong condition: the source discusses this in Section 2.5.1 (modular curves), i.e. n=1 where O(L_C)≅O(3,C), not n=3."
+MAVVOM-C03,True,MAVVOM-C03-S1-01,supported,False,True,S1,,useful,True,Joins the limit-formula definition with the separate remark that modularity and weight must be checked afterwards.
+MAVVOM-C03,True,MAVVOM-C03-S1-02,supported,False,True,S1,MAVVOM-C03-S2-02,central,True,"Repeats the cusp-form and pullback content of S2-02, bundled with the map definition."
+MAVVOM-C03,True,MAVVOM-C03-S1-03,supported,True,True,S1,MAVVOM-C03-S2-03,central,True,"Largely contained in S2-03, which gives the full restrict/reduce/descend description."
+MAVVOM-C03,True,MAVVOM-C03-S2-01,supported,True,True,S2,,useful,True,
+MAVVOM-C03,True,MAVVOM-C03-S2-02,supported,False,True,S2,MAVVOM-C03-S1-02,central,True,"Combines sub-bundle existence, its isomorphism, the restriction property and the resulting cusp form; it overlaps S1-02."
+MAVVOM-C03,True,MAVVOM-C03-S2-03,supported,True,True,S2,MAVVOM-C03-S1-03 MAVVOM-C03-S3-03,central,True,
+MAVVOM-C03,True,MAVVOM-C03-S3-01,supported,True,True,S3,,useful,True,
+MAVVOM-C03,True,MAVVOM-C03-S3-02,partly_supported,False,True,S3,,useful,True,"The cited sentences do not state that the operator is restricted to λ≠1,det (p0014-s17/p0076-s21) or 'all 0-dimensional cusps' (p0076-s05), and the atom bundles two claims."
+MAVVOM-C03,True,MAVVOM-C03-S3-03,supported,False,True,S3,MAVVOM-C03-S2-03,central,True,Bundles the scalar-vs-vector distinction with the weight-reduction correspondence and descent.
+MAVVOM-C04,True,MAVVOM-C04-S1-01,supported,True,True,S1,MAVVOM-C04-S1-03,central,True,
+MAVVOM-C04,True,MAVVOM-C04-S1-02,supported,True,True,S1,,central,True,The twist step is stated on page 113 but is not among the cited sentences (s17 is missing).
+MAVVOM-C04,True,MAVVOM-C04-S1-03,supported,False,True,S1,MAVVOM-C04-S1-01,useful,True,"It restates the S1-01 definition and adds a separate Γ(J)_R-invariance claim, making it a near-duplicate that joins two claims."
+MAVVOM-C04,True,MAVVOM-C04-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C04,True,MAVVOM-C04-S2-02,supported,True,True,S2,,central,True,
+MAVVOM-C04,True,MAVVOM-C04-S2-03,supported,True,True,S2,MAVVOM-C04-S3-03,useful,True,"The source cites 'Section 6.2'; the Siegel-operator link rests on s09 of page 115, which is not cited."
+MAVVOM-C04,True,MAVVOM-C04-S3-01,supported,True,True,S3,,central,True,
+MAVVOM-C04,True,MAVVOM-C04-S3-02,supported,True,False,S2,,useful,True,"The rank symmetry is a theoretical property, not a boundary or exception, so it fits S2."
+MAVVOM-C04,True,MAVVOM-C04-S3-03,supported,True,False,S2,MAVVOM-C04-S3-01,useful,True,Nonvanishing of the extreme pieces is a theoretical result complementing S3-01 rather than a boundary condition.
+MAVVOM-C05,True,MAVVOM-C05-S1-01,supported,True,True,S1,,central,True,
+MAVVOM-C05,True,MAVVOM-C05-S1-02,supported,True,False,S2,,useful,True,"This is a by-construction extendability criterion, so it fits S2 better than S1."
+MAVVOM-C05,True,MAVVOM-C05-S1-03,supported,True,True,S1,,central,True,
+MAVVOM-C05,True,MAVVOM-C05-S2-01,supported,True,True,S2,,central,True,The citations omit the statement of Proposition 5.4 itself (p0069-s17).
+MAVVOM-C05,True,MAVVOM-C05-S2-02,supported,True,True,S2,,useful,True,The citations omit the proposition statement (p0069-s18) and the sentence on extension of the action (p0070-s27).
+MAVVOM-C05,True,MAVVOM-C05-S2-03,supported,True,True,S2,,useful,True,
+MAVVOM-C05,True,MAVVOM-C05-S3-01,supported,True,True,S3,,useful,True,
+MAVVOM-C05,True,MAVVOM-C05-S3-02,supported,False,False,S2,,useful,True,"This is a positive identification result (S2), not a boundary, and it bundles the restriction-to-Δ_J corollary."
+MAVVOM-C05,True,MAVVOM-C05-S3-03,partly_supported,False,True,S3,,useful,True,"The atom states 'only when', but Lemma 3.11 gives only a sufficient condition for vanishing; it also bundles three claims."
+MAVVOM-C06,True,MAVVOM-C06-S1-01,supported,True,True,S1,,central,True,
+MAVVOM-C06,True,MAVVOM-C06-S1-02,supported,False,True,S1,,central,True,Joins the definition of the m-th coefficient (m>0) with the separate remark that φ0 is the restriction f|Δ_J.
+MAVVOM-C06,True,MAVVOM-C06-S1-03,supported,True,True,S1,MAVVOM-C06-S3-02,useful,True,The coefficient formula (7.3) is not quoted in the cited sentence texts; it is supported only by the PDF pages.
+MAVVOM-C06,True,MAVVOM-C06-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C06,True,MAVVOM-C06-S2-02,supported,True,True,S2,,central,True,
+MAVVOM-C06,True,MAVVOM-C06-S2-03,supported,True,True,S2,MAVVOM-C06-S2-02,useful,True,This is proof-level detail of Lemma 7.4 rather than a stated property.
+MAVVOM-C06,True,MAVVOM-C06-S2-04,supported,True,True,S2,MAVVOM-C06-S2-01,useful,True,The sheaf exact sequence itself (p0094-s01) is not cited; only the cohomology sequence is.
+MAVVOM-C06,True,MAVVOM-C06-S3-01,supported,True,False,S2,MAVVOM-C06-S3-03,useful,True,"It describes mechanism components, not boundaries, and is duplicated almost verbatim by S3-03."
+MAVVOM-C06,True,MAVVOM-C06-S3-02,supported,False,True,S3,MAVVOM-C06-S1-03 MAVVOM-C06-S2-02,useful,True,"Combines the non-canonicity of slicing with the separate claim that the two definitions agree under the (I,ω_J)-trivialization."
+MAVVOM-C06,True,MAVVOM-C06-S3-03,supported,False,False,S2,MAVVOM-C06-S3-01,useful,True,"It largely duplicates S3-01, adds the separate consequence (canonicity and Γ(J)_Z-invariance), and is mislabelled S3."
+MAVVOM-C07,True,MAVVOM-C07-S1-01,supported,True,True,S1,,central,True,
+MAVVOM-C07,True,MAVVOM-C07-S1-02,supported,False,True,S1,,central,True,Joins two separately assessable definitions (holomorphic at the cusp and vanishing at the cusp).
+MAVVOM-C07,True,MAVVOM-C07-S1-03,supported,False,True,S1,,useful,True,Bundles the cusp-form definition with an unrelated notational convention for λ=(0).
+MAVVOM-C07,True,MAVVOM-C07-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C07,True,MAVVOM-C07-S2-02,supported,True,True,S2,,central,True,
+MAVVOM-C07,True,MAVVOM-C07-S2-03,supported,True,True,S2,,useful,True,λ' is not defined in the atom; the source defines it as (λ2 ≥ … ≥ λ_{n-1}).
+MAVVOM-C07,True,MAVVOM-C07-S3-01,partly_supported,False,True,S3,,useful,True,"The reason for the assumption (p0121-s01–s03) is not cited, the source's 'difference arises' is strengthened to 'differ only', and the atom combines three claims."
+MAVVOM-C07,True,MAVVOM-C07-S3-02,supported,True,False,S2,,useful,True,"This is a vanishing theorem (a theoretical result), so S2 fits better than a boundary label."
+MAVVOM-C07,True,MAVVOM-C07-S3-03,supported,True,True,S3,,useful,True,
+MAVVOM-C08,True,MAVVOM-C08-S1-01,supported,True,True,S1,,central,True,
+MAVVOM-C08,True,MAVVOM-C08-S1-02,supported,True,True,S1,,central,True,
+MAVVOM-C08,True,MAVVOM-C08-S1-03,supported,False,False,S2,,central,True,"Joins two separate properties (nonvanishing and the weight shift k→k+ν); these are properties rather than the definition, so S2 fits better."
+MAVVOM-C08,True,MAVVOM-C08-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C08,True,MAVVOM-C08-S2-02,supported,True,True,S2,,useful,True,"The coordinate setup Z=(Z',z_1,…,z_r) comes from p0060-s01, which is not cited."
+MAVVOM-C08,True,MAVVOM-C08-S2-03,supported,True,True,S2,MAVVOM-C08-S3-01,peripheral,True,Omits the cited premise that f is a section of ι(L^{⊗ν})·L^{⊗k} (p0059-s14); this is example-level detail that is dense for recall.
+MAVVOM-C08,True,MAVVOM-C08-S3-01,supported,True,True,S3,MAVVOM-C08-S2-03,useful,True,
+MAVVOM-C08,True,MAVVOM-C08-S3-02,supported,True,True,S3,,useful,True,
+MAVVOM-C08,True,MAVVOM-C08-S3-03,supported,True,True,S3,,peripheral,True,Expository assumption only; a side detail.
+MAVVOM-C09,True,MAVVOM-C09-S1-01,partly_supported,True,True,S1,,central,True,"The source only says it studies convergence of the Petersson inner product and never explicitly defines 'square integrability'; the atom presents this as a definition and applies it to a pair (f,g) rather than to (f,f)."
+MAVVOM-C09,True,MAVVOM-C09-S1-02,supported,True,False,S2,,useful,True,"This is the construction of a component metric rather than a definition of square integrability, so it fits S2; the extension step (s17) is not cited."
+MAVVOM-C09,True,MAVVOM-C09-S1-03,supported,True,False,S2,,useful,True,"This is the construction of a component metric rather than a definition of the concept, so it fits S2."
+MAVVOM-C09,True,MAVVOM-C09-S2-01,supported,True,True,S2,,useful,True,
+MAVVOM-C09,True,MAVVOM-C09-S2-02,supported,False,True,S2,,useful,True,The atom joins the expansion formula (10.8) with a separate claim that the matrix (P_ij) is symmetric and positive-definite.
+MAVVOM-C09,True,MAVVOM-C09-S2-03,partly_supported,True,True,S2,,peripheral,True,"The third estimate, (10.17), appears in s12, which is not cited."
+MAVVOM-C09,True,MAVVOM-C09-S3-01,supported,True,True,S3,,central,True,
+MAVVOM-C09,True,MAVVOM-C09-S3-02,supported,True,True,S3,,central,True,
+MAVVOM-C09,True,MAVVOM-C09-S3-03,supported,True,False,S2,,central,True,"This is an unconditional theoretical result (cusp form implies finite integral) rather than a boundary or exception, so it fits S2; Remark 10.13 also notes that it holds even when λ = 1 or det."
+MAVVOM-C10,True,MAVVOM-C10-S1-01,supported,True,True,S1,MAVVOM-C10-S3-03,central,True,"Omits the standing assumptions n≥3 and that λ is a partition with ^tλ1+^tλ2≤n, but these do not change the claim."
+MAVVOM-C10,True,MAVVOM-C10-S1-02,supported,True,False,S2,MAVVOM-C10-S2-03,useful,True,"This is a derived result (corollary) rather than a defining characteristic, so it fits S2 better than S1."
+MAVVOM-C10,True,MAVVOM-C10-S1-03,supported,True,True,S1,,useful,True,
+MAVVOM-C10,True,MAVVOM-C10-S2-01,supported,True,True,S2,,central,True,
+MAVVOM-C10,True,MAVVOM-C10-S2-02,supported,True,True,S2,,central,True,"The citations omit s11–s12, s14–s15 and s19, which define W and give its O(V(I)_Q)-invariance; the atom is also a long multi-step chain."
+MAVVOM-C10,True,MAVVOM-C10-S2-03,supported,False,True,S2,MAVVOM-C10-S1-02,useful,True,It bundles the embedding with three separately assessable case facts about summands of St^{⊗k}.
+MAVVOM-C10,True,MAVVOM-C10-S3-01,supported,True,True,S3,,useful,True,
+MAVVOM-C10,True,MAVVOM-C10-S3-02,partly_supported,True,True,S3,,peripheral,True,"The source (PDF page 122) says specific (Γ, L), not (λ, L)."
+MAVVOM-C10,True,MAVVOM-C10-S3-03,supported,False,True,S3,MAVVOM-C10-S1-01,useful,True,"It joins the Witt index assumption, its automatic validity for n≥5, and the λ≠1,det exclusion; it largely restates the hypotheses of S1-01."
+MAVVOM-C11,True,MAVVOM-C11-S1-01,supported,True,True,S1,,useful,True,"The opening 'Equivalently' depends on S1-02, which comes later in card order, so the atom is not self-contained."
+MAVVOM-C11,True,MAVVOM-C11-S1-02,supported,True,True,S1,,central,True,
+MAVVOM-C11,True,MAVVOM-C11-S1-03,supported,True,True,S1,,central,True,"The chapter-level standing assumptions (L of signature (2,n), n≥3, Γ of finite index) are omitted."
+MAVVOM-C11,True,MAVVOM-C11-S2-01,partly_supported,False,True,S2,,useful,True,"The atom joins the cited classification theorem (Theorem 11.6) with the 'only if' usage claim, and the latter rests on p0147-s27, which is not cited."
+MAVVOM-C11,True,MAVVOM-C11-S2-02,supported,False,True,S2,,central,True,"The atom bundles the corollary, the inequality between the bounds, and its justification, and it omits that square integrability comes from Theorem 10.1(3)."
+MAVVOM-C11,True,MAVVOM-C11-S2-03,partly_supported,True,True,S2,,central,True,"The construction of a unitary highest weight module for the Lie algebra of SO+(L_R) is stated in p0142-s27, which is not cited; only the final step is in p0143-s01."
+MAVVOM-C11,True,MAVVOM-C11-S3-01,supported,True,True,S3,,useful,True,
+MAVVOM-C11,True,MAVVOM-C11-S3-02,supported,True,True,S3,,useful,True,"The atom calls Theorem 11.1(2) 'corank-based', yet its bound n−|λ̄|−1 does not involve the corank."
+MAVVOM-C11,True,MAVVOM-C11-S3-03,partly_supported,True,True,S3,,useful,True,"The atom says 'only one of two modules', but the source says 'either ... or' (at least one), and the reducibility of V_λ comes from p0147-s08, which is not cited."
+NACHR-C01,True,NACHR-C01-S1-01,supported,False,True,S1,,central,True,"Joins two separately assessable claims: PI3K phosphorylates Akt, and the cascade stimulates anti-apoptotic Bcl-2 family members."
+NACHR-C01,True,NACHR-C01-S1-02,supported,True,False,S2,NACHR-C01-S2-03,central,True,"This is a stepwise mechanistic cascade, so S2 fits better than S1."
+NACHR-C01,True,NACHR-C01-S1-03,supported,False,False,S3,NACHR-C01-S1-01,central,True,"Combines the depolarization-versus-PI3K distinction with a separate claim about the Ca2+-permeable α7's crucial role; the core content is a distinction, so S3 fits better."
+NACHR-C01,True,NACHR-C01-S2-01,supported,True,True,S2,,useful,True,
+NACHR-C01,True,NACHR-C01-S2-02,supported,True,True,S2,,useful,True,
+NACHR-C01,True,NACHR-C01-S2-03,supported,True,True,S2,NACHR-C01-S1-02,useful,True,"Omits that these findings come from Kihara et al. (2001), and 'The Src tyrosine kinase inhibitor' has no antecedent (the source says 'an inhibitor')."
+NACHR-C01,True,NACHR-C01-S3-01,supported,True,True,S3,,useful,True,
+NACHR-C01,True,NACHR-C01-S3-02,partly_supported,True,True,S3,,useful,True,The clause 'distinguishing it from the PI3K-Akt route' is editorial framing not stated in the cited sentences.
+NACHR-C01,True,NACHR-C01-S3-03,supported,True,True,S3,,peripheral,True,"This is a statement of uncertainty, of limited centrality."
+NACHR-C01,True,NACHR-C01-S3-04,supported,True,True,S3,,peripheral,True,"This is a single external study (Junyent et al. 2010) not tied to nAChR stimulation, so it is citation-level and of marginal relevance to the nAChR PI3K-Akt cascade."
+NACHR-C02,True,NACHR-C02-S1-01,supported,True,True,S1,,central,True,
+NACHR-C02,True,NACHR-C02-S1-02,supported,True,True,S1,,central,True,
+NACHR-C02,True,NACHR-C02-S1-03,supported,True,True,S1,,useful,True,
+NACHR-C02,True,NACHR-C02-S2-01,supported,True,True,S2,,central,True,
+NACHR-C02,True,NACHR-C02-S2-02,supported,True,True,S2,,useful,True,
+NACHR-C02,True,NACHR-C02-S2-03,partly_supported,False,True,S2,,useful,True,"Joins the 4-day enhancement finding with separate inhibitor experiments that the source describes only as long-term, not 4-day; the pathway conclusion relies on uncited s11."
+NACHR-C02,True,NACHR-C02-S3-01,partly_supported,True,True,S3,NACHR-C02-S3-03,central,True,"s04 refers to nAChR density after abstinence from nicotine treatment (Pietila et al.), not specifically to α4β2 receptors in smokers."
+NACHR-C02,True,NACHR-C02-S3-02,partly_supported,False,True,S3,,useful,True,"Cohort totals of 54 and 56 are derived from uncited s06, and the sex-dependence and hormone conclusions come from uncited s05 and s10; the atom also combines the finding with the hypothesis."
+NACHR-C02,True,NACHR-C02-S3-03,partly_supported,True,True,S3,NACHR-C02-S3-01,useful,True,Drops the hedge: the source says the 4-h decrease 'could be attributed' to competitive inhibition; the atom also omits that this study was male-only.
+NACHR-C03,True,NACHR-C03-S1-01,supported,True,True,S1,,central,True,
+NACHR-C03,True,NACHR-C03-S1-02,partly_supported,True,True,S1,,central,True,The phrase 'when given beforehand' is added; s14 states only that they inhibited toxicity and that concomitant addition did not protect.
+NACHR-C03,True,NACHR-C03-S1-03,partly_supported,False,False,S2,NACHR-C03-S2-03,useful,True,"The 'strongly suggest a mechanism other than AChE inhibition' inference comes from uncited s11, and the atom duplicates S2-03."
+NACHR-C03,True,NACHR-C03-S2-01,supported,True,True,S2,,central,True,
+NACHR-C03,True,NACHR-C03-S2-02,supported,True,True,S2,,central,True,"The long-exposure premise relies on s17, which is not cited."
+NACHR-C03,True,NACHR-C03-S2-03,supported,True,True,S2,NACHR-C03-S1-03,useful,True,Nearly identical to S1-03.
+NACHR-C03,True,NACHR-C03-S3-01,supported,True,True,S3,,useful,True,
+NACHR-C03,True,NACHR-C03-S3-02,supported,True,True,S3,,useful,True,
+NACHR-C03,True,NACHR-C03-S3-03,supported,False,False,S1,,useful,True,Joins an in vitro finding and an in vivo ischemia finding; these are examples of time dependence rather than a boundary.
+NACHR-C06,True,NACHR-C06-S1-01,supported,True,True,S1,,central,True,
+NACHR-C06,True,NACHR-C06-S1-02,supported,False,False,S1,,peripheral,True,"Mixes a knowledge-gap statement with a historical claim; history is excluded from S1, and no label fits well."
+NACHR-C06,True,NACHR-C06-S1-03,supported,True,True,S1,,useful,True,
+NACHR-C06,True,NACHR-C06-S2-01,supported,False,True,S2,,central,True,"Bundles the inhibitor findings, the non-effector findings and the authors' inference into one atom."
+NACHR-C06,True,NACHR-C06-S2-02,supported,False,True,S2,,central,True,"Compound atom; the ERK and late-LTP details come from s10, which is not cited."
+NACHR-C06,True,NACHR-C06-S2-03,partly_supported,False,True,S2,,central,True,"Adds 'rat striatal', which the cited sentences do not specify for TEA/HC-3, and drops the source hedge ('it is possible ... may be')."
+NACHR-C06,True,NACHR-C06-S3-01,supported,False,True,S3,,central,True,Long compound atom joining the experimental finding with the inference about choline recycling.
+NACHR-C06,True,NACHR-C06-S3-02,partly_supported,False,True,S3,,useful,False,"The 'unlike AChE' contrast is the card's own synthesis across sections, not a contrast the source draws."
+NACHR-C06,True,NACHR-C06-S3-03,supported,False,False,S2,,useful,True,"Joins an assay condition, the suppression by AChE inhibitors and a hypothesis; the pharmacology fits S2 rather than S3."
+NACHR-C07,True,NACHR-C07-S1-01,supported,True,True,S1,,central,True,
+NACHR-C07,True,NACHR-C07-S1-02,supported,True,True,S1,,useful,True,
+NACHR-C07,True,NACHR-C07-S1-03,supported,False,False,S3,NACHR-C07-S3-03,useful,True,"Joins the fact that microglia have functional transporters with a quantitative contrast to astrocytes, which is an S3 boundary already covered in S3-03."
+NACHR-C07,True,NACHR-C07-S2-01,supported,False,True,S2,,central,True,"Bundles three independently assessable experiments (FGF-2 induction, recombinant FGF-2 effect, FGFR inhibitor block) into one atom."
+NACHR-C07,True,NACHR-C07-S2-02,supported,False,True,S2,,central,True,Combines the PLC/IP3 Ca2+ source finding (Suzuki 2006) with a separate IP3-receptor-block experiment on GLAST expression.
+NACHR-C07,True,NACHR-C07-S2-03,supported,True,True,S2,,central,True,
+NACHR-C07,True,NACHR-C07-S3-01,supported,True,True,S3,,useful,True,
+NACHR-C07,True,NACHR-C07-S3-02,supported,False,False,S2,,useful,True,"The time delay and the cycloheximide evidence for a protein intermediary describe mechanism (S2), not a boundary; the atom also joins two findings."
+NACHR-C07,True,NACHR-C07-S3-03,partly_supported,False,True,S3,NACHR-C07-S1-03,useful,True,"The 90% astrocytic clearance figure comes from uncited p0083-s14 (cited p0084-s03 gives the microglial 10%), and 'proposed' softens the source's assertive 'serve as a back-up'."
+NACHR-C09,True,NACHR-C09-S1-01,supported,True,True,S1,,central,True,
+NACHR-C09,True,NACHR-C09-S1-02,supported,True,True,S1,,useful,True,
+NACHR-C09,True,NACHR-C09-S1-03,supported,False,True,S1,,useful,True,"Joins microglial accumulation on Aβ, α7 expression with the APL site, and FK1 recognition."
+NACHR-C09,True,NACHR-C09-S2-01,supported,False,True,S2,,central,True,Combines the inference with its supporting choline-depletion finding.
+NACHR-C09,True,NACHR-C09-S2-02,supported,False,True,S2,NACHR-C09-S3-03,central,True,"Joins Ca2+ dependence, inhibitor results and the pathway inference; the Ca2+ part duplicates S3-03."
+NACHR-C09,True,NACHR-C09-S2-03,supported,False,False,S2,,useful,True,"Joins an in vivo result with the authors' mechanistic suggestion; it is an empirical outcome, so the S2 label is only loosely fitting."
+NACHR-C09,True,NACHR-C09-S3-01,supported,True,True,S3,,central,True,
+NACHR-C09,True,NACHR-C09-S3-02,supported,False,True,S3,,useful,True,"Bundles three outcomes (galantamine alone, nicotine alone, combination); also outside the microglial focus."
+NACHR-C09,True,NACHR-C09-S3-03,supported,True,True,S3,NACHR-C09-S2-02,useful,True,Largely contained in S2-02's Ca2+ claim.
+NACHR-C11,True,NACHR-C11-S1-01,supported,True,False,S2,,peripheral,True,"Cell-type localization is a descriptive finding about expression, not a definition; it is a side detail and also a finding, not an identifying characteristic."
+NACHR-C11,True,NACHR-C11-S1-02,supported,False,False,S1,NACHR-C11-S1-03,central,True,"Joins the discovery history (isolation from methamphetamine-treated mouse NAc) with the enzymatic identity; the history part is excluded from S1, and the identification part duplicates S1-03."
+NACHR-C11,True,NACHR-C11-S1-03,supported,True,True,S1,NACHR-C11-S1-02,central,True,Largely contained in S1-02; the renaming clause is minor history.
+NACHR-C11,True,NACHR-C11-S2-01,partly_supported,False,True,S2,NACHR-C11-S3-02,central,True,"Cited sentences cover only the LY341495 reversal; the suppression of hyperlocomotion, place preference and DA is stated in s04/s05, not cited. It also joins behavioral and DA findings with an interpretation."
+NACHR-C11,True,NACHR-C11-S2-02,supported,False,True,S2,,central,True,"Combines the axon-not-dendrite finding, the ATP increase and the mGluR3-independence interpretation into one atom."
+NACHR-C11,True,NACHR-C11-S2-03,supported,False,True,S2,,central,True,"Joins NAAG synthesis, mGluR3 action and GCPII metabolism, and the GCPII step is cited from s10, which is not among the evidence_ids."
+NACHR-C11,True,NACHR-C11-S3-01,partly_supported,False,True,S3,,useful,True,"Joins region-specific expression with several separate behavioral null results; the cited sentences do not cover the Y maze, novel object or light/dark box findings, which are in s08-s12."
+NACHR-C11,True,NACHR-C11-S3-02,supported,True,True,S3,NACHR-C11-S2-01,central,True,The methamphetamine contrast partly restates S2-01; it also mixes the LY341495 specificity as mGluR2/3 antagonist.
+NACHR-C11,True,NACHR-C11-S3-03,supported,False,True,S3,,peripheral,True,"Joins a failed replication with a speculative explanation and a hedged 'most likely' conclusion; the finding is a negative, hypothesis-level result."
+NACHR-C12,True,NACHR-C12-S1-01,supported,True,True,S1,,central,True,
+NACHR-C12,True,NACHR-C12-S1-02,supported,True,True,S1,,central,True,It omits that the source offers the regimen difference only as a possible cause of the discrepancies.
+NACHR-C12,True,NACHR-C12-S1-03,supported,True,True,S1,NACHR-C12-S3-03,central,True,
+NACHR-C12,True,NACHR-C12-S2-01,supported,False,True,S2,,useful,True,It joins cytokine/chemokine upregulation and augmented leukocyte infiltration; the mouse species and osmotic-pump route come from uncited s04/s05.
+NACHR-C12,True,NACHR-C12-S2-02,supported,True,True,S2,,useful,True,The increased infarct size rests on the uncited p0129-s17.
+NACHR-C12,True,NACHR-C12-S2-03,supported,False,True,S2,,useful,True,"It bundles the blood-flow decrease, a vague 'worsened outcome', and the tPA-depletion hypothesis into one atom."
+NACHR-C12,True,NACHR-C12-S3-01,partly_supported,True,True,S3,,useful,True,"The 'low-dose' framing is not stated for the Lim study, and the regimen included pretreatment starting 1 week before stroke."
+NACHR-C12,True,NACHR-C12-S3-02,supported,True,True,S3,,useful,True,
+NACHR-C12,True,NACHR-C12-S3-03,partly_supported,True,True,S3,NACHR-C12-S1-03,useful,True,The closing clause about 'regimens modeling chronic exposure' is an added interpretation not stated in s12.
+NACHR-C13,True,NACHR-C13-S1-01,supported,True,True,S1,,central,True,
+NACHR-C13,True,NACHR-C13-S1-02,supported,True,True,S1,,useful,True,"This is a nicotine-specific finding rather than an α7-agonist one, and it carries citation-level dosing details."
+NACHR-C13,True,NACHR-C13-S1-03,supported,True,True,S1,,central,True,
+NACHR-C13,True,NACHR-C13-S2-01,supported,True,True,S2,,central,True,
+NACHR-C13,True,NACHR-C13-S2-02,supported,True,True,S2,,central,True,
+NACHR-C13,True,NACHR-C13-S2-03,supported,True,True,S2,,useful,True,
+NACHR-C13,True,NACHR-C13-S3-01,supported,True,True,S3,,central,True,
+NACHR-C13,True,NACHR-C13-S3-02,supported,False,False,S3,,peripheral,True,This joins the rationale for striatal focus with the cortical-hemorrhage incidence and research gap; it is research context rather than a boundary of the concept.
+NACHR-C13,True,NACHR-C13-S3-03,partly_supported,False,True,S3,,useful,False,The contrast with the α7-dominant in vivo striatal picture is added by the card and is not drawn in the cited sentences.
+NACHR-C13,True,NACHR-C13-S3-04,supported,False,True,S3,,peripheral,True,This is a narrative design-history detail based on unpublished observations; the atom omits the unpublished qualifier.
+NACHR-C15,True,NACHR-C15-S1-01,supported,True,True,S1,NACHR-C15-S1-03,central,True,
+NACHR-C15,True,NACHR-C15-S1-02,supported,True,False,S2,,central,True,"The trigger-to-brain-excretion claim is a proposed mechanism, so it fits S2 rather than S1."
+NACHR-C15,True,NACHR-C15-S1-03,supported,True,True,S1,NACHR-C15-S1-01,useful,True,It largely restates S1-01's framing of E-BARS as a therapeutic proposal.
+NACHR-C15,True,NACHR-C15-S1-04,supported,True,False,S2,,useful,True,"This defines a measurement metric rather than the concept itself, so S2 fits better; the percent (×100) form is unclear from the garbled text."
+NACHR-C15,True,NACHR-C15-S2-01,supported,True,True,S2,,central,True,
+NACHR-C15,True,NACHR-C15-S2-02,supported,True,True,S2,,useful,True,It is number-heavy; the significantly higher efficiency for Aβ1–40 than for Aβ1–42 would be a more conceptual target.
+NACHR-C15,True,NACHR-C15-S2-03,supported,True,True,S2,,central,True,
+NACHR-C15,True,NACHR-C15-S3-01,supported,False,True,S3,,peripheral,True,It bundles the smoker/non-smoker contrast with the 'reason unclear' remark and omits the sex-ratio confound the authors flag (p0191-s06–s07).
+NACHR-C15,True,NACHR-C15-S3-02,supported,True,True,S3,,useful,True,
+NACHR-C15,True,NACHR-C15-S3-03,partly_supported,True,True,S3,,useful,True,"It narrows the evidential basis to neuritic plaque counts (the source cites overall lower Aβ accumulation and fewer neuritic and cored plaques), and 'only' adds editorial emphasis."

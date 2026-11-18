@@ -1,0 +1,34 @@
+{
+ "batch_id": "KGBDP-C01",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: RDF Mapping Language\nASSESSMENT SCOPE: RML as an R2RML superset for generating RDF from heterogeneous sources: Logical Source, Reference Formulation, iterator, logical reference, Language Map, and FnO Function Map. Includes the contrast with R2RML, xR2RML and KR2RML; excludes the other tools in the chapter.\n\nATOMS:\n- KGBDP-C01-S1-02 | S1\n  ATOM: RML is a superset of R2RML that aims to extend R2RML's applicability and broaden its scope by adding support for heterogeneous data.\n  EVIDENCE:\n    [KGBDP-p0069-s10] RML is a superset of R2RML, aiming to extend its applicability and broaden its scope, adding support for heterogeneous data.\n- KGBDP-C01-S2-04 | S2\n  ATOM: In RML the iterator (rml:iterator) determines the iteration pattern over the data source and specifies the extract of the data taken during each iteration.\n  EVIDENCE:\n    [KGBDP-p0071-s04] Thereafter, the iterator (rml:iterator) is introduced (Listing 4.7, line 5).\n    [KGBDP-p0071-s05] The iterator determines the iteration pattern over the data source and specifies the extract of the data during each iteration.",
+ "raw": "{\n  \"units\": {\n    \"KGBDP-C01-S1-02\": {\n      \"GROUNDED\": {\n        \"v\": \"pass\",\n        \"cite\": [\"KGBDP-p0069-s10\"]\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"pass\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"pass\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"pass\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    },\n    \"KGBDP-C01-S2-04\": {\n      \"GROUNDED\": {\n        \"v\": \"pass\",\n        \"cite\": [\"KGBDP-p0071-s04\", \"KGBDP-p0071-s05\"]\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"revise\",\n        \"why\": \"It separately claims that the iterator determines the iteration pattern and specifies the data extract for each iteration.\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"pass\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"pass\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    }\n  },\n  \"batch\": {\n    \"CONCEPT_SCOPE\": {\n      \"v\": \"pass\"\n    }\n  }\n}",
+ "usage": {
+  "completion_tokens": 363,
+  "prompt_tokens": 915,
+  "total_tokens": 1278,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 363
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 915,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00546000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:02:25+00:00"
+}

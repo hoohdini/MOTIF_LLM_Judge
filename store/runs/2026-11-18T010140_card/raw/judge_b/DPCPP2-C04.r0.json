@@ -1,0 +1,28 @@
+{
+ "batch_id": "DPCPP2-C04",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Data dependences\nASSESSMENT SCOPE: Covers RAW, WAR and WAW dependences (and RAR as non-constraining) as expressed through accessors in the task graph DAG, and what they imply for ordering and data movement. Excludes event-based and in-order queue mechanisms except as contrast.\n\nATOMS:\n- DPCPP2-C04-S1-01 | S1\n  ATOM: A Read-after-Write (RAW) dependence occurs when one task needs to read data produced by a different task, and it describes the flow of data between the two kernels.\n  EVIDENCE:\n    [DPCPP2-p0230-s08] The first, Read-after-Write (RAW), occurs when one task needs to read data produced by a different task.\n    [DPCPP2-p0230-s09] This type of dependence describes the flow of data between two kernels.\n- DPCPP2-C04-S2-03 | S2\n  ATOM: RAW dependences ensure that data flows in the correct direction between computations, while WAR dependences ensure that existing values are not overwritten before they are read.\n  EVIDENCE:\n    [DPCPP2-p0121-s05] RAW dependences ensure that data properly flows in the correct direction, while WAR dependences ensure existing values are not overwritten before they are read.",
+ "raw": "{\"units\": {\"DPCPP2-C04-S1-01\": {\"GROUNDED\": {\"v\": \"pass\", \"cite\": [\"DPCPP2-p0230-s08\", \"DPCPP2-p0230-s09\"]}, \"SINGLE_CLAIM\": {\"v\": \"pass\"}, \"SCOPE_LABEL\": {\"v\": \"pass\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"pass\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}, \"DPCPP2-C04-S2-03\": {\"GROUNDED\": {\"v\": \"revise\", \"why\": \"The atom adds 'between computations', which is not stated in the cited evidence sentence.\"}, \"SINGLE_CLAIM\": {\"v\": \"revise\", \"why\": \"Joins two separate claims: what RAW dependences ensure and what WAR dependences ensure.\"}, \"SCOPE_LABEL\": {\"v\": \"pass\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"pass\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}}, \"batch\": {\"CONCEPT_SCOPE\": {\"v\": \"pass\"}}}",
+ "usage": {
+  "completion_tokens": 286,
+  "prompt_tokens": 970,
+  "total_tokens": 1256,
+  "completion_tokens_details": {
+   "text_tokens": 286
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 970
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00480000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:03:39+00:00"
+}

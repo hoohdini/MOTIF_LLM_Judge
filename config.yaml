@@ -1,0 +1,58 @@
+store: store
+
+# 저지 정의. family는 독립성 판단에 쓴다 (생성 모델·평가 대상 모델과 같은 계열이면 제외).
+# provider: openai_compat (Letsur, OpenAI, Gemini 호환 엔드포인트, Ollama) / anthropic / mock
+judges:
+  judge_a:
+    provider: openai_compat
+    model: gpt-6.1-sol                 # GPT 계열 에셋 코드 (python check_letsur.py 로 확인)
+    family: openai
+    base_url_env: LETSUR_BASE_URL
+    key_env: LETSUR_API_KEY
+    max_tokens: 16000             # 추론 토큰까지 포함한 출력 상한
+    token_param: max_completion_tokens   # OpenAI 추론 모델은 max_tokens 대신 이 이름을 씀
+  judge_b:
+    provider: openai_compat
+    model: gemini-4-argon                # Gemini 계열 에셋 코드
+    family: google
+    base_url_env: LETSUR_BASE_URL
+    key_env: LETSUR_API_KEY
+    max_tokens: 16000
+    token_param: max_completion_tokens
+    # temperature는 넣지 않는다 (최신 Gemini에서 지원 중단)
+  judge_c:                        # 예비. 답변 채점에서 평가 대상과 계열이 겹칠 때 대신 들어간다
+    provider: openai_compat
+    model: SET_ME
+    family: oss
+    base_url_env: LETSUR_BASE_URL
+    key_env: LETSUR_API_KEY
+    max_tokens: 16000
+  reviser:                        # atom 자동 분리·수정 담당. 판정이 아니므로 어느 계열이든 된다
+    provider: openai_compat
+    model: SET_ME
+    family: reviser
+    base_url_env: LETSUR_BASE_URL
+    key_env: LETSUR_API_KEY
+    max_tokens: 8000
+  mock_a: {provider: mock, model: mock, family: mock_a}
+  mock_b: {provider: mock, model: mock, family: mock_b}
+
+generator_family: anthropic        # 카드·문항 생성 모델 계열. 이 계열 저지는 카드·문항 검수에서 거부된다
+
+stages:
+  card:   {judges: [judge_a, judge_b]}
+  item:   {judges: [judge_a, judge_b]}
+  answer: {judges: [judge_a, judge_b, judge_c], n_judges: 2}   # 앞에서부터 평가 대상과 계열이 다른 2개를 고른다
+
+# 평가 대상 모델명 → 계열 (앞부분 일치)
+target_families:
+  gpt: openai
+  o: openai
+  gemini: google
+  claude: anthropic
+
+policy:
+  math_evidence: judge       # judge = 저지가 판단 (읽을 수 없으면 저지가 hold) / hold = 수식이 깨진 근거에 의존하는 체크는 전부 사람에게
+  revise_max_rounds: 1       # 자동 수정본이 또 revise를 받으면 보류(사람)
+  human_sample_rate: 0.08    # 만장일치 판정 중 사람이 무작위로 확인할 비율
+  seed: 7

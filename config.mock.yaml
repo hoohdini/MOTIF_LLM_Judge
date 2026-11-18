@@ -1,0 +1,40 @@
+# API 없이 전체 흐름을 확인하는 모의 설정. 판정 내용은 무작위라 의미가 없다.
+store: store_mock
+judges:
+  mock_a:
+    provider: mock
+    model: mock
+    family: mock_a
+  mock_b:
+    provider: mock
+    model: mock
+    family: mock_b
+  reviser:
+    provider: mock
+    model: mock
+    family: mock_r
+generator_family: anthropic
+stages:
+  card:
+    judges:
+    - mock_a
+    - mock_b
+  item:
+    judges:
+    - mock_a
+    - mock_b
+  answer:
+    judges:
+    - mock_a
+    - mock_b
+    n_judges: 2
+target_families:
+  gpt: openai
+  o: openai
+  gemini: google
+  claude: anthropic
+policy:
+  math_evidence: judge
+  revise_max_rounds: 1
+  human_sample_rate: 0.08
+  seed: 7

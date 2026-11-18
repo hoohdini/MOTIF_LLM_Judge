@@ -1,0 +1,28 @@
+{
+ "batch_id": "FPPROG-C05",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Probabilistic coupling\nASSESSMENT SCOPE: Couplings and R-liftings of sub-distributions, their consequences (equal weight, equality, stochastic domination via Strassen's theorem, TV-distance bound), sequential composition and proof by coupling. Excludes approximate and expectation couplings except as brief contrast.\n\nATOMS:\n- FPPROG-C05-S2-02 | S2\n  ATOM: Two sub-distributions $\\mu_1$ and $\\mu_2$ over the same set are equal if and only if they are related by the lifting of the equality relation, $\\mu_1\\,(=)^\\sharp\\,\\mu_2$.\n  EVIDENCE:\n    [FPPROG-p0167-s21] Proposition 5.10 (Equality of distributions) Suppose μ1 and μ2 are two subdistributions over A.\n    [FPPROG-p0167-s22] Then μ1 = μ2 if and only if μ1 (=)♯μ2.\n- FPPROG-C05-S3-03 | S3\n  ATOM: Since any two proper distributions can be coupled by the independent (trivial) coupling $\\mu_\\times(a_1,a_2)=\\mu_1(a_1)\\mu_2(a_2)$, the mere existence of a coupling yields little information, and couplings become useful when the joint distribution satisfies additional conditions such as its support satisfying some property.\n  EVIDENCE:\n    [FPPROG-p0166-s15] Since any two proper distributions can be coupled by the trivial coupling, the mere existence of a coupling yields little information.\n    [FPPROG-p0166-s16] Couplings are more useful when the joint distribution satisfies additional conditions, for instance when all elements in the support satisfy some property.",
+ "raw": "{\"units\": {\"FPPROG-C05-S2-02\": {\"GROUNDED\": {\"v\": \"pass\", \"cite\": [\"FPPROG-p0167-s21\", \"FPPROG-p0167-s22\"]}, \"SINGLE_CLAIM\": {\"v\": \"pass\"}, \"SCOPE_LABEL\": {\"v\": \"pass\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"pass\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}, \"FPPROG-C05-S3-03\": {\"GROUNDED\": {\"v\": \"revise\", \"why\": \"Evidence mentions 'trivial coupling' but does not state that it is the independent coupling or give the formula $\\\\mu_\\\\times(a_1,a_2)=\\\\mu_1(a_1)\\\\mu_2(a_2)$.\"}, \"SINGLE_CLAIM\": {\"v\": \"revise\", \"why\": \"Joins multiple claims: definition of trivial coupling, that any two proper distributions have one, and when couplings become useful.\"}, \"SCOPE_LABEL\": {\"v\": \"pass\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"pass\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}}, \"batch\": {\"CONCEPT_SCOPE\": {\"v\": \"pass\"}}}",
+ "usage": {
+  "completion_tokens": 326,
+  "prompt_tokens": 1064,
+  "total_tokens": 1390,
+  "completion_tokens_details": {
+   "text_tokens": 326
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 1064
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00538800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:01:57+00:00"
+}

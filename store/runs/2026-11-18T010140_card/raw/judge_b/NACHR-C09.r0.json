@@ -1,0 +1,28 @@
+{
+ "batch_id": "NACHR-C09",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Galantamine allosteric potentiation\nASSESSMENT SCOPE: In scope: galantamine as an allosteric potentiating ligand of nAChRs (FK1-antibody site), requirement for choline as co-agonist, Ca2+–CaM–CaMKII-dependent microglial Aβ phagocytosis, and in vivo outcomes. Excluded: other AChE inhibitors.\n\nATOMS:\n- NACHR-C09-S3-03 | S3\n  ATOM: In cultured rat microglia, galantamine and nicotine significantly enhanced Aβ phagocytosis in Ca2+-containing medium but not in Ca2+-free medium, whereas baseline phagocytosis without either drug was almost the same in both media.\n  EVIDENCE:\n    [NACHR-p0151-s12] In the absence of galantamine or nicotine, the levels of microglial Aβ phagocytosis were almost the same in Ca2+ (−) or Ca2+ (+) DMEM.\n    [NACHR-p0151-s13] Galantamine and nicotine significantly enhanced microglial Aβ phagocytosis in Ca2+ (+) DMEM, but not in Ca2+ (−) condition.",
+ "raw": "{\"units\": {\"NACHR-C09-S3-03\": {\"GROUNDED\": {\"v\": \"revise\", \"why\": \"The supplied evidence sentences do not mention 'cultured rat' microglia.\"}, \"SINGLE_CLAIM\": {\"v\": \"revise\", \"why\": \"Combines three claims: galantamine enhancement requires Ca2+, nicotine enhancement requires Ca2+, and baseline phagocytosis is unaffected by Ca2+.\"}, \"SCOPE_LABEL\": {\"v\": \"revise\", \"why\": \"S2: Describes the Ca2+-dependent mechanism of galantamine-enhanced Aβ phagocytosis.\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"fail\", \"why\": \"Describes the specific experimental assay results of a single study.\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}}, \"batch\": {\"CONCEPT_SCOPE\": {\"v\": \"fail\", \"why\": \"Although the title is a general concept, the assessment scope restricts it to a specific microglial Aβ phagocytosis study's findings.\"}}}",
+ "usage": {
+  "completion_tokens": 240,
+  "prompt_tokens": 921,
+  "total_tokens": 1161,
+  "completion_tokens_details": {
+   "text_tokens": 240
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 921
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00424200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:10:06+00:00"
+}

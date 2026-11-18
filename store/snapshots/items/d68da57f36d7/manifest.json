@@ -1,0 +1,45 @@
+{
+ "kind": "items",
+ "sha": "d68da57f36d7",
+ "rows": 800,
+ "sources": [
+  {
+   "file": "items.CART.jsonl",
+   "sha256": "0d9fb6a27220a9a070198c72f83ccfec5dd4b7682bf6d47f0bdf46588cb7e706"
+  },
+  {
+   "file": "items.DPCPP2.jsonl",
+   "sha256": "ea64e9a87a413ecd081f1a17a01c74e2406528ae5e571ffc980ec7a308cbfdca"
+  },
+  {
+   "file": "items.FPPROG.jsonl",
+   "sha256": "69d9f345a2a163871707015492ac52128a3ba39209ed8a68169931ee0a9e64ec"
+  },
+  {
+   "file": "items.HMDEND.jsonl",
+   "sha256": "8a1b921d4640176623cf5efde2110d213f0aa2728a3d6c71673c6661c8792bea"
+  },
+  {
+   "file": "items.IVFLUID.jsonl",
+   "sha256": "4b7071e754272df1b2ac991d306d4bcd6c70ffe3c9256b8c62b1205731c96beb"
+  },
+  {
+   "file": "items.KGBDP.jsonl",
+   "sha256": "a1be0958c9cda4d64e0891f696cdf5f23df94c9e1ce006e6d1a6bb13211823b4"
+  },
+  {
+   "file": "items.LAPINF.jsonl",
+   "sha256": "cbf5c6c2b4de005a88771524e14e3462319aa7a9e3070ee442f8870c857d31ed"
+  },
+  {
+   "file": "items.MAVVOM.jsonl",
+   "sha256": "b6fefd189aa17a00b0615336c8ddd87356b59d04f553434b12f4ad7e01587cc0"
+  },
+  {
+   "file": "items.NACHR.jsonl",
+   "sha256": "332c3c2a8326f1dd2332a2c724c111656c91ae49b9d6c05c3d5358ff93a0684f"
+  }
+ ],
+ "label": "윤상 v2",
+ "ingested_at": "2026-11-18T00:49:09+00:00"
+}

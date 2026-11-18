@@ -1,0 +1,28 @@
+{
+ "batch_id": "CART-C10",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: immune monitoring\nASSESSMENT SCOPE: Post-infusion monitoring of CAR-T cells: dPCR/qPCR versus flow cytometry, expansion parameters (Cmax, AUC0-28), monitoring schedules, and surveillance of non-CAR immune cells and cytokines. Excludes toxicity grading.\n\nATOMS:\n- CART-C10-S2-02 | S2\n  ATOM: Flow cytometry detects CAR-T cells either directly with mAbs recognizing the CAR (idiotype, linker region) or a tag in the CAR construct, or indirectly with antigen-Fc chimeric proteins that require a secondary fluorochrome-labelled anti-Fc or anti-biotin mAb.\n  EVIDENCE:\n    [CART-p0168-s09] Identification of CAR-T cells by flow cytometry (CMF) can be performed by using monoclonal antibodies (mAbs) directly recognizing the CAR (idiotype, linker region) or a specific tag included in the CAR construct.\n    [CART-p0168-s10] Alternatively, indirect detection can be achieved using antigen-Fc chimeric proteins containing the CAR target antigen fused to a human IgG Fc fragment.\n    [CART-p0168-s11] A secondary staining step is required for the detection of CAR-expressing cells with an anti-Fc or anti-biotin (if the antigen­Fc is biotinylated) mAb labelled with a fluorochrome (Hu and Huang 2020).",
+ "raw": "{\"units\": {\"CART-C10-S2-02\": {\"GROUNDED\": {\"v\": \"pass\", \"cite\": [\"CART-p0168-s09\", \"CART-p0168-s10\", \"CART-p0168-s11\"]}, \"SINGLE_CLAIM\": {\"v\": \"revise\", \"why\": \"Combines two distinct mechanisms: direct detection (mAbs against CAR/tag) and indirect detection (antigen-Fc chimeric proteins plus secondary mAb).\"}, \"SCOPE_LABEL\": {\"v\": \"pass\"}, \"L1_ONLY\": {\"v\": \"pass\"}, \"SOURCE_INDEPENDENT\": {\"v\": \"pass\"}, \"NO_OVERLAP\": {\"v\": \"pass\"}, \"CENTRALITY\": {\"v\": \"pass\"}}}, \"batch\": {\"CONCEPT_SCOPE\": {\"v\": \"pass\"}}}",
+ "usage": {
+  "completion_tokens": 193,
+  "prompt_tokens": 982,
+  "total_tokens": 1175,
+  "completion_tokens_details": {
+   "text_tokens": 193
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 982
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00389400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:07:05+00:00"
+}

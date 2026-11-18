@@ -1,0 +1,31 @@
+{
+ "batch_id": "DPCPP2-C05",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: SYCL reduction library\nASSESSMENT SCOPE: Covers the reduction function and reducer class, scalar vs array reductions, result-availability and access restrictions, identity values for user-defined reductions, and implementation-defined return type. Excludes hand-written reduction kernels beyond contrast.\n\nATOMS:\n- DPCPP2-C05-S1-03 | S1\n  ATOM: A reduction initialized with a buffer or a USM pointer is a scalar reduction operating on the first object in an array, whereas a reduction initialized with a span is an array reduction.\n  EVIDENCE:\n    [DPCPP2-p0385-s02] If a reduction is initialized using a buffer or a USM pointer, the\n    [DPCPP2-p0385-s03] reduction is a scalar reduction, operating on the first object in an array.\n- DPCPP2-C05-S2-03 | S2\n  ATOM: Every SYCL reducer provides a combine() function that combines the partial result from a single work-item with the value of the reduction variable, and its behavior is implementation-defined.\n  EVIDENCE:\n    [DPCPP2-p0387-s02] Specifically, every reducer provides a combine() function which\n    [DPCPP2-p0387-s03] combines the partial result (from a single work-item) with the value of the reduction variable.\n    [DPCPP2-p0387-s04] How this combine function behaves is implementation-defined but is not something that we need to worry about when writing a kernel.",
+ "raw": "{\n  \"units\": {\n    \"DPCPP2-C05-S1-03\": {\n      \"GROUNDED\": {\n        \"v\": \"revise\",\n        \"why\": \"The evidence supports scalar reductions initialized with buffers or USM pointers, but does not state that span initialization creates an array reduction.\"\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"revise\",\n        \"why\": \"Combines separately assessable claims about buffer/USM initialization and span initialization.\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"pass\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"pass\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    },\n    \"DPCPP2-C05-S2-03\": {\n      \"GROUNDED\": {\n        \"v\": \"pass\",\n        \"cite\": [\n          \"DPCPP2-p0387-s02\",\n          \"DPCPP2-p0387-s03\",\n          \"DPCPP2-p0387-s04\"\n        ]\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"revise\",\n        \"why\": \"Combines the availability and purpose of combine() with the separate claim that its behavior is implementation-defined.\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"pass\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"pass\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    }\n  },\n  \"batch\": {\n    \"CONCEPT_SCOPE\": {\n      \"v\": \"pass\"\n    }\n  }\n}",
+ "usage": {
+  "completion_tokens": 510,
+  "prompt_tokens": 939,
+  "total_tokens": 1449,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 939,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00697800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:03:39+00:00"
+}

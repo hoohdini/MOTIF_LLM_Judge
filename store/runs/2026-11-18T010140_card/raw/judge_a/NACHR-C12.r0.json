@@ -1,0 +1,31 @@
+{
+ "batch_id": "NACHR-C12",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / fail]: The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Nicotine dosing regimen effects\nASSESSMENT SCOPE: In scope: protective versus deleterious effects of nicotine/nAChR agonists in experimental ischemia depending on pretreatment versus post-treatment, continuous versus intermittent dosing and dose, and proposed mechanisms of harm. Excluded: hemorrhagic stroke.\n\nATOMS:\n- NACHR-C12-S1-03 | S1\n  ATOM: Virtually all experimental ischemia studies reporting deleterious effects of nicotine used continuous delivery by osmotic pumps or repeated daily administration at relatively high doses.\n  EVIDENCE:\n    [NACHR-p0137-s13] Namely, virtually all studies reporting the deleterious effects of nicotine performed continuous delivery by osmotic pumps or repeated daily administration of nicotine at relatively high doses.",
+ "raw": "{\n  \"units\": {\n    \"NACHR-C12-S1-03\": {\n      \"GROUNDED\": {\n        \"v\": \"revise\",\n        \"why\": \"The evidence states the dosing pattern but does not specify that the studies concern experimental ischemia.\"\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"pass\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"revise\",\n        \"why\": \"S2: Describes dosing regimens associated with deleterious effects, rather than defining the concept.\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"fail\",\n        \"why\": \"The 'virtually all studies' quantifier depends on the source's reviewed literature corpus, which the atom does not define.\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    }\n  },\n  \"batch\": {\n    \"CONCEPT_SCOPE\": {\n      \"v\": \"pass\"\n    }\n  }\n}",
+ "usage": {
+  "completion_tokens": 532,
+  "prompt_tokens": 782,
+  "total_tokens": 1314,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 782,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00688400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T01:10:06+00:00"
+}
