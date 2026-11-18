@@ -102,6 +102,34 @@ def _decision(res, defs, pass_values=("pass",)):
     return "pass" if all(v in pass_values for v in vs) else "hold"
 
 
+def _combine(ctx, res, defs, judges):
+    """두 저지(이상)의 판정을 단위 판정으로 합친다. policy.combine으로 고른다.
+    - "decision"(기본): 저지마다 자기 단위 판정을 낸 뒤, 통과/불통과가 같으면 확정한다.
+      둘 다 통과면 pass, 둘 다 불통과면 fail(둘 다 fail일 때만) 아니면 revise(일단 고쳐서 다시 검수),
+      한쪽만 통과면 hold(사람 검토). 어느 저지든 hold면 hold.
+    - "check": 체크마다 저지 전원이 같아야 확정하고, 하나라도 갈리면 hold (더 엄격, 사람 검토가 많음).
+    코드 검사, 사람이 체크 단위로 내린 판정, 수식 정책 hold는 두 방식 모두 그대로 적용된다."""
+    if ctx.cfg.get("policy", {}).get("combine", "decision") == "check" or len(judges) < 2:
+        return _decision(res, defs)
+    blk = [n for n, d in defs.items() if d["severity"] == "blocker"]
+    fixed = [res[n]["v"] for n in blk if res[n]["src"] != "judges"]
+    if "fail" in fixed:
+        return "fail"
+    per_j = {}
+    for j in judges:
+        vs = [res[n]["by"].get(j, "pending") if res[n]["src"] == "judges" else res[n]["v"] for n in blk]
+        per_j[j] = next((k for k in ("fail", "pending", "hold", "revise") if k in vs), "pass")
+    ds = set(per_j.values())
+    for k in ("pending", "hold"):
+        if k in ds:
+            return k
+    if ds == {"pass"}:
+        return "pass"
+    if "pass" in ds:
+        return "hold"
+    return "fail" if ds == {"fail"} else "revise"
+
+
 def _unit_override(ctx, uid, uhash, use_human):
     if not use_human:
         return None
@@ -124,7 +152,7 @@ def decide_card(ctx, judges=None, use_human=True):
     for c in ctx.cards:
         for a in c["atoms"]:
             res = _resolve(ctx, a["atom_id"], a["_hash"], defs, judges, ctx.phash[gname], a["_garbled"], use_human)
-            d = _decision(res, defs)
+            d = _combine(ctx, res, defs, judges)
             if d == "revise" and a.get("rev_round", 0) >= ctx.cfg["policy"].get("revise_max_rounds", 1):
                 d = "hold"                                           # 자동 수정본이 또 걸리면 사람에게
             ov = _unit_override(ctx, a["atom_id"], a["_hash"], use_human)
@@ -146,7 +174,7 @@ def decide_item(ctx, judges=None, use_human=True):
     for it in ctx.items:
         defs = {**_code_defs("item"), **ctx.reg.applicable(g, it)}
         res = _resolve(ctx, it["item_id"], it["_hash"], defs, judges, ctx.phash[gname], it["_garbled"], use_human)
-        own = _decision(res, defs)
+        own = _combine(ctx, res, defs, judges)
         ov = _unit_override(ctx, it["item_id"], it["_hash"], use_human)
         a = atoms.get(it["atom_id"])
         if a is None or a["statement"] != it["atom_statement"]:

@@ -85,7 +85,7 @@ API 없이 흐름만 보고 싶으면 명령마다 `--config config.mock.yaml`�
 | stats | 저지 | 코드 | 일치도, 사람 대비 정확도, 카나리아 탐지율, 오류율 상한 |
 | release | 승인본 | 코드 | 태그별 보관, 롤백, 재현 확인 |
 
-합산 규칙: 사람 판정이 있으면 그것. 없으면 저지 전원이 같은 값일 때만 그 값, 엇갈리면 hold.
+합산 규칙: 사람 판정이 있으면 그것. 없으면 저지마다 단위 판정(통과/불통과)을 내고, 같으면 확정(둘 다 불통과면 둘 다 fail일 때만 fail, 아니면 revise), 갈리거나 한쪽이 hold면 hold. `policy.combine: check`로 바꾸면 체크 하나만 갈려도 hold.
 단위 판정은 blocker 체크 기준 fail > pending > hold > revise > pass.
 문항은 자기 atom이 pass일 때만 유효하고, atom이 수정되면 자동으로 `blocked`가 된다.
 
@@ -136,7 +136,7 @@ mock 저지의 판정은 무작위라 숫자에 의미는 없다. 흐름만 본�
 | --- | --- |
 | 체크 추가·기준 수정 | `checks.yaml` (desc가 프롬프트에 그대로 들어감) |
 | 저지 모델, 저지 수 | `config.yaml`의 `judges`, `stages` |
-| 사람 표본 비율, 수식 근거 정책, 수정 횟수 | `config.yaml`의 `policy` |
+| 사람 표본 비율, 수식 근거 정책, 수정 횟수, 두 저지 합산 규칙(`combine`) | `config.yaml`의 `policy` |
 | 프롬프트 문구 | `prompts/*.md` |
 
 체크 설명이나 프롬프트가 바뀌면 그 그룹의 기존 LLM 판정은 자동으로 무효(pending)가 되고 다시 돌릴 대상이 된다.

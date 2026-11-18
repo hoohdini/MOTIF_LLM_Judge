@@ -34,6 +34,7 @@ target_families:
   gemini: google
   claude: anthropic
 policy:
+  combine: decision         # decision = 저지별 최종 판정(통과/불통과)이 같으면 확정 / check = 체크 하나만 달라도 사람 검토
   math_evidence: judge
   revise_max_rounds: 1
   human_sample_rate: 0.08
