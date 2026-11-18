@@ -1,0 +1,263 @@
+{
+ "unit_card_calib": {
+  "n": 99,
+  "agree": 0.747,
+  "kappa": 0.321,
+  "llm_only": 25,
+  "human_only": 0
+ },
+ "unit_card_adjudication": {
+  "n": 14,
+  "agree": 1.0,
+  "kappa": NaN,
+  "llm_only": 0,
+  "human_only": 0
+ },
+ "unit_item_calib": {
+  "n": 91,
+  "agree": 0.659,
+  "kappa": 0.259,
+  "llm_only": 28,
+  "human_only": 3
+ },
+ "unit_item_adjudication": {
+  "n": 24,
+  "agree": 0.958,
+  "kappa": 0.0,
+  "llm_only": 0,
+  "human_only": 1
+ },
+ "unit_item_sample": {
+  "n": 81,
+  "agree": 0.802,
+  "kappa": 0.0,
+  "llm_only": 16,
+  "human_only": 0
+ },
+ "check_card_GROUNDED": {
+  "human": 4,
+  "llm": 61,
+  "both": 4,
+  "llm_confirmed_human": 39,
+  "llm_adj_right": 10,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 12,
+  "llm_recall": [
+   4,
+   4
+  ],
+  "judge_agree": 0.91
+ },
+ "check_card_SINGLE_CLAIM": {
+  "human": 48,
+  "llm": 78,
+  "both": 41,
+  "llm_confirmed_human": 57,
+  "llm_adj_right": 9,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 12,
+  "llm_recall": [
+   41,
+   48
+  ],
+  "judge_agree": 0.89
+ },
+ "check_card_SCOPE_LABEL": {
+  "human": 14,
+  "llm": 16,
+  "both": 5,
+  "llm_confirmed_human": 12,
+  "llm_adj_right": 3,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 1,
+  "llm_recall": [
+   5,
+   14
+  ],
+  "judge_agree": 0.92
+ },
+ "check_card_L1_ONLY": {
+  "human": 6,
+  "llm": 51,
+  "both": 5,
+  "llm_confirmed_human": 40,
+  "llm_adj_right": 6,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 5,
+  "llm_recall": [
+   5,
+   6
+  ],
+  "judge_agree": 0.77
+ },
+ "check_card_SOURCE_INDEPENDENT": {
+  "human": 17,
+  "llm": 41,
+  "both": 13,
+  "llm_confirmed_human": 29,
+  "llm_adj_right": 5,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 7,
+  "llm_recall": [
+   13,
+   17
+  ],
+  "judge_agree": 0.9
+ },
+ "labeled_card": 116,
+ "check_item_G1_SINGLE_ATOM": {
+  "human": 5,
+  "llm": 20,
+  "both": 4,
+  "llm_confirmed_human": 7,
+  "llm_adj_right": 4,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 9,
+  "llm_recall": [
+   4,
+   5
+  ],
+  "judge_agree": 0.94
+ },
+ "check_item_G2_NO_COMPUTATION": {
+  "human": 1,
+  "llm": 8,
+  "both": 1,
+  "llm_confirmed_human": 3,
+  "llm_adj_right": 3,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 2,
+  "llm_recall": [
+   1,
+   1
+  ],
+  "judge_agree": 0.96
+ },
+ "check_item_G3_FINAL_ANSWER": {
+  "human": 0,
+  "llm": 0,
+  "both": 0,
+  "llm_confirmed_human": 0,
+  "llm_adj_right": 0,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 0,
+  "llm_recall": [
+   0,
+   0
+  ],
+  "judge_agree": 1.0
+ },
+ "check_item_KEY_CORRECT": {
+  "human": 5,
+  "llm": 22,
+  "both": 5,
+  "llm_confirmed_human": 9,
+  "llm_adj_right": 4,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 9,
+  "llm_recall": [
+   5,
+   5
+  ],
+  "judge_agree": 0.94
+ },
+ "check_item_SINGLE_ANSWER": {
+  "human": 2,
+  "llm": 7,
+  "both": 2,
+  "llm_confirmed_human": 3,
+  "llm_adj_right": 3,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 1,
+  "llm_recall": [
+   2,
+   2
+  ],
+  "judge_agree": 0.95
+ },
+ "check_item_NO_LEAK": {
+  "human": 12,
+  "llm": 33,
+  "both": 12,
+  "llm_confirmed_human": 12,
+  "llm_adj_right": 10,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 11,
+  "llm_recall": [
+   12,
+   12
+  ],
+  "judge_agree": 0.92
+ },
+ "check_item_KP_IN_ATOM": {
+  "human": 1,
+  "llm": 5,
+  "both": 1,
+  "llm_confirmed_human": 2,
+  "llm_adj_right": 0,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 3,
+  "llm_recall": [
+   1,
+   1
+  ],
+  "judge_agree": 0.91
+ },
+ "check_item_YN_CASE_FORMAT": {
+  "human": 1,
+  "llm": 16,
+  "both": 1,
+  "llm_confirmed_human": 4,
+  "llm_adj_right": 8,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 4,
+  "llm_recall": [
+   1,
+   1
+  ],
+  "judge_agree": 0.96
+ },
+ "check_item_ONE_ELEMENT_CHANGE": {
+  "human": 1,
+  "llm": 18,
+  "both": 1,
+  "llm_confirmed_human": 3,
+  "llm_adj_right": 8,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 7,
+  "llm_recall": [
+   1,
+   1
+  ],
+  "judge_agree": 0.85
+ },
+ "check_item_NO_SOURCE_REF": {
+  "human": 1,
+  "llm": 1,
+  "both": 0,
+  "llm_confirmed_human": 0,
+  "llm_adj_right": 0,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 1,
+  "llm_recall": [
+   0,
+   1
+  ],
+  "judge_agree": 1.0
+ },
+ "check_item_AUTHOR_OPINION_RESOLVED": {
+  "human": 4,
+  "llm": 5,
+  "both": 0,
+  "llm_confirmed_human": 1,
+  "llm_adj_right": 0,
+  "llm_adj_wrong": 0,
+  "llm_unresolved": 4,
+  "llm_recall": [
+   0,
+   4
+  ],
+  "judge_agree": 0.97
+ },
+ "labeled_item": 191
+}
