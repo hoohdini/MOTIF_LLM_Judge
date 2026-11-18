@@ -58,12 +58,20 @@ class Ctx:
         return ok[: st.get("n_judges", 2)]
 
 
+def _human(ctx, r):
+    """판정에 반영할 사람 판정인가. policy.human_ignore_sources에 있는 출처(예: calib)는 통계에만 쓰고 판정에는 반영하지 않는다."""
+    if not r["judge"].startswith("human:"):
+        return False
+    src = (r.get("extra") or {}).get("source", "")
+    return src not in (ctx.cfg["policy"].get("human_ignore_sources") or [])
+
+
 def _resolve(ctx, uid, uhash, defs, judges, phash, garbled, use_human):
     rows = ctx.by_unit.get((uid, uhash), [])
     res = {}
     for name, d in defs.items():
         rs = [r for r in rows if r["check"] == name]
-        human = [r for r in rs if r["judge"].startswith("human:")]
+        human = [r for r in rs if _human(ctx, r)]
         if use_human and human:
             res[name] = {"v": human[-1]["v"], "src": human[-1]["judge"], "by": {}, "why": {human[-1]["judge"]: human[-1].get("why", "")}}
             continue
@@ -133,7 +141,7 @@ def _combine(ctx, res, defs, judges):
 def _unit_override(ctx, uid, uhash, use_human):
     if not use_human:
         return None
-    hs = [r for r in ctx.by_unit.get((uid, uhash), []) if r["check"] == "_UNIT" and r["judge"].startswith("human:")]
+    hs = [r for r in ctx.by_unit.get((uid, uhash), []) if r["check"] == "_UNIT" and _human(ctx, r)]
     return hs[-1] if hs else None
 
 

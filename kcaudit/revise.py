@@ -1,5 +1,6 @@
 """revise 판정 atom의 자동 분리·수정. 결과는 revisions 원장에 추가되고, 새 atom은 새 해시를 갖기 때문에
 다음 `run --stage card`에서 그 atom만 다시 검수된다. 원본 카드 스냅샷은 건드리지 않는다."""
+from concurrent.futures import ThreadPoolExecutor
 import json
 from string import Template
 from .common import now, load_prompt, parse_json
@@ -8,12 +9,13 @@ from .prechecks import CODE_VERSION
 from . import judges as J
 
 
-def run_revise(store, ctx, judge_id="reviser", limit=None):
+def run_revise(store, ctx, judge_id="reviser", limit=None, workers=1):
     cfg = ctx.cfg; P = load_prompt("prompts/atom_revise.v1.md")
     dec = decide_card(ctx); done = fail = 0
     targets = [(c, a) for c in ctx.cards for a in c["atoms"] if dec[a["atom_id"]]["decision"] == "revise"]
     run_id, rdir = store.new_run("revise", {"judge": cfg["judges"][judge_id], "targets": len(targets)}) if targets else (None, None)
-    for c, a in targets[:limit]:
+    def prep(ca):
+        c, a = ca
         d = dec[a["atom_id"]]
         findings = "\n".join(f"- {n}: {r['v']} — {' / '.join(r['why'].values())}" for n, r in d["checks"].items()
                              if r["v"] not in ("pass", "pending") and not n.startswith("A_"))
@@ -21,12 +23,22 @@ def run_revise(store, ctx, judge_id="reviser", limit=None):
         user = Template(P["user"]).safe_substitute(concept=c["concept_name"], atom_id=a["atom_id"], scope=a["scope"], statement=a["statement"],
                                                    evidence="\n".join(f"[{i}] {e['text']}" for i, e in ev.items()), findings=findings)
         spec = {"kind": "revise", "statement": a["statement"], "scope": a["scope"], "evidence_ids": list(ev)}
-        err = None
+        return c, a, ev, user, spec, findings
+
+    def call(job):
+        c, a, ev, user, spec, findings = job
         try:
             raw, usage = J.call(judge_id, cfg["judges"][judge_id], P["system"], user, spec)
-            parsed = parse_json(raw, "atoms")
+            return job, raw, usage, parse_json(raw, "atoms"), None
         except Exception as e:                                      # noqa: BLE001
-            raw, usage, parsed, err = None, {}, None, repr(e)
+            return job, None, {}, None, repr(e)
+
+    jobs = [prep(ca) for ca in targets[:limit]]
+    print(f"revise: {len(jobs)}건 시작 (동시 {workers}개)", flush=True)
+    pool = ThreadPoolExecutor(max_workers=workers)
+    for n, ((c, a, ev, user, spec, findings), raw, usage, parsed, err) in enumerate(pool.map(call, jobs), 1):
+        if n % 10 == 0 or n == len(jobs):
+            print(f"  진행 {n}/{len(jobs)}", flush=True)
         (rdir / "raw" / f"{a['atom_id']}.json").write_text(json.dumps(
             {"atom_id": a["atom_id"], "system": P["system"], "user": user, "raw": raw, "usage": usage, "error": err}, ensure_ascii=False, indent=1), encoding="utf-8")
         rnd = a.get("rev_round", 0) + 1

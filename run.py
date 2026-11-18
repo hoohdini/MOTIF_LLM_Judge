@@ -19,7 +19,7 @@ p.add_argument("--only", help="단위 id 목록 파일 (보정 세트 등)"); p.
 p.add_argument("--include-blocked", action="store_true", help="카드 검수가 끝나지 않은 atom의 문항도 검수"); p.add_argument("--limit", type=int)
 p.add_argument("--workers", type=int, default=1); p.add_argument("--stop-on-error", action="store_true"); p.add_argument("--allow-same-family", action="store_true")
 p = sub.add_parser("decide", help="현재 판정 요약"); p.add_argument("--stage", choices=["card", "item", "answer"], required=True); p.add_argument("--show", help="특정 단위 상세")
-p = sub.add_parser("revise", help="revise 판정 atom 자동 분리·수정"); p.add_argument("--judge", default="reviser"); p.add_argument("--limit", type=int)
+p = sub.add_parser("revise", help="revise 판정 atom 자동 분리·수정"); p.add_argument("--judge", default="reviser"); p.add_argument("--limit", type=int); p.add_argument("--workers", type=int, default=1)
 p = sub.add_parser("human", help="사람 검수 큐"); p.add_argument("action", choices=["export", "import"]); p.add_argument("--stage", choices=["card", "item", "answer"])
 p.add_argument("--file"); p.add_argument("--reviewer"); p.add_argument("--rate", type=float); p.add_argument("--show-llm", action="store_true")
 p = sub.add_parser("calib", help="저지 선정용 보정 세트 추출"); p.add_argument("--stage", choices=["card", "item"], required=True); p.add_argument("--n", type=int, default=120)
@@ -77,7 +77,7 @@ elif args.cmd == "decide":
     out = store.root / "derived" / f"decisions_{args.stage}.jsonl"
     out.write_text("".join(json.dumps({k: v for k, v in d.items() if k != "checks"}, ensure_ascii=False) + "\n" for d in dec.values()), encoding="utf-8")
 elif args.cmd == "revise":
-    revise.run_revise(store, ctx(), args.judge, args.limit)
+    revise.run_revise(store, ctx(), args.judge, args.limit, args.workers)
 elif args.cmd == "human":
     if args.action == "export":
         human.export(store, ctx(), args.stage, args.rate, blind=not args.show_llm)
