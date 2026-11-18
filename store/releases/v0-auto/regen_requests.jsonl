@@ -1,0 +1,236 @@
+{"action": "drop", "failed": {}, "item_id": "CART-C01-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C02-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"YN_CASE_FORMAT": "Despite the patient vignette, the question asks whether a grading claim is correct, not whether the case exhibits a property. / The question asks 'Is it correct that...' regarding the team's approach/claim, rather than asking directly whether the patient exhibits the property."}, "item_id": "CART-C02-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C03-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C04-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C05-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"NO_LEAK": "The case explicitly states the CD19 point mutation, defective membrane anchoring, and resulting surface loss, closely paraphrasing the answer. / The case description explicitly states 'a point mutation in the CD19 gene' and 'little CD19 is detectable on the blast surface', directly giving away the answer."}, "item_id": "CART-C05-S2-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C05-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C05-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"G1_SINGLE_ATOM": "The atom does not define allogeneic or off-the-shelf; classifying donor-derived, stored CAR-T cells requires additional knowledge. / The atom does not define what makes a product an allogeneic off-the-shelf CAR-T (donor cells, batch manufacturing, TRAC editing, cryopreservation).", "NO_LEAK": "The case explicitly states that individualized production, weeks of waiting, and patient-cell expansion failure are avoided, giving away the requested conclusion. / The question explicitly lists the atom's three limitations, which are directly matched by identical descriptions in the case text."}, "item_id": "CART-C06-S1-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"NO_LEAK": "The question supplies the first keyed point: prior CD19-directed therapy may be detrimental to subsequent CD19 CAR-T therapy. / The question directly states the first required key point ('Prior CD19-directed therapy... may be detrimental before CD19 CAR-T cell therapy')."}, "item_id": "CART-C07-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C07-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "CART-C10-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C01-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C02-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C02-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C02-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C03-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C04-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C07-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C09-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "DPCPP2-C10-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"ONE_ELEMENT_CHANGE": "Two slots change: cost changes from effectively free to expensive, and the rationale changes from already executable to requiring recompilation. / Two independent elements changed: the cost ('effectively free' to 'expensive') and the reason ('already in executable state' to 'must still be recompiled')."}, "item_id": "DPCPP2-C10-S3-02-M2-TF", "reason": "audit_fail"}
+{"action": "regenerate", "failed": {"G1_SINGLE_ATOM": "Requires knowing that the indicator of a non-Borel set is not Borel measurable; the atom does not state this. / Requires knowing that the indicator function of a non-Borel set is not measurable, which is not in the atom.", "G2_NO_COMPUTATION": "Requires deriving nonmeasurability of the indicator and applying the kernel criterion to this mathematical object. / Requires deducing non-measurability of k(-, {a}) from V being a non-Borel set and applying the definition.", "KEY_CORRECT": "The No key requires an unstated measurability fact about indicator functions, so a test taker knowing only the atom cannot establish it. / Knowing only the atom, one cannot determine that the indicator function of a non-Borel set is not measurable."}, "item_id": "FPPROG-C01-S1-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C01-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "FPPROG-C01-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C01-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C01-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C02-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C02-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "FPPROG-C02-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C02-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C02-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "FPPROG-C03-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C03-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C05-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C05-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_SOURCE_REGEX": "출처 표현 후보: according to"}, "item_id": "FPPROG-C06-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C06-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C07-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C07-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C08-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C08-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {}, "item_id": "FPPROG-C08-S2-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C08-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C09-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C09-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C09-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C10-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C10-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "FPPROG-C10-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C01-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C01-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C01-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C01-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C02-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C02-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C02-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C03-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C04-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C04-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C04-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C05-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"G1_SINGLE_ATOM": "The atom guarantees an isomorphism for inner Kan complexes; it does not determine what happens for this non-inner-Kan simplicial set. / Atom only states an 'if' condition for inner Kan complexes; knowing what happens for the non-inner-Kan complex Lambda^1[2] requires outside knowledge.", "G2_NO_COMPUTATION": "Answering requires analyzing the horn's arrows and missing composite, rather than recalling the atom. / Requires mathematical reasoning/computation on the simplicial set Lambda^1[2] and the definition of the homotopy category tau(X).", "KEY_CORRECT": "The atom does not imply the converse of its conditional, so it cannot establish the No key. / The atom does not state the converse or describe tau(X), so it cannot rule out the functor being an isomorphism for X = Lambda^1[2]."}, "item_id": "HMDEND-C05-S2-03-M3-YN", "reason": "audit_fail"}
+{"action": "regenerate", "failed": {"G1_SINGLE_ATOM": "Knowing that the nerve is an ∞-operad does not establish that it cannot also be a Kan complex. / The atom says $w^*\\mathbf{P}$ is an $\\infty$-operad, which does not exclude it from being a Kan complex without external knowledge of these definitions.", "KEY_CORRECT": "The atom concludes ∞-operad, but does not rule out the proposed Kan-complex conclusion. / The atom states $w^*\\mathbf{P}$ is an $\\infty$-operad; it does not rule out that $w^*\\mathbf{P}$ is a Kan complex."}, "item_id": "HMDEND-C05-S3-02-M2-TF", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C05-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"KEY_CORRECT": "The key matches the atom, but the evidence defines only ordinary anodyne morphisms using Kan fibrations, not the three variants. / The provided evidence only defines 'anodyne morphism' with respect to Kan fibrations, omitting the atom's claim about inner, left, or right anodyne morphisms and fibrations."}, "item_id": "HMDEND-C06-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C06-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C07-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C07-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C08-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C09-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C09-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "HMDEND-C11-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C01-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_SOURCE_REGEX": "출처 표현 후보: According to"}, "item_id": "IVFLUID-C02-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C02-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C03-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {}, "item_id": "IVFLUID-C04-S1-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C05-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C05-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C05-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C07-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"YN_CASE_FORMAT": "Despite the patient vignette, the question asks whether an approach is consistent with ROSE, not whether the case exhibits a property. / The question asks whether an approach is consistent with the ROSE concept's description, rather than whether a concrete case exhibits a property."}, "item_id": "IVFLUID-C07-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C08-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C08-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"NO_LEAK": "The question supplies the grading ranges, revealing that 22 mmHg is grade III rather than grade II. / The question explicitly provides the entire IAH grading scale from the atom, giving away the answer without requiring recall.", "YN_CASE_FORMAT": "The question asks whether a classification is consistent with a standard, rather than whether the patient exhibits the target property. / The question asks whether a team's classification is consistent with the grading scale, rather than whether the patient exhibits grade II IAH."}, "item_id": "IVFLUID-C10-S1-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C11-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C11-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C13-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C13-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C13-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "IVFLUID-C13-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"ONE_ELEMENT_CHANGE": "Two independent elements change: superset becomes subset, and broadening R2RML's scope becomes narrowing it. / Changes two independent elements: 'superset' to 'subset' and 'extend/broaden' to 'narrows'."}, "item_id": "KGBDP-C01-S1-02-M2-TF", "reason": "audit_fail"}
+{"action": "regenerate", "failed": {"NO_LEAK": "The question explicitly defines the main objective, allowing the case to be matched to that definition without knowing the atom. / The question explicitly states the definition of the main objective ('i.e., transforming a query on a federation into a query composed of subqueries...'), leaking the atom."}, "item_id": "KGBDP-C03-S1-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {"ONE_ELEMENT_CHANGE": "Distractor A changes two independent outcomes: edges retained at zero threshold and edges retained at high threshold. / Distractor A changes two elements compared to B: the effect of gamma = 0.0 (removes all vs. keeps all) and the effect of high gamma (keeps nearly all vs. leaves few)."}, "item_id": "KGBDP-C04-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C04-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C04-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C04-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C04-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C05-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C05-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C06-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C06-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C06-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C08-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C08-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C09-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C09-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C09-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C10-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"G1_SINGLE_ATOM": "Requires knowing that EXPTIME-hard data complexity is incompatible with low complexity; the atom does not define complexity classes or thresholds. / Requires external knowledge that EXPTIME-hard data complexity does not count as 'low complexity', and that Datalog/OWL 2 QL count as high expressive power and ontological reasoning.", "KEY_CORRECT": "The atom states Vadalog's design requirements but does not establish that the described engine fails them or define low complexity. / The atom does not define what constitutes 'low complexity' or 'high expressive power', so a test taker knowing only the atom cannot rule out EXPTIME-hard."}, "item_id": "KGBDP-C10-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C10-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C10-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C10-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C07-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C07-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "KGBDP-C07-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C01-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C01-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C01-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C02-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C02-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C02-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호", "ONE_ELEMENT_CHANGE": "A and C each change the asserted function space and deny guaranteed H¹ membership; they also change the same slots rather than distinct elements. / Distractors A and C each change two elements (target function space and negation of belonging to H^1(G)) and alter the same slot."}, "item_id": "LAPINF-C03-S2-02-M2-MCQ", "reason": "audit_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C04-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C05-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C06-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C06-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C06-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C06-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C06-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C07-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "LAPINF-C07-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C07-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C08-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C09-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C09-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C09-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C09-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "LAPINF-C10-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C01-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C01-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "MAVVOM-C01-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "MAVVOM-C01-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C03-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C03-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C03-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C04-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C04-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C04-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C04-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C04-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C05-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C06-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C06-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호", "I_SOURCE_REGEX": "출처 표현 후보: according to"}, "item_id": "MAVVOM-C06-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C06-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C08-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C08-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C08-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C08-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C09-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C09-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C09-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C10-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C10-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C10-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C11-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C11-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_GARBLED": "근거 텍스트에 깨진 기호"}, "item_id": "MAVVOM-C11-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C01-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C01-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C01-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C02-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "regenerate", "failed": {"AUTHOR_OPINION_RESOLVED": "The atom attributes the mechanistic interpretation to the authors; the item presents it as an unqualified inference without fixing whose judgment applies. / The atom is one study's finding and interpretation (Takada et al. 2003), but the item asks it as a universal fact.", "KEY_CORRECT": "The atom explicitly says this pattern strongly suggests a mechanism other than AChE inhibition, so the answer should be Yes. / The atom explicitly states that this pattern strongly suggests a mechanism other than AChE inhibition, so the answer should be Yes, not No.", "YN_CASE_FORMAT": "The question asks whether a mechanistic inference is warranted, rather than whether the concrete case exhibits a property. / Asks whether a pattern of results 'strongly suggests' an explanation (evaluating an inference/claim), rather than whether a concrete object exhibits a property."}, "item_id": "NACHR-C03-S2-03-M3-YN", "reason": "audit_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C03-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C06-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C06-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C06-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"YN_CASE_FORMAT": "The question asks whether a result is consistent with a proposed mechanism, rather than whether the case exhibits a property. / Asks whether a result is consistent with a hypothesis rather than whether the case is an instance of or exhibits a property."}, "item_id": "NACHR-C06-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C06-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C06-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C07-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C07-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C07-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C07-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C09-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C11-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C12-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C12-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {"I_SOURCE_REGEX": "출처 표현 후보: the study"}, "item_id": "NACHR-C12-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C12-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C12-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S1-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S1-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S2-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C13-S3-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C15-S1-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {"ONE_ELEMENT_CHANGE": "Distractor B changes two quantity slots: the 1-h efficiency and the 4-h efficiency. / Distractor B changes two elements: both the 1-h percentage and the 4-h percentage are swapped."}, "item_id": "NACHR-C15-S2-02-M2-MCQ", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C15-S2-03-M3-YN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C15-S3-01-M1-OPEN", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C15-S3-02-M2-TF", "reason": "atom_fail"}
+{"action": "drop", "failed": {}, "item_id": "NACHR-C15-S3-03-M3-YN", "reason": "atom_fail"}

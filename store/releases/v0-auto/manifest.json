@@ -1,0 +1,41 @@
+{
+ "tag": "v0-auto",
+ "created_at": "2026-11-18T05:50:52+00:00",
+ "note": "LLM 자동 검수 1차, 사람 검토 전",
+ "snapshots": {
+  "items": "d68da57f36d7",
+  "cards": "3fe7b34e8c59"
+ },
+ "offsets": {
+  "verdicts": 28738,
+  "revisions": 0
+ },
+ "prompt_hashes": {
+  "atom_audit": "18ab8c959081e51a",
+  "item_audit": "7016a07d19e98dc8",
+  "answer_judge": "80600e675136c75e"
+ },
+ "code": "a1477f031d74",
+ "counts": {
+  "atoms": {
+   "pass": 130,
+   "fail": 236,
+   "revise": 336,
+   "hold": 142
+  },
+  "items": {
+   "pass": 73,
+   "blocked": 678,
+   "fail": 13,
+   "pending": 19,
+   "hold": 17
+  }
+ },
+ "files": {
+  "cards_approved.jsonl": "4bec66a6488d410316aba8d5c85280dd1d900af759b3d360ff8165437c1ec70b",
+  "items_approved.jsonl": "5f14bdd5b9115efa10aa328e84033ec0b69be7f316c630626f6fda47a45433bf",
+  "atoms_status.jsonl": "d15d30c0bc7e937fc1bb786fb6afc57368d97733faa620e36bb417ffbe09f853",
+  "items_status.jsonl": "15d43f8f11b92f9f2db17919164351605e35ded711ec292160559640456d3f8c",
+  "regen_requests.jsonl": "253a9416f370c64a6a9cc4dff8074538fc0024fcca34e9369d9dfa0582fe76dc"
+ }
+}

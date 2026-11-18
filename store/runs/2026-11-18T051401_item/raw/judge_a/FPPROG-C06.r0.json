@@ -1,0 +1,34 @@
+{
+ "batch_id": "FPPROG-C06",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You review benchmark items against the knowledge atom each one tests. The items test whether a model knows the atom (recall and recognition), and the test taker sees only the question and options.\n\nJudge each item on the checks listed on its CHECKS line. Rules:\n- Use only the atom and its evidence as ground truth, except where a check says to use general domain knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the key, answer \"hold\" for KEY_CORRECT and say so.\n- Be strict. When unsure, fail and explain.\n- For G1_SINGLE_ATOM and KEY_CORRECT, answer as a test taker who knows ONLY the atom: if that person could not reach the key (including a False/No key) with certainty, fail.\n- \"why\" is required for every value other than pass; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets):\n- G1_SINGLE_ATOM [pass / fail]: The correct answer follows from this atom alone, without other background knowledge. fail if answering also needs a fact the atom does not state (e.g. the atom says A affects B, but the question needs to know in which direction or in which situation).\n- G2_NO_COMPUTATION [pass / fail]: No calculation, proof, or combination of several facts is needed (no L2 application).\n- G3_FINAL_ANSWER [pass / fail]: The answer can be graded as a label, an option, or the presence of key points.\n- KEY_CORRECT [pass / fail]: The answer key agrees with the atom and evidence. For a False/No target, the atom must rule the statement out: the item must contradict the atom, not merely say something the atom does not mention. fail if the statement could still be true while the atom is true (e.g. the atom states one hypothesis and the item states a rival hypothesis the atom does not exclude).\n- SINGLE_ANSWER [pass / fail]: Exactly one option or label is correct. For this check only, also use general domain knowledge: fail if another option or label could be correct in reality.\n- NO_LEAK [pass / fail]: The item does not give away its answer. OPEN/MCQ/YN: the question does not state or closely paraphrase the answer. TF: the statement itself is what is tested, so a paraphrase of the atom is fine; fail only for hints outside the claim (e.g. 'as is well known').\n- KP_IN_ATOM [pass / fail]: Every key point is part of the atom.\n- YN_CASE_FORMAT [pass / fail]: The case describes a concrete object (patient, system, dataset, mathematical object) and the question asks whether THE CASE is an instance of / exhibits the property. fail = it asks whether a claim, view, belief, or approach is correct, consistent, or possible.\n- ONE_ELEMENT_CHANGE [pass / fail]: An element is one slot of the claim: a quantity, a direction, a condition, an entity or role, or a negation. Count slots, not words: rewording several words to change one idea is one element; changing two independent slots (e.g. what is reported AND how the process ends) is two. TF False: the statement differs from the atom in exactly one element. MCQ: each distractor differs from the correct option in exactly one element, and the three distractors change different elements. Name the changed element(s) in why when failing.\n- NO_SOURCE_REF [pass / fail]: The item does not point to a source: no book, authors, chapter, year, 'the review', 'this study', 'according to the text'. Named laws, scales, or standards are allowed.\n- AUTHOR_OPINION_RESOLVED [pass / fail]: If the atom is the authors' opinion or one study's finding, the item must not ask it as a universal fact, and its answer must still be fixed without the book. pass if the atom is a general claim.\n- NO_INTRA_CARD_OVERLAP [pass / fail]: No other item in this batch tests the same knowledge (one answer implies the other). If two overlap, fail only the one listed later and put the other item's id in cite.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<item_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}}",
+ "user": "CONCEPT: Type-2 computability\n\nITEMS:\n- FPPROG-C06-S1-01-M1-OPEN | FORMAT: OPEN | ANSWER KEY: (key points)\n  CHECKS: G1_SINGLE_ATOM, G2_NO_COMPUTATION, G3_FINAL_ANSWER, KEY_CORRECT, NO_LEAK, KP_IN_ATOM, NO_SOURCE_REF, AUTHOR_OPINION_RESOLVED, NO_INTRA_CARD_OVERLAP\n  ATOM: In Type-Two Theory of Effectivity, a machine computes a partial function $f:\\Sigma^\\omega \\rightharpoonup \\Sigma^\\omega$ if, given $w$ on an input tape, it can write any initial segment of $f(w)\\in\\Sigma^\\omega$ on the output tape in finite time, where $\\Sigma^\\omega$ is the set of streams over a finite alphabet $\\Sigma$.\n  EVIDENCE: Type-Two Theory of Effectivity (abbreviated TTE, see Weihrauch, 2000) changes the conditions under which a machine is said to compute an answer but keeps the machine model as is. In this setting, a machine is said to compute a function f : Σω ⇀Σω if it can write any initial segment of f (w) ∈Σω on the output tape in finite time given w ∈Σ∗on an input tape, where Σω ≜{a0a1 . . . | ai ∈Σ,i ∈N} is the set of streams composed of symbols from the finite set Σ.\n  ITEM:\n    In Type-Two Theory of Effectivity, under what condition is a machine said to compute a partial function $f:\\Sigma^\\omega \\rightharpoonup \\Sigma^\\omega$ on infinite streams over a finite alphabet?\n  KEY POINTS: [\"Given input $w$ on the input tape, the machine can write any initial segment (finite prefix) of $f(w)$ on the output tape\", \"Each such initial segment is written in finite time\"]",
+ "raw": "{\"units\":{\"FPPROG-C06-S1-01-M1-OPEN\":{\"G1_SINGLE_ATOM\":{\"v\":\"pass\"},\"G2_NO_COMPUTATION\":{\"v\":\"pass\"},\"G3_FINAL_ANSWER\":{\"v\":\"pass\"},\"KEY_CORRECT\":{\"v\":\"pass\"},\"NO_LEAK\":{\"v\":\"pass\"},\"KP_IN_ATOM\":{\"v\":\"pass\"},\"NO_SOURCE_REF\":{\"v\":\"pass\"},\"AUTHOR_OPINION_RESOLVED\":{\"v\":\"pass\"},\"NO_INTRA_CARD_OVERLAP\":{\"v\":\"pass\"}}}}",
+ "usage": {
+  "completion_tokens": 119,
+  "prompt_tokens": 1366,
+  "total_tokens": 1485,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 119
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 2,
+   "cache_write_tokens": 1364,
+   "cache_creation_tokens": 1364
+  },
+  "cache_creation_input_tokens": 1364,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00460400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T05:15:40+00:00"
+}

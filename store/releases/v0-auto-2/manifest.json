@@ -1,0 +1,40 @@
+{
+ "tag": "v0-auto-2",
+ "created_at": "2026-11-18T05:56:27+00:00",
+ "note": "미판정 문항 보완",
+ "snapshots": {
+  "items": "d68da57f36d7",
+  "cards": "3fe7b34e8c59"
+ },
+ "offsets": {
+  "verdicts": 29104,
+  "revisions": 0
+ },
+ "prompt_hashes": {
+  "atom_audit": "18ab8c959081e51a",
+  "item_audit": "7016a07d19e98dc8",
+  "answer_judge": "80600e675136c75e"
+ },
+ "code": "a1477f031d74",
+ "counts": {
+  "atoms": {
+   "pass": 130,
+   "fail": 236,
+   "revise": 336,
+   "hold": 142
+  },
+  "items": {
+   "pass": 84,
+   "blocked": 678,
+   "fail": 20,
+   "hold": 18
+  }
+ },
+ "files": {
+  "cards_approved.jsonl": "4bec66a6488d410316aba8d5c85280dd1d900af759b3d360ff8165437c1ec70b",
+  "items_approved.jsonl": "f3c393ed225f30ae684dc60444a5ef3351b160f9c8b502ca267f06e299c49d2a",
+  "atoms_status.jsonl": "d15d30c0bc7e937fc1bb786fb6afc57368d97733faa620e36bb417ffbe09f853",
+  "items_status.jsonl": "0bd086630bdf23d3a5b4c7826fc493ad599ba619922fab60a8a79e9f59a8091d",
+  "regen_requests.jsonl": "13af4c8932373a84a578a9f660c7bef4a96950a143bab55d3201d87f7c1fb1f4"
+ }
+}

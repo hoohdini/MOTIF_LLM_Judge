@@ -1,0 +1,31 @@
+{
+ "batch_id": "DPCPP2-C07",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = the core claim is stated, and the gap is only wording, strength, or a dropped/extra peripheral qualifier that can be fixed by deleting or softening words (say what). fail = not stated, OR the atom adds substantive content the evidence lacks: a scope or population restriction (e.g. 'In B-ALL'), a mechanism or operation, a characterization (e.g. 'an unbounded while loop'), or a formula/definition. If deleting the unsupported part would change what the atom tests, it is fail, not revise. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / revise / fail]: The atom is recall-level knowledge: one fact a person who studied the concept would simply know. revise = the core fact is recall-level but the sentence carries extra load that must be removed, e.g. stacked conditions (since/although/if ... and ...), a procedural or evaluative add-on ('easy to define but requires checking ...'), or a clause that introduces a second technical concept that must be known separately (e.g. 'if X is an inner Kan complex' when that is not the card concept). fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Sub-group\nASSESSMENT SCOPE: Covers sub-groups as implementation-defined subsets of work-groups: guarantees, fixed one-dimensional size, no sub-group local memory, shuffle-style exchange, size queries and mapping portability caveats. Excludes the detailed hardware mapping for GPUs/CPUs.\n\nATOMS:\n- DPCPP2-C07-S1-03 | S1\n  ATOM: Sub-groups are defined as a core part of the SYCL language so that programmers have a safe alternative to baking in assumptions about execution models that may later prove to be device-specific.\n  EVIDENCE:\n    [DPCPP2-p0147-s08] Defining sub-groups as a core part of the language gives us a safe\n    [DPCPP2-p0147-s09] alternative to making assumptions that may later prove to be device-specific.",
+ "raw": "{\n  \"units\": {\n    \"DPCPP2-C07-S1-03\": {\n      \"GROUNDED\": {\n        \"v\": \"fail\",\n        \"why\": \"The evidence names neither SYCL nor execution models; it states only that language-level sub-groups offer an alternative to potentially device-specific assumptions.\"\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"pass\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"pass\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"pass\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    }\n  },\n  \"batch\": {\n    \"CONCEPT_SCOPE\": {\n      \"v\": \"pass\"\n    }\n  }\n}",
+ "usage": {
+  "completion_tokens": 373,
+  "prompt_tokens": 985,
+  "total_tokens": 1358,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 985,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00570000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T04:51:54+00:00"
+}

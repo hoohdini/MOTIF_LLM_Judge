@@ -1,0 +1,31 @@
+{
+ "batch_id": "KGBDP-C08",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You audit the knowledge atoms of one Knowledge Card. A card is the answer key for a benchmark of expert conceptual knowledge, so every atom must be correct, self-contained, and assessable on its own.\n\nJudge every atom on every check listed below. Rules:\n- For checks about evidence, use only the evidence sentences supplied with the atom. Do not repair an atom with your own knowledge.\n- Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the atom, answer \"hold\" for that check and say so.\n- Be strict. When unsure between pass and a non-pass value, choose the non-pass value and explain.\n- \"why\" is required for every value other than the first listed value; keep it under 30 words. Omit \"why\" when passing.\n\nChecks (allowed values in brackets; the first value means no problem):\n- GROUNDED [pass / revise / fail]: The cited evidence sentences state the atom. pass = fully stated. revise = the core claim is stated, and the gap is only wording, strength, or a dropped/extra peripheral qualifier that can be fixed by deleting or softening words (say what). fail = not stated, OR the atom adds substantive content the evidence lacks: a scope or population restriction (e.g. 'In B-ALL'), a mechanism or operation, a characterization (e.g. 'an unbounded while loop'), or a formula/definition. If deleting the unsupported part would change what the atom tests, it is fail, not revise. For pass, put the supporting evidence ids in cite (required).\n- SINGLE_CLAIM [pass / revise]: The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately.\n- SCOPE_LABEL [pass / revise]: The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'.\n- L1_ONLY [pass / revise / fail]: The atom is recall-level knowledge: one fact a person who studied the concept would simply know. revise = the core fact is recall-level but the sentence carries extra load that must be removed, e.g. stacked conditions (since/although/if ... and ...), a procedural or evaluative add-on ('easy to define but requires checking ...'), or a clause that introduces a second technical concept that must be known separately (e.g. 'if X is an inner Kan complex' when that is not the card concept). fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages.\n- SOURCE_INDEPENDENT [pass / revise / fail]: A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source.\n- NO_OVERLAP [pass / fail]: No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes.\n- CENTRALITY [pass / fail]: The atom matters for understanding the concept. fail = peripheral detail.\nWhole-card checks (report under \"batch\"):\n- CONCEPT_SCOPE [pass / fail]: The concept is a general concept of the field. fail = a single system, product, or one study's topic.\n\nOutput ONLY one JSON object:\n{\"units\": {\"<atom_id>\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\", \"cite\": []}, ...}, ...}, \"batch\": {\"<CHECK>\": {\"v\": \"<value>\", \"why\": \"\"}}}",
+ "user": "CONCEPT: Feature-based semantic similarity\nASSESSMENT SCOPE: Set-based similarity measures over node neighbourhood features in SANSA: Jaccard, Rodriguez-Egenhofer, Tversky ratio model (and its Jaccard/Dice special cases), and Batet. Excludes the clustering algorithms that consume them; formulas are partly garbled.\n\nATOMS:\n- KGBDP-C08-S3-01 | S3\n  ATOM: Most approaches in SANSA's similarity assessment module are feature-based, which requires the semantic objects to be representable as sets of features.\n  EVIDENCE:\n    [KGBDP-p0120-s17] Most of the approaches covered in the SANSA similarity assessment module are feature-based.\n    [KGBDP-p0120-s18] The feature model requires the semantic objects to be represented as sets of features.",
+ "raw": "{\n  \"units\": {\n    \"KGBDP-C08-S3-01\": {\n      \"GROUNDED\": {\n        \"v\": \"pass\",\n        \"cite\": [\"KGBDP-p0120-s17\", \"KGBDP-p0120-s18\"]\n      },\n      \"SINGLE_CLAIM\": {\n        \"v\": \"revise\",\n        \"why\": \"SANSA's predominance of feature-based approaches and the feature model's representation requirement are independently assessable claims.\"\n      },\n      \"SCOPE_LABEL\": {\n        \"v\": \"revise\",\n        \"why\": \"S1: Identifies an approach family and its required representation, rather than a boundary of applicability.\"\n      },\n      \"L1_ONLY\": {\n        \"v\": \"pass\"\n      },\n      \"SOURCE_INDEPENDENT\": {\n        \"v\": \"fail\",\n        \"why\": \"The predominance of feature-based approaches in SANSA describes a particular implementation choice, not a source-independent fact about feature-based semantic similarity.\"\n      },\n      \"NO_OVERLAP\": {\n        \"v\": \"pass\"\n      },\n      \"CENTRALITY\": {\n        \"v\": \"pass\"\n      }\n    }\n  },\n  \"batch\": {\n    \"CONCEPT_SCOPE\": {\n      \"v\": \"pass\"\n    }\n  }\n}",
+ "usage": {
+  "completion_tokens": 461,
+  "prompt_tokens": 981,
+  "total_tokens": 1442,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 981,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00657200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  }
+ },
+ "error": null,
+ "ts": "2026-11-18T04:48:13+00:00"
+}

@@ -1,0 +1,38 @@
+{
+ "judges": {
+  "judge_a": {
+   "provider": "openai_compat",
+   "model": "gpt-6.1-sol",
+   "family": "openai",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  },
+  "judge_b": {
+   "provider": "openai_compat",
+   "model": "gemini-4-argon",
+   "family": "google",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  }
+ },
+ "group": "atom_audit",
+ "prompt_hash": "18ab8c959081e51a",
+ "repeat": 1,
+ "n_canary": 0,
+ "tasks": 180,
+ "run_id": "2026-11-18T052251_card",
+ "stage": "card",
+ "started_at": "2026-11-18T05:22:51+00:00",
+ "active": {
+  "items": "d68da57f36d7",
+  "cards": "3fe7b34e8c59"
+ },
+ "offsets_at_start": {
+  "verdicts": 16970,
+  "revisions": 0
+ }
+}
