@@ -1,0 +1,7 @@
+﻿stage,kind,unit_id,unit_hash,check,human_v,human_note,reviewer
+item,review_fix,IVFLUID-C11-S1-03-M3-YN,53ad1ef453052c5e,_UNIT,fail,정답 오류: 사례가 atom 정의와 일치하므로 정답은 Yes (두 저지 모두 지적),
+item,review_fix,IVFLUID-C10-S1-03-M3-YN,14870518261984dd,_UNIT,fail,질문에 등급 기준표가 그대로 있어 지식 없이 풀 수 있음 (NO_LEAK),
+item,review_fix,HMDEND-C05-S3-02-M2-TF,dd578c3031726505,_UNIT,fail,"atom만으로 False(Kan complex 아님)를 확정할 수 없음 (G1/KEY_CORRECT, NACHR-C15와 같은 유형)",
+item,review_fix,HMDEND-C07-S2-03-M3-YN,03ebde283dc4b5a5,_UNIT,fail,Δ[1]이 ∞-category라는 전제가 atom·사례에 없음 (G1/KEY_CORRECT),
+item,review_fix,FPPROG-C01-S1-03-M3-YN,02ac01ab9fc5a48c,_UNIT,fail,비보렐 집합의 지시함수가 가측이 아니라는 배경지식 필요 (G1/KEY_CORRECT),
+item,review_fix,FPPROG-C08-S2-03-M3-YN,5c1f67155968cf87,_UNIT,fail,반례 모델→비함의 단계가 atom에 없음 (G1/KEY_CORRECT),
