@@ -46,6 +46,7 @@ python3 run.py human import --file calib/calib_human_labels.csv
 python3 run.py run --stage card --only calib/calib_card.ids.txt --limit 2   # 먼저 2번만 호출해 확인
 python3 run.py run --stage card --only calib/calib_card.ids.txt
 python3 run.py run --stage item --only calib/calib_item.ids.txt --include-blocked
+python3 analysis/compare_v2.py   # 프롬프트 수정 전(v1)·후(v2)를 사람 라벨+판정 42건 기준으로 비교
 python3 run.py stats --stage card
 python3 run.py stats --stage item
 ```

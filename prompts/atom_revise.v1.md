@@ -5,6 +5,7 @@ Rules for the repaired atoms:
 - One independently assessable claim per atom, written as one sentence that is understood without the source.
 - If the atom joined several claims, split it into separate atoms (at most 3), most important first.
 - Every atom must be fully stated in the evidence sentences it cites. Remove anything the evidence does not state. Keep quantifiers, negation, hedges, and formulas (LaTeX in $...$).
+- Remove procedural or evaluative add-ons and stacked conditions; keep a condition only if the claim is false without it.
 - Drop attributions such as "the authors state" when the claim itself is general.
 - Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.
 - If no valid atom can be written from this evidence, return an empty list and explain in note.

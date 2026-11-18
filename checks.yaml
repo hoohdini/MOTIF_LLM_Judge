@@ -16,7 +16,7 @@ groups:
         values: [pass, revise, fail]
         evidence_dependent: true
         cite: evidence_id
-        desc: "The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required)."
+        desc: "The cited evidence sentences state the atom. pass = fully stated. revise = the core claim is stated, and the gap is only wording, strength, or a dropped/extra peripheral qualifier that can be fixed by deleting or softening words (say what). fail = not stated, OR the atom adds substantive content the evidence lacks: a scope or population restriction (e.g. 'In B-ALL'), a mechanism or operation, a characterization (e.g. 'an unbounded while loop'), or a formula/definition. If deleting the unsupported part would change what the atom tests, it is fail, not revise. For pass, put the supporting evidence ids in cite (required)."
       SINGLE_CLAIM:
         severity: blocker
         values: [pass, revise]
@@ -27,8 +27,8 @@ groups:
         desc: "The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'."
       L1_ONLY:
         severity: blocker
-        values: [pass, fail]
-        desc: "The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages."
+        values: [pass, revise, fail]
+        desc: "The atom is recall-level knowledge: one fact a person who studied the concept would simply know. revise = the core fact is recall-level but the sentence carries extra load that must be removed, e.g. stacked conditions (since/although/if ... and ...), a procedural or evaluative add-on ('easy to define but requires checking ...'), or a clause that introduces a second technical concept that must be known separately (e.g. 'if X is an inner Kan complex' when that is not the card concept). fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages."
       SOURCE_INDEPENDENT:
         severity: blocker
         values: [pass, revise, fail]
@@ -56,7 +56,7 @@ groups:
       G1_SINGLE_ATOM:
         severity: blocker
         values: [pass, fail]
-        desc: "The correct answer follows from this atom alone."
+        desc: "The correct answer follows from this atom alone, without other background knowledge. fail if answering also needs a fact the atom does not state (e.g. the atom says A affects B, but the question needs to know in which direction or in which situation)."
       G2_NO_COMPUTATION:
         severity: blocker
         values: [pass, fail]
@@ -69,7 +69,7 @@ groups:
         severity: blocker
         values: [pass, fail]
         evidence_dependent: true
-        desc: "The answer key agrees with the atom and evidence. For a False/No target, check that the item text really contradicts the atom."
+        desc: "The answer key agrees with the atom and evidence. For a False/No target, the atom must rule the statement out: the item must contradict the atom, not merely say something the atom does not mention. fail if the statement could still be true while the atom is true (e.g. the atom states one hypothesis and the item states a rival hypothesis the atom does not exclude)."
       SINGLE_ANSWER:
         severity: blocker
         values: [pass, fail]
@@ -93,7 +93,7 @@ groups:
         severity: blocker
         values: [pass, fail]
         applies: ["TF:False", MCQ]
-        desc: "TF False: the statement differs from the atom in exactly one element (one quantity, direction, condition, entity, or negation). MCQ: each distractor differs from the correct option in exactly one element, and the three distractors change different elements."
+        desc: "An element is one slot of the claim: a quantity, a direction, a condition, an entity or role, or a negation. Count slots, not words: rewording several words to change one idea is one element; changing two independent slots (e.g. what is reported AND how the process ends) is two. TF False: the statement differs from the atom in exactly one element. MCQ: each distractor differs from the correct option in exactly one element, and the three distractors change different elements. Name the changed element(s) in why when failing."
       NO_SOURCE_REF:
         severity: blocker
         values: [pass, fail]

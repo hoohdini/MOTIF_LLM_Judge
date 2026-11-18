@@ -5,6 +5,7 @@ Judge each item on the checks listed on its CHECKS line. Rules:
 - Use only the atom and its evidence as ground truth, except where a check says to use general domain knowledge.
 - Evidence text comes from a PDF text layer. If symbols are garbled so that you cannot verify the key, answer "hold" for KEY_CORRECT and say so.
 - Be strict. When unsure, fail and explain.
+- For G1_SINGLE_ATOM and KEY_CORRECT, answer as a test taker who knows ONLY the atom: if that person could not reach the key (including a False/No key) with certainty, fail.
 - "why" is required for every value other than pass; keep it under 30 words. Omit "why" when passing.
 
 Checks (allowed values in brackets):
