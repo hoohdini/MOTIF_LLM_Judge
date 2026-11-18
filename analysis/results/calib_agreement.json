@@ -1,0 +1,734 @@
+{
+ "note": "보정 세트(사람 라벨 240개) 기준으로 LLM 저지들을 비교한다.",
+ "stages": {
+  "card": {
+   "n_units": 120,
+   "human_dist": {
+    "hold": 4,
+    "pass": 46,
+    "fail": 15,
+    "revise": 55
+   },
+   "llm_dist": {
+    "GPT (gpt-6.1-sol)": {
+     "revise": 60,
+     "fail": 23,
+     "pass": 18,
+     "hold": 19
+    },
+    "Gemini (gemini-4-argon)": {
+     "fail": 25,
+     "revise": 71,
+     "pass": 19,
+     "hold": 5
+    },
+    "Claude (예비, 11/17)": {
+     "revise": 65,
+     "fail": 20,
+     "pass": 31,
+     "hold": 4
+    }
+   },
+   "vs_human": {
+    "GPT (gpt-6.1-sol)": {
+     "n": 97,
+     "agree": 0.753,
+     "kappa": 0.391,
+     "ac1": 0.593,
+     "kappa_ci95": [
+      0.195,
+      0.583
+     ],
+     "llm_nonpass_rate": 0.814,
+     "human_nonpass_rate": 0.649,
+     "catches_human_flag": 0.937,
+     "flags_human_pass": 0.588
+    },
+    "Gemini (gemini-4-argon)": {
+     "n": 111,
+     "agree": 0.694,
+     "kappa": 0.281,
+     "ac1": 0.487,
+     "kappa_ci95": [
+      0.111,
+      0.455
+     ],
+     "llm_nonpass_rate": 0.829,
+     "human_nonpass_rate": 0.613,
+     "catches_human_flag": 0.926,
+     "flags_human_pass": 0.674
+    },
+    "Claude (예비, 11/17)": {
+     "n": 112,
+     "agree": 0.723,
+     "kappa": 0.377,
+     "ac1": 0.506,
+     "kappa_ci95": [
+      0.202,
+      0.546
+     ],
+     "llm_nonpass_rate": 0.723,
+     "human_nonpass_rate": 0.625,
+     "catches_human_flag": 0.857,
+     "flags_human_pass": 0.5
+    }
+   },
+   "between_llms": {
+    "GPT (gpt-6.1-sol) vs Gemini (gemini-4-argon)": {
+     "n": 100,
+     "agree": 0.86,
+     "kappa": 0.526,
+     "ac1": 0.801
+    },
+    "GPT (gpt-6.1-sol) vs Claude (예비, 11/17)": {
+     "n": 101,
+     "agree": 0.822,
+     "kappa": 0.5,
+     "ac1": 0.725
+    },
+    "Gemini (gemini-4-argon) vs Claude (예비, 11/17)": {
+     "n": 114,
+     "agree": 0.842,
+     "kappa": 0.546,
+     "ac1": 0.76
+    }
+   },
+   "by_reviewer": {
+    "성하": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 37,
+      "agree": 0.649,
+      "kappa": 0.257,
+      "ac1": 0.385
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 44,
+      "agree": 0.636,
+      "kappa": 0.273,
+      "ac1": 0.358
+     },
+     "Claude (예비, 11/17)": {
+      "n": 45,
+      "agree": 0.6,
+      "kappa": 0.19,
+      "ac1": 0.262
+     }
+    },
+    "연욱": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 42,
+      "agree": 0.881,
+      "kappa": 0.66,
+      "ac1": 0.817
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 47,
+      "agree": 0.766,
+      "kappa": 0.37,
+      "ac1": 0.629
+     },
+     "Claude (예비, 11/17)": {
+      "n": 47,
+      "agree": 0.787,
+      "kappa": 0.496,
+      "ac1": 0.634
+     }
+    },
+    "정호": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 18,
+      "agree": 0.667,
+      "kappa": 0.217,
+      "ac1": 0.443
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 20,
+      "agree": 0.65,
+      "kappa": 0.186,
+      "ac1": 0.418
+     },
+     "Claude (예비, 11/17)": {
+      "n": 20,
+      "agree": 0.85,
+      "kappa": 0.667,
+      "ac1": 0.733
+     }
+    }
+   },
+   "per_check": {
+    "GROUNDED": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 4,
+      "llm_flag": 37,
+      "both": 3,
+      "n": 96
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 4,
+      "llm_flag": 55,
+      "both": 3,
+      "n": 109
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 4,
+      "llm_flag": 46,
+      "both": 2,
+      "n": 111
+     }
+    },
+    "L1_ONLY": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 6,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 6,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 6,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     }
+    },
+    "SCOPE_LABEL": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 14,
+      "llm_flag": 11,
+      "both": 4,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 14,
+      "llm_flag": 16,
+      "both": 4,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 14,
+      "llm_flag": 5,
+      "both": 1,
+      "n": 116
+     }
+    },
+    "SINGLE_CLAIM": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 48,
+      "llm_flag": 69,
+      "both": 40,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 48,
+      "llm_flag": 59,
+      "both": 38,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 48,
+      "llm_flag": 55,
+      "both": 35,
+      "n": 116
+     }
+    },
+    "SOURCE_INDEPENDENT": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 17,
+      "llm_flag": 28,
+      "both": 11,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 17,
+      "llm_flag": 47,
+      "both": 12,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 17,
+      "llm_flag": 26,
+      "both": 12,
+      "n": 116
+     }
+    }
+   },
+   "all_three_vs_human": {
+    "n": 14,
+    "direction": {
+     "사람 pass / LLM nonpass": 14
+    }
+   }
+  },
+  "item": {
+   "n_units": 117,
+   "human_dist": {
+    "pass": 96,
+    "fail": 20,
+    "hold": 1
+   },
+   "llm_dist": {
+    "GPT (gpt-6.1-sol)": {
+     "pass": 56,
+     "fail": 56,
+     "hold": 5
+    },
+    "Gemini (gemini-4-argon)": {
+     "pass": 64,
+     "fail": 51,
+     "hold": 2
+    },
+    "Claude (예비, 11/17)": {
+     "pass": 54,
+     "fail": 55,
+     "hold": 8
+    }
+   },
+   "vs_human": {
+    "GPT (gpt-6.1-sol)": {
+     "n": 111,
+     "agree": 0.577,
+     "kappa": 0.148,
+     "ac1": 0.234,
+     "kappa_ci95": [
+      0.006,
+      0.294
+     ],
+     "llm_nonpass_rate": 0.495,
+     "human_nonpass_rate": 0.18,
+     "catches_human_flag": 0.7,
+     "flags_human_pass": 0.451
+    },
+    "Gemini (gemini-4-argon)": {
+     "n": 114,
+     "agree": 0.596,
+     "kappa": 0.123,
+     "ac1": 0.298,
+     "kappa_ci95": [
+      -0.029,
+      0.274
+     ],
+     "llm_nonpass_rate": 0.439,
+     "human_nonpass_rate": 0.175,
+     "catches_human_flag": 0.6,
+     "flags_human_pass": 0.404
+    },
+    "Claude (예비, 11/17)": {
+     "n": 108,
+     "agree": 0.62,
+     "kappa": 0.249,
+     "ac1": 0.306,
+     "kappa_ci95": [
+      0.111,
+      0.389
+     ],
+     "llm_nonpass_rate": 0.509,
+     "human_nonpass_rate": 0.185,
+     "catches_human_flag": 0.85,
+     "flags_human_pass": 0.432
+    }
+   },
+   "between_llms": {
+    "GPT (gpt-6.1-sol) vs Gemini (gemini-4-argon)": {
+     "n": 111,
+     "agree": 0.838,
+     "kappa": 0.676,
+     "ac1": 0.676
+    },
+    "GPT (gpt-6.1-sol) vs Claude (예비, 11/17)": {
+     "n": 106,
+     "agree": 0.83,
+     "kappa": 0.66,
+     "ac1": 0.661
+    },
+    "Gemini (gemini-4-argon) vs Claude (예비, 11/17)": {
+     "n": 109,
+     "agree": 0.789,
+     "kappa": 0.578,
+     "ac1": 0.579
+    }
+   },
+   "by_reviewer": {
+    "윤상": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 44,
+      "agree": 0.568,
+      "kappa": -0.045,
+      "ac1": 0.347
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 46,
+      "agree": 0.63,
+      "kappa": -0.043,
+      "ac1": 0.471
+     },
+     "Claude (예비, 11/17)": {
+      "n": 45,
+      "agree": 0.578,
+      "kappa": -0.044,
+      "ac1": 0.367
+     }
+    },
+    "재현": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 38,
+      "agree": 0.447,
+      "kappa": 0.015,
+      "ac1": -0.069
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 39,
+      "agree": 0.462,
+      "kappa": -0.03,
+      "ac1": -0.01
+     },
+     "Claude (예비, 11/17)": {
+      "n": 35,
+      "agree": 0.514,
+      "kappa": 0.17,
+      "ac1": 0.041
+     }
+    },
+    "정호": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 29,
+      "agree": 0.759,
+      "kappa": 0.513,
+      "ac1": 0.526
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 29,
+      "agree": 0.724,
+      "kappa": 0.434,
+      "ac1": 0.464
+     },
+     "Claude (예비, 11/17)": {
+      "n": 28,
+      "agree": 0.821,
+      "kappa": 0.643,
+      "ac1": 0.647
+     }
+    }
+   },
+   "by_format": {
+    "OPEN": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 30,
+      "agree": 0.833,
+      "kappa": -0.087,
+      "ac1": 0.803
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 33,
+      "agree": 0.727,
+      "kappa": -0.104,
+      "ac1": 0.643
+     },
+     "Claude (예비, 11/17)": {
+      "n": 28,
+      "agree": 0.821,
+      "kappa": 0.375,
+      "ac1": 0.755
+     }
+    },
+    "TF": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 21,
+      "agree": 0.571,
+      "kappa": -0.092,
+      "ac1": 0.354
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 22,
+      "agree": 0.727,
+      "kappa": -0.082,
+      "ac1": 0.643
+     },
+     "Claude (예비, 11/17)": {
+      "n": 22,
+      "agree": 0.682,
+      "kappa": -0.085,
+      "ac1": 0.566
+     }
+    },
+    "MCQ": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 18,
+      "agree": 0.444,
+      "kappa": 0.151,
+      "ac1": -0.111
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 18,
+      "agree": 0.5,
+      "kappa": 0.0,
+      "ac1": 0.072
+     },
+     "Claude (예비, 11/17)": {
+      "n": 18,
+      "agree": 0.556,
+      "kappa": 0.163,
+      "ac1": 0.153
+     }
+    },
+    "YN": {
+     "GPT (gpt-6.1-sol)": {
+      "n": 42,
+      "agree": 0.452,
+      "kappa": 0.058,
+      "ac1": -0.095
+     },
+     "Gemini (gemini-4-argon)": {
+      "n": 41,
+      "agree": 0.463,
+      "kappa": 0.068,
+      "ac1": -0.073
+     },
+     "Claude (예비, 11/17)": {
+      "n": 40,
+      "agree": 0.475,
+      "kappa": 0.132,
+      "ac1": -0.034
+     }
+    }
+   },
+   "per_check": {
+    "AUTHOR_OPINION_RESOLVED": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 4,
+      "llm_flag": 4,
+      "both": 2,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 4,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 4,
+      "llm_flag": 3,
+      "both": 0,
+      "n": 116
+     }
+    },
+    "G1_SINGLE_ATOM": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 2,
+      "llm_flag": 5,
+      "both": 1,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 2,
+      "llm_flag": 3,
+      "both": 1,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 2,
+      "llm_flag": 3,
+      "both": 1,
+      "n": 116
+     }
+    },
+    "G2_NO_COMPUTATION": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 0,
+      "llm_flag": 6,
+      "both": 0,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 0,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 0,
+      "llm_flag": 3,
+      "both": 0,
+      "n": 116
+     }
+    },
+    "G3_FINAL_ANSWER": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 0,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 0,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 0,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     }
+    },
+    "KEY_CORRECT": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 1,
+      "llm_flag": 5,
+      "both": 0,
+      "n": 108
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 1,
+      "llm_flag": 2,
+      "both": 0,
+      "n": 113
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 1,
+      "llm_flag": 2,
+      "both": 0,
+      "n": 106
+     }
+    },
+    "KP_IN_ATOM": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 0,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 34
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 0,
+      "llm_flag": 2,
+      "both": 0,
+      "n": 34
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 0,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 34
+     }
+    },
+    "NO_LEAK": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 10,
+      "llm_flag": 18,
+      "both": 9,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 10,
+      "llm_flag": 26,
+      "both": 9,
+      "n": 115
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 10,
+      "llm_flag": 32,
+      "both": 10,
+      "n": 116
+     }
+    },
+    "NO_SOURCE_REF": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 1,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 116
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 1,
+      "llm_flag": 0,
+      "both": 0,
+      "n": 116
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 1,
+      "llm_flag": 2,
+      "both": 1,
+      "n": 116
+     }
+    },
+    "ONE_ELEMENT_CHANGE": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 1,
+      "llm_flag": 18,
+      "both": 1,
+      "n": 29
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 1,
+      "llm_flag": 11,
+      "both": 1,
+      "n": 29
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 1,
+      "llm_flag": 12,
+      "both": 1,
+      "n": 29
+     }
+    },
+    "SINGLE_ANSWER": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 0,
+      "llm_flag": 6,
+      "both": 0,
+      "n": 82
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 0,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 82
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 0,
+      "llm_flag": 1,
+      "both": 0,
+      "n": 82
+     }
+    },
+    "YN_CASE_FORMAT": {
+     "GPT (gpt-6.1-sol)": {
+      "human_flag": 1,
+      "llm_flag": 13,
+      "both": 1,
+      "n": 42
+     },
+     "Gemini (gemini-4-argon)": {
+      "human_flag": 1,
+      "llm_flag": 12,
+      "both": 0,
+      "n": 42
+     },
+     "Claude (예비, 11/17)": {
+      "human_flag": 1,
+      "llm_flag": 14,
+      "both": 0,
+      "n": 42
+     }
+    }
+   },
+   "all_three_vs_human": {
+    "n": 28,
+    "direction": {
+     "사람 pass / LLM nonpass": 26,
+     "사람 nonpass / LLM pass": 2
+    }
+   }
+  }
+ },
+ "adjudication_queue": {
+  "n": 104,
+  "priority1_all_three_llms_agree": 42
+ }
+}

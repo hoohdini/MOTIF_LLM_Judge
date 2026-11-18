@@ -95,8 +95,11 @@ def report(ctx, stage):
         llm_only = fn(ctx, use_human=False); out["vs_human"] = {}
         cands = {"COMBINED": llm_only, **{j: fn(ctx, judges=[j], use_human=False) for j in ctx.stage_judges(stage)}}
         for name, dec in cands.items():
-            pairs = [(_b(hv), _b(dec[u]["own"])) for (u, hh), (hv, _) in human.items() if u in dec and dec[u]["unit_hash"] == hh and dec[u]["own"] != "pending"]
+            # 사람이나 LLM 어느 한쪽이라도 hold면 비교에서 뺀다 (판정 불가를 '불통과'로 세지 않도록)
+            pairs = [(_b(hv), _b(dec[u]["own"])) for (u, hh), (hv, _) in human.items()
+                     if u in dec and dec[u]["unit_hash"] == hh and hv != "hold" and dec[u]["own"] not in ("pending", "hold")]
             if pairs:
+                out.setdefault("vs_human_excluded_hold", {})[name] = sum(1 for (u, hh), (hv, _) in human.items() if u in dec and dec[u]["unit_hash"] == hh) - len(pairs)
                 bad = [p for p in pairs if p[0] == "nonpass"]; good = [p for p in pairs if p[0] == "pass"]
                 out["vs_human"][name] = {**agreement(pairs),
                                          "fail_recall": round(sum(p[1] == "nonpass" for p in bad) / len(bad), 3) if bad else None,
