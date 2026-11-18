@@ -204,6 +204,7 @@ def run_stage(stage, store, ctx, judge_ids=None, books=None, only=None, repeat=1
 
     ok = fail = nrows = 0
     pool = ThreadPoolExecutor(max_workers=workers)
+    print(f"run {run_id}: 호출 {len(tasks)}건 시작 (동시 {workers}개)", flush=True)
     for (b, j, rep), raw, usage, err in pool.map(work, tasks):
         tag = f"{b['batch_id']}{'.canary-' + b['canary']['id'] if b['canary'] else ''}.r{rep}".replace("::", "__").replace("/", "_")
         parsed = parse_json(raw, "units") if raw else None
@@ -219,6 +220,8 @@ def run_stage(stage, store, ctx, judge_ids=None, books=None, only=None, repeat=1
             continue
         rows = [r for r in _rows_from(parsed, b, j, rep, meta) if (r["unit_id"], r["unit_hash"], j, rep) not in done]
         store.add_verdicts(rows); ok += 1; nrows += len(rows)
+        if (ok + fail) % 10 == 0 or ok + fail == len(tasks):
+            print(f"  진행 {ok + fail}/{len(tasks)} (실패 {fail})", flush=True)
     pool.shutdown(cancel_futures=True)
     print(f"run {run_id}: 호출 성공 {ok}, 실패 {fail}, 판정 {nrows}행 적재")
     if fail:
