@@ -27,9 +27,9 @@ judges:
     base_url_env: LETSUR_BASE_URL
     key_env: LETSUR_API_KEY
     max_tokens: 16000
-  reviser:                        # atom 자동 분리·수정 담당. 판정이 아니므로 어느 계열이든 된다
+  reviser:                        # atom 자동 분리·수정 담당. 판정이 아니므로 어느 계열이든 된다 (11/18 결정: claude-sonnet-5-5)
     provider: openai_compat
-    model: SET_ME
+    model: claude-sonnet-5-5
     family: reviser
     base_url_env: LETSUR_BASE_URL
     key_env: LETSUR_API_KEY
@@ -52,6 +52,7 @@ target_families:
   claude: anthropic
 
 policy:
+  aggregate: judge_final     # judge_final = 저지별 최종 판정(통과/비통과)이 같으면 확정 (11/18 결정) / per_check = 체크마다 전원 일치
   math_evidence: judge       # judge = 저지가 판단 (읽을 수 없으면 저지가 hold) / hold = 수식이 깨진 근거에 의존하는 체크는 전부 사람에게
   revise_max_rounds: 1       # 자동 수정본이 또 revise를 받으면 보류(사람)
   human_sample_rate: 0.08    # 만장일치 판정 중 사람이 무작위로 확인할 비율

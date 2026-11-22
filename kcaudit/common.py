@@ -83,4 +83,7 @@ def parse_json(text, key):
 
 
 def book_of(unit_id):
-    return unit_id.replace("CANARY::", "").split("-")[0]
+    """책 코드. 'CART-C01-S1-01' → 'CART', 'CS-COMP-C01-S1-01-M1-OPEN' → 'CS-COMP' (책 코드에 '-'가 들어가도 된다)."""
+    u = unit_id.replace("CANARY::", "")
+    m = re.match(r"(.+?)-C\d+(?:-|$)", u)
+    return m.group(1) if m else u.split("-")[0]

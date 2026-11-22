@@ -9,13 +9,13 @@ from . import judges as J
 
 
 def run_revise(store, ctx, judge_id="reviser", limit=None):
-    cfg = ctx.cfg; P = load_prompt("prompts/atom_revise.v1.md")
+    cfg = ctx.cfg; P = load_prompt("prompts/atom_revise.v2.md")
     dec = decide_card(ctx); done = fail = 0
     targets = [(c, a) for c in ctx.cards for a in c["atoms"] if dec[a["atom_id"]]["decision"] == "revise"]
     run_id, rdir = store.new_run("revise", {"judge": cfg["judges"][judge_id], "targets": len(targets)}) if targets else (None, None)
     for c, a in targets[:limit]:
         d = dec[a["atom_id"]]
-        findings = "\n".join(f"- {n}: {r['v']} — {' / '.join(r['why'].values())}" for n, r in d["checks"].items()
+        findings = "\n".join(f"- {n}: {'/'.join(sorted(set(r['by'].values()) - {'pass'})) or r['v']} — {' / '.join(f'{j}: {w}' for j, w in r['why'].items())}" for n, r in d["checks"].items()
                              if r["v"] not in ("pass", "pending") and not n.startswith("A_"))
         ev = {e["id"]: e for e in a["evidence"]}
         user = Template(P["user"]).safe_substitute(concept=c["concept_name"], atom_id=a["atom_id"], scope=a["scope"], statement=a["statement"],
@@ -35,7 +35,8 @@ def run_revise(store, ctx, judge_id="reviser", limit=None):
         if not good:                                                # 못 고친 atom은 지우지 않고 사람에게 넘긴다
             store.add_verdicts([{"ts": now(), "run_id": run_id, "stage": "card", "group": "code", "unit_type": "atom", "unit_id": a["atom_id"],
                                  "unit_hash": a["_hash"], "check": "REVISE_FAILED", "v": "hold", "judge": "code", "rep": 0, "prompt_hash": CODE_VERSION,
-                                 "why": err or (parsed or {}).get("note") or "수정본이 규칙(근거 ID·S 라벨)을 만족하지 못함"}])
+                                 "why": err or (("reviser_excluded: " + (parsed.get("note") or "")) if parsed is not None and not parsed.get("atoms") else None)
+                                 or (parsed or {}).get("note") or "수정본이 규칙(근거 ID·S 라벨)을 만족하지 못함"}])
             fail += 1; continue
         base = a["atom_id"].split(".r")[0]
         new = [{"atom_id": f"{base}.r{rnd}{'abc'[k] if len(good) > 1 else ''}", "scope": x["scope"], "statement": x["statement"],

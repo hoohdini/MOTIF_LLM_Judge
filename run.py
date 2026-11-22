@@ -10,6 +10,7 @@ from kcaudit import prechecks, runner, revise, human, stats, release
 
 ap = argparse.ArgumentParser(description=__doc__)
 ap.add_argument("--config", default="config.yaml", help="설정 파일 (모의 실행은 config.mock.yaml)")
+ap.add_argument("--store", help="적재 폴더를 바꿔 쓴다 (예: store_a8, store_b7, store_old9). 묶음마다 따로 두면 서로 덮어쓰지 않는다")
 sub = ap.add_subparsers(dest="cmd", required=True)
 p = sub.add_parser("ingest", help="원본을 불변 스냅샷으로 적재"); p.add_argument("kind", choices=["cards", "items", "answers", "preaudit"]); p.add_argument("paths", nargs="+"); p.add_argument("--label", default="")
 p = sub.add_parser("precheck", help="코드 사전검사"); p.add_argument("--stage", choices=["card", "item", "answer"], required=True)
@@ -29,7 +30,10 @@ sub.add_parser("index", help="원장을 SQLite로 색인 (조회용, 언제든 �
 args = ap.parse_args()
 
 load_env()
-cfg = load_yaml(ROOT / args.config); reg = Registry(); store = Store(cfg["store"])
+cfg = load_yaml(ROOT / args.config)
+if args.store:
+    cfg["store"] = args.store
+reg = Registry(); store = Store(cfg["store"])
 
 
 def ctx():
@@ -55,7 +59,9 @@ if args.cmd == "ingest":
                 rows.append({**base, "check": "NO_OVERLAP", "v": "fail" if r["overlaps_with"].strip() else "pass", "cite": r["overlaps_with"].split()})
         store.add_verdicts(rows); print(f"사전 점검 {len(rows)}행 적재")
     else:
-        sha, n = store.ingest(args.kind, args.paths, args.label); print(f"{args.kind}: {n}행 → 스냅샷 {sha} (활성)")
+        import glob                                                 # Windows 셸은 *.jsonl을 풀어 주지 않으므로 여기서 푼다
+        paths = [q for p_ in args.paths for q in (sorted(glob.glob(p_)) or [p_])]
+        sha, n = store.ingest(args.kind, paths, args.label); print(f"{args.kind}: {n}행 → 스냅샷 {sha} (활성)")
 elif args.cmd == "precheck":
     c = ctx(); rows = {"card": lambda: prechecks.atoms(c.cards), "item": lambda: prechecks.items(c.items), "answer": lambda: prechecks.answers(c.answers)}[args.stage]()
     n = prechecks.write_new(store, rows)

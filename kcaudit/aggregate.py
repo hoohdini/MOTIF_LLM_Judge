@@ -1,6 +1,7 @@
 """판정 합산. 원장(ledger)의 개별 판정 → 체크별 판정 → 단위 판정.
-규칙: 사람 판정이 있으면 그것이 우선. 없으면 필수 저지가 전원 같은 값일 때만 그 값, 엇갈리면 hold.
-단위 판정 우선순위: fail > pending > hold > revise > pass (blocker 체크만 반영)."""
+규칙: 사람 판정이 있으면 그것이 우선. 그다음은 config의 policy.aggregate에 따른다 (_decision 참고).
+  judge_final(기본 설정): 저지별 단위 판정이 통과/비통과로 일치하면 확정, 갈리면 hold.
+  per_check: 체크마다 저지 전원이 같은 값일 때만 그 값, 엇갈리면 hold."""
 from collections import Counter, defaultdict
 from .common import h, load_yaml, ROOT
 from .prechecks import CODE_CHECKS, CODE_VERSION
@@ -94,12 +95,34 @@ def _resolve(ctx, uid, uhash, defs, judges, phash, garbled, use_human):
     return res
 
 
-def _decision(res, defs, pass_values=("pass",)):
-    vs = [res[n]["v"] for n, d in defs.items() if d["severity"] == "blocker"]
-    for k in ("fail", "pending", "hold", "revise"):
-        if k in vs:
+def _decision(res, defs, pass_values=("pass",), mode="per_check", judges=()):
+    """단위 판정.
+    per_check   : 체크마다 저지 전원이 같은 값일 때만 그 값(엇갈리면 hold) → fail > pending > hold > revise > pass.
+    judge_final : 저지마다 자기 판정만으로 단위 판정(fail > hold > revise > pass)을 낸 뒤,
+                  전원 통과면 pass, 전원 비통과면 그중 가장 무거운 값, 통과·비통과가 갈리면 hold. (11/18 결정)
+    코드 사전검사와 사람 판정은 두 방식 모두에서 그대로 우선한다."""
+    blockers = {n: d for n, d in defs.items() if d["severity"] == "blocker"}
+    if mode != "judge_final" or not judges:
+        vs = [res[n]["v"] for n in blockers]
+        for k in ("fail", "pending", "hold", "revise"):
+            if k in vs:
+                return k
+        return "pass" if all(v in pass_values for v in vs) else "hold"
+    fixed = [res[n]["v"] for n, d in blockers.items() if d.get("code") or res[n]["src"] != "judges"]   # 코드·사람·수식 정책
+    for k in ("fail", "pending"):
+        if k in fixed:
             return k
-    return "pass" if all(v in pass_values for v in vs) else "hold"
+    finals = []
+    for j in judges:
+        vs = fixed + [res[n]["by"].get(j, "pending") for n, d in blockers.items() if not d.get("code") and res[n]["src"] == "judges"]
+        finals.append(next((k for k in ("pending", "fail", "hold", "revise") if k in vs), "pass" if all(v in pass_values for v in vs) else "hold"))
+    if "pending" in finals:
+        return "pending"
+    if all(f == "pass" for f in finals):
+        return "pass"
+    if any(f == "pass" for f in finals):
+        return "hold"                                               # 한 저지만 통과 → 사람에게
+    return next(k for k in ("fail", "hold", "revise") if k in finals)
 
 
 def _unit_override(ctx, uid, uhash, use_human):
@@ -124,7 +147,7 @@ def decide_card(ctx, judges=None, use_human=True):
     for c in ctx.cards:
         for a in c["atoms"]:
             res = _resolve(ctx, a["atom_id"], a["_hash"], defs, judges, ctx.phash[gname], a["_garbled"], use_human)
-            d = _decision(res, defs)
+            d = _decision(res, defs, mode=ctx.cfg["policy"].get("aggregate", "per_check"), judges=judges)
             if d == "revise" and a.get("rev_round", 0) >= ctx.cfg["policy"].get("revise_max_rounds", 1):
                 d = "hold"                                           # 자동 수정본이 또 걸리면 사람에게
             ov = _unit_override(ctx, a["atom_id"], a["_hash"], use_human)
@@ -146,7 +169,7 @@ def decide_item(ctx, judges=None, use_human=True):
     for it in ctx.items:
         defs = {**_code_defs("item"), **ctx.reg.applicable(g, it)}
         res = _resolve(ctx, it["item_id"], it["_hash"], defs, judges, ctx.phash[gname], it["_garbled"], use_human)
-        own = _decision(res, defs)
+        own = _decision(res, defs, mode=ctx.cfg["policy"].get("aggregate", "per_check"), judges=judges)
         ov = _unit_override(ctx, it["item_id"], it["_hash"], use_human)
         a = atoms.get(it["atom_id"])
         if a is None or a["statement"] != it["atom_statement"]:

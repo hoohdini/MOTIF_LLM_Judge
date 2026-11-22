@@ -9,18 +9,18 @@ groups:
   atom_audit:
     stage: card
     unit: atom
-    prompt: prompts/atom_audit.v1.md
+    prompt: prompts/atom_audit.v2.md
     checks:
       GROUNDED:
         severity: blocker
-        values: [pass, revise, fail]
+        values: [pass, revise, fail, hold]
         evidence_dependent: true
         cite: evidence_id
-        desc: "The cited evidence sentences state the atom. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated. For pass, put the supporting evidence ids in cite (required)."
+        desc: "The cited evidence sentences state the atom, including its specificity, causal force, assumptions, and certainty. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated when the available evidence permits a judgment. hold = unreadable symbols prevent verification. For pass or revise, put the supporting evidence ids in cite."
       SINGLE_CLAIM:
         severity: blocker
         values: [pass, revise]
-        desc: "The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately."
+        desc: "The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately. Evidence spanning more than three sentences is not by itself a reason to split or revise an atom."
       SCOPE_LABEL:
         severity: blocker
         values: [pass, revise]
@@ -32,7 +32,7 @@ groups:
       SOURCE_INDEPENDENT:
         severity: blocker
         values: [pass, revise, fail]
-        desc: "A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = the authors' opinion or choice, or the finding of one study, so the answer is not fixed without the source."
+        desc: "A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = an isolated study finding, conjecture, or author-specific opinion, classification, or recommendation, even if attribution was removed. Explicitly scoped established facts about a formalism or architecture and conditional theoretical results remain eligible."
       NO_OVERLAP:
         severity: blocker
         values: [pass, fail]
@@ -46,17 +46,17 @@ groups:
       CONCEPT_SCOPE:
         severity: warn
         values: [pass, fail]
-        desc: "The concept is a general concept of the field. fail = a single system, product, or one study's topic."
+        desc: "The concept is a general concept of the field. fail = a topic whose assessable content is restricted to excluded study-specific findings or author-specific positions. A named formalism, system, or architecture is not disqualified solely for being specific if its scoped conceptual facts are source-independent."
 
   item_audit:
     stage: item
     unit: item
-    prompt: prompts/item_audit.v2.md
+    prompt: prompts/item_audit.v3.md
     checks:
       G1_SINGLE_ATOM:
         severity: blocker
         values: [pass, fail]
-        desc: "The correct answer follows from this atom alone."
+        desc: "The answer must be determined by the atom and, for case items, the explicitly stated case facts. No additional domain-specific rule or unstated assumption may be needed."
       G2_NO_COMPUTATION:
         severity: blocker
         values: [pass, fail]
@@ -67,9 +67,9 @@ groups:
         desc: "The answer can be graded as a label, an option, or the presence of key points."
       KEY_CORRECT:
         severity: blocker
-        values: [pass, fail]
+        values: [pass, fail, hold]
         evidence_dependent: true
-        desc: "The answer key agrees with the atom and evidence. For a False/No target, check that the item text really contradicts the atom."
+        desc: "The answer key agrees with the atom and evidence. hold = unreadable symbols prevent verification; fail = the key is wrong or the item lacks enough information to determine the keyed answer. For a False/No target, verify that the negative answer is established by the atom and explicit case facts, not merely unsupported. Failure to satisfy a sufficient condition does not establish a negative classification; preserve may/can and non-causal associations."
       SINGLE_ANSWER:
         severity: blocker
         values: [pass, fail]
@@ -78,12 +78,12 @@ groups:
       NO_LEAK:
         severity: blocker
         values: [pass, fail]
-        desc: "The item does not give away its answer. OPEN/MCQ/YN: the question does not state or closely paraphrase the answer. TF: the statement itself is what is tested, so a paraphrase of the atom is fine; fail only for hints outside the claim (e.g. 'as is well known')."
+        desc: "The item does not give away its answer. OPEN/MCQ/YN: inspect all test-taker-visible content, including the case, question, and options. Fail if it supplies the requested answer, tested classification, or equivalent defining explanation so the tested knowledge need not be recalled. Shared terminology, ordinary notation, and necessary case facts alone are not leaks; the presence of a correct MCQ option is not itself a leak. TF: the statement itself is what is tested, so a paraphrase of the atom is fine; fail only for hints outside the claim (e.g. 'as is well known')."
       KP_IN_ATOM:
         severity: blocker
         values: [pass, fail]
         applies: [OPEN]
-        desc: "Every key point is part of the atom."
+        desc: "Every key point is supported by the atom and directly required by the question. Do not require a premise already supplied in the question or extra content the question does not ask for."
       YN_CASE_FORMAT:
         severity: blocker
         values: [pass, fail]
@@ -101,7 +101,7 @@ groups:
       AUTHOR_OPINION_RESOLVED:
         severity: blocker
         values: [pass, fail]
-        desc: "If the atom is the authors' opinion or one study's finding, the item must not ask it as a universal fact, and its answer must still be fixed without the book. pass if the atom is a general claim."
+        desc: "Inspect both the atom and supplied evidence. fail if the item relies on an isolated study finding, conjecture, or author-specific opinion, classification, or recommendation, even after attribution was removed. pass for eligible established knowledge, including explicitly scoped theoretical or architectural facts."
       NO_INTRA_CARD_OVERLAP:
         severity: blocker
         values: [pass, fail]
