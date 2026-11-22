@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-COMP-C04-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fixed-point lemma\n\nATOM CS-COMP-C04-S2-02 (S2): Given a formula $B(x)$ with one free variable $x$, let $E(x)$ be the formula $\\exists y\\,(D_{\\mathrm{diag}}(x,y) \\wedge B(y))$, where $D_{\\mathrm{diag}}$ represents the function diag in $Q$, and let $A$ be the diagonalization of $E(x)$, i.e. the formula $E(\\ulcorner E(x) \\urcorner)$; then $Q \\vdash A \\leftrightarrow B(\\ulcorner A \\urcorner)$.\n\nEVIDENCE:\n[CS-COMP-p0128-s08] Then there is a sentence A such that Q ⊢A ↔B(⌜A⌝).\n[CS-COMP-p0128-s09] Proof. Given B(x), let E(x) be the formula ∃y (Ddiag(x,y) ∧B(y)) and let A be its diagonalization, i.e., the formula E(⌜E(x)⌝).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The construction and conclusion are stated, but these sentences do not specify that D_diag represents diag in Q. / judge_b: The cited evidence sentences do not explicitly state that D_diag represents the function diag in Q or that B(x) has one free variable x.",
+ "raw": "{\"atoms\": [{\"statement\": \"For a formula $B(x)$, there is a sentence $A$ such that $Q \\\\vdash A \\\\leftrightarrow B(\\\\ulcorner A \\\\urcorner)$, and the proof obtains $A$ as the diagonalization $E(\\\\ulcorner E(x) \\\\urcorner)$ of the formula $E(x)=\\\\exists y\\\\,(D_{\\\\mathrm{diag}}(x,y) \\\\wedge B(y))$.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-COMP-p0128-s08\", \"CS-COMP-p0128-s09\"]}], \"note\": \"Removed details the cited sentences do not state: that $D_{\\\\mathrm{diag}}$ represents diag in $Q$, and that $B(x)$ has exactly one free variable.\"}",
+ "usage": {
+  "completion_tokens": 742,
+  "prompt_tokens": 1054,
+  "total_tokens": 1796,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1054,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00952800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

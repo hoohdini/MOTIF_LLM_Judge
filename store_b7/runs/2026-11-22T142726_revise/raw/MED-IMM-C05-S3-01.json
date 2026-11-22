@@ -1,0 +1,32 @@
+{
+ "atom_id": "MED-IMM-C05-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Nonpermissive HLA mismatch\n\nATOM MED-IMM-C05-S3-01 (S3): The T-cell epitope group model for HLA-DPB1 mismatches has been associated with mortality and acute GVHD in 8/8-matched unrelated donor transplantation.\n\nEVIDENCE:\n[MED-IMM-p0113-s09] HLA locus, donor type, and Model clinical association T-cell epitope HLA-DPB1; 8/8 UD; mortality (TCE) groupsa and acute GVHD Expression levelsb HLA C and DPB1; 7–8/8 UD; acute GVHD Mismatch HLA C and DPB1; 7–8/8 UD; 9.2 combinationsc mortality, acute GVHD and relapse PIRCHEd HLA C and DPB1; 8/8 UD; 9/10 UD, CBU, acute GVHD a TCE groups: HLA-DPB1 mismatches involving alleles Key Points from the same (permissive) or different (nonpermissive) • Allo-HCT donor types (in parenthesis TCE groups (Fleischhauer and Shaw 2017, Meurer et al. 2021) the percentage probability of their iden b Expression levels: HLA-C or HLA-DPB1 mismatches tification for a given patient) include involving a high-expression allele in the patient, as pre genotypically HLA-identical siblings dicted by noncoding, single nucleotide expression poly (25%), HLA-haploidentical family morphisms (Petersdorf et al. 2014, 2015) c Mismatch combinations: High-risk allele mismatches donors (>90%), UDs (30–90%), and defined by statistical associations (Fernandez-Vina et al.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Associations with mortality and acute GVHD can be true or false independently.\n- SCOPE_LABEL: revise — judge_a: S2: Describes clinical associations of the model, not a limitation or boundary of its applicability. / judge_b: S2: Clinical associations and outcomes of the TCE biological model describe how it works/manifests, not a boundary or limitation.",
+ "raw": "{\"atoms\":[{\"statement\":\"In 8/8-matched unrelated donor transplantation, HLA-DPB1 mismatches classified by T-cell epitope (TCE) groups, as permissive (alleles from the same TCE group) or nonpermissive (alleles from different TCE groups), have been associated with mortality.\",\"scope\":\"S2\",\"evidence_ids\":[\"MED-IMM-p0113-s09\"]},{\"statement\":\"In 8/8-matched unrelated donor transplantation, HLA-DPB1 mismatches classified by T-cell epitope (TCE) groups, as permissive (alleles from the same TCE group) or nonpermissive (alleles from different TCE groups), have been associated with acute GVHD.\",\"scope\":\"S2\",\"evidence_ids\":[\"MED-IMM-p0113-s09\"]}],\"note\":\"Split the joint mortality/acute GVHD claim into two atoms. Relabeled S3 to S2 because the evidence describes clinical associations of the model, not a limit of its applicability. The evidence is a garbled table, and the row's association with both outcomes is read from it.\"}",
+ "usage": {
+  "completion_tokens": 875,
+  "prompt_tokens": 1330,
+  "total_tokens": 2205,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1330,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01141000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

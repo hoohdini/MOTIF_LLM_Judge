@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-ALG-C07-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Coxeter group\n\nATOM MATH-ALG-C07-S2-03 (S2): For a Coxeter system $(G,S)$, take the real vector space $V$ with basis $(e_s)_{s\\in S}$ and the symmetric bilinear form $B$ with $B(e_s,e_t)=-\\cos(\\pi/m(s,t))$ if $m(s,t)\\ne\\infty$ and $-1$ otherwise; then $\\sigma_s v=v-2B(v,e_s)e_s$ is a linear map sending $e_s$ to its negative and fixing the hyperplane $H_s$ orthogonal to $e_s$, satisfies $\\sigma_s^2=1$ in $GL(V)$, and preserves $B$.\n\nEVIDENCE:\n[MATH-ALG-p0040-s10] Define a symmetric bilinear form 𝐵on 𝑉by the rule\n[MATH-ALG-p0040-s11] 𝐵(𝑒𝑠, 𝑒𝑡) = { −cos(𝜋∕𝑚(𝑠, 𝑡)) if 𝑚(𝑠, 𝑡) ≠∞ −1 otherwise.\n[MATH-ALG-p0040-s13] This allows us to define a “reflection” by the rule 𝜎𝑠𝑣= 𝑣−2𝐵(𝑣, 𝑒𝑠)𝑒𝑠, 𝑣∈𝑉.\n[MATH-ALG-p0040-s14] Clearly 𝜎𝑠is a linear map sending 𝑒𝑠to its negative and fixing the elements of 𝐻𝑠, and so 𝜎2 𝑠= 1 in GL(𝑉).\n[MATH-ALG-p0040-s15] Moreover, 𝜎𝑠preserves the form 𝐵, i.e., 𝐵(𝜎𝑠𝑣, 𝜎𝑠𝑤) = 𝐵(𝑣, 𝑤).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The reflection formula and properties are stated, but the real basis construction and definition of the orthogonal hyperplane are absent. / judge_b: Provided evidence does not define V with basis (e_s)_{s in S} or state that H_s is the hyperplane orthogonal to e_s.\n- SINGLE_CLAIM: revise — judge_a: Combines the bilinear-form construction, reflection action, involutivity, and preservation of the form, which are independently assessable. / judge_b: Combines multiple separable properties of sigma_s: action on e_s and H_s, being an involution in GL(V), and preserving the bilinear form B.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a symmetric bilinear form $B$ on a real vector space $V$ with distinguished vectors $e_s$, the reflection $\\\\sigma_s v=v-2B(v,e_s)e_s$ is a linear map that sends $e_s$ to $-e_s$ and satisfies $\\\\sigma_s^2=1$ in $GL(V)$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MATH-ALG-p0040-s13\",\"MATH-ALG-p0040-s14\"]},{\"statement\":\"For the symmetric bilinear form $B$ on $V$ with $B(e_s,e_t)=-\\\\cos(\\\\pi/m(s,t))$ when $m(s,t)\\\\ne\\\\infty$ and $-1$ otherwise, the reflection $\\\\sigma_s v=v-2B(v,e_s)e_s$ preserves $B$, that is, $B(\\\\sigma_s v,\\\\sigma_s w)=B(v,w)$.\",\"scope\":\"S2\",\"evidence_ids\":[\"MATH-ALG-p0040-s11\",\"MATH-ALG-p0040-s13\",\"MATH-ALG-p0040-s15\"]}],\"note\":\"Split into two atoms: the linear/involution property and form preservation. The evidence does not define V as having basis (e_s) or H_s as the orthogonal hyperplane, so those details were dropped. The fixing of H_s is not stated as its own claim.\"}",
+ "usage": {
+  "completion_tokens": 1122,
+  "prompt_tokens": 1514,
+  "total_tokens": 2636,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1514,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01424800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

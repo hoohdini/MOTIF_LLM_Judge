@@ -25,7 +25,8 @@ def call(jid, jcfg, system, user, mock_spec=None):
         if r.status_code >= 400:
             raise RuntimeError(f"HTTP {r.status_code}: {r.text[:500]}")
         r.raise_for_status(); b = r.json(); ch = b["choices"][0]
-        usage = {**(b.get("usage") or {}), "finish_reason": ch.get("finish_reason"), "estimated_cost": b.get("estimated_cost")}
+        usage = {**(b.get("usage") or {}), "finish_reason": ch.get("finish_reason"), "estimated_cost": b.get("estimated_cost"),
+                 "response_model": b.get("model"), "request": {k: v for k, v in body.items() if k != "messages"}}
         if ch.get("finish_reason") == "length":
             raise RuntimeError("출력이 max_tokens에서 잘렸습니다.")
         return ch["message"].get("content") or "", usage

@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DIST-C10-S3-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: BG simulation\n\nATOM CS-DIST-C10-S3-04 (S3): Safe agreement guarantees termination only if all processes keep taking steps until they receive the safe notification, so a process that crashes in its unsafe section can prevent the object from terminating.\n\nEVIDENCE:\n[CS-DIST-p0334-s05] It is guaranteed that the protocol terminates as long as all processes continue to take steps until they receive the safe notiﬁcation, and that the usual validity (all outputs equal some input) and agreement (all outputs equal each other) conditions hold.\n[CS-DIST-p0333-s15] It is guaranteed to terminate only if there are no failures by any process during an initial, bounded, unsafe section of its execution, but if a process fails later, it can prevent termination.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The safe-notification sentence gives a sufficient condition ('as long as'), not the necessary condition asserted by 'only if'. / judge_b: Evidence p0333-s15 says failing 'later' prevents termination; the atom corrects this to 'in its unsafe section' beyond the literal text.\n- SCOPE_LABEL: revise — judge_b: S2: Describes how the safe agreement component operates and its termination property.",
+ "raw": "{\"atoms\":[{\"statement\":\"A safe agreement object is guaranteed to terminate only if no process fails during the initial, bounded, unsafe section of its execution.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0333-s15\"]},{\"statement\":\"A safe agreement protocol is guaranteed to terminate as long as all processes continue to take steps until they receive the safe notification.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0334-s05\"]}],\"note\":\"Split the original atom. The 'only if' condition comes from the unsafe-section sentence, and the safe-notification sentence gives only a sufficient condition ('as long as'). I did not state that a crash in the unsafe section prevents termination, because the evidence says only that a later failure can prevent it.\"}",
+ "usage": {
+  "completion_tokens": 728,
+  "prompt_tokens": 1016,
+  "total_tokens": 1744,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1016,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00931200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

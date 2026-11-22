@@ -34,6 +34,7 @@ target_families:
   gemini: google
   claude: anthropic
 policy:
+  aggregate: judge_final
   math_evidence: judge
   revise_max_rounds: 1
   human_sample_rate: 0.08

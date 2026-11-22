@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-GEO-C10-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Weyl's tube formula\n\nATOM MATH-GEO-C10-S3-02 (S3): If $\\varepsilon<\\tau(X)$, where $\\tau(X)=\\sup\\{\\varepsilon>0\\mid\\varphi_\\varepsilon\\text{ is a diffeomorphism}\\}$ is the reach of the smooth variety $X$, then the normal exponential map $\\varphi_\\varepsilon$ is a diffeomorphism, which allows the integral of the constant function 1 over the tube to be pulled back to the $\\varepsilon$-normal bundle $\\mathcal{N}_\\varepsilon X$.\n\nEVIDENCE:\n[MATH-GEO-p0090-s13] The desired volume is the integral of the constant function 1 over the tube.\n[MATH-GEO-p0090-s14] If 𝜀< 𝜏(𝑋), then the exponential map 𝜑𝜀is a diffeomorphism and we can pull that integral back to the normal bundle N𝜀𝑋.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence supports the diffeomorphism and pullback below reach, but does not supply the stated supremum definition of reach. / judge_b: The definition tau(X) = sup{epsilon > 0 | varphi_epsilon is a diffeomorphism} is not stated in the cited evidence sentences.",
+ "raw": "{\"atoms\": [{\"statement\": \"If $\\\\varepsilon<\\\\tau(X)$, where $\\\\tau(X)$ is the reach of the smooth variety $X$, then the exponential map $\\\\varphi_\\\\varepsilon$ is a diffeomorphism, so the integral of the constant function 1 over the tube (the desired volume) can be pulled back to the $\\\\varepsilon$-normal bundle $\\\\mathcal{N}_\\\\varepsilon X$.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-GEO-p0090-s13\", \"MATH-GEO-p0090-s14\"]}], \"note\": \"Removed the supremum definition of the reach $\\\\tau(X)$, which is not stated in the cited evidence. Kept the claim that for $\\\\varepsilon<\\\\tau(X)$ the map $\\\\varphi_\\\\varepsilon$ is a diffeomorphism and the integral can be pulled back to $\\\\mathcal{N}_\\\\varepsilon X$. The word 'normal' before 'exponential map' was also dropped, since the evidence says only 'exponential map'.\"}",
+ "usage": {
+  "completion_tokens": 374,
+  "prompt_tokens": 1055,
+  "total_tokens": 1429,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 374
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1055,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00585000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

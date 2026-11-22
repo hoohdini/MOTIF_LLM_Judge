@@ -20,7 +20,7 @@ def _files(ctx):
                        "checks": {n: {"v": r["v"], "src": r["src"], "by": r["by"], "why": r["why"]} for n, r in d["checks"].items() if r["v"] != "pass"}}
     act = {"atom_changed": "regenerate_for_new_atom", "atom_fail": "drop"}      # atom이 아직 보류·수정 대기면 목록에 넣지 않는다
     regen = [{"item_id": u, "action": act.get(d["blocked_by"], "regenerate"), "reason": d["blocked_by"] or "audit_fail",
-              "failed": {n: " / ".join(r["why"].values()) for n, r in d["checks"].items() if r["v"] == "fail"}}
+              "failed": {n: " / ".join(r["why"].values()) for n, r in d["checks"].items() if r["v"] == "fail" or "fail" in r["by"].values()}}
              for u, d in idec.items() if d["decision"] == "fail" or d["blocked_by"] in act]
     out = {"cards_approved.jsonl": cards,
            "items_approved.jsonl": [_clean(i) for i in ctx.items if idec[i["item_id"]]["decision"] == "pass"],

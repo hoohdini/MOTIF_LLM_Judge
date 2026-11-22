@@ -22,7 +22,7 @@ def _atom_block(a):
 
 def _item_block(it, checks):
     kp = f"\n  KEY POINTS: {json.dumps(it['key_points'], ensure_ascii=False)}" if it.get("key_points") else ""
-    fl = f"\n  FLAGS: {', '.join(it['flags'])}" if it.get("flags") else ""
+    fl = ""   # 생성 쪽 참고 플래그(DRAFT_REQUIRES_AUDIT 등)는 판정에 영향을 주지 않도록 저지에게 보내지 않는다
     q = it["question"].replace("\n", "\n    ")
     return (f"- {it['item_id']} | FORMAT: {it['format']} | ANSWER KEY: {it['answer'] or '(key points)'}\n  CHECKS: {', '.join(checks)}\n"
             f"  ATOM: {it['atom_statement']}\n  EVIDENCE: {' '.join(it.get('evidence', []))}\n  ITEM:\n    {q}{kp}{fl}")

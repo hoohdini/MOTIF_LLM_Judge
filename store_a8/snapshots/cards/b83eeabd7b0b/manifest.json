@@ -1,0 +1,13 @@
+{
+ "kind": "cards",
+ "sha": "b83eeabd7b0b",
+ "rows": 80,
+ "sources": [
+  {
+   "file": "cards.jsonl",
+   "sha256": "b83eeabd7b0b4c4e8658c5a2180c011b79a72db58ded679ece3f6a0004c27a1f"
+  }
+ ],
+ "label": "연욱 a8",
+ "ingested_at": "2026-11-22T10:07:52+00:00"
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-ANA-C05-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intrinsic size of a model\n\nATOM MATH-ANA-C05-S3-01 (S3): If a weighted metric graph has infinite intrinsic size, with its minimal Kirchhoff Laplacian self-adjoint, then $\\lambda_0(\\mathbf H)=\\lambda_0^{\\rm ess}(\\mathbf H)=0$, so $\\mathbf H$ has no positive spectral gap, and $\\lambda_0(\\mathbf h)=\\lambda_0^{\\rm ess}(\\mathbf h)=0$ for all models of finite intrinsic size.\n\nEVIDENCE:\n[MATH-ANA-p0059-s11] Corollary 3.18.\n[MATH-ANA-p0059-s12] Let .G; ; / be a weighted metric graph such that the correspond- ing minimal Kirchhoff Laplacian H0 is self-adjoint, H0 D H.\n[MATH-ANA-p0059-s13] Then:\n[MATH-ANA-p0059-s14] (i) The operator H is positive definite, 0.H/ > 0, if and only if there is a model of finite intrinsic size such that the corresponding operator h is positive definite, 0.h/ > 0. (ii) We have ess0 .H/ > 0 exactly when there is a model of finite intrinsic size such that ess0 .h/ > 0. (iii) If .G; ; / has infinite intrinsic size, then 0.H/ D ess0 .H/ D 0 and, more- over, 0.h/ D ess0 .h/ D 0 for all models with finite intrinsic size. (iv) The spectrum of H is purely discrete if and only if there is a model with zero essential intrinsic size, ess.E/ D 0 and the spectrum of the corresponding graph Laplacian h is purely discrete.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_b: Evidence does not explicitly mention 'positive spectral gap'.\n- SINGLE_CLAIM: revise — judge_a: The vanishing spectral bottoms of H and those of h across finite-size models are separately assessable conclusions. / judge_b: Joins two separate consequences of infinite intrinsic size: vanishing of H's bottom spectrum and vanishing of h's bottom spectrum for finite-size models.",
+ "raw": "{\"atoms\": [{\"statement\": \"Let a weighted metric graph have a self-adjoint minimal Kirchhoff Laplacian $H_0 = H$. If the graph has infinite intrinsic size, then $\\\\lambda_0(H)=\\\\lambda_0^{\\\\rm ess}(H)=0$.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-ANA-p0059-s12\", \"MATH-ANA-p0059-s14\"]}, {\"statement\": \"Let a weighted metric graph have a self-adjoint minimal Kirchhoff Laplacian $H_0 = H$. If the graph has infinite intrinsic size, then $\\\\lambda_0(h)=\\\\lambda_0^{\\\\rm ess}(h)=0$ for every model of finite intrinsic size, where $h$ is the operator corresponding to that model.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-ANA-p0059-s12\", \"MATH-ANA-p0059-s14\"]}], \"note\": \"Split into two claims. Removed the unsupported 'no positive spectral gap' phrasing, which the evidence does not state.\"}",
+ "usage": {
+  "completion_tokens": 388,
+  "prompt_tokens": 1368,
+  "total_tokens": 1756,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 388
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1368,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00661600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

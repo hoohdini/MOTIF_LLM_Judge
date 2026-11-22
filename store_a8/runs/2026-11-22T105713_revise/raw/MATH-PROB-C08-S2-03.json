@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-PROB-C08-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: He-Schramm theorem\n\nATOM MATH-PROB-C08-S2-03 (S2): If $T$ is a CP hyperbolic infinite one-ended simple planar triangulation and $D \\subsetneq \\mathbb{C}$ is a simply connected domain, then there exists a circle packing of $T$ with carrier $D$, so a circle packing of a CP hyperbolic triangulation is in general not determined up to Möbius transformations and reflections.\n\nEVIDENCE:\n[MATH-PROB-p0015-s09] Theorem 1.7 (He and Schramm 1995) Let T be a CP hyperbolic infinite oneended simple planar triangulation and let D ⊊C be a simply connected domain.\n[MATH-PROB-p0015-s10] Then there exists a circle packing of T with carrier D.\n[MATH-PROB-p0015-s12] Indeed, it implies that the circle packing of a CP hyperbolic triangulation is not determined up to Möbius transformations and reflections, since, for example, we can circle pack the same triangulation in both the unit disc and the unit square, and these two packings are clearly not related by a Möbius transformation.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines existence in every proper simply connected domain with the distinct conclusion of unrestricted nonuniqueness. / judge_b: Joins the existence theorem for arbitrary simply connected domains D with the consequence regarding non-uniqueness up to Mobius transformations.",
+ "raw": "{\"atoms\": [{\"statement\": \"If $T$ is a CP hyperbolic infinite one-ended simple planar triangulation and $D \\\\subsetneq \\\\mathbb{C}$ is a simply connected domain, then there exists a circle packing of $T$ with carrier $D$ (He–Schramm theorem).\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-PROB-p0015-s09\", \"MATH-PROB-p0015-s10\"]}, {\"statement\": \"A circle packing of a CP hyperbolic triangulation is not determined up to Möbius transformations and reflections, since the same triangulation can be circle packed in both the unit disc and the unit square, and these two packings are not related by a Möbius transformation.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-PROB-p0015-s12\"]}], \"note\": \"Split the existence theorem from the non-uniqueness consequence. The non-uniqueness claim is stated in the evidence as following from the theorem, so it is kept as a separate atom with the cited example.\"}",
+ "usage": {
+  "completion_tokens": 354,
+  "prompt_tokens": 1101,
+  "total_tokens": 1455,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 354
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1101,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00574200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

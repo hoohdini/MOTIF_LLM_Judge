@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-COMP-C01-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Gödel's first incompleteness theorem\n\nATOM CS-COMP-C01-S3-03 (S3): Gödel's original argument shows that any $\\omega$-consistent, axiomatizable theory $T$ extending $Q$ is not complete, because $T$ derives neither $G_T$ nor $\\neg G_T$, where a theory is $\\omega$-consistent if, whenever $T$ derives $\\neg A(\\overline{0}), \\neg A(\\overline{1}), \\neg A(\\overline{2}), \\ldots$, then $T$ does not prove $\\exists x\\, A(x)$.\n\nEVIDENCE:\n[CS-COMP-p0131-s03] Theorem 5.6. Let T be any 𝜔-consistent, axiomatizable theory extending Q.\n[CS-COMP-p0131-s04] Then T is not complete.\n[CS-COMP-p0131-s05] Proof. If T is 𝜔-consistent, it is consistent, so T ⊬GT by Lemma 5.3.\n[CS-COMP-p0131-s06] By Lemma 5.5, T ⊬¬GT. This means that T is incomplete, since it derives neither GT nor ¬GT. □\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The theorem and independence argument are supported, but the supplied evidence does not state the added definition of omega-consistency. / judge_b: The formal definition of omega-consistency included in the atom is not present in the cited evidence.\n- SINGLE_CLAIM: revise — judge_a: Combines an incompleteness result and its mechanism with a separately assessable definition of omega-consistency. / judge_b: Joins the theorem statement, the proof reason, and the definition of omega-consistency.\n- SCOPE_LABEL: revise — judge_a: S2: Primarily explains how the original argument establishes incompleteness through independence of the Gödel sentence. / judge_b: S1: States Gödel's original theorem and the definition of its omega-consistency hypothesis.",
+ "raw": "{\"atoms\": [{\"statement\": \"Any $\\\\omega$-consistent, axiomatizable theory $T$ extending $Q$ is not complete, because $T$ derives neither $G_T$ nor $\\\\neg G_T$.\", \"scope\": \"S3\", \"evidence_ids\": [\"CS-COMP-p0131-s03\", \"CS-COMP-p0131-s04\", \"CS-COMP-p0131-s05\", \"CS-COMP-p0131-s06\"]}], \"note\": \"Dropped the definition of omega-consistency because the evidence does not state it. The remaining theorem and its proof reason form one claim. The scope stays S3 because it states a limit on what such theories can achieve.\"}",
+ "usage": {
+  "completion_tokens": 231,
+  "prompt_tokens": 1270,
+  "total_tokens": 1501,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 231
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1270,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00485000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

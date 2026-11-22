@@ -1,0 +1,35 @@
+{
+ "atom_id": "MED-PATH-C03-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Low-dose hyper-radiosensitivity\n\nATOM MED-PATH-C03-S1-01 (S1): Low-dose hyper-radiosensitivity (HRS) is a much higher cell kill per unit dose at small radiation doses than at higher doses; it occurs because cells refrain from the cell-cycle arrest that would give time for repair at small doses, even when their DNA repair pathways are intact.\n\nEVIDENCE:\n[MED-PATH-p0197-s17] However, even with intact DNA repair pathways, it Box 3.39 In a Nutshell: Cellular Hypersensitivity in ATturns out that for small doses, cells refrain from the cell cycle Repair Deficient Cellsarrest that would give time for repair.\n[MED-PATH-p0197-s18] This results in a much • Individuals carrying mutations in genes related tohigher cell kill per unit dose for small doses than higher DNA damage repair are hypersensitive to radiation.doses, a phenomenon called low-dose hyper-radiosensitivity • A-T syndrome is connected to mutations in ATM,(HRS).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines the definition of HRS with its proposed cell-cycle mechanism. / judge_b: Combines the definition of HRS with its underlying cell-cycle arrest mechanism.",
+ "raw": "{\"atoms\": [{\"statement\": \"Low-dose hyper-radiosensitivity (HRS) is the phenomenon in which cells show a much higher cell kill per unit dose at small radiation doses than at higher doses.\", \"scope\": \"S1\", \"evidence_ids\": [\"MED-PATH-p0197-s18\"]}, {\"statement\": \"Even with intact DNA repair pathways, cells refrain at small radiation doses from the cell-cycle arrest that would give time for repair, which results in low-dose hyper-radiosensitivity (a higher cell kill per unit dose at small doses than at higher doses).\", \"scope\": \"S2\", \"evidence_ids\": [\"MED-PATH-p0197-s17\", \"MED-PATH-p0197-s18\"]}], \"note\": \"Split the definition of HRS from its cell-cycle-arrest mechanism, which are separately assessable claims.\"}",
+ "usage": {
+  "completion_tokens": 296,
+  "prompt_tokens": 1054,
+  "total_tokens": 1350,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 296
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1054,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00506800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

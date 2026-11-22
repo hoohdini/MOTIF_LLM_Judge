@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C10-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Minimal fibration\n\nATOM MATH-TOP-C10-S3-01 (S3): For simplicial sets, minimal J-fibrations are readily closed under pullback, but for dendroidal sets pullback along a map $f:S'\\to S$ of $\\infty$-operads preserves minimality of a minimal J-fibration $p:X\\to S$ with $X$ normal only when the induced maps of stabilizers $\\mathrm{Aut}(T)_x\\to\\mathrm{Aut}(T)_{f(x)}$ are isomorphisms, a condition automatically satisfied when $S'$ and $S$ are normal.\n\nEVIDENCE:\n[MATH-TOP-p0277-s29] In the case of simplicial sets it was rather evident that the class of minimal J- ﬁbrations is closed under pullbacks.\n[MATH-TOP-p0277-s30] This is not quite the case for dendroidal sets.\n[MATH-TOP-p0278-s02] Lemma 6.57 Let f : S′ →S be a map of ∞-operads such that for any dendrex x ∈XT, the induced map of stabilizers Aut(T)x →Aut(T)f (x) is an isomorphism.\n[MATH-TOP-p0278-s03] If p : X →S is a minimal J-ﬁbration between ∞-operads, with X normal, then the pullback q : f ∗X →S′ is again a minimal J-ﬁbration between ∞-operads.\n[MATH-TOP-p0278-s04] In particular, note that the condition on stabilizers is automatically satisﬁed when S′ and S are normal.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The stabilizer condition is sufficient for dendroidal pullback preservation; the evidence does not establish the necessity asserted by “only when.” / judge_b: Evidence gives the stabilizer condition as sufficient ('If... then'), whereas the atom strengthens it to necessary ('only when').\n- SINGLE_CLAIM: revise — judge_a: Combines simplicial pullback closure, conditional dendroidal pullback preservation, and automatic satisfaction of the stabilizer condition for normal bases. / judge_b: Combines simplicial pullback stability, the dendroidal stabilizer condition for pullback stability, and the normal-base case.",
+ "raw": "{\"atoms\": [{\"statement\": \"Let $f:S'\\\\to S$ be a map of $\\\\infty$-operads such that for every dendrex $x\\\\in X_T$ the induced map of stabilizers $\\\\mathrm{Aut}(T)_x\\\\to\\\\mathrm{Aut}(T)_{f(x)}$ is an isomorphism; if $p:X\\\\to S$ is a minimal J-fibration between $\\\\infty$-operads with $X$ normal, then the pullback $q:f^*X\\\\to S'$ is again a minimal J-fibration between $\\\\infty$-operads.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-TOP-p0278-s02\", \"MATH-TOP-p0278-s03\"]}, {\"statement\": \"The stabilizer-isomorphism condition on a map $f:S'\\\\to S$ of $\\\\infty$-operads is automatically satisfied when $S'$ and $S$ are normal.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-TOP-p0278-s02\", \"MATH-TOP-p0278-s04\"]}], \"note\": \"Split the original atom. The 'only when' (necessity) claim is unsupported, since the evidence gives only sufficiency, so it is replaced by the sufficient-condition statement. The simplicial closure remark is dropped as a separate, loosely stated contrast.\"}",
+ "usage": {
+  "completion_tokens": 463,
+  "prompt_tokens": 1379,
+  "total_tokens": 1842,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 463
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1379,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00738800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

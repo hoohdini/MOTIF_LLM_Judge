@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-ALG-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Kernelization and branch-and-reduce\n\nATOM CS-ALG-C06-S2-03 (S2): In the degree-2 vertex fold for maximum independent set, a vertex $v$ with exactly two non-adjacent neighbors $u$ and $w$ is replaced by a new vertex $v'$ connected to the union of the neighborhoods of $u$ and $w$, which reduces the graph by two vertices. A solution is lifted back as $I=(I'\\setminus\\{v'\\})\\cup\\{u,w\\}$ if $v'\\in I'$, and otherwise as $I=(I'\\setminus\\{v'\\})\\cup\\{v\\}$.\n\nEVIDENCE:\n[CS-ALG-p0112-s23] If w is in I, one can obtain an independent set of the same size by removing w from I and adding v instead. (2) For the degree-2 vertex fold (see Fig. 2) one removes vertices v with exactly two neighbors u and w that are not adjacent to each other.\n[CS-ALG-p0112-s24] In this case a new vertex v′ is inserted and connected to the union of the neighborhoods of u and w yielding a reduction of the graph size by two vertices.\n[CS-ALG-p0112-s25] Finally, if v′ is part of an MIS I′ of the reduced graph, then I = (I′ \\ {v′}) ∪{u,w} is an MIS of the original graph.\n[CS-ALG-p0112-s26] Otherwise, I = (I′ \\{v′})∪{v} is an MIS of the original graph.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence specifies lifting a maximum independent set I'; the atom leaves the solution type and optimality unspecified.\n- SINGLE_CLAIM: revise — judge_a: Combines the graph transformation and size decrease with the separately assessable solution-reconstruction rule. / judge_b: Joins the graph transformation step of the degree-2 vertex fold with the solution-lifting rule.",
+ "raw": "{\"atoms\": [{\"statement\": \"In the degree-2 vertex fold for the maximum independent set problem, a vertex $v$ with exactly two neighbors $u$ and $w$ that are not adjacent to each other is removed and a new vertex $v'$ is inserted and connected to the union of the neighborhoods of $u$ and $w$, which reduces the graph size by two vertices.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-ALG-p0112-s23\", \"CS-ALG-p0112-s24\"]}, {\"statement\": \"After a degree-2 vertex fold of $v$ with non-adjacent neighbors $u$ and $w$ into a new vertex $v'$, a maximum independent set $I'$ of the reduced graph is lifted to a maximum independent set of the original graph as $I=(I'\\\\setminus\\\\{v'\\\\})\\\\cup\\\\{u,w\\\\}$ if $v'\\\\in I'$, and otherwise as $I=(I'\\\\setminus\\\\{v'\\\\})\\\\cup\\\\{v\\\\}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-ALG-p0112-s23\", \"CS-ALG-p0112-s24\", \"CS-ALG-p0112-s25\", \"CS-ALG-p0112-s26\"]}], \"note\": \"Split the graph transformation from the solution-lifting rule; the lifting atom now states that $I'$ is a maximum independent set (MIS) and that the lifted set is an MIS of the original graph.\"}",
+ "usage": {
+  "completion_tokens": 505,
+  "prompt_tokens": 1266,
+  "total_tokens": 1771,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 505
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1266,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00758200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

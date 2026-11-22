@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-ALG-C05-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Heterogeneous speed scaling\n\nATOM CS-ALG-C05-S2-03 (S2): A schedule on heterogeneous processors is called an AVR-schedule if, for every job J_j and every unit interval I_t \\subseteq [r_j,d_j), the total work of J_j executed during I_t on all processors equals the job's density \\delta_j.\n\nEVIDENCE:\n[CS-ALG-p0213-s21] Based on the above algorithm variation, we say that a schedule S is an AVR-schedule if, for every job Jj and interval It ⊆[r j,dj), the total amount of work of Jj executed during It on all the processors in S is equal to δj.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The supplied sentence does not establish that the intervals are unit intervals. / judge_b: The cited evidence says 'interval It' rather than 'unit interval It', and does not define δj as 'the job's density'.\n- SCOPE_LABEL: revise — judge_a: S1: This defines an AVR-schedule rather than explaining how an algorithm works. / judge_b: S1: This is a definition of an AVR-schedule.",
+ "raw": "{\"atoms\": [{\"statement\": \"A schedule S is called an AVR-schedule if, for every job J_j and every interval I_t ⊆ [r_j, d_j), the total amount of work of J_j executed during I_t on all the processors in S equals δ_j.\", \"scope\": \"S1\", \"evidence_ids\": [\"CS-ALG-p0213-s21\"]}], \"note\": \"Removed 'unit' from the interval and 'density' as the name of δ_j, since neither is stated in the cited sentence. Changed scope to S1 because the atom is a definition.\"}",
+ "usage": {
+  "completion_tokens": 188,
+  "prompt_tokens": 977,
+  "total_tokens": 1165,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 188
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 977,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00383400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

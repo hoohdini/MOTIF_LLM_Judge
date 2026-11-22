@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-TOP-C02-S1-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Inner Kan complex (∞-category)\n\nATOM MATH-TOP-C02-S1-04 (S1): The horn $\\Lambda^k[n]$ is the subobject of $\\Delta[n]$ given by the union of all faces of $\\Delta[n]$ containing the vertex $k$, equivalently the union of all faces except the one given by $\\partial_k:\\Delta[n-1]\\to\\Delta[n]$; the inner horns are those with $0<k<n$.\n\nEVIDENCE:\n[MATH-TOP-p0178-s17] It is the subobject of the n-simplex ∆[n] given by the union of all the faces of ∆[n] containing the vertex k (equivalently, the union of all the faces except the one given by ∂k : ∆[n−1] →∆[n]).\n[MATH-TOP-p0179-s11] The horns Λk[n] for 0 < k < n are called the inner horns of the n-simplex.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines the definition of a horn with the separate classification of which horns are inner. / judge_b: Combines the definition of the horn Λ^k[n] with the definition of inner horns (0 < k < n).",
+ "raw": "{\"atoms\":[{\"statement\":\"The horn $\\\\Lambda^k[n]$ is the subobject of the $n$-simplex $\\\\Delta[n]$ given by the union of all faces of $\\\\Delta[n]$ containing the vertex $k$, equivalently the union of all faces except the one given by $\\\\partial_k:\\\\Delta[n-1]\\\\to\\\\Delta[n]$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MATH-TOP-p0178-s17\",\"MATH-TOP-p0179-s11\"]},{\"statement\":\"The horns $\\\\Lambda^k[n]$ with $0<k<n$ are called the inner horns of the $n$-simplex.\",\"scope\":\"S1\",\"evidence_ids\":[\"MATH-TOP-p0179-s11\"]}],\"note\":\"Split into the definition of the horn and the definition of inner horns. The first atom cites s11 because s17 only says 'It' and does not name the horn.\"}",
+ "usage": {
+  "completion_tokens": 672,
+  "prompt_tokens": 995,
+  "total_tokens": 1667,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 995,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00871000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

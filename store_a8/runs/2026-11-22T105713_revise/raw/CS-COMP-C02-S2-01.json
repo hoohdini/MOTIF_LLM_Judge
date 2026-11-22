@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-COMP-C02-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Second incompleteness theorem\n\nATOM CS-COMP-C02-S2-01 (S2): Letting $G_{\\mathrm{PA}}$ be the Gödel sentence for PA, the derivability conditions P1-P3 are used to show that PA derives $\\mathrm{Con}_{\\mathrm{PA}} \\to G_{\\mathrm{PA}}$, which shows that PA does not derive $\\mathrm{Con}_{\\mathrm{PA}}$ (given that PA, if consistent, does not derive $G_{\\mathrm{PA}}$).\n\nEVIDENCE:\n[CS-COMP-p0136-s12] To make the argument more precise, we will let GPA be the Gödel sentence for PA and use the derivability conditions (P1)– (P3) to show that PA derives ConPA →GPA.\n[CS-COMP-p0136-s13] This will show that PA doesn’t derive ConPA.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The supplied sentences state the implication and conclusion, but not the added premise that consistent PA does not derive its Gödel sentence. / judge_b: The parenthetical claim that PA, if consistent, does not derive G_PA is not stated in the cited evidence sentences.",
+ "raw": "{\"atoms\": [{\"statement\": \"Letting $G_{\\\\mathrm{PA}}$ be the Gödel sentence for PA, the derivability conditions (P1)–(P3) are used to show that PA derives $\\\\mathrm{Con}_{\\\\mathrm{PA}} \\\\to G_{\\\\mathrm{PA}}$, which is used to show that PA does not derive $\\\\mathrm{Con}_{\\\\mathrm{PA}}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-COMP-p0136-s12\", \"CS-COMP-p0136-s13\"]}], \"note\": \"Removed the parenthetical premise that consistent PA does not derive G_PA, since it is not stated in the cited evidence sentences.\"}",
+ "usage": {
+  "completion_tokens": 253,
+  "prompt_tokens": 1012,
+  "total_tokens": 1265,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 253
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1012,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00455400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

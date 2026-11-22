@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C05-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Tensor product of dendroidal sets (shuffles of trees)\n\nATOM MATH-TOP-C05-S2-02 (S2): For trees $S$ and $T$, the evident map from the coproduct $\\coprod_A \\Omega[A]$ over all shuffles $A$ of $S$ and $T$ to $\\Omega[S]\\otimes\\Omega[T]$ is an epimorphism, and the inclusion of each shuffle $\\Omega[A]\\to\\Omega[S]\\otimes\\Omega[T]$ is a monomorphism, so the tensor product of representables is a union of shuffles.\n\nEVIDENCE:\n[MATH-TOP-p0158-s14] Proposition 4.10 Let S and T be objects of Ω.\n[MATH-TOP-p0158-s15] (a) The evident map Þ Ω[A] →Ω[S] ⊗Ω[T]\n[MATH-TOP-p0158-s17] from the coproduct indexed by the shuﬄes of S and T is an epimorphism. (b) The inclusion of each shuﬄe\n[MATH-TOP-p0158-s18] Ω[A] →Ω[S] ⊗Ω[T]\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The epimorphism is stated, but the supplied evidence stops before asserting that each shuffle inclusion is a monomorphism. / judge_b: The cited evidence sentences cut off before stating 'is a monomorphism' (which is in s19) and do not explicitly state 'is a union of shuffles'.\n- SINGLE_CLAIM: revise — judge_a: Coverage by shuffles and monicity of each shuffle map are independently assessable properties. / judge_b: Combines two separate claims (parts (a) epimorphism from coproduct and (b) monomorphism of each shuffle inclusion).",
+ "raw": "{\"atoms\": [{\"statement\": \"For objects $S$ and $T$ of $\\\\Omega$, the evident map from the coproduct $\\\\coprod_A \\\\Omega[A]$, indexed by the shuffles $A$ of $S$ and $T$, to $\\\\Omega[S]\\\\otimes\\\\Omega[T]$ is an epimorphism.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0158-s14\", \"MATH-TOP-p0158-s15\", \"MATH-TOP-p0158-s17\"]}], \"note\": \"Split from the original atom. The monomorphism claim (part b) and the 'union of shuffles' conclusion are not stated in the cited sentences: s18 cuts off before 'is a monomorphism', and 'union of shuffles' never appears. Both were dropped for lack of grounding, so only the epimorphism claim from part (a) is kept.\"}",
+ "usage": {
+  "completion_tokens": 306,
+  "prompt_tokens": 1216,
+  "total_tokens": 1522,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 306
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1216,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00549200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

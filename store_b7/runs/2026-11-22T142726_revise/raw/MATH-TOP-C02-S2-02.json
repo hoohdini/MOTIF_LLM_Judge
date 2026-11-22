@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C02-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Inner Kan complex (∞-category)\n\nATOM MATH-TOP-C02-S2-02 (S2): In an ∞-category $X$, take 1-simplices $a:x_0\\to x_1$ and $b:x_1\\to x_2$ with $d_0a=d_1b$. If 2-simplices $e$ and $f$ with $d_2=a$ and $d_0=b$ give two compositions $\\gamma=d_1e$ and $\\delta=d_1f$, then $\\gamma$ and $\\delta$ fit into a 2-simplex $h$ with degenerate face $d_0h=s_1x_2$. Such an $h$ is obtained by filling a $\\Lambda^1[3]$ horn, so compositions are unique up to homotopy.\n\nEVIDENCE:\n[MATH-TOP-p0181-s15] Let x0 a−→x1 and x1 b−→x2 be two 1-simplices in an ∞-category X, compatible in the sense that d0a = d1b as indicated.\n[MATH-TOP-p0181-s16] Then a 2-simplex e as follows deﬁnes some choice of composition γ = d1e: a x0 x1\n[MATH-TOP-p0181-s18] If f is another such 2-simplex with d0 f = b and d2 f = a, deﬁning another composi- tion δ = d1 f , then γ and δ ﬁt into a 2-simplex h with a degenerate face d0h = s1x2,\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence states the comparison 2-simplex but does not state its construction by filling a Λ¹[3] horn. / judge_b: The last sentence (filling a Λ^1[3] horn and uniqueness up to homotopy) is not stated in the supplied evidence sentences.\n- SINGLE_CLAIM: revise — judge_a: Combines the existence of a homotopy between compositions with a separately assessable claim about the horn used to construct it.",
+ "raw": "{\"atoms\": [{\"statement\": \"In an ∞-category $X$, let $a:x_0\\\\to x_1$ and $b:x_1\\\\to x_2$ be 1-simplices with $d_0a=d_1b$. If $e$ and $f$ are 2-simplices with $d_2e=d_2f=a$ and $d_0e=d_0f=b$, defining compositions $\\\\gamma=d_1e$ and $\\\\delta=d_1f$, then $\\\\gamma$ and $\\\\delta$ fit into a 2-simplex $h$ with degenerate face $d_0h=s_1x_2$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0181-s15\", \"MATH-TOP-p0181-s16\", \"MATH-TOP-p0181-s18\"]}], \"note\": \"Removed the claims about filling a $\\\\Lambda^1[3]$ horn and uniqueness up to homotopy, since the evidence does not state them. The remaining claim is the existence of the comparison 2-simplex $h$.\"}",
+ "usage": {
+  "completion_tokens": 353,
+  "prompt_tokens": 1251,
+  "total_tokens": 1604,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 353
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1251,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00603200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

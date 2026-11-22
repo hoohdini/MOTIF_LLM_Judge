@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-ALG-C04-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Quasi-threshold editing\n\nATOM CS-ALG-C04-S2-03 (S2): When the Quasi-Threshold Mover (QTM) moves a node u, in the induced quasi-threshold graph u is adjacent to the new parent v, v's ancestors, and the adopted children with their descendants. Each neighbor of u among these nodes saves deleting an edge, each non-neighbor requires inserting an edge, and QTM selects the parent and adopted children that maximize the number of u-neighbors minus non-neighbors.\n\nEVIDENCE:\n[CS-ALG-p0150-s04] In the induced quasi-threshold graph, u is then connected to v and all its ancestors as well as to all adopted children and their descendants.\n[CS-ALG-p0150-s05] Every neighbor x of u in this set of nodes saves deleting the edges {u,x} but every non-neighbor y of u implies inserting the edge {u,y}.\n[CS-ALG-p0150-s06] Therefore, we select the parent v and the children to adopt such that the number of u- neighbors minus non-neighbors is maximized.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines the resulting adjacency set, its edit-cost accounting, and QTM's optimization objective. / judge_b: Combines the structural adjacency condition of the moved node with the edit cost accounting and QTM's selection objective.",
+ "raw": "{\"atoms\":[{\"statement\":\"In the induced quasi-threshold graph, a moved node u is connected to its new parent v, all of v's ancestors, all adopted children, and all of those children's descendants.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-ALG-p0150-s04\"]},{\"statement\":\"Among the nodes u is connected to in the induced quasi-threshold graph, each existing neighbor x of u saves deleting the edge {u,x}, while each non-neighbor y of u requires inserting the edge {u,y}.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-ALG-p0150-s04\",\"CS-ALG-p0150-s05\"]},{\"statement\":\"The parent v and the adopted children are selected so that, among the nodes u would be connected to, the number of u-neighbors minus the number of non-neighbors is maximized.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-ALG-p0150-s04\",\"CS-ALG-p0150-s05\",\"CS-ALG-p0150-s06\"]}],\"note\":\"Split into three atoms: adjacency set, edit-cost accounting, and selection objective. The evidence does not name QTM, so the atoms do not mention it.\"}",
+ "usage": {
+  "completion_tokens": 803,
+  "prompt_tokens": 1067,
+  "total_tokens": 1870,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1067,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01016400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-PROB-C08-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: He-Schramm theorem\n\nATOM MATH-PROB-C08-S2-01 (S2): For a one-ended infinite planar triangulation, if it is CP parabolic then its circle packing in $\\mathbb{C}$ is unique up to dilations, rotations, translations and reflections, and if it is CP hyperbolic then its circle packing in $\\mathbb{U}$ is unique up to Möbius transformations or reflections fixing $\\mathbb{U}$.\n\nEVIDENCE:\n[MATH-PROB-p0016-s01] Theorem 1.8 (Schramm 1991) Let T be a one-ended infinite planar triangulation.\n[MATH-PROB-p0016-s02] • If T is CP parabolic, then its circle packing in C is unique up to dilations, rotations, translations and reflections. • If T is CP hyperbolic, then its circle packing in U is unique up to Möbius transformations or reflections fixing U.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines separate uniqueness results for plane-carrier and disk-carrier packings. / judge_b: Combines two distinct uniqueness claims: one for CP parabolic triangulations in C and one for CP hyperbolic triangulations in U.\n- SCOPE_LABEL: revise — judge_a: S3: Specifies the limits of uniqueness and the transformations under which uniqueness holds.",
+ "raw": "{\"atoms\": [{\"statement\": \"If a one-ended infinite planar triangulation is CP parabolic, then its circle packing in $\\\\mathbb{C}$ is unique up to dilations, rotations, translations and reflections.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-PROB-p0016-s01\", \"MATH-PROB-p0016-s02\"]}, {\"statement\": \"If a one-ended infinite planar triangulation is CP hyperbolic, then its circle packing in $\\\\mathbb{U}$ is unique up to Möbius transformations or reflections fixing $\\\\mathbb{U}$.\", \"scope\": \"S3\", \"evidence_ids\": [\"MATH-PROB-p0016-s01\", \"MATH-PROB-p0016-s02\"]}], \"note\": \"Split into two uniqueness claims (parabolic case in C, hyperbolic case in U). The scope is changed to S3 because each claim states the extent of uniqueness, i.e. the transformations up to which the packing is unique. The attribution to Schramm 1991 is dropped because this is an established theorem.\"}",
+ "usage": {
+  "completion_tokens": 368,
+  "prompt_tokens": 1068,
+  "total_tokens": 1436,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 368
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1068,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00581600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

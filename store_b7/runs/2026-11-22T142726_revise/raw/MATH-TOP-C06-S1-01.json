@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C06-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Boardman–Vogt tensor product of operads\n\nATOM MATH-TOP-C06-S1-01 (S1): For operads P and Q (of sets or of topological spaces), the Boardman–Vogt tensor product P ⊗ Q is an operad with the property that there are equivalences of categories $\\mathrm{Alg}_{\\mathbf{Q}}(\\mathrm{Alg}_{\\mathbf{P}}) \\simeq \\mathrm{Alg}_{\\mathbf{P}\\otimes\\mathbf{Q}} \\simeq \\mathrm{Alg}_{\\mathbf{P}}(\\mathrm{Alg}_{\\mathbf{Q}})$.\n\nEVIDENCE:\n[MATH-TOP-p0044-s13] In this section we will deﬁne an operad P ⊗Q, the Boardman–Vogt tensor product of P and Q, which has the property that there are equivalences of categories\n[MATH-TOP-p0044-s14] AlgQ(AlgP) ≃AlgP⊗Q ≃AlgP(AlgQ).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence states the categorical equivalences but does not specify operads of sets or topological spaces. / judge_b: The cited evidence sentences do not explicitly state '(of sets or of topological spaces)'.",
+ "raw": "{\"atoms\": [{\"statement\": \"For operads $\\\\mathbf{P}$ and $\\\\mathbf{Q}$, the Boardman–Vogt tensor product $\\\\mathbf{P}\\\\otimes\\\\mathbf{Q}$ is an operad with the property that there are equivalences of categories $\\\\mathrm{Alg}_{\\\\mathbf{Q}}(\\\\mathrm{Alg}_{\\\\mathbf{P}}) \\\\simeq \\\\mathrm{Alg}_{\\\\mathbf{P}\\\\otimes\\\\mathbf{Q}} \\\\simeq \\\\mathrm{Alg}_{\\\\mathbf{P}}(\\\\mathrm{Alg}_{\\\\mathbf{Q}})$.\", \"scope\": \"S1\", \"evidence_ids\": [\"MATH-TOP-p0044-s13\", \"MATH-TOP-p0044-s14\"]}], \"note\": \"Removed the unsupported qualifier '(of sets or of topological spaces)', which the cited evidence does not state.\"}",
+ "usage": {
+  "completion_tokens": 345,
+  "prompt_tokens": 1047,
+  "total_tokens": 1392,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 345
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1047,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00554400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

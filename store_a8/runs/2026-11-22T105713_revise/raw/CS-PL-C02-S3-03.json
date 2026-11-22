@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-PL-C02-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Positive almost-sure termination\n\nATOM CS-PL-C02-S3-03 (S3): A probabilistic program can have a finite expected runtime even though it admits arbitrarily long runs and even a non-terminating run: the program that flips a fair coin repeatedly until the first heads has a geometrically distributed runtime, and it terminates after two loop iterations on average, although the all-tails run is non-terminating (with probability zero).\n\nEVIDENCE:\n[CS-PL-p0207-s09] They may admit arbitrarily long and even infinite runs while still having a finite expected runtime.\n[CS-PL-p0207-s11] keeps flipping a fair coin until observing the first heads (represented by 0).\n[CS-PL-p0207-s12] It admits arbitrarily long runs, since – for every natural number n – the probability of not seeing a heads in the first n trials is non-zero.\n[CS-PL-p0207-s13] It even admits a non-terminating run, namely the one in which the outcome of all coin flips is tails.\n[CS-PL-p0207-s14] The runtime of program cgeo, however, is geometrically distributed and therefore its expected runtime is finite, even constant: On average, it terminates after two loop iterations.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The supplied evidence supports the example and expected iteration count, but does not explicitly state that the all-tails run has probability zero. / judge_b: The cited evidence does not state that the all-tails non-terminating run has probability zero.\n- SINGLE_CLAIM: revise — judge_a: Combines coexistence of finite expectation and infinite runs with separately assessable claims about the exact runtime distribution and expected iteration count.\n- SCOPE_LABEL: revise — judge_b: S2: Explains how finite expected runtime behaves in the presence of unbounded/infinite runs via a canonical example.",
+ "raw": "{\"atoms\": [{\"statement\": \"A probabilistic program can have a finite expected runtime even though it admits arbitrarily long runs and even infinite runs.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-PL-p0207-s09\"]}, {\"statement\": \"The program that repeatedly flips a fair coin until the first heads is observed admits arbitrarily long runs, because for every natural number n the probability of seeing no heads in the first n trials is non-zero, and it also admits a non-terminating run, namely the one in which all coin flips come out tails.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-PL-p0207-s11\", \"CS-PL-p0207-s12\", \"CS-PL-p0207-s13\"]}, {\"statement\": \"The runtime of the program that flips a fair coin until the first heads is geometrically distributed and therefore has a finite, constant expected runtime: on average it terminates after two loop iterations.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-PL-p0207-s11\", \"CS-PL-p0207-s14\"]}], \"note\": \"The claim that the all-tails run has probability zero is not stated in the evidence, so it was removed. The original atom was split into three: the general coexistence claim, the example's long and infinite runs, and the example's geometric runtime with expected value two. The scope label was changed to S2.\"}",
+ "usage": {
+  "completion_tokens": 457,
+  "prompt_tokens": 1224,
+  "total_tokens": 1681,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 457
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1224,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00701800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

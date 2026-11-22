@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DB-C09-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Consistent query answering\n\nATOM CS-DB-C09-S3-02 (S3): Consistent answering of conjunctive queries under primary key constraints is coNP-complete. Because relational queries have data complexity in AC0 and so cannot express coNP-hard problems, first-order query rewriting is impossible for the full class of conjunctive queries.\n\nEVIDENCE:\n[CS-DB-p0235-s15] The data complexity of computing answers to relational queries is known to be in AC0, a complexity class properly contained in P, and therefore, it is impossible for a relational query to express a coNP-hard problem.\n[CS-DB-p0235-s16] For instance, Chomicki and Marcinkowski have shown in [19] coNP- completeness of consistent answering to a conjunctive query in the presence of primary key constraints (i.e., one key constraint per relation), which precludes the applicability of rewriting for the full class of conjunctive queries.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Evidence establishes coNP-completeness for a conjunctive query and the rewriting obstruction, but does not explicitly establish the upper bound for the entire class. / judge_b: Evidence says 'relational query' and 'rewriting', not specifically 'first-order query rewriting'.\n- SINGLE_CLAIM: revise — judge_a: The coNP-completeness result, relational-query AC0 bound, and impossibility of full-class first-order rewriting are independently assessable claims. / judge_b: Combines the coNP-completeness result for conjunctive queries under primary keys with the AC0 data-complexity argument against relational query rewriting.",
+ "raw": "{\"atoms\":[{\"statement\":\"Consistent answering of a conjunctive query in the presence of primary key constraints (one key constraint per relation) is coNP-complete, as shown by Chomicki and Marcinkowski.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0235-s16\"]},{\"statement\":\"The data complexity of computing answers to relational queries is in AC0, a complexity class properly contained in P, so a relational query cannot express a coNP-hard problem.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0235-s15\"]},{\"statement\":\"Because consistent answering of conjunctive queries under primary key constraints is coNP-complete and relational queries cannot express coNP-hard problems, rewriting consistent query answering into a relational query cannot apply to the full class of conjunctive queries.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0235-s15\",\"CS-DB-p0235-s16\"]}],\"note\":\"Split into three claims. The original wording \\\"first-order\\\" rewriting and an upper bound for the whole class were not stated in the evidence, so the atoms use \\\"relational query\\\" and the cited result about conjunctive queries under primary keys.\"}",
+ "usage": {
+  "completion_tokens": 786,
+  "prompt_tokens": 1140,
+  "total_tokens": 1926,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1140,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01014000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

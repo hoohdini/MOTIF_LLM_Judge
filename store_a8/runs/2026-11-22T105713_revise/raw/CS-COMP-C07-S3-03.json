@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-COMP-C07-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Partial recursive function\n\nATOM CS-COMP-C07-S3-03 (S3): The set of general recursive functions, defined as the smallest set of functions containing zero, successor, and projections and closed under composition, primitive recursion, and unbounded search applied only to regular functions, is the same set as the set of recursive functions (the total partial recursive functions), even though the general recursive definition looks less general because the latter definition allows partial recursive functions to be used along the way.\n\nEVIDENCE:\n[CS-COMP-p0072-s06] Definition 2.30. The set of general recursive functions is the smallest set of functions from the natural numbers to the natural numbers (of various arities) containing zero, successor, and projections, and closed under composition, primitive recursion, and unbounded search applied to regular functions.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence states only the general recursive closure definition, not equality with recursive functions or permission for partial intermediates in the latter definition. / judge_b: Evidence states only the definition of general recursive functions; it does not state the equivalence with recursive functions or the contrast regarding partial functions along the way.\n- SINGLE_CLAIM: revise — judge_a: Combines the closure definition of general recursive functions with the separate theorem equating them to total partial recursive functions. / judge_b: Combines the formal definition of general recursive functions with the theorem that this set equals the set of recursive functions.",
+ "raw": "The only supported claim is the definition. The equivalence with recursive functions, and the remark about partial functions used along the way, appear nowhere in the evidence, so I drop them. I keep the definition as a single S1 atom, since it describes what the set is rather than where it ends.\n\n{\"atoms\": [{\"statement\": \"The set of general recursive functions is the smallest set of functions from the natural numbers to the natural numbers (of various arities) that contains zero, successor, and projections, and is closed under composition, primitive recursion, and unbounded search applied to regular functions.\", \"scope\": \"S1\", \"evidence_ids\": [\"CS-COMP-p0072-s06\"]}], \"note\": \"The original atom's claim that general recursive functions equal the recursive (total partial recursive) functions, and the remark about partial functions being used along the way, are not in the evidence, so they were removed. Only the definition is retained, and its scope changed from S3 to S1.\"}",
+ "usage": {
+  "completion_tokens": 306,
+  "prompt_tokens": 1067,
+  "total_tokens": 1373,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 306
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1067,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00519400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

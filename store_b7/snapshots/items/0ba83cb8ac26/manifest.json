@@ -1,0 +1,37 @@
+{
+ "kind": "items",
+ "sha": "0ba83cb8ac26",
+ "rows": 587,
+ "sources": [
+  {
+   "file": "items.CS-ALG.jsonl",
+   "sha256": "84301b17e7e5b95b303f1de496a046594785e84a4db01f119acf0802761265dd"
+  },
+  {
+   "file": "items.CS-DB.jsonl",
+   "sha256": "2c97170b006774255beae1774511cd4460440db1a0a33bf3fec28c004f5e46d0"
+  },
+  {
+   "file": "items.CS-DIST.jsonl",
+   "sha256": "1e7abd58d8f93f0cab06580798a4e98c2877201256a07274ad2c4b055239b9db"
+  },
+  {
+   "file": "items.MATH-ANA.jsonl",
+   "sha256": "70de703987602a9779ce952f97f4f9e9f49f5ecf2da03f47dadb3bdbbf5cdcbc"
+  },
+  {
+   "file": "items.MATH-TOP.jsonl",
+   "sha256": "8b16b705dbcd77f6ef4d344d23a33d76d6e43755aa701718cab92aa4517f5fa0"
+  },
+  {
+   "file": "items.MED-IMM.jsonl",
+   "sha256": "099c42b40e2bfd4bb9d488d0e747014d864c077ebebf280f2d9abf1ec89d45b3"
+  },
+  {
+   "file": "items.MED-PATH.jsonl",
+   "sha256": "5d69621eaaecb53a55956c353044fa278845c9eb0dec981fcf45b25721ae1b53"
+  }
+ ],
+ "label": "윤상 b7 v3",
+ "ingested_at": "2026-11-22T13:46:30+00:00"
+}

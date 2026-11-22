@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C05-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Tensor product of dendroidal sets (shuffles of trees)\n\nATOM MATH-TOP-C05-S2-04 (S2): The tensor product of dendroidal sets is symmetric, i.e. $X\\otimes Y\\simeq Y\\otimes X$ naturally, the functor $\\tau:\\mathbf{dSets}\\to\\mathbf{Op}$ commutes with tensor products ($\\tau(X\\otimes Y)\\simeq\\tau(X)\\otimes\\tau(Y)$), and $i_!$ sends products of simplicial sets to tensor products ($i_!(M\\times N)\\simeq i_!M\\otimes i_!N$).\n\nEVIDENCE:\n[MATH-TOP-p0152-s06] Proposition 4.2 The tensor product of dendroidal sets satisﬁes the following prop- erties:\n[MATH-TOP-p0152-s07] (i) For dendroidal sets X and Y there is a natural isomorphism X ⊗Y ≃Y ⊗X, i.e., the tensor product is symmetric. (ii) The functor τ: dSets →Op (cf.\n[MATH-TOP-p0152-s08] Section 3.5) commutes with tensor products, i.e., there is a natural isomorphism of operads τ(X ⊗Y) ≃τ(X) ⊗τ(Y). (iii) The functor i! : sSets →dSets sends products to tensor products, i.e., there is a natural isomorphism i!(M × N) ≃i!M ⊗i!N for simplicial sets M and N.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Symmetry, compatibility with τ, and compatibility with simplicial products are three independently assessable properties. / judge_b: Joins three independent properties: symmetry of the tensor product, compatibility with the operad functor tau, and compatibility with simplicial inclusion i_!.",
+ "raw": "{\"atoms\": [{\"statement\": \"The tensor product of dendroidal sets is symmetric: for dendroidal sets $X$ and $Y$ there is a natural isomorphism $X\\\\otimes Y\\\\simeq Y\\\\otimes X$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0152-s07\"]}, {\"statement\": \"The functor $\\\\tau:\\\\mathbf{dSets}\\\\to\\\\mathbf{Op}$ commutes with tensor products: for dendroidal sets $X$ and $Y$ there is a natural isomorphism of operads $\\\\tau(X\\\\otimes Y)\\\\simeq\\\\tau(X)\\\\otimes\\\\tau(Y)$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0152-s08\"]}, {\"statement\": \"The functor $i_!:\\\\mathbf{sSets}\\\\to\\\\mathbf{dSets}$ sends products to tensor products: for simplicial sets $M$ and $N$ there is a natural isomorphism $i_!(M\\\\times N)\\\\simeq i_!M\\\\otimes i_!N$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0152-s08\"]}], \"note\": \"Split into the three separate properties of Proposition 4.2.\"}",
+ "usage": {
+  "completion_tokens": 451,
+  "prompt_tokens": 1238,
+  "total_tokens": 1689,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 451
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1238,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00698600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DB-C08-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Fagin-inverse\n\nATOM CS-DB-C08-S3-03 (S3): Some mappings specified by st-tgds have no Fagin-inverse, for example $A(x,y)\\to S(x)$ (loses the second component), $A(x,y)\\to S(x)\\wedge T(y)$ (loses the relationship between components), and $A(x)\\to S(x)$, $B(x)\\to S(x)$ (mixes A and B data), since each violates the unique-solutions property.\n\nEVIDENCE:\n[CS-DB-p0084-s11] As we show next, there are several mappings speciﬁed by st-tgds that do not admit Fagin-inverses.\n[CS-DB-p0084-s13] M1 : A(x, y) → S(x)\n[CS-DB-p0084-s14] M2 : A(x, y) → S(x) ∧T(y) (2)\n[CS-DB-p0084-s15] M3 : A(x) → S(x) B(x) → S(x)\n[CS-DB-p0085-s07] For the case of M1, consider instances I1 = {A(1, 2)} and I2 = {A(1, 3)}.\n[CS-DB-p0085-s09] For the case of M2 we can use instances I1 = {A(1, 2), A(3, 4)} and I2 = {A(1, 4), A(3, 2)} which satisfy that SolM2(I1) = SolM2(I2).\n[CS-DB-p0085-s10] For the mapping M3 and the instances I1 = {A(1)} and I2 = {B(1)}, we have that SolM3(I1) = SolM3(I2).\n[CS-DB-p0085-s11] Thus neither M1 nor M2 nor M3 satisfy the unique-solutions property which implies that they have no Fagin-inverse.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_b: The cited evidence does not state the parenthetical explanations ('loses the second component', 'loses the relationship...', 'mixes A and B data').\n- SINGLE_CLAIM: revise — judge_a: The three mappings' failures of unique solutions and invertibility are independently assessable examples. / judge_b: Joins three distinct non-invertibility patterns/examples into one atom.",
+ "raw": "{\"atoms\":[{\"statement\":\"The st-tgd mapping $M_1: A(x,y)\\\\to S(x)$ has no Fagin-inverse, because it does not satisfy the unique-solutions property.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0084-s13\",\"CS-DB-p0085-s11\"]},{\"statement\":\"The st-tgd mapping $M_2: A(x,y)\\\\to S(x)\\\\wedge T(y)$ has no Fagin-inverse, because it does not satisfy the unique-solutions property. For example, the instances $I_1=\\\\{A(1,2),A(3,4)\\\\}$ and $I_2=\\\\{A(1,4),A(3,2)\\\\}$ satisfy $Sol_{M_2}(I_1)=Sol_{M_2}(I_2)$.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0084-s14\",\"CS-DB-p0085-s09\",\"CS-DB-p0085-s11\"]},{\"statement\":\"The st-tgd mapping $M_3$, given by $A(x)\\\\to S(x)$ and $B(x)\\\\to S(x)$, has no Fagin-inverse, because it does not satisfy the unique-solutions property. For example, the instances $I_1=\\\\{A(1)\\\\}$ and $I_2=\\\\{B(1)\\\\}$ satisfy $Sol_{M_3}(I_1)=Sol_{M_3}(I_2)$.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-DB-p0084-s15\",\"CS-DB-p0085-s10\",\"CS-DB-p0085-s11\"]}],\"note\":\"Split into one atom per mapping. The unsupported explanatory parentheticals (loses a component, loses the relationship, mixes data) were removed.\"}",
+ "usage": {
+  "completion_tokens": 913,
+  "prompt_tokens": 1342,
+  "total_tokens": 2255,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1342,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01181400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

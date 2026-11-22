@@ -1,0 +1,41 @@
+{
+ "kind": "items",
+ "sha": "d34829fbc91c",
+ "rows": 693,
+ "sources": [
+  {
+   "file": "items.CS-COMP.jsonl",
+   "sha256": "c03ddd612f6803901305f9eebd84c1f410a6ab32c32ecd61295be48d534790b5"
+  },
+  {
+   "file": "items.CS-PL.jsonl",
+   "sha256": "2edb1d31763546380413bddab07e037b723f71dbd3b83ca6117ae5416819d5ec"
+  },
+  {
+   "file": "items.MATH-ALG.jsonl",
+   "sha256": "d0d09eb1ab5024d75b3732ff6e839b481e1278c506ee56f4c6b70dd70c73e033"
+  },
+  {
+   "file": "items.MATH-GEO.jsonl",
+   "sha256": "1cf28db8566a3cbbc545a4b2347363f004d28f1c3a177a2a3e05a9433044b569"
+  },
+  {
+   "file": "items.MATH-PROB.jsonl",
+   "sha256": "1971b506b5a573811b0c57302e3bf1d0347bd325970950bf5d5917df49f642ed"
+  },
+  {
+   "file": "items.MED-EPI.jsonl",
+   "sha256": "4f58955b79fa19aaacc99a536f14552b03374a9ac8c61e8c575f1c3fbd1cf374"
+  },
+  {
+   "file": "items.MED-PHARM.jsonl",
+   "sha256": "7482eb8835b8bdeab22bcb8e3258d13233b9314c839f0faa90f58ed928835d5b"
+  },
+  {
+   "file": "items.MED-PHYS.jsonl",
+   "sha256": "fd69d1918e89b6c04f9a5addd0ce945d7b36b82cab2955af7034967a5cc80f16"
+  }
+ ],
+ "label": "재현 a8 v3",
+ "ingested_at": "2026-11-22T10:07:52+00:00"
+}

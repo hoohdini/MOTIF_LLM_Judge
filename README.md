@@ -1,5 +1,7 @@
 # kc_audit — Knowledge Card 검수 파이프라인
 
+> 11/21~23 주말 검수(신규 A·B묶음, 기존 9권 비교)는 [WEEKEND.md](WEEKEND.md)의 순서대로 실행한다.
+
 ## 빠른 시작 (처음 받은 사람용)
 
 ### 1. 설치 (한 번만)
@@ -35,8 +37,8 @@ python3 check_letsur.py <Gemini 모델 코드>
 ### 4. 데이터 넣기와 사람 라벨 적재
 
 ```bash
-python3 run.py ingest cards data_in/cards.jsonl --label "연욱 v2"
-python3 run.py ingest items data_in/items/items.*.jsonl --label "윤상 v2"
+python3 run.py ingest cards data_in/old9/cards.jsonl --label "연욱 v2"
+python3 run.py ingest items data_in/old9/items/items.*.jsonl --label "윤상 v2"
 python3 run.py human import --file calib/calib_human_labels.csv
 ```
 
@@ -85,8 +87,9 @@ API 없이 흐름만 보고 싶으면 명령마다 `--config config.mock.yaml`�
 | stats | 저지 | 코드 | 일치도, 사람 대비 정확도, 카나리아 탐지율, 오류율 상한 |
 | release | 승인본 | 코드 | 태그별 보관, 롤백, 재현 확인 |
 
-합산 규칙: 사람 판정이 있으면 그것. 없으면 저지 전원이 같은 값일 때만 그 값, 엇갈리면 hold.
-단위 판정은 blocker 체크 기준 fail > pending > hold > revise > pass.
+합산 규칙: 사람 판정이 있으면 그것. 없으면 `policy.aggregate`를 따른다.
+- `judge_final`(현재 설정, 11/18 결정): 저지마다 단위 판정(fail > hold > revise > pass)을 낸 뒤, 전원 통과면 pass, 전원 비통과면 그중 가장 무거운 값, 갈리면 hold.
+- `per_check`: 체크마다 저지 전원이 같은 값일 때만 그 값, 엇갈리면 hold → fail > pending > hold > revise > pass.
 문항은 자기 atom이 pass일 때만 유효하고, atom이 수정되면 자동으로 `blocked`가 된다.
 
 ## 처음 한 번: API 없이 흐름 확인
@@ -94,9 +97,9 @@ API 없이 흐름만 보고 싶으면 명령마다 `--config config.mock.yaml`�
 ```bash
 python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 C="--config config.mock.yaml"
-python run.py $C ingest cards data_in/cards.jsonl --label "연욱 v2"
-python run.py $C ingest items data_in/items/items.*.jsonl --label "윤상 v2"
-python run.py $C ingest preaudit data_in/audit_v2.csv --label opus-5.5
+python run.py $C ingest cards data_in/old9/cards.jsonl --label "연욱 v2"
+python run.py $C ingest items data_in/old9/items/items.*.jsonl --label "윤상 v2"
+python run.py $C ingest preaudit data_in/old9/audit_v2.csv --label opus-5.5
 python run.py $C run --stage card --canaries 20
 python run.py $C decide --stage card
 python run.py $C revise && python run.py $C run --stage card
