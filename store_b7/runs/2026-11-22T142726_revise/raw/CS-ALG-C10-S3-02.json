@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-ALG-C10-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Augmented Lagrangian method\n\nATOM CS-ALG-C10-S3-02 (S3): If the constrained problem is not convex, the augmented Lagrangian algorithm returns only a local optimum.\n\nEVIDENCE:\n[CS-ALG-p0228-s18] If Problem (1) is con- vex, then the algorithm returns the global optimal solution.\n[CS-ALG-p0228-s19] Otherwise, it returns a local optimum [6].\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence says a local optimum, not only a local optimum; it does not exclude that optimum also being global. / judge_b: Atom adds 'only' ('only a local optimum'), which is stronger than the evidence ('returns a local optimum').",
+ "raw": "{\"atoms\": [{\"statement\": \"If Problem (1) is not convex, the algorithm returns a local optimum, with no guarantee of a global optimum.\", \"scope\": \"S3\", \"evidence_ids\": [\"CS-ALG-p0228-s18\", \"CS-ALG-p0228-s19\"]}], \"note\": \"Removed the unsupported 'only'. The evidence says the algorithm returns a local optimum when the problem is not convex, and a global optimum when it is convex. 'No guarantee of a global optimum' is inferred from that contrast, since the global guarantee is stated only for the convex case. The evidence names the algorithm and Problem (1) without further detail, so the atom keeps the evidence's 'the algorithm' and 'Problem (1)' wording.\"}",
+ "usage": {
+  "completion_tokens": 256,
+  "prompt_tokens": 847,
+  "total_tokens": 1103,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 256
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 847,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00425400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

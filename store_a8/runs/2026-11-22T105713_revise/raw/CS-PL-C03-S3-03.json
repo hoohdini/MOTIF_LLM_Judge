@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-PL-C03-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Probabilistic coupling\n\nATOM CS-PL-C03-S3-03 (S3): Unlike the earlier consequences of liftings, a bound on the total variation distance between $\\mu_1$ and $\\mu_2$ does not follow directly from the mere existence of a lifting; it requires more detailed information about the coupling $\\mu$ itself.\n\nEVIDENCE:\n[CS-PL-p0170-s04] Couplings are closely related to TV-distance, as captured by the following theorem.\n[CS-PL-p0170-s06] Unlike the previous facts, the target property about μ1 and μ2 does not directly follow from the existence of a lifting—we need more detailed information about the coupling μ.\n\nAUDITOR FINDINGS:\n- SOURCE_INDEPENDENT: revise — judge_a: Remove “Unlike the earlier consequences of liftings,” which depends on the source’s presentation order; retain the general coupling-information claim. / judge_b: Remove book-specific reference 'Unlike the earlier consequences of liftings' so the claim is self-contained.",
+ "raw": "{\"atoms\":[{\"statement\":\"The existence of a lifting (coupling) $\\\\mu$ of $\\\\mu_1$ and $\\\\mu_2$ does not by itself directly yield a bound on the total variation distance between $\\\\mu_1$ and $\\\\mu_2$; this requires more detailed information about the coupling $\\\\mu$.\",\"scope\":\"S3\",\"evidence_ids\":[\"CS-PL-p0170-s04\",\"CS-PL-p0170-s06\"]}],\"note\":\"Removed the reference to earlier consequences, which depends on the source's presentation order. s06 calls the property a 'target property'. Reading it as the TV-distance bound relies on s04's context, which links couplings to TV-distance.\"}",
+ "usage": {
+  "completion_tokens": 521,
+  "prompt_tokens": 943,
+  "total_tokens": 1464,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 943,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00709600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

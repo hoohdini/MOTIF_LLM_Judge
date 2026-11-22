@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-ALG-C02-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Exploration trap\n\nATOM CS-ALG-C02-S3-03 (S3): Simply replacing the edge of color $c_{j+1}$ at $v_j$ by the edge $\\{v_j,v_{i+1}\\}$ cannot close the loop when $v_i\\ne v_j$, because the edge $\\{v_i,v_{i+1}\\}$ of that color must also be kept.\n\nEVIDENCE:\n[CS-ALG-p0168-s29] Of course, we cannot simply replace the edge of color cj+1 at vj by the edge {vj,vi+1} of the same color, since we also need to keep the edge {vi,vi+1} of this color.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The replacement obstruction is stated, but the supplied sentence does not establish the added condition v_i ≠ v_j. / judge_b: The cited evidence does not state 'cannot close the loop when v_i != v_j'.\n- SCOPE_LABEL: revise — judge_b: S2: Explains a constraint within the trap construction mechanism for the v_i != v_j case.",
+ "raw": "{\"atoms\":[{\"statement\":\"In this construction, the edge of color $c_{j+1}$ at $v_j$ cannot simply be replaced by the edge $\\\\{v_j,v_{i+1}\\\\}$ of the same color, because the edge $\\\\{v_i,v_{i+1}\\\\}$ of that color must also be kept.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-ALG-p0168-s29\"]}],\"note\":\"Removed the unsupported condition $v_i\\\\ne v_j$ and the 'close the loop' claim, since the evidence sentence states neither. Relabeled S3 to S2 because the sentence gives a constraint within the construction, not a limit of the method.\"}",
+ "usage": {
+  "completion_tokens": 548,
+  "prompt_tokens": 959,
+  "total_tokens": 1507,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 959,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00739800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-PROB-C13-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Uniform spanning forest\n\nATOM MATH-PROB-C13-S3-02 (S3): For an infinite, one-ended planar map $G$ with a locally finite dual $G^\\dagger$, if $\\mathfrak{F}$ is a sample of $\\mathsf{FUSF}_G$ and $\\mathfrak{F}^\\dagger=\\{e^\\dagger : e\\in G\\setminus\\mathfrak{F}\\}$ is the set of dual edges of the edges not in $\\mathfrak{F}$, then the law of $\\mathfrak{F}^\\dagger$ is $\\mathsf{WUSF}_{G^\\dagger}$, whereas without the one-ended assumption the law of $\\mathfrak{F}^\\dagger$ in general is the transboundary uniform spanning forest.\n\nEVIDENCE:\n[MATH-PROB-p0104-s10] Given an essential spanning forest F of G we similarly define F† as the set of edges {e† : e ∈G \\ F}.\n[MATH-PROB-p0104-s15] Proposition 7.6 Let G be an infinite, one-ended planar map with a locally finite dual G† and let F be a sample of FUSFG.\n[MATH-PROB-p0104-s16] Then the law of F† is WUSFG†.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence supports one-ended planar duality, but does not state the transboundary-forest claim without one-endedness. / judge_b: The evidence does not state the final clause about the transboundary uniform spanning forest without the one-ended assumption.\n- SINGLE_CLAIM: revise — judge_a: One-ended FUSF–WUSF duality and the claimed general transboundary dual law are independently assessable claims. / judge_b: Joins two distinct claims: duality for one-ended planar maps and the general case involving the transboundary uniform spanning forest.",
+ "raw": "{\"atoms\": [{\"statement\": \"For an infinite, one-ended planar map $G$ with a locally finite dual $G^\\\\dagger$, if $\\\\mathfrak{F}$ is a sample of $\\\\mathsf{FUSF}_G$ and $\\\\mathfrak{F}^\\\\dagger=\\\\{e^\\\\dagger : e\\\\in G\\\\setminus\\\\mathfrak{F}\\\\}$ is the set of dual edges of the edges not in $\\\\mathfrak{F}$, then the law of $\\\\mathfrak{F}^\\\\dagger$ is $\\\\mathsf{WUSF}_{G^\\\\dagger}$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-PROB-p0104-s10\", \"MATH-PROB-p0104-s15\", \"MATH-PROB-p0104-s16\"]}], \"note\": \"The clause about the transboundary uniform spanning forest in the absence of one-endedness is not stated in the evidence, so it was removed. The remaining claim is the one-ended duality, relabeled S2 since it describes how the free and wired forests correspond rather than a limit of the result.\"}",
+ "usage": {
+  "completion_tokens": 381,
+  "prompt_tokens": 1228,
+  "total_tokens": 1609,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 381
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1228,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00626600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

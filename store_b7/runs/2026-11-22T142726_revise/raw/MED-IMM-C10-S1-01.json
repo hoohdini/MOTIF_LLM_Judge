@@ -1,0 +1,32 @@
+{
+ "atom_id": "MED-IMM-C10-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Gut microbiota in GVHD\n\nATOM MED-IMM-C10-S1-01 (S1): The organs involved in acute GvHD (intestinal mucosa, epidermis, and portal circulation) share the feature that they are all exposed to microbial pathogens.\n\nEVIDENCE:\n[MED-IMM-p0398-s05] Examples include poly vation of host antigen-presenting cells by morphisms in the genes encoding cytokines such pathogen-associated molecular patterns (PAMPs) as the tumor necrosis factors, the interleukins and damage-associated molecular patterns (IL-1, IL-6, and IL-10), interferon gamma (IFN- (DAMPs) and activation and proliferation of γ), and transforming growth factor-β3 (TGF-β3) donor T cells (afferent phase) and finally to the and the expression of the killer cell effector phase characterized by cytotoxic cell immunoglobulin-like receptors (KIR). damage and release of inflammatory cytokines Interestingly, one of the common features of the such as interleukin-1 (IL-1) and tissue necrosis organs involved in aGvHD is that they are all factor-alpha (TNFα) that eventually produce tis exposed to microbial pathogens through the sue necrosis (efferent phase).\n[MED-IMM-p0398-s06] The action of this intestinal mucosa, epidermis, and portal circula pathogenetic process in the induction of aGvHD tion, and early murine studies confirmed a reduc is modulated in part by the presence of cells tion in the severity and incidence of GvHD in capable of inhibiting immune response, such as animals that received antibiotic prophylaxis to T-regulatory cells (Tregs), type 1 regulatory T “decontaminate” the GI tract or those kept in cells (Tr1 cells), invariant NKT cells, and germ-free environments.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence identifies intestinal mucosa, epidermis, and portal circulation as routes of microbial exposure, not as the list of affected organs. / judge_b: The text states these organs are exposed to microbial pathogens 'through' the intestinal mucosa, epidermis, and portal circulation, rather than equating the organs directly to those sites.",
+ "raw": "{\"atoms\":[{\"statement\":\"A common feature of the organs involved in acute GvHD is that they are all exposed to microbial pathogens, through the intestinal mucosa, epidermis, and portal circulation.\",\"scope\":\"S1\",\"evidence_ids\":[\"MED-IMM-p0398-s05\",\"MED-IMM-p0398-s06\"]}],\"note\":\"Revised to follow the source wording: the intestinal mucosa, epidermis, and portal circulation are the routes of microbial exposure, not a list of the involved organs. The sentence is split across the two evidence sentences, so both are cited.\"}",
+ "usage": {
+  "completion_tokens": 577,
+  "prompt_tokens": 1363,
+  "total_tokens": 1940,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1363,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00849600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MED-PHYS-C03-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Mean systemic filling pressure\n\nATOM MED-PHYS-C03-S3-02 (S3): Under normal circumstances, when blood volume remains near constant, the major factor determining the return of blood to the heart is the resistance to venous return, produced by changes in resistance of blood vessels at the level of organs.\n\nEVIDENCE:\n[MED-PHYS-p0133-s07] Under normal circumstances, the blood volume remains near constant.\n[MED-PHYS-p0133-s08] Thus, the major\n[MED-PHYS-p0133-s09] factor that determines the return of blood to the heart is resistance to venous return, produced as a result of changes in resistance of blood vessels at the level of organs [2].\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — judge_a: S2: Describes the dominant determinant of venous return under a stated physiological condition, not a conceptual boundary. / judge_b: S2: Describes how venous return is determined by vascular resistance under constant blood volume.",
+ "raw": "{\"atoms\": [{\"statement\": \"Under normal circumstances, when blood volume remains near constant, the major factor determining the return of blood to the heart is resistance to venous return, which arises from changes in the resistance of blood vessels at the level of organs.\", \"scope\": \"S2\", \"evidence_ids\": [\"MED-PHYS-p0133-s07\", \"MED-PHYS-p0133-s08\", \"MED-PHYS-p0133-s09\"]}], \"note\": \"Scope label changed from S3 to S2 per auditor findings: the claim describes how venous return is determined under a stated condition, not a limit of the concept.\"}",
+ "usage": {
+  "completion_tokens": 206,
+  "prompt_tokens": 926,
+  "total_tokens": 1132,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 206
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 926,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00391200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-PL-C06-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Ranking supermartingale\n\nATOM CS-PL-C06-S2-03 (S2): To synthesize a linear RSM-map with respect to a given linear invariant, an algorithm sets up a linear template (affine in the program variables, with unknown coefficients) together with unknown parameters $\\epsilon, K, K'$, transforms the conditions (C1)-(C3) equivalently into Farkas' linear assertions through Farkas' Lemma, and solves those assertions by linear programming.\n\nEVIDENCE:\n[CS-PL-p0255-s12] (i) First, the algorithm establishes a linear template for an RSM map.\n[CS-PL-p0255-s14] Besides, the algorithm also sets up three unknown parameters ϵ,K,K′ which correspond to the counterparts in the definition of RSM-maps (cf Definition 7.8).\n[CS-PL-p0255-s15] (ii) Second, the algorithm transforms the conditions (C1)–(C3) equivalently into Farkas’ linear assertions through Farkas’ Lemma.\n[CS-PL-p0255-s16] (iii) Third, since the Farkas’ linear assertions refer to the emptiness problem over polyhedra, we can use linear programming to solve those assertions.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence supports the synthesis stages but does not specify a given linear invariant or define the template as affine in program variables. / judge_b: The cited evidence does not state 'with respect to a given linear invariant' or 'affine in the program variables, with unknown coefficients'.",
+ "raw": "{\"atoms\": [{\"statement\": \"An algorithm for synthesizing a linear RSM-map first establishes a linear template for the RSM-map and sets up three unknown parameters $\\\\epsilon, K, K'$ corresponding to those in the definition of RSM-maps.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-PL-p0255-s12\", \"CS-PL-p0255-s14\"]}, {\"statement\": \"The algorithm then transforms conditions (C1)–(C3) equivalently into Farkas' linear assertions through Farkas' Lemma, and because these assertions refer to the emptiness problem over polyhedra, it solves them by linear programming.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-PL-p0255-s15\", \"CS-PL-p0255-s16\"]}], \"note\": \"Removed the unsupported details 'given linear invariant' and 'affine in program variables with unknown coefficients'. Split the three-step procedure into two atoms: template and parameter setup, then Farkas transformation and LP solving.\"}",
+ "usage": {
+  "completion_tokens": 355,
+  "prompt_tokens": 1125,
+  "total_tokens": 1480,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 355
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1125,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00580000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

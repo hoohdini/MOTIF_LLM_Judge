@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-ANA-C08-S3-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Cheeger-type isoperimetric constant\n\nATOM MATH-ANA-C08-S3-02 (S3): The comparison between $\\mathrm{Ch}(\\mathcal{G})$ and the discrete constant, and even the equivalence of $\\mathrm{Ch}(\\mathcal{G})>0$ with $\\mathrm{Ch}_d(\\mathcal{V})>0$, can fail for models with multiple edges, because the identity $b(u,v)p_\\eta(u,v)=\\sqrt{\\mu\\nu}(e_{uv})$ is no longer valid there.\n\nEVIDENCE:\n[MATH-ANA-p0168-s02] (ii) Surprisingly, Proposition 7.38 and even the equivalence (7.28) can fail for models with multiple edges.\n[MATH-ANA-p0168-s03] The reason is precisely that (7.25) is no longer valid in the presence of multiple edges (see also (7.24)).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Evidence supports failure with multiple edges, but only references the positivity equivalence and identity; their explicit mathematical content is not supplied. / judge_b: Evidence cites equations (7.25), (7.28), and Proposition 7.38 by number without stating their mathematical content or the identity b(u,v)p_\\eta(u,v)=\\sqrt{\\mu\\nu}(e_{uv}).",
+ "raw": "{\"atoms\": [], \"note\": \"The evidence only says that Proposition 7.38 and the equivalence (7.28) can fail for models with multiple edges, because (7.25) no longer holds there. It does not state what these numbered results say. In particular, it does not give the comparison between Ch(G) and the discrete constant, the equivalence of Ch(G)>0 with Ch_d(V)>0, or the identity b(u,v)p_\\\\eta(u,v)=\\\\sqrt{\\\\mu\\\\nu}(e_{uv}). A self-contained atom would therefore need unsupported content, and a version that only cites equation numbers could not be understood without the source.\"}",
+ "usage": {
+  "completion_tokens": 536,
+  "prompt_tokens": 1067,
+  "total_tokens": 1603,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1067,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00749400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

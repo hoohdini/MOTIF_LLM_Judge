@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-PL-C07-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Type-2 computable distribution\n\nATOM CS-PL-C07-S2-02 (S2): The Prokhorov metric between Borel probability measures $\\mu$ and $\\nu$ on a metric space $(X, d)$ is $d_\\rho(\\mu, \\nu) = \\inf\\{\\epsilon > 0 \\mid \\mu(A) \\le \\nu(A^\\epsilon) + \\epsilon \\text{ for every Borel } A\\}$, where $A^\\epsilon = \\{x \\in X \\mid d(x, y) < \\epsilon \\text{ for some } y \\in A\\}$.\n\nEVIDENCE:\n[CS-PL-p0097-s03] dρ(μ,ν) ≜inf{ϵ > 0 | μ(A) ≤ν(Aϵ) + ϵ for every Borel A} ,\n[CS-PL-p0097-s04] where Aϵ ≜{x ∈X | d(x, y) < ϵ for some y ∈A}.\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — judge_a: S1: This defines the Prokhorov metric rather than explaining a computational mechanism. / judge_b: S1: This is the formal mathematical definition of the Prokhorov metric.",
+ "raw": "{\"atoms\": [{\"statement\": \"The Prokhorov metric between Borel probability measures $\\\\mu$ and $\\\\nu$ on a metric space $(X, d)$ is defined as $d_\\\\rho(\\\\mu, \\\\nu) = \\\\inf\\\\{\\\\epsilon > 0 \\\\mid \\\\mu(A) \\\\le \\\\nu(A^\\\\epsilon) + \\\\epsilon \\\\text{ for every Borel } A\\\\}$, where $A^\\\\epsilon = \\\\{x \\\\in X \\\\mid d(x, y) < \\\\epsilon \\\\text{ for some } y \\\\in A\\\\}$.\", \"scope\": \"S1\", \"evidence_ids\": [\"CS-PL-p0097-s03\", \"CS-PL-p0097-s04\"]}], \"note\": \"Scope label changed from S2 to S1, since the atom is a formal definition of the Prokhorov metric and not a mechanism. The statement is otherwise unchanged. The evidence does not mention the 'Borel probability measures on a metric space' setting, so the atom keeps that framing from the original atom and does not extend it.\"}",
+ "usage": {
+  "completion_tokens": 364,
+  "prompt_tokens": 1004,
+  "total_tokens": 1368,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 364
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1004,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00564800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

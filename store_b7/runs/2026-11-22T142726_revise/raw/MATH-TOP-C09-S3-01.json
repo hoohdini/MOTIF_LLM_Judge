@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-TOP-C09-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Category Ω of trees\n\nATOM MATH-TOP-C09-S3-01 (S3): For a degeneracy σ : S → T and an automorphism α of S there is at most one automorphism β of T with βσ = σα, and conversely, but an automorphism of one tree need not induce one on the other: in an example with T having an automorphism interchanging two vertices v and w, S has no such automorphism.\n\nEVIDENCE:\n[MATH-TOP-p0122-s02] Proposition 3.13 Let σ : S →T be a degeneracy and α an automorphism of S.\n[MATH-TOP-p0122-s03] Then there is at most one automorphism β of T making the following square commute:\n[MATH-TOP-p0122-s07] Conversely, given an automorphism β of T, there is at most one automorphism α of S making the square commute.\n[MATH-TOP-p0122-s13] Remark 3.14 The phrase ‘at most’ in the previous proposition is crucial.\n[MATH-TOP-p0122-s14] It is not true that an automorphism α of S always induces an automorphism of T, or conversely that an automorphism of T induces one of S.\n[MATH-TOP-p0122-s18] Then T has an automorphism interchanging the vertices v and w, but S does not.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Uniqueness and possible nonexistence are stated, but the supplied sentences omit the square specifying βσ = σα. / judge_b: Evidence s03 omits the diagram, so 'βσ = σα' is not explicitly in the cited sentences, and the example trees S and T are not defined.\n- SINGLE_CLAIM: revise — judge_a: Uniqueness of compatible automorphisms and failure of their existence are independently assessable claims. / judge_b: Combines uniqueness of induced automorphisms along a degeneracy with non-existence of induced automorphisms in general.\n- SOURCE_INDEPENDENT: revise — judge_b: References an unspecified example with vertices v and w that is not self-contained without the book's diagram.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a degeneracy σ : S → T of trees in Ω, given an automorphism α of S there is at most one automorphism β of T making the square relating α, β and σ commute, and given an automorphism β of T there is at most one automorphism α of S making that square commute.\",\"scope\":\"S2\",\"evidence_ids\":[\"MATH-TOP-p0122-s02\",\"MATH-TOP-p0122-s03\",\"MATH-TOP-p0122-s07\"]},{\"statement\":\"For a degeneracy σ : S → T, an automorphism of S need not induce an automorphism of T, and an automorphism of T need not induce one of S, so the 'at most' in the uniqueness statement cannot be strengthened to 'exactly one'.\",\"scope\":\"S3\",\"evidence_ids\":[\"MATH-TOP-p0122-s13\",\"MATH-TOP-p0122-s14\"]}],\"note\":\"Split into uniqueness and non-existence. I dropped the explicit formula βσ = σα because the cited sentences do not state it (the diagram is omitted). I also dropped the unspecified example with vertices v and w because S and T are not defined in the evidence.\"}",
+ "usage": {
+  "completion_tokens": 707,
+  "prompt_tokens": 1290,
+  "total_tokens": 1997,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1290,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00965000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

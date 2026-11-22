@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C03-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Boardman–Vogt resolution\n\nATOM MATH-TOP-C03-S2-02 (S2): Composition in W(P) is defined by grafting: the ith leaf of a tree T is identified with the root of a tree S_i, carrying along all labels, which is possible because these edges share the same colour and the same length 1; hence compositions of subtree operations are recognized by edges of length 1.\n\nEVIDENCE:\n[MATH-TOP-p0051-s03] The composition operations of the operad W(P) are again deﬁned by grafting, just like for free operads.\n[MATH-TOP-p0051-s06] sends operations represented by trees T, S1, . . ., Sn to the operation represented by identifying the ith leaf of T with the root of Si and carrying along all the labels.\n[MATH-TOP-p0051-s07] Note that this ith leaf has the same colour as the root of Si, as well as the same length (namely 1).\n[MATH-TOP-p0051-s08] Thus, one can recognize operations in W(P) that arise as a composition of operations represented by subtrees by looking for edges of length 1.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: The grafting definition and the criterion recognizing subtree compositions by length-one edges are separately assessable. / judge_b: Joins the definition of composition by grafting with the consequence about recognizing composite operations via length-1 edges.",
+ "raw": "{\"atoms\": [{\"statement\": \"In the operad W(P), composition is defined by grafting: operations represented by trees T, S_1, ..., S_n are sent to the operation represented by identifying the ith leaf of T with the root of S_i and carrying along all the labels.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0051-s03\", \"MATH-TOP-p0051-s06\"]}, {\"statement\": \"In W(P), the ith leaf of T and the root of S_i have the same colour and the same length (namely 1), so operations in W(P) that arise as compositions of operations represented by subtrees can be recognized by looking for edges of length 1.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-TOP-p0051-s07\", \"MATH-TOP-p0051-s08\"]}], \"note\": \"Split into the grafting definition and the length-1 edge recognition criterion.\"}",
+ "usage": {
+  "completion_tokens": 307,
+  "prompt_tokens": 1062,
+  "total_tokens": 1369,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 307
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1062,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00519400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

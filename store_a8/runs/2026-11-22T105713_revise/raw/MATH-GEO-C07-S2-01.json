@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-GEO-C07-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Reach\n\nATOM MATH-GEO-C07-S2-01 (S2): For a smooth variety $X$ in $\\mathbb{R}^n$, the reach equals $\\tau(X)=\\min\\{B(X),1/C(X)\\}$, where $B(X)$ is the width of the smallest bottleneck of $X$ (the width of a bottleneck $\\{\\mathbf{x},\\mathbf{y}\\}$ being $\\tfrac12\\|\\mathbf{x}-\\mathbf{y}\\|$) and $C(X)$ is the maximal curvature of $X$.\n\nEVIDENCE:\n[MATH-GEO-p0095-s17] The width of a bottleneck is 𝑏(x, y) := 1\n[MATH-GEO-p0095-s18] 2 ∥x −y∥. We denote the width of the smallest bottleneck of the variety 𝑋by\n[MATH-GEO-p0095-s19] 𝐵(𝑋) := min {x,y} bottleneck of 𝑋𝑏(x, y).\n[MATH-GEO-p0095-s20] The next theorem links the reach of 𝑋to its bottlenecks and its maximal curvature 𝐶(𝑋).\n[MATH-GEO-p0095-s22] Theorem 7.8 Let 𝑋be a smooth variety in R𝑛.\n[MATH-GEO-p0095-s23] Then the reach of 𝑋equals\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Evidence defines bottleneck width and identifies maximal curvature, but the formula following “equals” is absent; the asserted minimum formula is not supplied. / judge_b: Evidence stops at 'Then the reach of X equals' and omits the formula \\tau(X) = \\min\\{B(X), 1/C(X)\\}.",
+ "raw": "{\"atoms\": [{\"statement\": \"The width of a bottleneck $\\\\{\\\\mathbf{x},\\\\mathbf{y}\\\\}$ of a variety $X$ is $b(\\\\mathbf{x},\\\\mathbf{y})=\\\\tfrac12\\\\|\\\\mathbf{x}-\\\\mathbf{y}\\\\|$, and $B(X)$ denotes the minimum of these widths over all bottlenecks of $X$, that is, the width of the smallest bottleneck.\", \"scope\": \"S1\", \"evidence_ids\": [\"MATH-GEO-p0095-s17\", \"MATH-GEO-p0095-s18\", \"MATH-GEO-p0095-s19\"]}], \"note\": \"The cited evidence breaks off at 'Then the reach of X equals' (s23), so the formula $\\\\tau(X)=\\\\min\\\\{B(X),1/C(X)\\\\}$ is never stated. The evidence says only that the theorem links reach to bottlenecks and maximal curvature $C(X)$. I dropped the unsupported formula claim and kept only the bottleneck-width definition, which the evidence does support.\"}",
+ "usage": {
+  "completion_tokens": 825,
+  "prompt_tokens": 1208,
+  "total_tokens": 2033,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1208,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01066600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

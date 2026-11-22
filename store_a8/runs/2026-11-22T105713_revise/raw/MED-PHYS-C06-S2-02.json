@@ -1,0 +1,32 @@
+{
+ "atom_id": "MED-PHYS-C06-S2-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Double Donnan effect\n\nATOM MED-PHYS-C06-S2-02 (S2): Fixed intracellular anions, together with potassium, create a Donnan effect osmotic gradient that would draw water into the cell were it not for the double Donnan effect of sodium potassium ATP-ase.\n\nEVIDENCE:\n[MED-PHYS-p0098-s17] Along with potassium they create the Donnan effect osmotic gradient which would\n[MED-PHYS-p0098-s18] draw water into the cell were it not for the double Donnan effect of sodium potassium ATP-ase.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The supplied evidence does not identify the antecedent of “they” as fixed intracellular anions. / judge_b: Cited evidence uses pronoun 'they' without stating 'Fixed intracellular anions'.",
+ "raw": "{\"atoms\": [{\"statement\": \"The Donnan effect osmotic gradient, which potassium helps to create, would draw water into the cell were it not for the double Donnan effect of sodium potassium ATP-ase.\", \"scope\": \"S2\", \"evidence_ids\": [\"MED-PHYS-p0098-s17\", \"MED-PHYS-p0098-s18\"]}], \"note\": \"The evidence does not say what 'they' refers to, so the claim that fixed intracellular anions are the other contributor is removed. The repaired atom keeps only the stated role of potassium, the water-drawing osmotic gradient, and the counteracting double Donnan effect of sodium potassium ATP-ase.\"}",
+ "usage": {
+  "completion_tokens": 561,
+  "prompt_tokens": 882,
+  "total_tokens": 1443,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 882,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00737400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

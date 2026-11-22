@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-GEO-C02-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Polar degrees\n\nATOM MATH-GEO-C02-S1-01 (S1): For a projective variety $X\\subseteq\\mathbb{P}^n$ and a subspace $V\\subseteq\\mathbb{P}^n$, the polar variety is $P(X,V)=\\{p\\in \\mathrm{Reg}(X)\\setminus V \\mid V+p \\text{ intersects } X \\text{ at } p \\text{ non-transversely}\\}$, and for $i\\in\\{0,1,\\dots,\\dim X\\}$ and a generic $V$ with $\\dim V=\\operatorname{codim}X-2+i$, the degree of $P(X,V)$ is independent of $V$ and is called the $i$-th polar degree $\\mu_i(X)=\\deg P(X,V)$.\n\nEVIDENCE:\n[MATH-GEO-p0055-s08] Definition 4.2 The polar variety of a variety 𝑋⊆P𝑛with respect to a subspace 𝑉⊆P𝑛is\n[MATH-GEO-p0055-s09] 𝑃(𝑋,𝑉) := { p ∈Reg(𝑋)\\𝑉| 𝑉+ p intersects 𝑋at p non-transversely}.\n[MATH-GEO-p0055-s10] Let 𝑖∈{0, 1, . . . , dim 𝑋}.\n[MATH-GEO-p0055-s11] If 𝑉is generic with dim𝑉= codim 𝑋−2 + 𝑖, then the degree of 𝑃(𝑋,𝑉) is independent of 𝑉, and we can define\n[MATH-GEO-p0055-s12] The integer 𝜇𝑖(𝑋) is called the 𝑖-th polar degree of 𝑋.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_b: The display equation defining $\\mu_i(X) = \\deg P(X,V)$ is missing from the cited sentences.\n- SINGLE_CLAIM: revise — judge_a: Separately asserts the definition of a polar variety and generic-subspace independence defining its polar degree.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a variety $X\\\\subseteq\\\\mathbb{P}^n$ and a subspace $V\\\\subseteq\\\\mathbb{P}^n$, the polar variety is $P(X,V)=\\\\{p\\\\in \\\\mathrm{Reg}(X)\\\\setminus V \\\\mid V+p \\\\text{ intersects } X \\\\text{ at } p \\\\text{ non-transversely}\\\\}$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MATH-GEO-p0055-s08\",\"MATH-GEO-p0055-s09\"]},{\"statement\":\"For $i\\\\in\\\\{0,1,\\\\dots,\\\\dim X\\\\}$ and a generic subspace $V$ with $\\\\dim V=\\\\operatorname{codim}X-2+i$, the degree of the polar variety $P(X,V)$ is independent of $V$, and the resulting integer $\\\\mu_i(X)$ is called the $i$-th polar degree of $X$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MATH-GEO-p0055-s10\",\"MATH-GEO-p0055-s11\",\"MATH-GEO-p0055-s12\"]}],\"note\":\"Split into the polar variety definition and the polar degree definition. The display equation defining $\\\\mu_i$ is absent from the evidence, so the second atom says only that $\\\\mu_i(X)$ is the integer defined from the $V$-independent degree of $P(X,V)$.\"}",
+ "usage": {
+  "completion_tokens": 852,
+  "prompt_tokens": 1311,
+  "total_tokens": 2163,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1311,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01114200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

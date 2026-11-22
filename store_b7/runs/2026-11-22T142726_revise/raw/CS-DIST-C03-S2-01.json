@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DIST-C03-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Consensus number\n\nATOM CS-DIST-C03-S2-01 (S2): A readable object type T is n-discerning if there exist a reachable state $q_0$, a split of processes $p_1,\\dots,p_n$ into two nonempty teams $A_0$ and $A_1$, and operations $\\pi_1,\\dots,\\pi_n$ such that $R_{A_0,j}\\cap R_{A_1,j}=\\emptyset$ for all j, i.e., after any sequence of these operations each process can tell which team performed the first operation; for readable objects $h^r_m(T)\\ge n$ if and only if T is n-discerning.\n\nEVIDENCE:\n[CS-DIST-p0221-s04] A readable object type T is n-discerning if it has a reachable state q0 in which it is possible to split processes p1, . . . , pn into two nonempty teams A0 and A1 and assign each process pi an operation πi, so that after any sequence of operations πi1, . . . , πik, each process can tell if the ﬁrst operation πi1 was performed by a process in team A0 or team A1.11 To formalize this, let us deﬁne RAb,j for each b ∈{0, 1} and each process id j as the set of all pairs ⟨r, q⟩for which there is an execution q0πi1, . . . , πik where (a) all the iℓare distinct; (b) one of them is pj, (c) pi1 ∈Ab, (d) pj’s operation returns r, and (e) the ﬁnal state of the object is q.\n[CS-DIST-p0221-s05] Then T is n-discerning if, there exist a state q0, teams A0 and A1, and operations π1, . . . , πn, such that RA0,j ∩RA1,j = ∅for all j.\n[CS-DIST-p0223-s29] Theorem 19.3.4.\n[CS-DIST-p0223-s30] For any readable object T, hrm(T) ≥n if and only if T is n-discerning.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Omits the R-set definitions: executions use distinct processes, include j, and pair j's return value with the final state.\n- SINGLE_CLAIM: revise — judge_a: Combines the definition of n-discerning with the theorem equating it to hierarchy level at least n. / judge_b: Combines the definition of an n-discerning object type with Ruppert's characterization theorem (h^r_m(T) >= n iff T is n-discerning).",
+ "raw": "{\"atoms\":[{\"statement\":\"A readable object type T is n-discerning if there exist a reachable state $q_0$, a split of processes $p_1,\\\\dots,p_n$ into two nonempty teams $A_0$ and $A_1$, and an operation $\\\\pi_i$ assigned to each $p_i$, such that $R_{A_0,j}\\\\cap R_{A_1,j}=\\\\emptyset$ for every process id $j$, where $R_{A_b,j}$ is the set of pairs $\\\\langle r,q\\\\rangle$ for which some execution $q_0\\\\pi_{i_1},\\\\dots,\\\\pi_{i_k}$ has all $i_\\\\ell$ distinct, includes $p_j$, has $p_{i_1}\\\\in A_b$, has $p_j$'s operation return $r$, and ends with the object in state $q$; this means that after any such sequence of operations each process can tell whether the first operation was performed by a process in team $A_0$ or team $A_1$.\",\"scope\":\"S1\",\"evidence_ids\":[\"CS-DIST-p0221-s04\",\"CS-DIST-p0221-s05\"]},{\"statement\":\"For any readable object type T, $h^r_m(T)\\\\ge n$ if and only if T is n-discerning.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0223-s30\"]}],\"note\":\"Split the definition from the theorem. The evidence does not define $h^r_m$, so the theorem atom uses that notation as written in the source.\"}",
+ "usage": {
+  "completion_tokens": 1127,
+  "prompt_tokens": 1414,
+  "total_tokens": 2541,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1414,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01409800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

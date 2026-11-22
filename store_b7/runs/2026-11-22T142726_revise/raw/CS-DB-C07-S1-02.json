@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-DB-C07-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Closed world assumption solutions (CWA-solutions)\n\nATOM CS-DB-C07-S1-02 (S1): For a mapping M defined by st-tgds, a justification is an st-tgd $\\theta=\\forall\\bar x\\forall\\bar y(\\varphi(\\bar x,\\bar y)\\to\\exists\\bar z\\,\\psi(\\bar x,\\bar z))$ together with assignments $\\bar a,\\bar a'$ such that $S\\models\\varphi(\\bar a,\\bar a')$. An atom in T is justified if some justification and some assignment $\\bar b$ for $\\bar z$ satisfy $T\\models\\psi(\\bar a,\\bar b)$ and the atom is one of the relation atoms of $\\psi(\\bar a,\\bar b)$.\n\nEVIDENCE:\n[CS-DB-p0178-s26] A justiﬁcation for atoms consists of an st-tgd θ in M, say θ = ∀¯x∀¯y(ϕ(¯x, ¯y) →∃¯z ψ(¯x, ¯z)), and assignments ¯a, ¯a′ to ¯x, ¯y such that S |= ϕ(¯a, ¯a′).\n[CS-DB-p0178-s28] An atom in T is justiﬁed if there is a justiﬁcation (θ, ¯a, ¯a′) with θ = ∀¯x∀¯y(ϕ(¯x, ¯y) →∃¯z ψ(¯x, ¯z)), and an assignment ¯b for ¯z such that T |= ψ(¯a,¯b), and the atom is one of the relation atoms in ψ(¯a,¯b).\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Defines both a justification and the separate condition under which a target atom is justified. / judge_b: Defines two distinct concepts: what a justification is, and when an atom in T is justified.",
+ "raw": "{\"atoms\":[{\"statement\":\"For a mapping M specified by st-tgds, a justification consists of an st-tgd $\\\\theta=\\\\forall\\\\bar x\\\\forall\\\\bar y(\\\\varphi(\\\\bar x,\\\\bar y)\\\\to\\\\exists\\\\bar z\\\\,\\\\psi(\\\\bar x,\\\\bar z))$ in M together with assignments $\\\\bar a,\\\\bar a'$ to $\\\\bar x,\\\\bar y$ such that $S\\\\models\\\\varphi(\\\\bar a,\\\\bar a')$.\",\"scope\":\"S1\",\"evidence_ids\":[\"CS-DB-p0178-s26\"]},{\"statement\":\"An atom in T is justified if there exist a justification $(\\\\theta,\\\\bar a,\\\\bar a')$ with $\\\\theta=\\\\forall\\\\bar x\\\\forall\\\\bar y(\\\\varphi(\\\\bar x,\\\\bar y)\\\\to\\\\exists\\\\bar z\\\\,\\\\psi(\\\\bar x,\\\\bar z))$ and an assignment $\\\\bar b$ for $\\\\bar z$ such that $T\\\\models\\\\psi(\\\\bar a,\\\\bar b)$ and the atom is one of the relation atoms in $\\\\psi(\\\\bar a,\\\\bar b)$.\",\"scope\":\"S1\",\"evidence_ids\":[\"CS-DB-p0178-s28\"]}],\"note\":\"Split into two atoms: the definition of a justification, and the condition under which a target atom is justified.\"}",
+ "usage": {
+  "completion_tokens": 483,
+  "prompt_tokens": 1236,
+  "total_tokens": 1719,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 483
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1236,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00730200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

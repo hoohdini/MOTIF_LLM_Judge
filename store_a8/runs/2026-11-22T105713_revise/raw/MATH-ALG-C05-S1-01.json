@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-ALG-C05-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Nilpotent group\n\nATOM MATH-ALG-C05-S1-01 (S1): A group $G$ is nilpotent if $Z^m(G)=G$ for some $m$, where the ascending central series $\\{1\\}\\subset Z(G)\\subset Z^2(G)\\subset\\cdots$ is defined by $g\\in Z^i(G)\\iff [g,x]\\in Z^{i-1}(G)$ for all $x\\in G$.\n\nEVIDENCE:\n[MATH-ALG-p0093-s14] where 𝑔∈𝑍𝑖(𝐺) ⇐⇒[𝑔, 𝑥] ∈𝑍𝑖−1(𝐺) for all 𝑥∈𝐺.\n[MATH-ALG-p0093-s15] If 𝑍𝑚(𝐺) = 𝐺for some 𝑚, then 𝐺is said to be nilpotent, and the smallest such 𝑚is called the (nilpotency) class of 𝐺.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Evidence states the recursion and nilpotency criterion, but does not supply the initial terms of the ascending central series. / judge_b: The cited evidence omits the term 'ascending central series' and the chain {1} \\subset Z(G) \\subset Z^2(G) \\subset \\cdots.",
+ "raw": "{\"atoms\":[{\"statement\":\"A group $G$ is nilpotent if $Z^m(G)=G$ for some $m$, where $Z^i(G)$ is characterized by $g\\\\in Z^i(G)\\\\iff [g,x]\\\\in Z^{i-1}(G)$ for all $x\\\\in G$.\",\"scope\":\"S1\",\"evidence_ids\":[\"MATH-ALG-p0093-s14\",\"MATH-ALG-p0093-s15\"]}],\"note\":\"Removed the name 'ascending central series' and the chain {1} ⊂ Z(G) ⊂ Z^2(G) ⊂ ⋯, because the cited evidence does not state them. The atom now keeps only the recursive membership condition and the nilpotency criterion, both of which the evidence supports.\"}",
+ "usage": {
+  "completion_tokens": 595,
+  "prompt_tokens": 1048,
+  "total_tokens": 1643,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1048,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00804600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

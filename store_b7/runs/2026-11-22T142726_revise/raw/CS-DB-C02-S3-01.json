@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-DB-C02-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Weak acyclicity\n\nATOM CS-DB-C02-S3-01 (S3): The class of richly acyclic tgd sets is strictly contained in WA. Every richly acyclic set is weakly acyclic, but the set Σ2 = {S(x)→∃y R(x,y), R(x,y)→∃z R(x,z)} is weakly acyclic and not richly acyclic.\n\nEVIDENCE:\n[CS-DB-p0026-s26] From the deﬁnitions of the RA and WA classes, it follows that RA ⊆WA.\n[CS-DB-p0026-s27] Also because Σ2 ∈WA and Σ2 /∈RA, it follows that the inclusion is strict, that is RA ⊂WA.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: Evidence establishes strict containment and mentions Σ2, but does not specify Σ2's rules; the explicit witness is unverified. / judge_b: Evidence does not state the explicit tgd rules defining \\Sigma_2.\n- SINGLE_CLAIM: revise — judge_a: Strict class containment and classification of the specific witness are separately assessable claims. / judge_b: Combines the class containment claim (RA \\subset WA) with a specific separating example (\\Sigma_2).",
+ "raw": "{\"atoms\": [{\"statement\": \"The class RA of richly acyclic tgd sets is contained in the class WA of weakly acyclic tgd sets ($RA \\\\subseteq WA$), which follows from the definitions of the two classes.\", \"scope\": \"S3\", \"evidence_ids\": [\"CS-DB-p0026-s26\"]}, {\"statement\": \"The inclusion of the class RA of richly acyclic tgd sets in the class WA of weakly acyclic tgd sets is strict ($RA \\\\subset WA$), because there is a tgd set $\\\\Sigma_2$ that is weakly acyclic but not richly acyclic.\", \"scope\": \"S3\", \"evidence_ids\": [\"CS-DB-p0026-s27\"]}], \"note\": \"The explicit rules of Σ2 are not given in the evidence sentences, so they were removed. The original atom's single claim was split into containment and strictness.\"}",
+ "usage": {
+  "completion_tokens": 301,
+  "prompt_tokens": 1025,
+  "total_tokens": 1326,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 301
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1025,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00506000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MED-EPI-C05-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Imprinting control element\n\nATOM MED-EPI-C05-S2-01 (S2): In the Igf2 cluster, on the maternal chromosome the imprinting control element upstream of H19 is unmethylated, which allows CTCF proteins to bind and form an insulator that blocks the shared enhancers from interacting with the Igf2 and Ins2 promoters while allowing them to activate H19.\n\nEVIDENCE:\n[MED-EPI-p0110-s12] On the maternal chromosome, the ICE is unmethylated, allowing CTCF proteins to bind and form an insulator that blocks the enhancers from interacting with the promoters of Igf2 and Ins2, while they can interact and activate H19.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence states the insulation mechanism but does not locate the ICE upstream of H19. / judge_b: The supplied evidence does not state 'In the Igf2 cluster', that the ICE is 'upstream of H19', or that the enhancers are 'shared'.",
+ "raw": "The evidence only says \"the ICE\", \"the enhancers\", and the promoters of Igf2, Ins2 and H19. It does not say \"upstream of H19\", \"Igf2 cluster\", or \"shared\". I removed those unsupported details. The repaired atom keeps the claim that the maternal ICE is unmethylated, that this lets CTCF bind and form an insulator, that the insulator blocks enhancer interaction with the Igf2 and Ins2 promoters, and that the enhancers can still activate H19.\n\n{\"atoms\": [{\"statement\": \"On the maternal chromosome, the imprinting control element (ICE) is unmethylated, allowing CTCF proteins to bind and form an insulator that blocks the enhancers from interacting with the promoters of Igf2 and Ins2, while the enhancers can interact with and activate H19.\", \"scope\": \"S2\", \"evidence_ids\": [\"MED-EPI-p0110-s12\"]}], \"note\": \"Removed 'in the Igf2 cluster', 'upstream of H19', and 'shared', which the cited sentence does not state.\"}",
+ "usage": {
+  "completion_tokens": 359,
+  "prompt_tokens": 938,
+  "total_tokens": 1297,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 359
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 938,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00546600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

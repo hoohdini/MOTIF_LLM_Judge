@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-GEO-C04-S3-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Eckart-Young theorem\n\nATOM MATH-GEO-C04-S3-01 (S3): On the space $\\mathbb{R}^{\\binom{n+1}{2}}$ of symmetric $n\\times n$ matrices, the Eckart-Young Theorem remains valid for the Frobenius norm (the restriction of the Frobenius norm on $\\mathbb{R}^{n\\times n}$ to symmetric matrices) but is not valid for the Euclidean norm.\n\nEVIDENCE:\n[MATH-GEO-p0115-s01] The Frobenius norm on R(𝑛+1 2 ) is the restriction of the Frobenius norm on R𝑛×𝑛to the subspace of symmetric matrices.\n[MATH-GEO-p0115-s06] The Eckart– Young Theorem remains valid for the Frobenius norm on R(𝑛+1 2 ), but it is not valid for the Euclidean norm.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Validity for the restricted Frobenius norm and failure for the Euclidean norm are separately assessable claims. / judge_b: Combines validity for the Frobenius norm on symmetric matrices with failure for the standard Euclidean norm on upper-triangular coordinates.",
+ "raw": "{\"atoms\":[{\"statement\":\"On the space $\\\\mathbb{R}^{\\\\binom{n+1}{2}}$ of symmetric $n\\\\times n$ matrices, the Eckart-Young Theorem remains valid for the Frobenius norm, which is the restriction of the Frobenius norm on $\\\\mathbb{R}^{n\\\\times n}$ to the subspace of symmetric matrices.\",\"scope\":\"S3\",\"evidence_ids\":[\"MATH-GEO-p0115-s01\",\"MATH-GEO-p0115-s06\"]},{\"statement\":\"On the space $\\\\mathbb{R}^{\\\\binom{n+1}{2}}$ of symmetric $n\\\\times n$ matrices, the Eckart-Young Theorem is not valid for the Euclidean norm.\",\"scope\":\"S3\",\"evidence_ids\":[\"MATH-GEO-p0115-s06\"]}],\"note\":\"Split the original atom into two separately assessable claims: validity for the Frobenius norm and failure for the Euclidean norm. The evidence does not define the Euclidean norm on this space, so the second atom does not specify it further.\"}",
+ "usage": {
+  "completion_tokens": 651,
+  "prompt_tokens": 1027,
+  "total_tokens": 1678,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1027,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00856400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-PL-C02-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Positive almost-sure termination\n\nATOM CS-PL-C02-S1-01 (S1): A closed term $M$ of the probabilistic $\\lambda$-calculus is positively almost surely terminating if and only if its expected reduction length (the average number of reduction steps) satisfies $\\mathrm{ExLen}(M) < +\\infty$.\n\nEVIDENCE:\n[CS-PL-p0151-s16] As a consequence, the average number of reduction steps ExLen(M) for M is defined as follows:\n[CS-PL-p0151-s19] We say that M is positively almost surely terminating if ExLen(M) < +∞.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence defines positive almost-sure termination using ExLen, but does not explicitly specify closed terms or the probabilistic λ-calculus. / judge_b: The cited sentences do not state that M is a closed term of the probabilistic lambda-calculus.",
+ "raw": "{\"atoms\": [{\"statement\": \"A term $M$ is defined to be positively almost surely terminating if its average number of reduction steps satisfies $\\\\mathrm{ExLen}(M) < +\\\\infty$.\", \"scope\": \"S1\", \"evidence_ids\": [\"CS-PL-p0151-s16\", \"CS-PL-p0151-s19\"]}], \"note\": \"Removed the unsupported qualifiers 'closed' and 'probabilistic λ-calculus', which the evidence does not state. Reworded the biconditional as a definition, since the evidence says 'We say that M is positively almost surely terminating if ExLen(M) < +∞'.\"}",
+ "usage": {
+  "completion_tokens": 219,
+  "prompt_tokens": 910,
+  "total_tokens": 1129,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 219
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 910,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00401000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

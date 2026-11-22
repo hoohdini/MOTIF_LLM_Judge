@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-ALG-C10-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Semisimple module\n\nATOM MATH-ALG-C10-S2-03 (S2): Every semisimple $A$-module $V$ is a direct sum of isotypic modules of distinct types, which are called the isotypic components of $V$, and the isotypic component of $V$ corresponding to a simple module $S$ is the sum of all simple submodules of $V$ isomorphic to $S$.\n\nEVIDENCE:\n[MATH-ALG-p0107-s15] An 𝐴-module is said to be isotypic (of type the isomorphism class of 𝑆) if it isomorphic to a direct sum of copies of a simple module 𝑆.\n[MATH-ALG-p0107-s16] The decomposition (29) shows that every semisimple module 𝑉is a direct sum of isotypic modules of distinct types, called the isotypic components of 𝑉.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The decomposition into isotypic components is stated; identifying each component as the sum of all simples of its type is not. / judge_b: The second clause ('the isotypic component... is the sum of all simple submodules of V isomorphic to S') is not present in the cited evidence.\n- SINGLE_CLAIM: revise — judge_a: Combines the isotypic decomposition theorem with a separate intrinsic characterization of each component. / judge_b: Joins two distinct claims: decomposition into a direct sum of isotypic components, and characterization of each component as the sum of all simple submodules isomorphic to S.",
+ "raw": "{\"atoms\": [{\"statement\": \"Every semisimple $A$-module $V$ is a direct sum of isotypic modules of distinct types, called the isotypic components of $V$, where an $A$-module is isotypic of type the isomorphism class of a simple module $S$ if it is isomorphic to a direct sum of copies of $S$.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-ALG-p0107-s15\", \"MATH-ALG-p0107-s16\"]}], \"note\": \"The clause identifying the isotypic component for $S$ as the sum of all simple submodules of $V$ isomorphic to $S$ is not stated in the evidence, so it was dropped. The remaining claim is the decomposition into isotypic components, with the definition of isotypic added from the evidence.\"}",
+ "usage": {
+  "completion_tokens": 266,
+  "prompt_tokens": 1097,
+  "total_tokens": 1363,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 266
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1097,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00485400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

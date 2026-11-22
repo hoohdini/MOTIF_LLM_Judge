@@ -1,0 +1,32 @@
+{
+ "atom_id": "MED-IMM-C05-S1-02",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Nonpermissive HLA mismatch\n\nATOM MED-IMM-C05-S1-02 (S1): Models of high-risk/nonpermissive HLA mismatches are those that identify mismatches eliciting excessive T-cell alloreactivity and toxicity, and they include structural mismatches leading to high immunopeptidome divergence, expression levels, and PIRCHE.\n\nEVIDENCE:\n[MED-IMM-p0114-s02] because most of the latter carry HLA-DP mismatches, which impact T-cell allore 2.2 activity and GVHD as well as relapse risks. • HLA typing strategies, including family studies for related donors and typing resolution level for UDs, should be agreed upon between the transplant cen ter and the tissue typing laboratory. • In UD-HCT, the survival probability decreases by 10% with every mismatch at HLA-A, HLA-B, HLA-C, and HLA- https://www.ebi.ac.uk/ipd/kir/about/statistics/ DRB1, in patients transplanted under 2023 GVHD prophylaxis not based on PTCy. • After HLA, the most relevant factor influencing patient survival is donor age. • Models for high-risk/nonpermissive HLA mismatches eliciting excessive T-cell alloreactivity and toxicity include 9.3 4.2 structural mismatches leading to high immunopeptidome divergence, expres sion levels, and PIRCHE. • The introduction of PTCy as GVHD prophylaxis has allowed successful 9.4.2 Clinical Impact of Non-HLA transplantation across multiple HLA Immunogenetic Factors mismatches.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines the defining biological property of high-risk mismatches with a separately assessable inventory of models. / judge_b: Joins the definition of high-risk/nonpermissive HLA mismatch models with the list of specific models included.",
+ "raw": "{\"atoms\":[{\"statement\":\"High-risk (nonpermissive) HLA mismatches are mismatches that elicit excessive T-cell alloreactivity and toxicity, and models exist to identify them.\",\"scope\":\"S1\",\"evidence_ids\":[\"MED-IMM-p0114-s02\"]},{\"statement\":\"Models for high-risk/nonpermissive HLA mismatches include structural mismatches leading to high immunopeptidome divergence, expression levels, and PIRCHE.\",\"scope\":\"S1\",\"evidence_ids\":[\"MED-IMM-p0114-s02\"]}],\"note\":\"Split the original atom into the definition of high-risk mismatches and the list of model components. Both parts come from the same evidence sentence.\"}",
+ "usage": {
+  "completion_tokens": 615,
+  "prompt_tokens": 1252,
+  "total_tokens": 1867,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1252,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00865400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,13 @@
+{
+ "kind": "cards",
+ "sha": "3cc99befe800",
+ "rows": 70,
+ "sources": [
+  {
+   "file": "cards.jsonl",
+   "sha256": "3cc99befe800aae8b3b5a5ed39ec038b0c617ee51430170e8a89c011faa193a1"
+  }
+ ],
+ "label": "정호 b7",
+ "ingested_at": "2026-11-22T13:46:29+00:00"
+}

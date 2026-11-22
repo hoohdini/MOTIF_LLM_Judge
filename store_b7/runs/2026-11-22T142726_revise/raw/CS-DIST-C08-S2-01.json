@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DIST-C08-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Exponential information gathering\n\nATOM CS-DIST-C08-S2-01 (S2): EIG achieves agreement through the notion of a common node, one where all non-faulty processes compute the same $val^*$. Every root-to-leaf path has a common node because it passes through $f+1$ labels and at least one is good. A node whose children are all common is itself common, so a non-common root would force a path with no common node, which is impossible.\n\nEVIDENCE:\n[CS-DIST-p0116-s10] Agreement: Observe that every path has a common node on it, since a path travels through f +1 nodes and one of them is good.\n[CS-DIST-p0116-s11] If we then suppose that the root is not common: by Lemma 10.2.3, it must have a not-common child, that node must have a not-common child, etc.\n[CS-DIST-p0116-s12] But this constructs a path from the root to a leaf with no not-common nodes, which we just proved can’t happen.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The definition using val* is absent; the final evidence sentence says 'no not-common nodes,' contradicting the atom's 'no common node.' / judge_b: The definition of a common node (computing the same val*) and the explicit content of Lemma 10.2.3 are not stated in the cited evidence.\n- SINGLE_CLAIM: revise — judge_a: Combines the common-node definition, common-node occurrence on every path, and upward propagation of commonness. / judge_b: Combines the definition of a common node, why every path has one, and the inductive proof that the root is common.",
+ "raw": "{\"atoms\":[{\"statement\":\"In the exponential information gathering (EIG) agreement argument, every path in the tree has a common node on it, because a path travels through $f+1$ nodes and one of them is good.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0116-s10\"]},{\"statement\":\"In the EIG agreement argument, if the root were not common, then repeatedly applying Lemma 10.2.3 would give each not-common node a not-common child, which constructs a root-to-leaf path of not-common nodes; this contradicts the fact that every path has a common node, so the root must be common.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0116-s10\",\"CS-DIST-p0116-s11\",\"CS-DIST-p0116-s12\"]}],\"note\":\"The evidence does not define 'common node' or the val* computation, so the definition is not asserted. The final evidence sentence says the path has 'no not-common nodes', which seems garbled, so the second atom states only the contradiction with the first atom. The original atom was split into two claims.\"}",
+ "usage": {
+  "completion_tokens": 1059,
+  "prompt_tokens": 1113,
+  "total_tokens": 2172,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1113,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01281600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

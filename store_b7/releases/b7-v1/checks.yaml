@@ -1,0 +1,123 @@
+# 체크 레지스트리. 체크를 추가·수정할 때는 이 파일만 고친다.
+# desc는 저지 프롬프트에 그대로 들어간다. desc나 프롬프트 파일이 바뀌면 해당 그룹은 자동으로 재판정 대상이 된다.
+# severity: blocker = 단위 판정에 반영 / warn = 기록만
+# values: 허용 판정값. 첫 값이 통과값.
+# evidence_dependent: 근거 원문을 읽어야 하는 체크. 수식이 깨진 단위는 policy.math_evidence에 따라 보류된다.
+# applies: 문항 형식 조건 (없으면 전부). TF:False 처럼 "형식:정답"도 가능.
+
+groups:
+  atom_audit:
+    stage: card
+    unit: atom
+    prompt: prompts/atom_audit.v2.md
+    checks:
+      GROUNDED:
+        severity: blocker
+        values: [pass, revise, fail, hold]
+        evidence_dependent: true
+        cite: evidence_id
+        desc: "The cited evidence sentences state the atom, including its specificity, causal force, assumptions, and certainty. pass = fully stated. revise = partly stated (the atom adds, drops, or strengthens something; say what). fail = not stated when the available evidence permits a judgment. hold = unreadable symbols prevent verification. For pass or revise, put the supporting evidence ids in cite."
+      SINGLE_CLAIM:
+        severity: blocker
+        values: [pass, revise]
+        desc: "The atom is one independently assessable claim. revise = it joins two or more claims that could be true or false separately. Evidence spanning more than three sentences is not by itself a reason to split or revise an atom."
+      SCOPE_LABEL:
+        severity: blocker
+        values: [pass, revise]
+        desc: "The S label fits (S1 what it is / S2 how it works / S3 where it ends). revise = wrong label; put the right one in why, e.g. 'S2: ...'."
+      L1_ONLY:
+        severity: blocker
+        values: [pass, fail]
+        desc: "The atom is recall-level knowledge. fail = knowing it requires applying the concept to a new problem, or combining facts from distant passages."
+      SOURCE_INDEPENDENT:
+        severity: blocker
+        values: [pass, revise, fail]
+        desc: "A domain expert who never read this book could judge the claim true or false. revise = phrased as the authors' statement but the claim itself is general (drop the attribution). fail = an isolated study finding, conjecture, or author-specific opinion, classification, or recommendation, even if attribution was removed. Explicitly scoped established facts about a formalism or architecture and conditional theoretical results remain eligible."
+      NO_OVERLAP:
+        severity: blocker
+        values: [pass, fail]
+        cite: unit_id
+        desc: "No other atom in this card states or contains the same claim. If two atoms overlap, fail only the less informative one and put the other atom's id in cite; the other one passes."
+      CENTRALITY:
+        severity: warn
+        values: [pass, fail]
+        desc: "The atom matters for understanding the concept. fail = peripheral detail."
+    batch_checks:
+      CONCEPT_SCOPE:
+        severity: warn
+        values: [pass, fail]
+        desc: "The concept is a general concept of the field. fail = a topic whose assessable content is restricted to excluded study-specific findings or author-specific positions. A named formalism, system, or architecture is not disqualified solely for being specific if its scoped conceptual facts are source-independent."
+
+  item_audit:
+    stage: item
+    unit: item
+    prompt: prompts/item_audit.v3.md
+    checks:
+      G1_SINGLE_ATOM:
+        severity: blocker
+        values: [pass, fail]
+        desc: "The answer must be determined by the atom and, for case items, the explicitly stated case facts. No additional domain-specific rule or unstated assumption may be needed."
+      G2_NO_COMPUTATION:
+        severity: blocker
+        values: [pass, fail]
+        desc: "No calculation, proof, or combination of several facts is needed (no L2 application)."
+      G3_FINAL_ANSWER:
+        severity: blocker
+        values: [pass, fail]
+        desc: "The answer can be graded as a label, an option, or the presence of key points."
+      KEY_CORRECT:
+        severity: blocker
+        values: [pass, fail, hold]
+        evidence_dependent: true
+        desc: "The answer key agrees with the atom and evidence. hold = unreadable symbols prevent verification; fail = the key is wrong or the item lacks enough information to determine the keyed answer. For a False/No target, verify that the negative answer is established by the atom and explicit case facts, not merely unsupported. Failure to satisfy a sufficient condition does not establish a negative classification; preserve may/can and non-causal associations."
+      SINGLE_ANSWER:
+        severity: blocker
+        values: [pass, fail]
+        applies: [TF, YN, MCQ]
+        desc: "Exactly one option or label is correct. For this check only, also use general domain knowledge: fail if another option or label could be correct in reality."
+      NO_LEAK:
+        severity: blocker
+        values: [pass, fail]
+        desc: "The item does not give away its answer. OPEN/MCQ/YN: inspect all test-taker-visible content, including the case, question, and options. Fail if it supplies the requested answer, tested classification, or equivalent defining explanation so the tested knowledge need not be recalled. Shared terminology, ordinary notation, and necessary case facts alone are not leaks; the presence of a correct MCQ option is not itself a leak. TF: the statement itself is what is tested, so a paraphrase of the atom is fine; fail only for hints outside the claim (e.g. 'as is well known')."
+      KP_IN_ATOM:
+        severity: blocker
+        values: [pass, fail]
+        applies: [OPEN]
+        desc: "Every key point is supported by the atom and directly required by the question. Do not require a premise already supplied in the question or extra content the question does not ask for."
+      YN_CASE_FORMAT:
+        severity: blocker
+        values: [pass, fail]
+        applies: [YN]
+        desc: "The case describes a concrete object (patient, system, dataset, mathematical object) and the question asks whether THE CASE is an instance of / exhibits the property. fail = it asks whether a claim, view, belief, or approach is correct, consistent, or possible."
+      ONE_ELEMENT_CHANGE:
+        severity: blocker
+        values: [pass, fail]
+        applies: ["TF:False", MCQ]
+        desc: "TF False: the statement differs from the atom in exactly one element (one quantity, direction, condition, entity, or negation). MCQ: each distractor differs from the correct option in exactly one element, and the three distractors change different elements."
+      NO_SOURCE_REF:
+        severity: blocker
+        values: [pass, fail]
+        desc: "The item does not point to a source: no book, authors, chapter, year, 'the review', 'this study', 'according to the text'. Named laws, scales, or standards are allowed."
+      AUTHOR_OPINION_RESOLVED:
+        severity: blocker
+        values: [pass, fail]
+        desc: "Inspect both the atom and supplied evidence. fail if the item relies on an isolated study finding, conjecture, or author-specific opinion, classification, or recommendation, even after attribution was removed. pass for eligible established knowledge, including explicitly scoped theoretical or architectural facts."
+      NO_INTRA_CARD_OVERLAP:
+        severity: blocker
+        values: [pass, fail]
+        cite: unit_id
+        desc: "No other item in this batch tests the same knowledge (one answer implies the other). If two overlap, fail only the one listed later and put the other item's id in cite."
+
+  answer_judge:
+    stage: answer
+    unit: answer
+    prompt: prompts/answer_judge.v1.md
+    checks:
+      KEYPOINTS:
+        severity: blocker
+        values: [correct, partial, incorrect, hold]
+        desc: "Per key point: present / absent / contradicted, with a verbatim quote from the answer."
+      OOD:
+        severity: warn          # 1안(자유 서술)에서는 blocker로 올려 사람 검토로 보낸다
+        values: [pass, fail]
+        desc: "fail = the answer makes claims about the concept that are not covered by the atom or key points; quote them in cite."

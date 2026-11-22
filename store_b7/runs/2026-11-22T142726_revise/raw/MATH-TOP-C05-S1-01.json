@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-TOP-C05-S1-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Tensor product of dendroidal sets (shuffles of trees)\n\nATOM MATH-TOP-C05-S1-01 (S1): A shuffle of two trees $S$ and $T$ is a tree $A$ whose edges are labelled by pairs $(s,t)$ of edges of $S$ and $T$ such that the root is labelled $(r_S,r_T)$, the leaf labels form the cartesian product of the leaf sets of $S$ and $T$, and every non-leaf edge $(s,t)$ has a vertex above it whose inputs are either $(s_1,t),\\dots,(s_n,t)$ (with $s_i$ the inputs of the vertex above $s$ in $S$) or $(s,t_1),\\dots,(s,t_m)$ (with $t_j$ the inputs of the vertex above $t$ in $T$), together with a condition on stumps.\n\nEVIDENCE:\n[MATH-TOP-p0156-s02] Deﬁnition 4.6 A shuﬄe of two trees S and T is a tree A together with a labelling of its edges by pairs (s, t), where s and t are edges of S and T respectively, satisfying the following conditions:\n[MATH-TOP-p0156-s03] (1) The root of A is labelled by the pair (rS, rT) of root edges of S and T. (2) The set of labels of the leaves of A is the cartesian products of the sets of leaves of S and T. (3) If (s, t) is the label of an edge in A, then\n[MATH-TOP-p0156-s04] – either (s, t) is a leaf of A and by (2) s and t are leaves of S and T respectively, – or the vertex above (s, t) has input edges labelled (s1, t), . . ., (sn, t), where s1, . . ., sn are the input edges of the vertex above s in S (here s is not a leaf of S), s1 · · · sn (s1, t) · · · (sn, t) S : A : s (s, t)\n[MATH-TOP-p0156-s05] – or the vertex above (s, t) has input edges labelled (s, t1), . . ., (s, tm), where t1, . . ., tm are the input edges of the vertex above t in T (and so t is not a leaf of T). t1 · · · tm (s, t1) · · · (s, tm) T : A : t (s, t)\n[MATH-TOP-p0156-s06] (4) If (s, t) is not a leaf of A and the vertex above it is a stump (i.e., has no input edges), then s is either a leaf or has a stump above it in S and t is either a leaf or has a stump above it in T.\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The definition omits the explicit stump condition, replacing it with an unspecified condition. / judge_b: The atom replaces condition (4) with the vague phrase 'together with a condition on stumps' instead of stating what the stump condition actually is.",
+ "raw": "{\"atoms\": [{\"statement\": \"A shuffle of two trees $S$ and $T$ is a tree $A$ whose edges are labelled by pairs $(s,t)$ of edges of $S$ and $T$ respectively, such that the root of $A$ is labelled $(r_S,r_T)$ (the pair of root edges) and the set of leaf labels of $A$ is the cartesian product of the leaf sets of $S$ and $T$.\", \"scope\": \"S1\", \"evidence_ids\": [\"MATH-TOP-p0156-s02\", \"MATH-TOP-p0156-s03\"]}, {\"statement\": \"In a shuffle $A$ of trees $S$ and $T$, each edge labelled $(s,t)$ is either a leaf of $A$ (with $s$ and $t$ leaves of $S$ and $T$), or the vertex above it has input edges labelled $(s_1,t),\\\\dots,(s_n,t)$ where $s_1,\\\\dots,s_n$ are the inputs of the vertex above $s$ in $S$ (so $s$ is not a leaf), or the vertex above it has input edges labelled $(s,t_1),\\\\dots,(s,t_m)$ where $t_1,\\\\dots,t_m$ are the inputs of the vertex above $t$ in $T$ (so $t$ is not a leaf).\", \"scope\": \"S1\", \"evidence_ids\": [\"MATH-TOP-p0156-s03\", \"MATH-TOP-p0156-s04\", \"MATH-TOP-p0156-s05\"]}, {\"statement\": \"In a shuffle $A$ of trees $S$ and $T$, if an edge labelled $(s,t)$ is not a leaf of $A$ and the vertex above it is a stump (has no input edges), then $s$ is either a leaf or has a stump above it in $S$, and $t$ is either a leaf or has a stump above it in $T$.\", \"scope\": \"S1\", \"evidence_ids\": [\"MATH-TOP-p0156-s06\"]}], \"note\": \"Split into three atoms: the labelling/root/leaf conditions, the local vertex-above condition, and the explicit stump condition (4) that the original left vague.\"}",
+ "usage": {
+  "completion_tokens": 730,
+  "prompt_tokens": 1556,
+  "total_tokens": 2286,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 730
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1556,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01041200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

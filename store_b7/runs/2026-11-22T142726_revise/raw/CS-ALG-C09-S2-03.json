@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-ALG-C09-S2-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Preferential attachment sampling\n\nATOM CS-ALG-C09-S2-03 (S2): TFP-BA precomputes all required read operations of the edge list and sorts them by the memory address they read from. While producing the edge list monotonously from beginning to end, it scans the sorted read requests and forwards still-cached values to their target positions using an I/O-efficient priority queue.\n\nEVIDENCE:\n[CS-ALG-p0038-s17] Rather than reading from random positions in the edge list, TFP-BA ﬁrst pre- computes all necessary read operations and sorts them by the memory address they read from.\n[CS-ALG-p0038-s18] As the algorithm produces the edge list monotonously moving from beginning to end, it scans through the sorted read request and forwards the still cached values to the target positions using an I/O-efﬁcient priority queue.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines read-request precomputation and sorting with the separately assessable scanning and priority-queue forwarding mechanism. / judge_b: Combines the precomputation and sorting of read requests with the subsequent scanning and priority-queue forwarding phase.",
+ "raw": "{\"atoms\": [{\"statement\": \"Instead of reading from random positions in the edge list, TFP-BA first precomputes all necessary read operations and sorts them by the memory address they read from.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-ALG-p0038-s17\"]}, {\"statement\": \"While TFP-BA produces the edge list monotonously from beginning to end, it scans the sorted read requests and forwards the still-cached values to the target positions using an I/O-efficient priority queue.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-ALG-p0038-s18\"]}], \"note\": \"Split the original atom into the precompute-and-sort step and the scan-and-forward step.\"}",
+ "usage": {
+  "completion_tokens": 237,
+  "prompt_tokens": 985,
+  "total_tokens": 1222,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 237
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 985,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00434000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

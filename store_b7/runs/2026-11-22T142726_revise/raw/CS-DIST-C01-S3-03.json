@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-DIST-C01-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: FLP impossibility\n\nATOM CS-DIST-C01-S3-03 (S3): In asynchronous shared memory, operations on different locations commute, as do two reads. For a write and a read, or for two writes, only one process can tell whether both operations happened, so the same case analysis applies.\n\nEVIDENCE:\n[CS-DIST-p0124-s22] For example, in asynchronous shared memory, if e and e′ are operations on diﬀerent memory locations, they commute (just like steps of diﬀerent processes), and if they are operations on the same location, either they commute (two reads) or only one process can tell whether both happened (with a write and a read, only the reader knows, and with two writes, only the ﬁrst writer knows).\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The evidence states the operation cases but does not explicitly state that the same case analysis applies. / judge_b: The cited sentence does not explicitly state 'so the same case analysis applies'.\n- SINGLE_CLAIM: revise — judge_a: Combines independently assessable commutation claims, write-operation distinguishability claims, and applicability of the proof's case analysis. / judge_b: Combines multiple distinct commutation/indistinguishability claims for different locations, two reads, read-write, and two writes.",
+ "raw": "{\"atoms\": [{\"statement\": \"In asynchronous shared memory, two operations on different memory locations commute, as do two reads of the same location.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-DIST-p0124-s22\"]}, {\"statement\": \"In asynchronous shared memory, for two operations on the same location that are a write and a read, only the reader can tell whether both operations happened; for two writes to the same location, only the first writer can tell whether both happened.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-DIST-p0124-s22\"]}], \"note\": \"Removed the unsupported claim that 'the same case analysis applies', which the evidence does not state. Split the commutation cases from the single-observer cases.\"}",
+ "usage": {
+  "completion_tokens": 244,
+  "prompt_tokens": 1017,
+  "total_tokens": 1261,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 244
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1017,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00447400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

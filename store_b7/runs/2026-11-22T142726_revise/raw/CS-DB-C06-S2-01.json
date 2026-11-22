@@ -1,0 +1,35 @@
+{
+ "atom_id": "CS-DB-C06-S2-01",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Conjunctive-query equivalence of schema mappings\n\nATOM CS-DB-C06-S2-01 (S2): For schema mappings based on s-t tgds, logical, DE- and CQ-equivalence coincide. These mappings are preserved under target homomorphisms and have a universal solution whenever a solution exists, and for such mappings the three notions are equivalent.\n\nEVIDENCE:\n[CS-DB-p0126-s07] ▶Proposition 30. [9] If M and M′ are both preserved under target homomorphisms, and both have that Sol(I, M)̸ = ∅implies UnivSol(I, M)̸ = ∅for all I then M ≡log M′ iﬀM ≡DE M′ iﬀM ≡CQ M′. ◀\n[CS-DB-p0126-s08] From this, since the properties hold for s-t tgds, we have that the three notions of logical-, DE- and CQ-equivalence coincide for mappings based on s-t tgds.\n\nAUDITOR FINDINGS:\n- SINGLE_CLAIM: revise — judge_a: Combines equivalence collapse, preservation under target homomorphisms, universal-solution existence, and a general sufficient condition for collapse. / judge_b: Joins the general sufficient conditions (Proposition 30) with the specific fact that s-t tgds satisfy them.",
+ "raw": "{\"atoms\": [{\"statement\": \"For schema mappings M and M′ that are both preserved under target homomorphisms and for which, for every instance I, Sol(I, M) ≠ ∅ implies UnivSol(I, M) ≠ ∅ (and likewise for M′), logical equivalence, DE-equivalence and CQ-equivalence of M and M′ coincide.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-DB-p0126-s07\"]}, {\"statement\": \"For schema mappings based on s-t tgds, logical equivalence, DE-equivalence and CQ-equivalence coincide.\", \"scope\": \"S2\", \"evidence_ids\": [\"CS-DB-p0126-s07\", \"CS-DB-p0126-s08\"]}], \"note\": \"Split the original atom into the general sufficient condition (Proposition 30) and its application to s-t tgd mappings. The claim that s-t tgd mappings satisfy the conditions is cited only through the evidence sentence stating that the properties hold for s-t tgds.\"}",
+ "usage": {
+  "completion_tokens": 351,
+  "prompt_tokens": 1039,
+  "total_tokens": 1390,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 351
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1039,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00558800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

@@ -1,0 +1,35 @@
+{
+ "atom_id": "MATH-ANA-C05-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Intrinsic size of a model\n\nATOM MATH-ANA-C05-S3-03 (S3): A model with $\\eta^*_{\\rm ess}(\\mathcal E)=0$ can always be obtained by refining, even when the weighted metric graph has infinite intrinsic size, because the edge set is countable and edges can be successively cut into equally short pieces.\n\nEVIDENCE:\n[MATH-ANA-p0060-s06] Notice that one can always find a model with ess.E/ D 0 by refining (even if .G; ; / has infinite intrinsic size).\n[MATH-ANA-p0060-s07] Indeed, for each model the edge set E is countable and hence one can obtain a new model satisfying ess.zE/ D 0 by “cutting” an edge into equally short pieces; then the next edge into shorter ones, and so on.\n\nAUDITOR FINDINGS:\n- SCOPE_LABEL: revise — judge_a: S2: This explains how refinement produces a model with zero essential intrinsic size, rather than a limitation. / judge_b: S2: Explains the mechanism (edge refinement/cutting) by which zero essential intrinsic size is achieved.",
+ "raw": "{\"atoms\": [{\"statement\": \"For any model, one can obtain a refined model with $\\\\eta^*_{\\\\rm ess}=0$ by cutting edges into equally short pieces, taking the countably many edges one after another and cutting each successive edge into shorter pieces, which works even if the weighted metric graph has infinite intrinsic size.\", \"scope\": \"S2\", \"evidence_ids\": [\"MATH-ANA-p0060-s06\", \"MATH-ANA-p0060-s07\"]}], \"note\": \"Scope label changed from S3 to S2 per auditors: the claim describes how refinement achieves zero essential intrinsic size. Wording tightened to match the evidence (countable edge set, successive cutting).\"}",
+ "usage": {
+  "completion_tokens": 240,
+  "prompt_tokens": 977,
+  "total_tokens": 1217,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 240
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 977,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00435400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

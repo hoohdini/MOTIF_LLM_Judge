@@ -1,0 +1,40 @@
+{
+ "tag": "b7-v1",
+ "created_at": "2026-11-22T14:58:51+00:00",
+ "note": "주말 1차",
+ "snapshots": {
+  "cards": "3cc99befe800",
+  "items": "0ba83cb8ac26"
+ },
+ "offsets": {
+  "verdicts": 32934,
+  "revisions": 183
+ },
+ "prompt_hashes": {
+  "atom_audit": "f4cd80d136e15b59",
+  "item_audit": "0e7933cb6d5e780a",
+  "answer_judge": "80600e675136c75e"
+ },
+ "code": "dccac6f780f1",
+ "counts": {
+  "atoms": {
+   "hold": 329,
+   "fail": 129,
+   "pass": 344
+  },
+  "items": {
+   "blocked": 417,
+   "pass": 125,
+   "fail": 26,
+   "hold": 17,
+   "pending": 2
+  }
+ },
+ "files": {
+  "cards_approved.jsonl": "49707caca1de877989845b9ec193046dedb3660f1a4cdf46db60ca0245f24d39",
+  "items_approved.jsonl": "68c9b62adff6d37658ec89f5d461fc54bb2b59995d15c3e1e9d94e2b74264ed1",
+  "atoms_status.jsonl": "0a2bc418416410d7a8e97c6ee2e8e437f7bccfd090b31c9620ca1d3cdaf9fb87",
+  "items_status.jsonl": "593efb9e4c1b0cdbec8f7285c929636b414bee94657d4853c577520a2c1766f3",
+  "regen_requests.jsonl": "a301bbf6ffae85e799c7b59289d0f1d5637d26bcfb594a789249cb950a315ca9"
+ }
+}

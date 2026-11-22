@@ -1,0 +1,32 @@
+{
+ "atom_id": "CS-DIST-C04-S2-04",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: ABD register simulation\n\nATOM CS-DIST-C04-S2-04 (S2): In the ABD linearizability proof, if operation π1 finishes before a read π2 starts, a majority S of processes acknowledged π1 with timestamp t1. Those processes only ever hold timestamps ≥ t1 afterward, and S intersects the majority S′ that responds to π2 because both exceed n/2, so π2 sees a timestamp at least t1.\n\nEVIDENCE:\n[CS-DIST-p0180-s20] Then before the end of π1, a set S of more than n/2 processes send the π1 process an ack(v1, t1) message.\n[CS-DIST-p0180-s21] Since local timestamps only increase, from this point on any ack(v2, t2, u) message sent by a process in S has t2 ≥t1.\n[CS-DIST-p0180-s22] Let S′ be the set of processes sending ack(v2, t2, u) messages processed by π2.\n[CS-DIST-p0180-s23] Since |S| > n/2 and |S′| > n/2, we have S ∩S′ is nonempty and so S′\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The quorum and monotonicity argument is stated, but the supplied sentences omit the premise that π1 finishes before π2 starts. / judge_b: s23 is cut off before stating the conclusion ('so pi2 sees a timestamp at least t1'), and the precondition ('if pi1 finishes before a read pi2 starts') is omitted from evidence.",
+ "raw": "{\"atoms\":[{\"statement\":\"In the ABD register simulation proof, if a set S of more than n/2 processes sent ack(v1, t1) to the process running operation π1 before π1 ended, then from that point on every ack(v2, t2, u) message sent by a process in S has t2 ≥ t1, because local timestamps only increase.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0180-s20\",\"CS-DIST-p0180-s21\"]},{\"statement\":\"In the ABD register simulation proof, the set S of more than n/2 processes that acknowledged π1 and the set S′ of more than n/2 processes whose ack(v2, t2, u) messages were processed by π2 must share at least one process, since each contains more than n/2 of the processes.\",\"scope\":\"S2\",\"evidence_ids\":[\"CS-DIST-p0180-s20\",\"CS-DIST-p0180-s22\",\"CS-DIST-p0180-s23\"]}],\"note\":\"The supplied evidence omits the premise that π1 finishes before π2 starts, and s23 is cut off before its conclusion. I therefore did not assert the final claim that π2 sees a timestamp at least t1 or the ordering premise. The two atoms contain only what the cited sentences fully state.\"}",
+ "usage": {
+  "completion_tokens": 825,
+  "prompt_tokens": 1108,
+  "total_tokens": 1933,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1108,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.01046600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}

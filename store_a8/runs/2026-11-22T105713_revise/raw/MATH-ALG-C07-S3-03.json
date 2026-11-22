@@ -1,0 +1,32 @@
+{
+ "atom_id": "MATH-ALG-C07-S3-03",
+ "system": "You repair one knowledge atom that auditors sent back. Use only the supplied evidence sentences; add no background knowledge. Cite the sentences used to establish explicit names, referents, notation, and conditions.\n\nRules for the repaired atoms:\n- One independently assessable claim per atom, written as one sentence that is understood without the source.\n- If the atom joined several claims, split it into separate atoms (at most 3), most important first.\n- Every atom must be fully stated in the evidence sentences it cites. Use the minimum sufficient citations; there is no fixed three-sentence evidence limit. Split independently assessable claims, not long evidence passages. Do not add unsupported specificity, causality, mechanisms, conditions, or certainty. Keep quantifiers, negation, hedges, necessary assumptions, and formulas (LaTeX in $...$).\n- Drop attribution only when the underlying claim is eligible general knowledge. Exclude isolated findings from individual studies, conjectures, and author-specific opinions, classifications, or recommendations. Do not make them eligible by deleting attribution or uncertainty. Established textbook knowledge, conditional theoretical results, and explicitly scoped facts about a formalism or architecture remain eligible. If the original atom is excluded on this basis, return an empty list and explain the exclusion in note.\n- Use the S label that fits: S1 what it is / S2 how it works / S3 where it ends.\n- If no valid atom can be written from this evidence, return an empty list and explain in note.\n\nOutput ONLY one JSON object:\n{\"atoms\": [{\"statement\": \"...\", \"scope\": \"S1|S2|S3\", \"evidence_ids\": [\"...\"]}], \"note\": \"\"}",
+ "user": "CONCEPT: Coxeter group\n\nATOM MATH-ALG-C07-S3-03 (S3): For $s,t\\in S$, the restriction of the symmetric bilinear form $B$ (defined by $B(e_s,e_t)=-\\cos(\\pi/m(s,t))$ if $m(s,t)\\ne\\infty$ and $-1$ otherwise) to the plane $V_{s,t}=\\mathbb{R}e_s\\oplus\\mathbb{R}e_t$ is positive definite if $m(s,t)\\ne\\infty$ and only positive semidefinite otherwise.\n\nEVIDENCE:\n[MATH-ALG-p0040-s11] 𝐵(𝑒𝑠, 𝑒𝑡) = { −cos(𝜋∕𝑚(𝑠, 𝑡)) if 𝑚(𝑠, 𝑡) ≠∞ −1 otherwise.\n[MATH-ALG-p0040-s17] For 𝑠, 𝑡∈𝑆, let 𝑉𝑠,𝑡denote the 2-dimensional vector space ℝ𝑒𝑠⊕ℝ𝑒𝑡.\n[MATH-ALG-p0040-s19] Lemma 2.17 The restriction of 𝐵to 𝑉𝑠,𝑡is positive definite if 𝑚(𝑠, 𝑡) ≠∞, and positive semidefinite otherwise .\n\nAUDITOR FINDINGS:\n- GROUNDED: revise — judge_a: The stated two-dimensional direct-sum plane requires distinct s and t; the atom does not make that assumption explicit. / judge_b: Evidence says 'positive semidefinite otherwise', whereas the atom says 'only positive semidefinite'; also s != t is implicit since V_{s,t} is 2-dimensional.\n- SCOPE_LABEL: revise — judge_b: S2: This is an internal technical lemma in the geometric representation proof, though it also contrasts finite vs infinite m(s,t).",
+ "raw": "{\"atoms\":[{\"statement\":\"For $s,t\\\\in S$, let $V_{s,t}=\\\\mathbb{R}e_s\\\\oplus\\\\mathbb{R}e_t$ be the 2-dimensional plane, and let $B$ be the bilinear form with $B(e_s,e_t)=-\\\\cos(\\\\pi/m(s,t))$ if $m(s,t)\\\\ne\\\\infty$ and $B(e_s,e_t)=-1$ otherwise. The restriction of $B$ to $V_{s,t}$ is positive definite if $m(s,t)\\\\ne\\\\infty$, and positive semidefinite otherwise.\",\"scope\":\"S2\",\"evidence_ids\":[\"MATH-ALG-p0040-s11\",\"MATH-ALG-p0040-s17\",\"MATH-ALG-p0040-s19\"]}],\"note\":\"Changes: removed the unsupported word 'only' and stated the definition of $V_{s,t}$ explicitly, since the evidence calls it a 2-dimensional space. Relabeled S3 to S2, because this is a technical lemma about how the form behaves on a plane, not a stated limit of a concept.\"}",
+ "usage": {
+  "completion_tokens": 743,
+  "prompt_tokens": 1277,
+  "total_tokens": 2020,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1277,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00998400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 8000
+  }
+ },
+ "error": null
+}
