@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PHYS-C04-S3-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C04-S3-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How does respiratory system compliance influence the transmission of airway pressure to the pleural space and the resulting hemodynamic effects of heart-lung interaction? Contrast ARDS with COPD.\n\nATOM: Transmission of airway pressure to the pleural space is lower when the compliance of the respiratory system is low, as in acute respiratory distress syndrome (ARDS) with reduced lung compliance, so such a system has less hemodynamic effect from heart-lung interactions than a more compliant system as seen in chronic obstructive pulmonary disease (COPD).\nKEY POINTS:\n1. Low compliance (e.g., ARDS) leads to lower transmission of airway pressure to the pleural space and thus less hemodynamic effect\n2. More compliant systems (e.g., COPD) transmit more pressure and show greater hemodynamic effects\n\nANSWER TO GRADE:\nIn low-compliance ARDS, airway pressure is poorly transmitted to the pleural space, minimizing reductions in venous return but increasing transpulmonary pressure and right ventricular afterload. Conversely, in high-compliance COPD, airway pressure transmits readily, causing a greater rise in intrathoracic pressure that primarily compromises venous return and cardiac output.",
+ "raw": "{\"units\":{\"MED-PHYS-C04-S3-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"In low-compliance ARDS, airway pressure is poorly transmitted to the pleural space, minimizing reductions in venous return\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"Conversely, in high-compliance COPD, airway pressure transmits readily, causing a greater rise in intrathoracic pressure that primarily compromises venous return and cardiac output.\"}],\"why\":\"The answer contrasts reduced pressure transmission and minimized venous-return effects in ARDS with greater transmission and hemodynamic effects in COPD.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"minimizing reductions in venous return but increasing transpulmonary pressure and right ventricular afterload\",\"causing a greater rise in intrathoracic pressure that primarily compromises venous return and cardiac output\"]}}}}",
+ "usage": {
+  "completion_tokens": 289,
+  "prompt_tokens": 578,
+  "total_tokens": 867,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 578,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00404600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:14:49+00:00"
+}

@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-ANA-C10-S3-01.r1-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ANA-C10-S3-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What two density conditions must a Dirichlet form $\\mathfrak t$ on $L^2(X)$ satisfy in order to be called regular?\n\nATOM: A Dirichlet form $\\mathfrak t$ is regular if $\\mathrm{dom}(\\mathfrak t)\\cap C_c(X)$ is dense in $C_c(X)$ with respect to the uniform norm and dense in $\\mathrm{dom}(\\mathfrak t)$ with respect to the graph norm $\\|\\cdot\\|_{\\mathfrak t}^2=\\mathfrak t[\\cdot]+\\|\\cdot\\|_{L^2}^2$.\nKEY POINTS:\n1. $\\mathrm{dom}(\\mathfrak t)\\cap C_c(X)$ is dense in $C_c(X)$ with respect to the uniform norm\n2. $\\mathrm{dom}(\\mathfrak t)\\cap C_c(X)$ is dense in $\\mathrm{dom}(\\mathfrak t)$ with respect to the graph norm $\\mathfrak t[\\cdot]+\\|\\cdot\\|_{L^2}^2$\n\nANSWER TO GRADE:\nA Dirichlet form \\(\\mathfrak t\\) is **regular** if \\(D(\\mathfrak t)\\cap C_c(X)\\) is dense in \\(D(\\mathfrak t)\\) with respect to the form norm \\(\\|u\\|_{\\mathfrak t}=(\\|u\\|_2^2+\\mathfrak t(u,u))^{1/2}\\), and dense in \\(C_c(X)\\) with respect to the uniform norm.",
+ "raw": "{\"units\": {\"MATH-ANA-C10-S3-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"and dense in \\\\(C_c(X)\\\\) with respect to the uniform norm\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"\\\\(D(\\\\mathfrak t)\\\\cap C_c(X)\\\\) is dense in \\\\(D(\\\\mathfrak t)\\\\) with respect to the form norm \\\\(\\\\|u\\\\|_{\\\\mathfrak t}=(\\\\|u\\\\|_2^2+\\\\mathfrak t(u,u))^{1/2}\\\\)\"}], \"why\": \"Both density conditions are stated; the form norm is the same as the graph norm.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 309,
+  "prompt_tokens": 1047,
+  "total_tokens": 1356,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 309
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1047,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00518400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:57:34+00:00"
+}

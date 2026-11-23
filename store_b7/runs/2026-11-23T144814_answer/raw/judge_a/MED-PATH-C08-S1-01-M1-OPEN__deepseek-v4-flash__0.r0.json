@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PATH-C08-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PATH-C08-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What kind of particle transport do track structure Monte Carlo codes perform, and why is it needed to link radiation track structure to biological effects?\n\nATOM: Track structure Monte Carlo codes simulate particle transport event by event, tracking the individual physical interactions, in order to reach the nanometric spatial resolution needed to link radiation track structure to biological effects.\nKEY POINTS:\n1. Event-by-event transport that tracks the individual physical interactions\n2. Needed to reach nanometric spatial resolution\n\nANSWER TO GRADE:\nTrack structure Monte Carlo codes perform event-by-event transport of charged particles, simulating individual interactions at the nanometer scale. This is needed to link radiation track structure to biological effects because it captures the spatial distribution of energy depositions, which determines the complexity of DNA damage and the subsequent cellular response.",
+ "raw": "{\"units\":{\"MED-PATH-C08-S1-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"perform event-by-event transport of charged particles, simulating individual interactions\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"simulating individual interactions at the nanometer scale. This is needed to link radiation track structure to biological effects\"}],\"why\":\"\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"transport of charged particles\",\"it captures the spatial distribution of energy depositions, which determines the complexity of DNA damage and the subsequent cellular response.\"]}}}}",
+ "usage": {
+  "completion_tokens": 203,
+  "prompt_tokens": 498,
+  "total_tokens": 701,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 498,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00302600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T15:02:01+00:00"
+}

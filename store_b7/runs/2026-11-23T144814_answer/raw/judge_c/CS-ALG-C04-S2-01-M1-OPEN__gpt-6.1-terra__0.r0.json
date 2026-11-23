@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-ALG-C04-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C04-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: If the nodes of a graph $G$ are inserted one by one into an initially empty graph using the local moving routine of the Quasi-Threshold Mover (QTM), what kind of editing of $G$ results, and why?\n\nATOM: Incrementally inserting the nodes of a graph G into an initially empty graph with the QTM local moving routine yields an inclusion-minimal editing of G, because each step minimizes the number of edits.\nKEY POINTS:\n1. The result is an inclusion-minimal editing of $G$\n2. Each insertion step minimizes the number of edits\n\nANSWER TO GRADE:\nThe result is an **inclusion-minimal quasi-threshold editing**, though not necessarily one with the fewest edits. Each insertion optimally edits edges incident to the new vertex; since quasi-threshold graphs are hereditary, any proper subset of the final edits would contradict optimality at the first insertion where it differs.",
+ "raw": "{\"units\": {\"CS-ALG-C04-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The result is an **inclusion-minimal quasi-threshold editing**, though not necessarily one with the fewest edits.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"Each insertion optimally edits edges incident to the new vertex\"}], \"why\": \"The answer states the result is inclusion-minimal and that each insertion step is optimal in its edits (minimizing edits at each step).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"though not necessarily one with the fewest edits\", \"since quasi-threshold graphs are hereditary, any proper subset of the final edits would contradict optimality at the first insertion where it differs\"]}}}}",
+ "usage": {
+  "completion_tokens": 305,
+  "prompt_tokens": 808,
+  "total_tokens": 1113,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 305
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 808,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00466600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:54:07+00:00"
+}

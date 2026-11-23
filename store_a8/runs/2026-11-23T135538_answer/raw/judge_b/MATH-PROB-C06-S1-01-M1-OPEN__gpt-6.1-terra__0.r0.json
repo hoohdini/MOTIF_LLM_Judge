@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-PROB-C06-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-PROB-C06-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What does the circle packing theorem (Koebe) assert about a finite simple planar graph $G$?\n\nATOM: Every finite simple planar graph $G$ has a circle packing, that is, there exists a circle packing $P$ such that the tangency graph $G(P)$ is isomorphic to $G$.\nKEY POINTS:\n1. A circle packing $P$ exists for every finite simple planar graph $G$\n2. The tangency graph $G(P)$ of that packing is isomorphic to $G$\n\nANSWER TO GRADE:\nEvery finite simple planar graph can be represented by circles in the plane with pairwise disjoint interiors, such that two circles are tangent if and only if their corresponding vertices are adjacent.",
+ "raw": "{\"units\": {\"MATH-PROB-C06-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Every finite simple planar graph can be represented by circles in the plane with pairwise disjoint interiors\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"two circles are tangent if and only if their corresponding vertices are adjacent.\"}], \"why\": \"The answer defines a circle packing ('circles in the plane with pairwise disjoint interiors') and states that its tangency relations correspond bijectively to vertex adjacency (i.e. the tangency graph is isomorphic to G).\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 173,
+  "prompt_tokens": 516,
+  "total_tokens": 689,
+  "completion_tokens_details": {
+   "text_tokens": 173
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 516
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00276200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:06:25+00:00"
+}

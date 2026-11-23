@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-IMM-C08-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-IMM-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is posttransplant cyclophosphamide (PT-Cy), and what transplant problem is it used to overcome, in which donor settings?\n\nATOM: Posttransplant cyclophosphamide (PT-Cy) is a pharmacological strategy used to overcome human leukocyte antigen (HLA) barriers in allogeneic hematopoietic cell transplantation (HCT) from haploidentical donors, and more recently in matched donor transplants.\nKEY POINTS:\n1. Pharmacological strategy (cyclophosphamide given after transplant) to overcome HLA barriers in allogeneic HCT\n2. Used in haploidentical donor transplants and, more recently, in matched donor transplants\n\nANSWER TO GRADE:\nPosttransplant cyclophosphamide (PT-Cy) is high-dose cyclophosphamide (typically about 50 mg/kg/day on days +3 and +4 after allogeneic transplant) given after the graft is infused, which selectively depletes rapidly dividing alloreactive T cells to reduce graft-versus-host disease (GVHD). It is used to overcome the GVHD risk associated with HLA-mismatched donors, such as haploidentical, mismatched unrelated, and mismatched related donors, where T-cell depletion or immunosuppression is otherwise needed.",
+ "raw": "{\"units\": {\"MED-IMM-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"cyclophosphamide ... after allogeneic transplant ... used to overcome the GVHD risk associated with HLA-mismatched donors\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"KP1 is present as the answer mentions cyclophosphamide given after allogeneic transplant to overcome HLA-mismatched donor issues. KP2 is absent because while the answer mentions haploidentical donors, it fails to mention its use in matched donor transplants.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"high-dose cyclophosphamide (typically about 50 mg/kg/day on days +3 and +4 after allogeneic transplant) given after the graft is infused\", \"which selectively depletes rapidly dividing alloreactive T cells to reduce graft-versus-host disease (GVHD)\", \"mismatched unrelated, and mismatched related donors, where T-cell depletion or immunosuppression is otherwise needed\"]}}}}",
+ "usage": {
+  "completion_tokens": 253,
+  "prompt_tokens": 606,
+  "total_tokens": 859,
+  "completion_tokens_details": {
+   "text_tokens": 253
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 606
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00374200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:50:57+00:00"
+}

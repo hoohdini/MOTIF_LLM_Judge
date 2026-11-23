@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHYS-C02-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C02-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In Stewart's approach, how does a decrease in strong ion difference (SID) affect plasma $[HCO_3^-]$, and through what mechanism?\n\nATOM: In Stewart's approach, a decrease in SID decreases the available space between strong cations and strong anions, which results in a decrease in $[HCO_3^-]$.\nKEY POINTS:\n1. A decrease in SID reduces the available space between strong cations and strong anions\n2. As a result, $[HCO_3^-]$ decreases\n\nANSWER TO GRADE:\nA decrease in SID lowers plasma $[HCO_3^-]$. The reduced excess of strong cations shifts the water and CO₂ equilibria toward increased $[H^+]$, which combines with bicarbonate to form CO₂ and water.",
+ "raw": "{\"units\": {\"MED-PHYS-C02-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"absent\", \"quote\": \"\", \"why\": \"\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"A decrease in SID lowers plasma $[HCO_3^-]$.\", \"why\": \"\"}], \"why\": \"The answer states that bicarbonate decreases. Its mechanism is that more H+ combines with bicarbonate. It does not say the available space between strong cations and strong anions shrinks, though it mentions a reduced excess of strong cations.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"The reduced excess of strong cations shifts the water and CO₂ equilibria toward increased $[H^+]$, which combines with bicarbonate to form CO₂ and water.\"]}}}}",
+ "usage": {
+  "completion_tokens": 315,
+  "prompt_tokens": 766,
+  "total_tokens": 1081,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 315
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 766,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00468200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:07:45+00:00"
+}

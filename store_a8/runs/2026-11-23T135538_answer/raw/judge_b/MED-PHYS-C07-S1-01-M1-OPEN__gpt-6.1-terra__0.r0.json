@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C07-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C07-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is an effective osmole, and what property of a solution does it determine?\n\nATOM: An effective osmole is an electrolyte (ion) that exerts an osmotic force across a semi-permeable membrane and determines a solution's tonicity.\nKEY POINTS:\n1. A solute (electrolyte/ion) that exerts an osmotic force across a semi-permeable membrane\n2. It determines the solution's tonicity\n\nANSWER TO GRADE:\nAn effective osmole is a solute particle that cannot freely cross a particular cell membrane and therefore draws water across it. Effective osmoles determine a solution’s tonicity and its effect on cell volume.",
+ "raw": "{\"units\": {\"MED-PHYS-C07-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"a solute particle that cannot freely cross a particular cell membrane and therefore draws water across it\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"Effective osmoles determine a solution’s tonicity\"}], \"why\": \"The answer covers both key points by stating that an effective osmole is a solute that draws water across a membrane it cannot freely cross (exerting an osmotic force across a semi-permeable membrane) and that it determines tonicity.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"cannot freely cross a particular cell membrane\", \"and its effect on cell volume.\"]}}}}",
+ "usage": {
+  "completion_tokens": 187,
+  "prompt_tokens": 500,
+  "total_tokens": 687,
+  "completion_tokens_details": {
+   "text_tokens": 187
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 500
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00287000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:08:32+00:00"
+}

@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-ALG-C06-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C06-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What conditions must a kernelization of a parameterized problem $L$ satisfy when it maps an instance $(x,k)$ to an instance $(x',k')$?\n\nATOM: A kernelization for a parameterized problem $L$ is a polynomial-time procedure that maps an instance $(x,k)$ to an instance $(x',k')$ such that $(x',k')\\in L \\Leftrightarrow (x,k)\\in L$ and $|x'|+k' \\le f(k)$, where $f$ is a computable function.\nKEY POINTS:\n1. It runs in polynomial time and the new instance is equivalent to the original: $(x',k')\\in L \\Leftrightarrow (x,k)\\in L$\n2. The new instance size is bounded by a computable function of the parameter: $|x'|+k'\\le f(k)$\n\nANSWER TO GRADE:\nA kernelization of a parameterized problem \\(L\\) must run in polynomial time, map \\((x,k)\\) to an equivalent instance \\((x',k')\\) such that \\((x,k)\\in L \\iff (x',k')\\in L\\), and satisfy \\(|x'| \\le f(k)\\) and \\(k' \\le f(k)\\) for some computable function \\(f\\) depending only on \\(k\\).",
+ "raw": "{\"units\": {\"CS-ALG-C06-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"run in polynomial time, map \\\\((x,k)\\\\) to an equivalent instance \\\\((x',k')\\\\) such that \\\\((x,k)\\\\in L \\\\iff (x',k')\\\\in L\\\\)\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"satisfy \\\\(|x'| \\\\le f(k)\\\\) and \\\\(k' \\\\le f(k)\\\\) for some computable function \\\\(f\\\\) depending only on \\\\(k\\\\)\"}], \"why\": \"Both polynomial time equivalence and the computable bound on |x'| and k' in terms of k are clearly stated.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 207,
+  "prompt_tokens": 637,
+  "total_tokens": 844,
+  "completion_tokens_details": {
+   "text_tokens": 207
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 637
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00334400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:59:07+00:00"
+}

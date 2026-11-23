@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-PROB-C02-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-PROB-C02-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Thomson's principle gives a variational characterization of the effective resistance $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z)$ in a finite network. What does it say, in terms of flows from $a$ to $z$ and their energy?\n\nATOM: Thomson's principle states that the effective resistance between a and z equals the infimum of the energy $\\mathcal{E}(\\theta)$ over all flows $\\theta$ from a to z of strength $\\|\\theta\\|=1$, that is, $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z)=\\inf\\{\\mathcal{E}(\\theta):\\|\\theta\\|=1,\\ \\theta \\text{ is a flow from } a \\text{ to } z\\}$.\nKEY POINTS:\n1. $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z)$ equals the infimum of the energy $\\mathcal{E}(\\theta)$\n2. the infimum is over all flows $\\theta$ from $a$ to $z$ of strength 1\n\nANSWER TO GRADE:\nThomson's principle says that the effective resistance between $a$ and $z$ equals the minimum energy of a unit flow from $a$ to $z$: $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z) = \\min\\{\\mathcal{E}(\\theta) : \\theta \\text{ a unit flow from } a \\text{ to } z\\}$, where the energy of a flow $\\theta$ is $\\mathcal{E}(\\theta)=\\sum_e \\theta(e)^2 r(e)$ (with $r(e)$ the edge resistances).",
+ "raw": "{\"units\":{\"MATH-PROB-C02-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"the effective resistance between $a$ and $z$ equals the minimum energy of a unit flow from $a$ to $z$\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"the minimum energy of a unit flow from $a$ to $z$\"}],\"why\":\"The answer states the variational equality and restricts it to unit flows from a to z.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"the energy of a flow $\\\\theta$ is $\\\\mathcal{E}(\\\\theta)=\\\\sum_e \\\\theta(e)^2 r(e)$ (with $r(e)$ the edge resistances)\"]}}}}",
+ "usage": {
+  "completion_tokens": 183,
+  "prompt_tokens": 717,
+  "total_tokens": 900,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 183
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 717,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00326400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:58:12+00:00"
+}

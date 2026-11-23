@@ -1,0 +1,13 @@
+{
+ "kind": "items",
+ "sha": "7ef8dc9d8368",
+ "rows": 740,
+ "sources": [
+  {
+   "file": "items_round1.jsonl",
+   "sha256": "7ef8dc9d8368b10954528ec8d745f9300a3b5a2883125b98cc027c64a6132704"
+  }
+ ],
+ "label": "regen round1",
+ "ingested_at": "2026-11-23T13:22:07+00:00"
+}

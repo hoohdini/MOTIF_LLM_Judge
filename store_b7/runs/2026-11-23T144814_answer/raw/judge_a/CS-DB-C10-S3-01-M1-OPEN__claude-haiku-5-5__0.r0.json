@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-DB-C10-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C10-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What happens to the upper-bound property of a count-min sketch's estimate $\\hat f_j\\ge f_j$ when the sketch is used in the non-strict turnstile model, and why?\n\nATOM: In the non-strict turnstile model, a count-min sketch loses the property that $\\hat f_j$ is an upper bound of $f_j$. The counters for $j$ might fall below $f_j$ because of colliding items with negative frequencies.\nKEY POINTS:\n1. The estimate is no longer guaranteed to be an upper bound of $f_j$\n2. Counters for $j$ can fall below $f_j$ because colliding items have negative frequencies\n\nANSWER TO GRADE:\nThe upper bound $\\hat f_j \\ge f_j$ no longer holds in general. In the non-strict turnstile model, colliding items can have negative net frequencies, so they can cancel or subtract from the counter that item $j$ shares, pushing the estimate below the true count.",
+ "raw": "{\"units\":{\"CS-DB-C10-S3-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"The upper bound $\\\\hat f_j \\\\ge f_j$ no longer holds in general.\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"colliding items can have negative net frequencies, so they can cancel or subtract from the counter that item $j$ shares, pushing the estimate below the true count.\"}],\"why\":\"\"},\"ADDITIONAL_CONTENT\":{\"present\":false,\"quotes\":[]}}}}",
+ "usage": {
+  "completion_tokens": 131,
+  "prompt_tokens": 551,
+  "total_tokens": 682,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 131
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 551,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00241200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:49:46+00:00"
+}

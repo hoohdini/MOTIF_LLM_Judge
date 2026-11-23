@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the context of dynamic systems and network growth models such as the Barabási–Albert model, what is preferential attachment?\n\nATOM: Preferential attachment is a positive feedback loop in dynamic systems in which selecting an item at one point in time increases the probability of selecting it again in the future.\nKEY POINTS:\n1. A positive feedback loop in a dynamic system\n2. Selecting an item at one point in time increases the probability of selecting it again in the future\n\nANSWER TO GRADE:\nPreferential attachment is a growth mechanism in which new nodes joining a network are more likely to connect to existing nodes that already have many connections, so that high-degree \"hubs\" become increasingly well connected over time. In the Barabási–Albert model, the probability of a new node linking to an existing node is proportional to that node's degree, which produces a scale-free network with a power-law degree distribution.",
+ "raw": "{\"units\": {\"CS-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"new nodes joining a network are more likely to connect to existing nodes that already have many connections\"}], \"why\": \"The answer explains the mechanism in network terms (nodes with connections are more likely to be connected to again, matching KP2), while implying a feedback loop (high-degree hubs become increasingly well connected), it does not explicitly describe it as a positive feedback loop in a dynamic system (KP1).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"so that high-degree \\\"hubs\\\" become increasingly well connected over time.\", \"In the Barabási–Albert model, the probability of a new node linking to an existing node is proportional to that node's degree\", \"which produces a scale-free network with a power-law degree distribution.\"]}}}}",
+ "usage": {
+  "completion_tokens": 237,
+  "prompt_tokens": 558,
+  "total_tokens": 795,
+  "completion_tokens_details": {
+   "text_tokens": 237
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 558
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00348600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:48:55+00:00"
+}

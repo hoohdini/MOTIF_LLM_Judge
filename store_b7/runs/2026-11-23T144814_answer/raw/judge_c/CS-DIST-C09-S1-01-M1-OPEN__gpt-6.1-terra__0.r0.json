@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-DIST-C09-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C09-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the Jayanti-Tan-Toueg lower-bound argument, an object is called perturbable. Given an execution $\\Lambda_k\\Sigma_k$ and a reader's operation $\\pi$, what must hold for the object to be perturbable?\n\nATOM: An object is perturbable if, for an execution $\\Lambda_k\\Sigma_k$, a partial execution $\\gamma$ always exists that can be inserted between $\\Lambda_k$ and $\\Sigma_k$ and changes what the reader's operation $\\pi$ returns, so that $\\Lambda_k\\gamma\\Sigma_k\\pi$ returns something different from $\\Lambda_k\\gamma\\Sigma_k$.\nKEY POINTS:\n1. A partial execution $\\gamma$ always exists that can be inserted between $\\Lambda_k$ and $\\Sigma_k$\n2. Inserting $\\gamma$ changes what the reader's operation $\\pi$ returns, so $\\Lambda_k\\gamma\\Sigma_k\\pi$ differs from $\\Lambda_k\\gamma\\Sigma_k$\n\nANSWER TO GRADE:\nFor every such execution and reader operation \\(\\pi\\), other processes must be able to perform a finite sequence of operations that changes the value \\(\\pi\\) would return. That is, \\(\\pi\\)’s result after the perturbation must differ from its result without it.",
+ "raw": "{\"units\": {\"CS-DIST-C09-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"For every such execution and reader operation \\\\(\\\\pi\\\\), other processes must be able to perform a finite sequence of operations\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"changes the value \\\\(\\\\pi\\\\) would return. That is, \\\\(\\\\pi\\\\)’s result after the perturbation must differ from its result without it.\"}], \"why\": \"The answer says a perturbing sequence always exists and changes π's return value. It does not mention insertion between Λ_k and Σ_k, but the existence and effect are conveyed.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 284,
+  "prompt_tokens": 959,
+  "total_tokens": 1243,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 284
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 959,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00475800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:55:21+00:00"
+}

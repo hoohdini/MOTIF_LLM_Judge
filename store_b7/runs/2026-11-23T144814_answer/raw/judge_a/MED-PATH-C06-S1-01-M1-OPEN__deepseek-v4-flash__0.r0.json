@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PATH-C06-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PATH-C06-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In microdosimetry, how is the lineal energy $y$ defined in terms of the energy imparted to a volume and the geometry of that volume?\n\nATOM: Lineal energy $y$ is defined (ICRU report 36) as the quotient $y=\\varepsilon_{tot}/\\bar{l}$, where $\\varepsilon_{tot}$ is the total energy imparted to a volume of matter by a single energy deposition event and $\\bar{l}$ is the mean chord length of that volume.\nKEY POINTS:\n1. Quotient of the total energy imparted to the volume by a single energy deposition event, $\\varepsilon_{tot}$\n2. Divided by the mean chord length $\\bar{l}$ of the volume\n\nANSWER TO GRADE:\nIn microdosimetry, the lineal energy \\(y\\) is defined as the quotient of the energy imparted to matter in a given volume by the mean chord length of that volume: \\(y = \\varepsilon / \\bar{l}\\). It characterizes the energy deposition per unit path length for individual events in a microscopic volume.",
+ "raw": "{\"units\":{\"MED-PATH-C06-S1-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"It characterizes the energy deposition per unit path length for individual events in a microscopic volume.\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"the quotient of the energy imparted to matter in a given volume by the mean chord length of that volume\"}],\"why\":\"The answer gives energy imparted divided by mean chord length and describes the deposition as occurring in individual events.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"It characterizes the energy deposition per unit path length for individual events in a microscopic volume.\"]}}}}",
+ "usage": {
+  "completion_tokens": 283,
+  "prompt_tokens": 571,
+  "total_tokens": 854,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 571,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00397200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T15:02:01+00:00"
+}

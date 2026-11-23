@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-GEO-C02-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-GEO-C02-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For a projective variety $X$ and an index $i\\in\\{0,1,\\dots,\\dim X\\}$, how is the $i$-th polar degree $\\mu_i(X)$ defined? In particular, what dimension must the subspace used have?\n\nATOM: For $i\\in\\{0,1,\\dots,\\dim X\\}$ and a generic subspace $V$ with $\\dim V=\\operatorname{codim}X-2+i$, the degree of the polar variety $P(X,V)$ is independent of $V$, and the resulting integer $\\mu_i(X)$ is called the $i$-th polar degree of $X$.\nKEY POINTS:\n1. $\\mu_i(X)$ is the degree of the polar variety $P(X,V)$ for a generic subspace $V$ (this degree does not depend on the generic $V$)\n2. $\\dim V=\\operatorname{codim}X-2+i$\n\nANSWER TO GRADE:\nThe $i$-th polar degree $\\mu_i(X)$ is the degree of the $i$-th polar variety of $X$, i.e. the number of smooth points of $X$ where the projective tangent space meets a general linear subspace of the appropriate codimension (equivalently, a count of critical points of a generic linear function on $X$). The subspace must be general and of codimension tied to $i$ and $\\dim X$, so that the polar locus has the expected dimension; I am not fully certain of the exact codimension convention, so please check it against Draisma–Horobeţ–Ottaviani–Sturmfels–Thomas, \"The Euclidean distance degree.\"",
+ "raw": "{\"units\": {\"MATH-GEO-C02-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The $i$-th polar degree $\\\\mu_i(X)$ is the degree of the $i$-th polar variety of $X$ ... The subspace must be general\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"The answer defines the i-th polar degree as the degree of the polar variety for a general subspace (KP 1), but explicitly states uncertainty and omits the exact formula for the dimension/codimension of the subspace (KP 2).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"the number of smooth points of $X$ where the projective tangent space meets a general linear subspace of the appropriate codimension\", \"equivalently, a count of critical points of a generic linear function on $X$\", \"check it against Draisma–Horobeţ–Ottaviani–Sturmfels–Thomas, \\\"The Euclidean distance degree.\\\"\"]}}}}",
+ "usage": {
+  "completion_tokens": 261,
+  "prompt_tokens": 726,
+  "total_tokens": 987,
+  "completion_tokens_details": {
+   "text_tokens": 261
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 726
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00406200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:02:47+00:00"
+}

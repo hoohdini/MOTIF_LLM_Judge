@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C10-S2-01.r1-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C10-S2-01.r1-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What two conditions must be met for cardiac output to rise in response to a physiological or therapeutic intervention such as a fluid challenge?\n\nATOM: A rise in cardiac output requires a sufficient venous return and the ability of the heart to pump more fluid.\nKEY POINTS:\n1. Sufficient venous return\n2. The heart is able to pump more fluid (increase its output)\n\nANSWER TO GRADE:\nFor cardiac output to rise during a fluid challenge, the intervention must increase preload (venous return), and the heart must be operating on the ascending limb of the Frank-Starling curve so that stroke volume increases proportionally.",
+ "raw": "{\"units\": {\"MED-PHYS-C10-S2-01.r1-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"the intervention must increase preload (venous return)\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"stroke volume increases proportionally.\"}], \"why\": \"The answer states that venous return must increase (KP1) and that stroke volume increases (meaning the heart pumps more fluid/increases output, KP2).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"increase preload\", \"the heart must be operating on the ascending limb of the Frank-Starling curve so that stroke volume increases proportionally.\"]}}}}",
+ "usage": {
+  "completion_tokens": 172,
+  "prompt_tokens": 494,
+  "total_tokens": 666,
+  "completion_tokens_details": {
+   "text_tokens": 172
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 494
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00270800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:17:38+00:00"
+}

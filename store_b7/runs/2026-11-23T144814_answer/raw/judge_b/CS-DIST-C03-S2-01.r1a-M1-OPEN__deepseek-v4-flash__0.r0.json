@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DIST-C03-S2-01.r1a-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C03-S2-01.r1a-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What does it mean for a readable object type T to be n-discerning?\n\nATOM: A readable object type T is n-discerning if there exist a reachable state $q_0$, a split of processes $p_1,\\dots,p_n$ into two nonempty teams $A_0$ and $A_1$, and an operation $\\pi_i$ assigned to each $p_i$, such that $R_{A_0,j}\\cap R_{A_1,j}=\\emptyset$ for every process id $j$, where $R_{A_b,j}$ is the set of pairs $\\langle r,q\\rangle$ for which some execution $q_0\\pi_{i_1},\\dots,\\pi_{i_k}$ has all $i_\\ell$ distinct, includes $p_j$, has $p_{i_1}\\in A_b$, has $p_j$'s operation return $r$, and ends with the object in state $q$; this means that after any such sequence of operations each process can tell whether the first operation was performed by a process in team $A_0$ or team $A_1$.\nKEY POINTS:\n1. There is a reachable state q_0, a split of the n processes into two nonempty teams A_0 and A_1, and an operation assigned to each process\n2. After any execution in which each process applies at most one of its assigned operations, each process can tell which team the first operation came from\n3. Formally, for each process j, the sets of (response, final state) pairs for executions starting with team A_0 and with team A_1 are disjoint\n\nANSWER TO GRADE:\nA readable object type T is n-discerning if any two distinct objects of type T can be distinguished by some sequence of at most n reads. Equivalently, if two objects agree on all possible sequences of up to n reads, then they must be identical.",
+ "raw": "{\"units\": {\"CS-DIST-C03-S2-01.r1a-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 3, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"The answer gives a completely different definition of n-discerning based on distinguishing two distinct objects using at most n reads, omitting all key points about teams, assigned operations, and disjoint response/state sets.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"A readable object type T is n-discerning if any two distinct objects of type T can be distinguished by some sequence of at most n reads.\", \"Equivalently, if two objects agree on all possible sequences of up to n reads, then they must be identical.\"]}}}}",
+ "usage": {
+  "completion_tokens": 213,
+  "prompt_tokens": 787,
+  "total_tokens": 1000,
+  "completion_tokens_details": {
+   "text_tokens": 213
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 787
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00370400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T15:02:58+00:00"
+}

@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-PL-C08-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-PL-C08-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In quantitative equational logic, what does a quantitative $\\Omega$-algebra consist of, for a signature $\\Omega$?\n\nATOM: A quantitative $\\Omega$-algebra $\\mathcal{A}=(A,d,\\Omega_{\\mathcal{A}})$ consists of an extended metric space $(A,d)$ together with a collection $\\Omega_{\\mathcal{A}}$ of non-expansive interpretations, one for each operation symbol in the signature $\\Omega$.\nKEY POINTS:\n1. An extended metric space $(A,d)$ as the carrier\n2. An interpretation of each operation symbol in $\\Omega$ that is non-expansive\n\nANSWER TO GRADE:\nA quantitative $\\Omega$-algebra consists of a set $A$ together with a metric $d$ on $A$ making it a metric space, and for each operation symbol $\\omega \\in \\Omega$ of arity $n$, a function $\\omega_A : A^n \\to A$ that is nonexpansive (i.e., $d(\\omega_A(\\bar a), \\omega_A(\\bar b)) \\le \\max_{1 \\le i \\le n} d(a_i, b_i)$).",
+ "raw": "{\"units\": {\"CS-PL-C08-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"a set $A$ together with a metric $d$ on $A$ making it a metric space\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"for each operation symbol $\\\\omega \\\\in \\\\Omega$ of arity $n$, a function $\\\\omega_A : A^n \\\\to A$ that is nonexpansive\"}], \"why\": \"The answer identifies the metric space carrier (though omitting 'extended') and the non-expansive interpretation for each operation symbol.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"i.e., $d(\\\\omega_A(\\\\bar a), \\\\omega_A(\\\\bar b)) \\\\le \\\\max_{1 \\\\le i \\\\le n} d(a_i, b_i)$\"]}}}}",
+ "usage": {
+  "completion_tokens": 228,
+  "prompt_tokens": 616,
+  "total_tokens": 844,
+  "completion_tokens_details": {
+   "text_tokens": 228
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 616
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00351200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:11:57+00:00"
+}

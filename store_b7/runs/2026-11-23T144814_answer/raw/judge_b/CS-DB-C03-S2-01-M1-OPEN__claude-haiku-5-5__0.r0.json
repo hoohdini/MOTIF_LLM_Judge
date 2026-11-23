@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DB-C03-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C03-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Given a mapping $M$ specified by a set of st-tgds, how does the algorithm Inverse construct a maximum recovery of $M$? Describe what it does for each st-tgd $\\phi(\\bar x) \\to \\exists \\bar y\\, \\psi(\\bar x,\\bar y)$.\n\nATOM: For a mapping $M$ specified by st-tgds, the algorithm Inverse builds a maximum recovery by taking, for each st-tgd $\\phi(\\bar x) \\to \\exists \\bar y\\, \\psi(\\bar x,\\bar y)$, a UCQ$^=$ source rewriting $\\alpha(\\bar x)$ of the query $\\exists \\bar y\\, \\psi(\\bar x,\\bar y)$ and adding the dependency $\\exists \\bar y\\, \\psi(\\bar x,\\bar y) \\wedge C(\\bar x) \\to \\alpha(\\bar x)$.\nKEY POINTS:\n1. Compute a source rewriting $\\alpha(\\bar x)$ in UCQ$^=$ of the conjunctive query $\\exists \\bar y\\, \\psi(\\bar x,\\bar y)$\n2. Add the dependency $\\exists \\bar y\\, \\psi(\\bar x,\\bar y) \\wedge C(\\bar x) \\to \\alpha(\\bar x)$\n\nANSWER TO GRADE:\nFor each st-tgd $\\phi(\\bar x)\\to\\exists\\bar y\\,\\psi(\\bar x,\\bar y)$, Inverse writes a reverse dependency whose premise is the target conjunction $\\psi(\\bar x,\\bar y)$ and whose conclusion is a disjunction of source formulas. The disjunction covers every way the target facts could have been produced by the st-tgds of $M$, and each $\\bar x$ variable is guarded to be a constant, so the result is a disjunctive tgd with inequalities and constant predicates rather than a single plain tgd.",
+ "raw": "{\"units\": {\"CS-DB-C03-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"whose conclusion is a disjunction of source formulas. The disjunction covers every way the target facts could have been produced by the st-tgds of $M$\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"Inverse writes a reverse dependency whose premise is the target conjunction $\\\\psi(\\\\bar x,\\\\bar y)$ and whose conclusion is a disjunction of source formulas.\"}], \"why\": \"The answer paraphrases the UCQ^= source rewriting as a disjunction of source formulas with inequalities covering every way the target facts could be produced, and states that Inverse constructs the reverse dependency from the target conjunction guarded by constant predicates on x to that disjunction.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 750,
+  "total_tokens": 961,
+  "completion_tokens_details": {
+   "text_tokens": 211
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 750
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00361000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:49:22+00:00"
+}

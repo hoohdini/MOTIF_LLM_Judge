@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-ALG-C03-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C03-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For a function $f:\\mathbb{R}^n\\to\\mathbb{R}^m$, what are the shapes of its first and second derivatives, and why is standard matrix notation insufficient for expressing derivatives of vector and matrix expressions?\n\nATOM: Matrix notation is insufficient for derivatives of vector and matrix expressions: for $f:\\mathbb{R}^n\\to\\mathbb{R}^m$ the derivative is a matrix in $\\mathbb{R}^{m\\times n}$, but the second derivative is a third-order tensor in $\\mathbb{R}^{m\\times n\\times n}$ that cannot be represented in standard matrix notation.\nKEY POINTS:\n1. The first derivative is a matrix in $\\mathbb{R}^{m\\times n}$\n2. The second derivative is a third-order tensor in $\\mathbb{R}^{m\\times n\\times n}$\n3. A third-order tensor cannot be represented in standard matrix notation\n\nANSWER TO GRADE:\nThe first derivative of f: R^n → R^m is its m×n Jacobian matrix, and the second derivative is a third-order tensor of shape m×n×n (equivalently, an n×n Hessian for each of the m output components). Standard matrix notation is insufficient because it only handles two indices, whereas derivatives of vector and matrix expressions with respect to vectors or matrices generally require tensors with three or more indices, which cannot be written as ordinary matrices without flattening or reshaping.",
+ "raw": "{\"units\":{\"CS-ALG-C03-S3-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"The first derivative of f: R^n → R^m is its m×n Jacobian matrix\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"the second derivative is a third-order tensor of shape m×n×n\"},{\"kp\":3,\"s\":\"present\",\"quote\":\"tensors with three or more indices, which cannot be written as ordinary matrices without flattening or reshaping.\"}],\"why\":\"The answer explicitly states both derivative shapes and the limitation of ordinary matrix notation for third-order tensors.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"equivalently, an n×n Hessian for each of the m output components\",\"derivatives of vector and matrix expressions with respect to vectors or matrices generally require tensors with three or more indices\"]}}}}",
+ "usage": {
+  "completion_tokens": 206,
+  "prompt_tokens": 656,
+  "total_tokens": 862,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 206
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 656,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00337200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:48:37+00:00"
+}

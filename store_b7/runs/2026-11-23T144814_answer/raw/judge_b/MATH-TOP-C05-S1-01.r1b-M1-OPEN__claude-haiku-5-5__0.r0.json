@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-TOP-C05-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C05-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In a shuffle $A$ of two trees $S$ and $T$, every edge of $A$ carries a label $(s,t)$ with $s$ an edge of $S$ and $t$ an edge of $T$. What are the possible situations for an edge labelled $(s,t)$, in terms of whether it is a leaf and what the vertex above it looks like?\n\nATOM: In a shuffle $A$ of trees $S$ and $T$, each edge labelled $(s,t)$ is either a leaf of $A$ (with $s$ and $t$ leaves of $S$ and $T$), or the vertex above it has input edges labelled $(s_1,t),\\dots,(s_n,t)$ where $s_1,\\dots,s_n$ are the inputs of the vertex above $s$ in $S$ (so $s$ is not a leaf), or the vertex above it has input edges labelled $(s,t_1),\\dots,(s,t_m)$ where $t_1,\\dots,t_m$ are the inputs of the vertex above $t$ in $T$ (so $t$ is not a leaf).\nKEY POINTS:\n1. Either it is a leaf of $A$, in which case $s$ and $t$ are leaves of $S$ and $T$ respectively\n2. Or the vertex above it has inputs $(s_1,t),\\dots,(s_n,t)$, where $s_1,\\dots,s_n$ are the inputs of the vertex above $s$ in $S$ ($s$ not a leaf)\n3. Or the vertex above it has inputs $(s,t_1),\\dots,(s,t_m)$, where $t_1,\\dots,t_m$ are the inputs of the vertex above $t$ in $T$ ($t$ not a leaf)\n\nANSWER TO GRADE:\nAn edge labelled $(s,t)$ is either a leaf edge of $A$, in which case $s$ and $t$ are both leaf edges of $S$ and $T$ (the two trees finish together), or it is an inner edge whose upper vertex is a branching vertex of $A$ where the two components can move independently. I am not certain of this characterization and reconstructed it from the shuffle definition rather than from a source.",
+ "raw": "{\"units\": {\"MATH-TOP-C05-S1-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"either a leaf edge of $A$, in which case $s$ and $t$ are both leaf edges of $S$ and $T$\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 3, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"KP1 is explicitly stated. KP2 and KP3 are absent because the answer only gives a vague description ('branching vertex of A where the two components can move independently') without specifying the inputs of the vertex above the edge.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 194,
+  "prompt_tokens": 875,
+  "total_tokens": 1069,
+  "completion_tokens_details": {
+   "text_tokens": 194
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 875
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00369000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:52:47+00:00"
+}

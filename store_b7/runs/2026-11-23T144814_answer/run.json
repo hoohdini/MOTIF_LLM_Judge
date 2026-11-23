@@ -1,0 +1,47 @@
+{
+ "judges": {
+  "judge_b": {
+   "provider": "openai_compat",
+   "model": "gemini-4-argon",
+   "family": "google",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  },
+  "judge_a": {
+   "provider": "openai_compat",
+   "model": "gpt-6.1-sol",
+   "family": "openai",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  },
+  "judge_c": {
+   "provider": "openai_compat",
+   "model": "claude-sonnet-5-5",
+   "family": "anthropic",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000
+  }
+ },
+ "group": "answer_judge",
+ "prompt_hash": "eb775fc4880e1908",
+ "repeat": 1,
+ "n_canary": 0,
+ "tasks": 504,
+ "run_id": "2026-11-23T144814_answer",
+ "stage": "answer",
+ "started_at": "2026-11-23T14:48:14+00:00",
+ "active": {
+  "cards": "3cc99befe800",
+  "items": "7ef8dc9d8368",
+  "answers": "10a0020e67d5"
+ },
+ "offsets_at_start": {
+  "verdicts": 37985,
+  "revisions": 183
+ }
+}

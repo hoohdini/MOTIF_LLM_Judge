@@ -54,7 +54,7 @@ def items(items_):
 
 def _label(fmt, text):
     """답변에서 라벨 하나를 읽는다. 확실하지 않으면 None(보류). 틀리게 읽느니 사람에게 넘긴다."""
-    t = text.strip()
+    t = re.sub(r"[*_`]+", "", text).strip()          # **B**, `True` 같은 마크다운 강조는 벗긴다
     pats = {"TF": ("true", "false", "True", "False"), "YN": ("yes", "no", "Yes", "No")}
     if fmt in pats:
         a, b, la, lb = pats[fmt]
@@ -86,7 +86,11 @@ def answers(answers_):
 
 
 def write_new(store, rows):
-    seen = {(r["unit_id"], r["unit_hash"], r["check"]) for r in store.all_verdicts() if r["judge"] == "code"}
-    new = [r for r in rows if (r["unit_id"], r["unit_hash"], r["check"]) not in seen]
+    """처음 보는 단위이거나, 코드가 바뀌어 값이 달라진 경우만 덧붙인다 (같은 키는 나중 행이 앞의 행을 대신한다)."""
+    seen = {}
+    for r in store.all_verdicts():
+        if r["judge"] == "code":
+            seen[(r["unit_id"], r["unit_hash"], r["check"])] = r["v"]
+    new = [r for r in rows if seen.get((r["unit_id"], r["unit_hash"], r["check"])) != r["v"]]
     store.add_verdicts(new)
     return len(new)

@@ -1,0 +1,46 @@
+{
+ "batch_id": "CS-DB-C10-S2-01.r1c-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C10-S2-01.r1c-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For a count-min sketch over a universe of size $n$ with failure probability $\\delta$, how much space do its hash functions consume (asymptotically)?\n\nATOM: The hash functions of the count-min sketch consume $O(\\log n \\cdot \\log(1/\\delta))$ space.\nKEY POINTS:\n1. $O(\\log n \\cdot \\log(1/\\delta))$ space\n\nANSWER TO GRADE:\nThe hash functions take $O(\\log(1/\\delta)\\cdot\\log n)$ bits in total. The sketch uses $d = \\lceil\\ln(1/\\delta)\\rceil$ pairwise-independent hash functions, and each one is specified by $O(\\log n)$ bits (for example, random coefficients modulo a prime near $n$). This is negligible compared with the $O(\\tfrac{1}{\\varepsilon}\\log(1/\\delta))$ counters the sketch itself stores.",
+ "raw": "{\"units\": {\"CS-DB-C10-S2-01.r1c-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The hash functions take $O(\\\\log(1/\\\\delta)\\\\cdot\\\\log n)$ bits in total.\"}], \"why\": \"The answer directly states the asymptotic space bound O(log(1/delta) * log n) bits.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"The sketch uses $d = \\\\lceil\\\\ln(1/\\\\delta)\\\\rceil$ pairwise-independent hash functions\", \"each one is specified by $O(\\\\log n)$ bits (for example, random coefficients modulo a prime near $n$).\", \"This is negligible compared with the $O(\\\\tfrac{1}{\\\\varepsilon}\\\\log(1/\\\\delta))$ counters the sketch itself stores.\"]}}}}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 560,
+  "total_tokens": 771,
+  "completion_tokens_details": {
+   "audio_tokens": 0,
+   "reasoning_tokens": 0,
+   "image_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cached_tokens": 0,
+   "video_tokens": 0,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cost": 0.00323,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00323,
+   "upstream_inference_prompt_cost": 0.00112,
+   "upstream_inference_completions_cost": 0.00211
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00323000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:52:04+00:00"
+}

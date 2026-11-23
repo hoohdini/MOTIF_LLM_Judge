@@ -1,0 +1,41 @@
+{
+ "tag": "a8-v3",
+ "created_at": "2026-11-23T13:22:04+00:00",
+ "note": "regen round1",
+ "snapshots": {
+  "cards": "b83eeabd7b0b",
+  "items": "9d06ba2d548f",
+  "answers": "51997970148f"
+ },
+ "offsets": {
+  "verdicts": 40327,
+  "revisions": 160
+ },
+ "prompt_hashes": {
+  "atom_audit": "f4cd80d136e15b59",
+  "item_audit": "0e7933cb6d5e780a",
+  "answer_judge": "eb775fc4880e1908"
+ },
+ "code": "e7df33449c83",
+ "counts": {
+  "atoms": {
+   "pass": 415,
+   "fail": 84,
+   "hold": 334
+  },
+  "items": {
+   "pass": 296,
+   "blocked": 431,
+   "hold": 60,
+   "fail": 39
+  }
+ },
+ "files": {
+  "cards_approved.jsonl": "2b1f67834facafacef0cb4ed039fec37d5f9b165c2568b7b77039fb08583ffae",
+  "items_approved.jsonl": "030ac89988d1f41baa40c5dcf93414f49b3e0f50240493568eefa1cf2c3eda70",
+  "atoms_status.jsonl": "5d53c918e3ad9e5e566a579794bfcdd3ff7e87327483cca090d3dc21ab60f82c",
+  "items_status.jsonl": "cb94a8111719f92f930158bf53aafb46cab3f28db1bd82f37d70d0a122274358",
+  "regen_requests.jsonl": "cc0fd21ed6ac031bfcdadc153c74de27f04f0282b985fdd0afedfd5ef7470943",
+  "answers_scored.jsonl": "bafec231249230f16584559c37181c4704e74660b616eaf7e48b246fa349b969"
+ }
+}

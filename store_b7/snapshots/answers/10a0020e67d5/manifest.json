@@ -1,0 +1,13 @@
+{
+ "kind": "answers",
+ "sha": "10a0020e67d5",
+ "rows": 714,
+ "sources": [
+  {
+   "file": "answers.jsonl",
+   "sha256": "10a0020e67d533a50ff2b17e28599452d91b0b3c5ba87c6323fe9f404805fd40"
+  }
+ ],
+ "label": "answers v3 all",
+ "ingested_at": "2026-11-23T14:48:13+00:00"
+}

@@ -1,0 +1,29 @@
+{
+ "judges": {
+  "judge_c": {
+   "provider": "openai_compat",
+   "model": "claude-sonnet-5-5",
+   "family": "anthropic",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000
+  }
+ },
+ "group": "answer_judge",
+ "prompt_hash": "eb775fc4880e1908",
+ "repeat": 1,
+ "n_canary": 0,
+ "tasks": 2,
+ "run_id": "2026-11-23T151005_answer",
+ "stage": "answer",
+ "started_at": "2026-11-23T15:10:05+00:00",
+ "active": {
+  "cards": "3cc99befe800",
+  "items": "7ef8dc9d8368",
+  "answers": "10a0020e67d5"
+ },
+ "offsets_at_start": {
+  "verdicts": 38989,
+  "revisions": 183
+ }
+}

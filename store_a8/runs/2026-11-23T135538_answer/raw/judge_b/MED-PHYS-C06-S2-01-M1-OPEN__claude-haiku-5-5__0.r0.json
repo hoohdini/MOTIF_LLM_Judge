@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C06-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C06-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the double Donnan effect, how do the two Gibbs–Donnan effects relate to each other at steady state, and what is the result for cell volume?\n\nATOM: At steady state, the two Gibbs-Donnan effects of the double Donnan effect balance each other out, so cell volume remains stable.\nKEY POINTS:\n1. The two effects balance each other out\n2. Cell volume remains stable\n\nANSWER TO GRADE:\nAt steady state the two Gibbs–Donnan equilibria are coupled: the diffusible ion distributions satisfy both equilibria at once, so their Donnan ratios are equal and the net membrane potential is zero. The fixed charges of the two systems then add osmotically, so the cell takes up water and reaches a larger steady-state volume than a single Donnan system would produce.",
+ "raw": "{\"units\": {\"MED-PHYS-C06-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"contradicted\", \"quote\": \"The fixed charges of the two systems then add osmotically\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"reaches a larger steady-state volume\"}], \"why\": \"The answer claims the two systems add osmotically rather than balancing each other out (contradicting KP1). However, it does state the cell reaches a steady-state volume (KP2), even though it adds that the cell takes up water to reach a larger volume.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"At steady state the two Gibbs–Donnan equilibria are coupled: the diffusible ion distributions satisfy both equilibria at once, so their Donnan ratios are equal and the net membrane potential is zero.\", \"the cell takes up water and reaches a larger steady-state volume than a single Donnan system would produce.\"]}}}}",
+ "usage": {
+  "completion_tokens": 236,
+  "prompt_tokens": 534,
+  "total_tokens": 770,
+  "completion_tokens_details": {
+   "text_tokens": 236
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 534
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00342800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:00:52+00:00"
+}

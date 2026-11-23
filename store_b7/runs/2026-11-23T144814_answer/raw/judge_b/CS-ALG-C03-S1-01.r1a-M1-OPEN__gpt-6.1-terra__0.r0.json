@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-ALG-C03-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C03-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: A general tensor multiplication takes a left argument $A$ with index set $s_1$ and a right argument $B$ with index set $s_2$, and produces a result $C$ with index set $s_3$. How can the entries of $C$ be written in terms of $A$ and $B$, and over which indices is the summation taken?\n\nATOM: A tensor multiplication of A and B can be written as $C[s_3] = \\sum_{(s_1\\cup s_2)\\setminus s_3} A[s_1]\\cdot B[s_2]$, where $C$ is the result tensor and $s_1$, $s_2$, $s_3$ are the index sets of the left argument, the right argument, and the result tensor, respectively.\nKEY POINTS:\n1. $C[s_3]=\\sum A[s_1]\\cdot B[s_2]$, a sum of products of entries of $A$ and $B$\n2. the sum runs over the indices in $(s_1\\cup s_2)\\setminus s_3$, i.e. the indices that do not appear in the result\n\nANSWER TO GRADE:\nThe entries are\n\\[\nC_{\\mathbf{i}_{s_3}}=\\sum_{\\mathbf{i}_{(s_1\\cup s_2)\\setminus s_3}}\nA_{\\mathbf{i}_{s_1}}B_{\\mathbf{i}_{s_2}}.\n\\]\nThe sum is over all input indices that do not appear in the output, assuming \\(s_3\\subseteq s_1\\cup s_2\\).",
+ "raw": "{\"units\": {\"CS-ALG-C03-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"C_{\\\\mathbf{i}_{s_3}}=\\\\sum_{\\\\mathbf{i}_{(s_1\\\\cup s_2)\\\\setminus s_3}} A_{\\\\mathbf{i}_{s_1}}B_{\\\\mathbf{i}_{s_2}}.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"The sum is over all input indices that do not appear in the output\"}], \"why\": \"Both key points are explicitly stated in the equation and the text below it.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"assuming \\\\(s_3\\\\subseteq s_1\\\\cup s_2\\\\).\"]}}}}",
+ "usage": {
+  "completion_tokens": 204,
+  "prompt_tokens": 722,
+  "total_tokens": 926,
+  "completion_tokens_details": {
+   "text_tokens": 204
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 722
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00348400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:56:38+00:00"
+}

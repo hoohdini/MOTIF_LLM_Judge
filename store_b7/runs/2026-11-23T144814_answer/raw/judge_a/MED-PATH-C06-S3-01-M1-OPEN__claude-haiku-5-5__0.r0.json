@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PATH-C06-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PATH-C06-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is a potential drawback of solid-state microdosimeters, and what does it generally require?\n\nATOM: A potential drawback of solid-state microdosimeters is that they are not tissue equivalent, which generally requires additional conversion calculations provided by Monte Carlo simulations.\nKEY POINTS:\n1. They are not tissue equivalent\n2. This generally requires additional conversion calculations provided by Monte Carlo simulations\n\nANSWER TO GRADE:\nSolid-state microdosimeters (such as silicon-based devices) have a drawback in that their sensitive volumes are not tissue-equivalent, so their response differs from that of biological tissue and they require tissue-equivalence correction, typically via a conversion from silicon to tissue lineal energy (e.g., using a tissue-equivalent factor or calibration against a tissue-equivalent reference). Their sensitive volumes are also very small, which makes them prone to edge effects and requires careful geometric/charge-collection corrections.",
+ "raw": "{\"units\":{\"MED-PATH-C06-S3-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"their sensitive volumes are not tissue-equivalent\"},{\"kp\":2,\"s\":\"absent\",\"quote\":\"\"}],\"why\":\"The answer states that they are not tissue-equivalent and mentions conversion corrections, but does not state that the conversion calculations are provided by Monte Carlo simulations.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"such as silicon-based devices\",\"their response differs from that of biological tissue\",\"typically via a conversion from silicon to tissue lineal energy (e.g., using a tissue-equivalent factor or calibration against a tissue-equivalent reference)\",\"Their sensitive volumes are also very small, which makes them prone to edge effects and requires careful geometric/charge-collection corrections.\"]}}}}",
+ "usage": {
+  "completion_tokens": 266,
+  "prompt_tokens": 522,
+  "total_tokens": 788,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 522,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00370400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:51:16+00:00"
+}

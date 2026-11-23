@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-GEO-C12-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-GEO-C12-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $X\\subset\\mathbb{R}^n$ be a finite set and $\\mathbf{y}\\in X$. Give an explicit description of the Voronoi cell of $\\mathbf{y}$ as a polyhedron, using inequalities in $\\mathbf{u}$ indexed by the other points $\\mathbf{x}\\in X\\setminus\\{\\mathbf{y}\\}$.\n\nATOM: For a finite set $X \\subset \\mathbb{R}^n$ and a point $\\mathbf{y} \\in X$, the Voronoi cell of $\\mathbf{y}$ is the polyhedron $\\{\\mathbf{u} \\in \\mathbb{R}^n \\mid \\langle \\mathbf{u}, \\mathbf{x}-\\mathbf{y}\\rangle \\le \\tfrac{1}{2}(\\|\\mathbf{x}\\|^2 - \\|\\mathbf{y}\\|^2) \\text{ for all } \\mathbf{x} \\in X\\setminus\\{\\mathbf{y}\\}\\}$.\nKEY POINTS:\n1. Set of $\\mathbf{u}\\in\\mathbb{R}^n$ satisfying one linear inequality for each $\\mathbf{x}\\in X\\setminus\\{\\mathbf{y}\\}$\n2. The inequality is $\\langle \\mathbf{u},\\mathbf{x}-\\mathbf{y}\\rangle \\le \\tfrac12(\\|\\mathbf{x}\\|^2-\\|\\mathbf{y}\\|^2)$\n\nANSWER TO GRADE:\nThe Voronoi cell of \\(\\mathbf y\\) is the polyhedron\n\\[\n\\operatorname{Vor}_X(\\mathbf y)\n=\\left\\{\\mathbf u\\in\\mathbb R^n:\n2(\\mathbf x-\\mathbf y)\\cdot\\mathbf u\n\\le \\|\\mathbf x\\|^2-\\|\\mathbf y\\|^2\n\\quad\\text{for all }\\mathbf x\\in X\\setminus\\{\\mathbf y\\}\\right\\}.\n\\]",
+ "raw": "{\"units\": {\"MATH-GEO-C12-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"\\\\left\\\\{\\\\mathbf u\\\\in\\\\mathbb R^n: 2(\\\\mathbf x-\\\\mathbf y)\\\\cdot\\\\mathbf u \\\\le \\\\|\\\\mathbf x\\\\|^2-\\\\|\\\\mathbf y\\\\|^2 \\\\quad\\\\text{for all }\\\\mathbf x\\\\in X\\\\setminus\\\\{\\\\mathbf y\\\\}\\\\right\\\\}\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"2(\\\\mathbf x-\\\\mathbf y)\\\\cdot\\\\mathbf u \\\\le \\\\|\\\\mathbf x\\\\|^2-\\\\|\\\\mathbf y\\\\|^2\", \"why\": \"\"}], \"why\": \"The answer's inequality is equivalent to the key one, multiplied by 2.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 375,
+  "prompt_tokens": 1188,
+  "total_tokens": 1563,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 375
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1188,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00612600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:06:00+00:00"
+}

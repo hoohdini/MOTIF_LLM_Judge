@@ -1,0 +1,36 @@
+{
+ "batch_id": "MATH-ANA-C05-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ANA-C05-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let a weighted metric graph have a self-adjoint minimal Kirchhoff Laplacian $\\mathbf H$. In terms of models of the graph, what is the necessary and sufficient condition for the spectrum of $\\mathbf H$ to be purely discrete?\n\nATOM: For a weighted metric graph whose minimal Kirchhoff Laplacian is self-adjoint, the spectrum of $\\mathbf H$ is purely discrete if and only if there is a model with zero essential intrinsic size, $\\eta^*_{\\rm ess}(\\mathcal E)=0$, whose graph Laplacian $\\mathbf h$ has purely discrete spectrum.\nKEY POINTS:\n1. There exists a model with zero essential intrinsic size, $\\eta^*_{\\rm ess}(\\mathcal E)=0$\n2. The graph Laplacian $\\mathbf h$ of that model has purely discrete spectrum\n\nANSWER TO GRADE:\nThe spectrum of $\\mathbf H$ is purely discrete if and only if the form domain embeds compactly into $L^2$ with respect to the weighted measure, which can be checked on a model of the graph (a compactness condition on the weighted edge-length and vertex structure). I am reciting this from memory and am not certain of the exact formulation in the literature.",
+ "raw": "{\"units\":{\"MATH-ANA-C05-S2-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"absent\",\"quote\":\"\"},{\"kp\":2,\"s\":\"absent\",\"quote\":\"\"}],\"why\":\"The answer does not state either zero essential intrinsic size or purely discrete spectrum for the model's graph Laplacian.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"The spectrum of $\\\\mathbf H$ is purely discrete if and only if the form domain embeds compactly into $L^2$ with respect to the weighted measure\",\"which can be checked on a model of the graph (a compactness condition on the weighted edge-length and vertex structure).\"]}}}}",
+ "usage": {
+  "completion_tokens": 217,
+  "prompt_tokens": 595,
+  "total_tokens": 812,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 595,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00336000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:50:14+00:00"
+}

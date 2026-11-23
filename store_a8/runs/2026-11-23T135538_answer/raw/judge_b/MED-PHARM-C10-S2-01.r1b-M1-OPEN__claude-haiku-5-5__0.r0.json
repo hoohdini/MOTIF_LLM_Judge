@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHARM-C10-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHARM-C10-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: At the β2-adrenoceptor, which transmembrane helices move in response to full agonists for Gs coupling?\n\nATOM: At the β2-adrenoceptor, full agonists for Gs coupling promote movement of TM5 and TM6.\nKEY POINTS:\n1. TM5 and TM6\n\nANSWER TO GRADE:\nFull agonists drive an outward displacement of the cytoplasmic ends of **TM6** (the largest movement) and **TM5**, with accompanying rearrangements of **TM3, TM7** and the helix 8 region that open the intracellular cleft for Gs binding.",
+ "raw": "{\"units\": {\"MED-PHARM-C10-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Full agonists drive an outward displacement of the cytoplasmic ends of **TM6** (the largest movement) and **TM5**\"}], \"why\": \"The answer explicitly names TM5 and TM6 as moving in response to full agonists.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"outward displacement of the cytoplasmic ends\", \"(the largest movement)\", \"with accompanying rearrangements of **TM3, TM7** and the helix 8 region that open the intracellular cleft for Gs binding.\"]}}}}",
+ "usage": {
+  "completion_tokens": 168,
+  "prompt_tokens": 490,
+  "total_tokens": 658,
+  "completion_tokens_details": {
+   "text_tokens": 168
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 490
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00266000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:04:13+00:00"
+}

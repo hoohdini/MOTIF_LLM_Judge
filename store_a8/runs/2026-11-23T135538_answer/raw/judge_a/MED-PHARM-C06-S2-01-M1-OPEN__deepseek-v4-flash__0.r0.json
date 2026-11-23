@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PHARM-C06-S2-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHARM-C06-S2-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How do L-amino acids act at the calcium-sensing receptor, and what binding is needed for full receptor activation?\n\nATOM: L-amino acids have been identified as co-agonists of the calcium-sensing receptor, with both concomitant calcium binding and L-amino acid binding required for full receptor activation.\nKEY POINTS:\n1. L-amino acids act as co-agonists of the receptor\n2. Concomitant binding of both calcium and an L-amino acid is required for full activation\n\nANSWER TO GRADE:\nL-amino acids act as positive allosteric modulators of the calcium-sensing receptor by binding to a distinct site within the Venus flytrap domain, which enhances the receptor's sensitivity to calcium. Full receptor activation requires the simultaneous binding of an orthosteric agonist (calcium) and an L-amino acid, as the amino acid alone cannot activate the receptor but stabilizes the active conformation.",
+ "raw": "{\"units\":{\"MED-PHARM-C06-S2-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"absent\",\"quote\":\"\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"Full receptor activation requires the simultaneous binding of an orthosteric agonist (calcium) and an L-amino acid\"}],\"why\":\"The answer states that simultaneous calcium and L-amino acid binding is required, but describes L-amino acids as positive allosteric modulators rather than co-agonists.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"L-amino acids act as positive allosteric modulators of the calcium-sensing receptor\",\"binding to a distinct site within the Venus flytrap domain\",\"enhances the receptor's sensitivity to calcium\",\"stabilizes the active conformation\"]}}}}",
+ "usage": {
+  "completion_tokens": 381,
+  "prompt_tokens": 533,
+  "total_tokens": 914,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 533,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00487600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:14:22+00:00"
+}

@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHARM-C06-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHARM-C06-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What kinds of endogenous ligands and extracellular factors is the calcium-sensing (CaS) receptor known to respond to?\n\nATOM: The calcium-sensing receptor (CaS receptor) responds to multiple endogenous ligands, including extracellular calcium and other divalent/trivalent cations, polyamines and polycationic peptides, L-amino acids (particularly L-Trp and L-Phe), glutathione and various peptide analogues, ionic strength and extracellular pH.\nKEY POINTS:\n1. Extracellular calcium and other divalent/trivalent cations, plus polyamines and polycationic peptides\n2. L-amino acids (particularly L-Trp and L-Phe), glutathione and peptide analogues\n3. Ionic strength and extracellular pH\n\nANSWER TO GRADE:\nThe CaS receptor responds primarily to extracellular Ca²⁺, but also to Mg²⁺, polyamines, aromatic L-amino acids, and peptides such as glutathione. Its activity is modulated by extracellular pH, ionic strength, and phosphate.",
+ "raw": "{\"units\": {\"MED-PHARM-C06-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"responds primarily to extracellular Ca²⁺, but also to Mg²⁺, polyamines\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"aromatic L-amino acids, and peptides such as glutathione\"}, {\"kp\": 3, \"s\": \"present\", \"quote\": \"modulated by extracellular pH, ionic strength\"}], \"why\": \"All three key points are covered. Polycationic peptides are not named explicitly in KP1, and 'aromatic L-amino acids' stands in for L-Trp/L-Phe in KP2. Both are treated as sufficiently matching.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"and phosphate\"]}}}}",
+ "usage": {
+  "completion_tokens": 319,
+  "prompt_tokens": 869,
+  "total_tokens": 1188,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 319
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 869,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00492800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:07:31+00:00"
+}

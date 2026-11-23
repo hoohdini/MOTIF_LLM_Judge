@@ -1,0 +1,36 @@
+{
+ "batch_id": "CS-COMP-C09-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-COMP-C09-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How does second-order logic extend first-order logic in terms of its language and its definition of satisfaction?\n\nATOM: Second-order logic extends first-order logic by extending both the language and the definition of satisfaction to include free and bound function variables and predicate variables, together with quantification over them.\nKEY POINTS:\n1. Language and satisfaction are extended with free and bound function variables and predicate variables\n2. Quantification over these function and predicate variables is allowed\n\nANSWER TO GRADE:\nSecond-order logic extends the language of first-order logic by adding quantified variables for predicates, relations, and functions. Its definition of satisfaction expands first-order truth conditions by allowing assignments to interpret these second-order variables as actual subsets, relations, and functions over the domain. This enables direct expression of properties like cardinality, induction, and the least-upper-bound principle.",
+ "raw": "{\"units\":{\"CS-COMP-C09-S1-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"adding quantified variables for predicates, relations, and functions. Its definition of satisfaction expands first-order truth conditions by allowing assignments to interpret these second-order variables\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"adding quantified variables for predicates, relations, and functions\"}],\"why\":\"The answer describes extending both language and satisfaction to predicate and function variables, and explicitly allows quantification over them.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"This enables direct expression of properties like cardinality, induction, and the least-upper-bound principle.\"]}}}}",
+ "usage": {
+  "completion_tokens": 327,
+  "prompt_tokens": 508,
+  "total_tokens": 835,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 508,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00428600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:11:18+00:00"
+}

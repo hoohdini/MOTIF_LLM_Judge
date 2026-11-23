@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-TOP-C10-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C10-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $p:X\\to S$ be a J-fibration and $A\\to B$ a monomorphism. What does it mean for two maps $f,g:B\\to X$ with $pf=pg$ to be fibrewise J-homotopic relative to $A$?\n\nATOM: For a J-fibration $p:X\\to S$ and a monomorphism $A\\to B$, two maps $f,g:B\\to X$ with $pf=pg$ are fibrewise J-homotopic relative to $A$ if there is a homotopy $h:J\\times B\\to X$ from $f$ to $g$ that restricts to the constant homotopy on $A$ and whose composite with $p$ is the constant homotopy $J\\times B\\to B\\to S$.\nKEY POINTS:\n1. There is a homotopy $h:J\\times B\\to X$ from $f$ to $g$\n2. The homotopy restricts to the constant homotopy on $A$\n3. Composing $h$ with $p$ gives the constant homotopy $J\\times B\\to B\\to S$\n\nANSWER TO GRADE:\nThey are fibrewise \\(J\\)-homotopic relative to \\(A\\) if there is a map \\(H:B\\times J\\to X\\) with endpoints \\(f\\) and \\(g\\), such that \\(pH=pf\\circ\\mathrm{pr}_B\\). Moreover, \\(H\\) must be constant on \\(A\\times J\\), equal there to \\(f|_A=g|_A\\).",
+ "raw": "{\"units\":{\"MATH-TOP-C10-S1-01-M1-OPEN::gpt-6.1-terra::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"there is a map \\\\(H:B\\\\times J\\\\to X\\\\) with endpoints \\\\(f\\\\) and \\\\(g\\\\)\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"\\\\(H\\\\) must be constant on \\\\(A\\\\times J\\\\), equal there to \\\\(f|_A=g|_A\\\\)\"},{\"kp\":3,\"s\":\"present\",\"quote\":\"such that \\\\(pH=pf\\\\circ\\\\mathrm{pr}_B\\\\)\"}],\"why\":\"All three points are stated. pH = pf∘pr_B means p∘H is the constant homotopy B×J→B→S, since pf is the map B→S.\"},\"ADDITIONAL_CONTENT\":{\"present\":false,\"quotes\":[]}}}}",
+ "usage": {
+  "completion_tokens": 318,
+  "prompt_tokens": 977,
+  "total_tokens": 1295,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 318
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 977,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00513400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:55:48+00:00"
+}

@@ -1,0 +1,48 @@
+{
+ "batch_id": "MED-EPI-C02-S3-01.r1-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-EPI-C02-S3-01.r1-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In mammals, how does the histone mark H2Aub (monoubiquitinated histone H2A) contribute to the recruitment of PRC2 to chromatin?\n\nATOM: In mammals, the H2Aub histone mark facilitates recruitment of PRC2 via JARID2.\nKEY POINTS:\n1. H2Aub facilitates/promotes PRC2 recruitment\n2. The recruitment is mediated via JARID2\n\nANSWER TO GRADE:\nH2Aub acts as a recruitment signal for PRC2 by being recognized by the PRC2 accessory protein JARID2, which contains a ubiquitin-binding domain. This interaction stabilizes/recruits PRC2 on chromatin, facilitating subsequent H3K27me3 deposition.",
+ "raw": "{\"units\": {\"MED-EPI-C02-S3-01.r1-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"H2Aub acts as a recruitment signal for PRC2\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"by being recognized by the PRC2 accessory protein JARID2\"}], \"why\": \"Both key points are explicitly stated in the answer.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"JARID2, which contains a ubiquitin-binding domain\", \"facilitating subsequent H3K27me3 deposition.\"]}}}}",
+ "usage": {
+  "completion_tokens": 157,
+  "prompt_tokens": 511,
+  "total_tokens": 668,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cached_tokens": 0,
+   "video_tokens": 0,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cost": 0.002592,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": null,
+   "upstream_inference_prompt_cost": 0,
+   "upstream_inference_completions_cost": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "market_cost": 0.002592,
+  "gateway_cost": 0.002592,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00259200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:16:40+00:00"
+}

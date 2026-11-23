@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-GEO-C05-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-GEO-C05-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What can be said about the eigenvalues of the Weingarten map $L_{\\mathbf{v}}$ of a smooth real algebraic variety, and what property of $L_{\\mathbf{v}}$ guarantees this?\n\nATOM: The Weingarten map $L_{\\mathbf{v}}$ is a self-adjoint operator given by a real symmetric matrix, so all of its eigenvalues are real.\nKEY POINTS:\n1. All eigenvalues of L_v are real\n2. L_v is a self-adjoint operator, given by a real symmetric matrix\n\nANSWER TO GRADE:\nThe eigenvalues of the Weingarten map \\(L_{\\mathbf v}\\) are real. This follows because \\(L_{\\mathbf v}\\) is self-adjoint with respect to the induced Euclidean inner product.",
+ "raw": "{\"units\": {\"MATH-GEO-C05-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The eigenvalues of the Weingarten map \\\\(L_{\\\\mathbf v}\\\\) are real.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"\\\\(L_{\\\\mathbf v}\\\\) is self-adjoint\"}], \"why\": \"The answer states that the eigenvalues are real and that L_v is self-adjoint.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"with respect to the induced Euclidean inner product.\"]}}}}",
+ "usage": {
+  "completion_tokens": 154,
+  "prompt_tokens": 520,
+  "total_tokens": 674,
+  "completion_tokens_details": {
+   "text_tokens": 154
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 520
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00258000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:05:52+00:00"
+}

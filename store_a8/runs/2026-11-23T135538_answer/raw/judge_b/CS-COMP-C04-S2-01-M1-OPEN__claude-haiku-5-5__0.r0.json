@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-COMP-C04-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-COMP-C04-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the proof of the fixed-point lemma for $Q$, the function $\\mathrm{diag}$ is not a function symbol of the language, so $B(\\mathrm{diag}(x))$ cannot be written directly. How is this handled, and what is written instead?\n\nATOM: Because the function $\\mathrm{diag}$ is computable, it is representable in $Q$ by some formula $D_{\\mathrm{diag}}(x,y)$, so that $B(\\mathrm{diag}(x))$ can be replaced by $\\exists y\\,(D_{\\mathrm{diag}}(x,y) \\wedge B(y))$.\nKEY POINTS:\n1. $\\mathrm{diag}$ is computable, hence representable in $Q$ by some formula $D_{\\mathrm{diag}}(x,y)$\n2. $B(\\mathrm{diag}(x))$ is replaced by $\\exists y\\,(D_{\\mathrm{diag}}(x,y) \\wedge B(y))$\n\nANSWER TO GRADE:\nSince $\\mathrm{diag}$ is a recursive function, it is representable in $Q$ by a formula $\\mathrm{Diag}(x,y)$ that defines the graph of $\\mathrm{diag}$. The expression $B(\\mathrm{diag}(x))$ is therefore replaced by the formula $\\exists y\\,(\\mathrm{Diag}(x,y)\\wedge B(y))$, or equivalently $\\forall y\\,(\\mathrm{Diag}(x,y)\\rightarrow B(y))$.",
+ "raw": "{\"units\": {\"CS-COMP-C04-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Since $\\\\mathrm{diag}$ is a recursive function, it is representable in $Q$ by a formula $\\\\mathrm{Diag}(x,y)$\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"The expression $B(\\\\mathrm{diag}(x))$ is therefore replaced by the formula $\\\\exists y\\\\,(\\\\mathrm{Diag}(x,y)\\\\wedge B(y))$\"}], \"why\": \"Both key points are present, using 'recursive' for 'computable' and '\\\\mathrm{Diag}(x,y)' for 'D_{\\\\mathrm{diag}}(x,y)'.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"that defines the graph of $\\\\mathrm{diag}$.\", \"or equivalently $\\\\forall y\\\\,(\\\\mathrm{Diag}(x,y)\\\\rightarrow B(y))$.\"]}}}}",
+ "usage": {
+  "completion_tokens": 243,
+  "prompt_tokens": 669,
+  "total_tokens": 912,
+  "completion_tokens_details": {
+   "text_tokens": 243
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 669
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00376800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:56:13+00:00"
+}

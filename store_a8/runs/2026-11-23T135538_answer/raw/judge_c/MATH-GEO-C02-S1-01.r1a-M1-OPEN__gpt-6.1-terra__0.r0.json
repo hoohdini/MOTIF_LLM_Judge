@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-GEO-C02-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-GEO-C02-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For a projective variety $X\\subseteq\\mathbb{P}^n$ and a linear subspace $V\\subseteq\\mathbb{P}^n$, how is the polar variety $P(X,V)$ defined?\n\nATOM: For a variety $X\\subseteq\\mathbb{P}^n$ and a subspace $V\\subseteq\\mathbb{P}^n$, the polar variety is $P(X,V)=\\{p\\in \\mathrm{Reg}(X)\\setminus V \\mid V+p \\text{ intersects } X \\text{ at } p \\text{ non-transversely}\\}$.\nKEY POINTS:\n1. It is the set of regular points $p$ of $X$ that do not lie in $V$\n2. with the condition that the span $V+p$ meets $X$ at $p$ non-transversely\n\nANSWER TO GRADE:\nThe polar variety \\(P(X,V)\\) is the Zariski closure in \\(X\\) of the smooth points \\(x\\) where the embedded tangent space \\(T_xX\\) meets \\(V\\) nontransversely:\n\\[\nP(X,V)=\\overline{\\left\\{x\\in X_{\\mathrm{sm}}:\\dim(T_xX\\cap V)\\ge \\dim X+\\dim V-n+1\\right\\}}.\n\\]",
+ "raw": "{\"units\":{\"MATH-GEO-C02-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"absent\",\"quote\":\"the smooth points \\\\(x\\\\) where the embedded tangent space \\\\(T_xX\\\\) meets \\\\(V\\\\) nontransversely\",\"why\":\"The answer uses smooth points, which matches regular points, but it does not exclude points of V. The condition x not in V is missing.\"},{\"kp\":2,\"s\":\"contradicted\",\"quote\":\"the embedded tangent space \\\\(T_xX\\\\) meets \\\\(V\\\\) nontransversely\",\"why\":\"The key point requires the span V+p to meet X at p non-transversely. The answer instead requires the tangent space T_xX to meet V non-transversely, which is a different condition.\"}],\"why\":\"The answer defines the polar variety through a different non-transversality condition, plus a Zariski closure. It also does not exclude points in V.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"Zariski closure in \\\\(X\\\\)\",\"\\\\dim(T_xX\\\\cap V)\\\\ge \\\\dim X+\\\\dim V-n+1\"]}}}}",
+ "usage": {
+  "completion_tokens": 415,
+  "prompt_tokens": 930,
+  "total_tokens": 1345,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 415
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 930,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00601000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:09:41+00:00"
+}

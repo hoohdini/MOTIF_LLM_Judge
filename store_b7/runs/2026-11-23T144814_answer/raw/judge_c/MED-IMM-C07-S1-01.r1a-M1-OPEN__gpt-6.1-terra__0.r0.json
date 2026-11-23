@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-IMM-C07-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-IMM-C07-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What kind of ligands do unconventional T cells sense, and from which source are these ligands especially derived?\n\nATOM: Unconventional T cells are subsets of T cells that sense a wide range of non-polymorphic ligands, especially ligands of bacterial origin.\nKEY POINTS:\n1. They sense a wide range of non-polymorphic ligands\n2. Ligands are especially of bacterial origin\n\nANSWER TO GRADE:\nUnconventional T cells sense non-peptide ligands, including lipids and small-molecule metabolites. These ligands are often derived from microbes, especially bacteria and fungi.",
+ "raw": "{\"units\": {\"MED-IMM-C07-S1-01.r1a-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"These ligands are often derived from microbes, especially bacteria and fungi.\"}], \"why\": \"The answer says the ligands are non-peptide (lipids, metabolites) but never states they are non-polymorphic or a wide range. Its statement that the ligands come especially from bacteria matches key point 2, though it adds fungi.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Unconventional T cells sense non-peptide ligands, including lipids and small-molecule metabolites.\", \"especially bacteria and fungi\"]}}}}",
+ "usage": {
+  "completion_tokens": 293,
+  "prompt_tokens": 710,
+  "total_tokens": 1003,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 293
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 710,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00435000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:58:39+00:00"
+}

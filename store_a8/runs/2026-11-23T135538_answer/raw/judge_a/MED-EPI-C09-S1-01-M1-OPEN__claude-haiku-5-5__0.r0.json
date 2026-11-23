@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-EPI-C09-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-EPI-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In mammalian genomes, what are CpG islands, in terms of their approximate size and their CG dinucleotide density relative to most of the genome?\n\nATOM: In mammalian genomes, CpG islands are regions of about 500-1000 bp with locally elevated CG density compared to the majority of the genome, containing the expected number of CG dinucleotides.\nKEY POINTS:\n1. Regions of about 500–1000 bp\n2. Locally elevated CG density compared to the majority of the genome (CG dinucleotides at about the expected number)\n\nANSWER TO GRADE:\nCpG islands are short DNA stretches, typically around 500 bp to a few kilobases in length (commonly defined as at least ~200 bp with GC content above 50% and an observed-to-expected CpG ratio above 0.6). They have a CG dinucleotide density several-fold (roughly 5–10 times) higher than the genome average, where CpG dinucleotides are otherwise strongly depleted.",
+ "raw": "{\"units\":{\"MED-EPI-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"short DNA stretches, typically around 500 bp to a few kilobases in length\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"They have a CG dinucleotide density several-fold (roughly 5–10 times) higher than the genome average\"}],\"why\":\"The answer gives an approximate size range, though broader than the key, and explicitly states elevated CG density relative to the genome average.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"commonly defined as at least ~200 bp with GC content above 50% and an observed-to-expected CpG ratio above 0.6\",\"roughly 5–10 times\",\"CpG dinucleotides are otherwise strongly depleted\"]}}}}",
+ "usage": {
+  "completion_tokens": 356,
+  "prompt_tokens": 553,
+  "total_tokens": 909,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 553,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00466600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:59:09+00:00"
+}

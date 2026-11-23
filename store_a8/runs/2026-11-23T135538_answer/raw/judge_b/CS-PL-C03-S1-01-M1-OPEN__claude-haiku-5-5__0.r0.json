@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-PL-C03-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-PL-C03-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Given sub-distributions $\\mu_1$ over $A_1$ and $\\mu_2$ over $A_2$, what condition must a sub-distribution $\\mu$ over pairs $A_1 \\times A_2$ satisfy to be a coupling for $(\\mu_1,\\mu_2)$?\n\nATOM: Given sub-distributions $\\mu_1$ over $A_1$ and $\\mu_2$ over $A_2$, a sub-distribution $\\mu$ over pairs $A_1 \\times A_2$ is a coupling for $(\\mu_1,\\mu_2)$ if and only if its first marginal equals $\\mu_1$ and its second marginal equals $\\mu_2$, i.e. $\\pi_1(\\mu)=\\mu_1$ and $\\pi_2(\\mu)=\\mu_2$.\nKEY POINTS:\n1. The first marginal of $\\mu$ equals $\\mu_1$ (i.e. $\\pi_1(\\mu)=\\mu_1$)\n2. The second marginal of $\\mu$ equals $\\mu_2$ (i.e. $\\pi_2(\\mu)=\\mu_2$)\n\nANSWER TO GRADE:\nA sub-distribution μ over A₁ × A₂ is a coupling for (μ₁, μ₂) if its marginals recover the given sub-distributions: for every a₁ ∈ A₁, Σ_{a₂∈A₂} μ(a₁, a₂) = μ₁(a₁), and for every a₂ ∈ A₂, Σ_{a₁∈A₁} μ(a₁, a₂) = μ₂(a₂).",
+ "raw": "{\"units\": {\"CS-PL-C03-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"its marginals recover the given sub-distributions: for every a₁ ∈ A₁, Σ_{a₂∈A₂} μ(a₁, a₂) = μ₁(a₁)\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"for every a₂ ∈ A₂, Σ_{a₁∈A₁} μ(a₁, a₂) = μ₂(a₂)\"}], \"why\": \"The answer states that the marginals of μ recover μ₁ and μ₂, and explicitly writes out the summation formulas for the first and second marginals.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 200,
+  "prompt_tokens": 715,
+  "total_tokens": 915,
+  "completion_tokens_details": {
+   "text_tokens": 200
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 715
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00343000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:56:43+00:00"
+}

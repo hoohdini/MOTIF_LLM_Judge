@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-IMM-C07-S2-01.r1c-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-IMM-C07-S2-01.r1c-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What type of ligands do MAIT cells recognize through their T-cell receptor?\n\nATOM: MAIT cells recognize bacterial metabolites.\nKEY POINTS:\n1. Bacterial metabolites\n\nANSWER TO GRADE:\nMAIT cells recognize microbial riboflavin (vitamin B2) biosynthesis–derived metabolites presented by the MR1 molecule.",
+ "raw": "{\"units\": {\"MED-IMM-C07-S2-01.r1c-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"microbial riboflavin (vitamin B2) biosynthesis–derived metabolites\"}], \"why\": \"The answer identifies microbial metabolites, which matches bacterial metabolites.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"riboflavin (vitamin B2) biosynthesis–derived\", \"presented by the MR1 molecule\"]}}}}",
+ "usage": {
+  "completion_tokens": 129,
+  "prompt_tokens": 435,
+  "total_tokens": 564,
+  "completion_tokens_details": {
+   "text_tokens": 129
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 435
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00216000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:58:39+00:00"
+}

@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-COMP-C07-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-COMP-C07-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How is the set of partial recursive functions defined as a class of partial functions on the natural numbers? State the initial functions and the closure operations involved.\n\nATOM: The set of partial recursive functions is the smallest set of partial functions from the natural numbers to the natural numbers (of various arities) that contains zero, successor, and the projection functions and is closed under composition, primitive recursion, and unbounded search.\nKEY POINTS:\n1. Smallest set of partial functions containing zero, successor, and the projection functions\n2. Closed under composition, primitive recursion, and unbounded search (minimization)\n\nANSWER TO GRADE:\nThe partial recursive functions form the smallest class of partial functions on the natural numbers that contains the initial functions (the zero function, the successor function, and the projection functions) and is closed under composition, primitive recursion, and unbounded minimization (the μ-operator), where the minimization is applied only to yield total-or-undefined results via the least argument making the function zero.",
+ "raw": "{\"units\": {\"CS-COMP-C07-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"smallest class of partial functions on the natural numbers that contains the initial functions (the zero function, the successor function, and the projection functions)\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"closed under composition, primitive recursion, and unbounded minimization\"}], \"why\": \"The answer explicitly identifies the smallest class of partial functions containing zero, successor, and projection functions, and states closure under composition, primitive recursion, and unbounded minimization.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"(the \\u03bc-operator), where the minimization is applied only to yield total-or-undefined results via the least argument making the function zero.\"]}}}}",
+ "usage": {
+  "completion_tokens": 200,
+  "prompt_tokens": 571,
+  "total_tokens": 771,
+  "completion_tokens_details": {
+   "text_tokens": 200
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 571
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00314200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:56:11+00:00"
+}

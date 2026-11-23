@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-PROB-C13-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-PROB-C13-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $G$ be an infinite connected graph with a finite exhaustion $\\{G_n\\}$, and let $\\mathcal{T}_n$ be a uniform spanning tree of $G_n$. How is the free uniform spanning forest measure on $G$ defined in terms of the trees $\\mathcal{T}_n$?\n\nATOM: For an infinite connected graph $G$ with a finite exhaustion $\\{G_n\\}$ and $\\mathcal{T}_n$ a uniform spanning tree of $G_n$, the free uniform spanning forest $\\mathsf{FUSF}_G$ is the unique probability measure $\\mu^F$ on infinite subsets of the edges of $G$ whose samples $\\mathfrak{F}^f$ satisfy $\\mathbf{P}(A \\subset \\mathfrak{F}^f, B \\cap \\mathfrak{F}^f = \\emptyset) = \\lim_{n\\to\\infty}\\mathbf{P}(A \\subset \\mathcal{T}_n, B \\cap \\mathcal{T}_n = \\emptyset)$ for finite disjoint edge sets $A, B$.\nKEY POINTS:\n1. It is the unique probability measure on infinite edge subsets of $G$ obtained as the limit of the laws of $\\mathcal{T}_n$ as $n\\to\\infty$\n2. The limit is taken for the probabilities $\\mathbf{P}(A\\subset \\mathcal{T}_n, B\\cap\\mathcal{T}_n=\\emptyset)$ for all finite disjoint edge sets $A,B$\n\nANSWER TO GRADE:\nThe free uniform spanning forest measure is the weak limit of the laws of the uniform spanning trees \\(\\mathcal T_n\\), viewed as random edge subsets of \\(G\\). Equivalently, its probabilities on finite edge-cylinder events are the limits of the corresponding probabilities for \\(\\mathcal T_n\\).",
+ "raw": "{\"units\": {\"MATH-PROB-C13-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The free uniform spanning forest measure is the weak limit of the laws of the uniform spanning trees \\\\(\\\\mathcal T_n\\\\), viewed as random edge subsets of \\\\(G\\\\).\", \"note\": \"\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"its probabilities on finite edge-cylinder events are the limits of the corresponding probabilities for \\\\(\\\\mathcal T_n\\\\).\", \"note\": \"\"}], \"why\": \"The answer states the weak limit of the laws of T_n. Finite edge-cylinder events are the events of A in the set and B disjoint from it, so the limit is taken over those probabilities. The answer does not explicitly say 'unique' or 'for finite disjoint A,B', but it conveys the same content.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 362,
+  "prompt_tokens": 1154,
+  "total_tokens": 1516,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 362
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 1154,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00592800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:06:39+00:00"
+}

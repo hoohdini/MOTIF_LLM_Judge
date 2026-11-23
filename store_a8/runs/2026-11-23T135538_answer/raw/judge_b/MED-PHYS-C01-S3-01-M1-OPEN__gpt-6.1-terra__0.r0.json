@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Why can fluid absorption be sustained in the intestinal mucosal microvasculature, in contrast to the steady-state filtration seen in most tissues?\n\nATOM: In the intestinal mucosal microvasculature, a supply of protein-free solvent to the interstitium by an adjacent secreting epithelium keeps the interstitial colloid osmotic pressure low, so that the colloid osmotic pressure difference that drives fluid absorption can be sustained, which is an exception to the steady-state filtration rule.\nKEY POINTS:\n1. An adjacent secreting epithelium supplies protein-free solvent to the interstitium\n2. This keeps the interstitial colloid osmotic pressure low, so the colloid osmotic pressure difference driving absorption is sustained\n\nANSWER TO GRADE:\nThe intestinal epithelium continuously delivers absorbed, protein-poor fluid to the mucosal interstitium. This raises interstitial pressure and dilutes interstitial proteins, maintaining Starling forces that favor fluid uptake into the microvasculature.",
+ "raw": "{\"units\": {\"MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The intestinal epithelium continuously delivers absorbed, protein-poor fluid to the mucosal interstitium.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"dilutes interstitial proteins, maintaining Starling forces that favor fluid uptake into the microvasculature.\"}], \"why\": \"The answer states that the epithelium delivers protein-poor fluid to the interstitium (KP1) and that this dilutes interstitial proteins to maintain Starling forces favoring fluid uptake (equivalent to keeping interstitial colloid osmotic pressure low to sustain the colloid osmotic pressure difference driving absorption, KP2).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"raises interstitial pressure\"]}}}}",
+ "usage": {
+  "completion_tokens": 196,
+  "prompt_tokens": 553,
+  "total_tokens": 749,
+  "completion_tokens_details": {
+   "text_tokens": 196
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 553
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00306600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:07:45+00:00"
+}

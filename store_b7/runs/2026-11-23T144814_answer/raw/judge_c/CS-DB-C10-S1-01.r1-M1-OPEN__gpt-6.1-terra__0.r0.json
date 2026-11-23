@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-DB-C10-S1-01.r1-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C10-S1-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How can the data structure of a count-min sketch be pictured, in terms of its counters and its hash functions?\n\nATOM: The count-min sketch can be imagined as a $d\\times w$ matrix of counters $c(s,t)$ with $1\\le s\\le d$ and $1\\le t\\le w$, where each row has its own hash function $h_s$.\nKEY POINTS:\n1. A $d\\times w$ matrix of counters $c(s,t)$\n2. Each row has its own hash function $h_s$\n\nANSWER TO GRADE:\nA count-min sketch can be pictured as a rectangular array of counters, with one hash function for each row. Each hash function maps an item to a counter in its row; the item’s estimated count is the minimum of those counters.",
+ "raw": "{\"units\": {\"CS-DB-C10-S1-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"A count-min sketch can be pictured as a rectangular array of counters\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"with one hash function for each row\"}], \"why\": \"The answer describes a rectangular array of counters, which matches the d×w matrix though it does not name the dimensions d and w. It also says each row has its own hash function.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Each hash function maps an item to a counter in its row; the item’s estimated count is the minimum of those counters.\"]}}}}",
+ "usage": {
+  "completion_tokens": 262,
+  "prompt_tokens": 747,
+  "total_tokens": 1009,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 262
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 747,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00411400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:57:10+00:00"
+}

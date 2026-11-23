@@ -1,0 +1,36 @@
+{
+ "batch_id": "CS-DB-C09-S2-01.r1a-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C09-S2-01.r1a-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For a database instance $I$ and a set of functional dependencies $\\Sigma$, how is the conflict graph $G(I,\\Sigma)$ defined? What are its nodes and its edges?\n\nATOM: Given a database instance $I$ and a set of functional dependencies $\\Sigma$, the conflict graph $G(I,\\Sigma)$ has the facts of $I$ as its nodes and has edges connecting pairs of mutually conflicting facts in $I$.\nKEY POINTS:\n1. Nodes are the facts of the instance $I$\n2. Edges connect pairs of mutually conflicting facts in $I$\n\nANSWER TO GRADE:\nThe conflict graph G(I,Σ) has the tuples of I as its nodes, and an undirected edge between two tuples exactly when they jointly violate some functional dependency in Σ (i.e., they agree on the left-hand side of an FD but disagree on its right-hand side).",
+ "raw": "{\"units\":{\"CS-DB-C09-S2-01.r1a-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"has the tuples of I as its nodes\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"an undirected edge between two tuples exactly when they jointly violate some functional dependency in Σ\"}],\"why\":\"The answer identifies facts as tuples and describes conflicting pairs as tuples that jointly violate a functional dependency.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"an undirected edge\",\"they agree on the left-hand side of an FD but disagree on its right-hand side\"]}}}}",
+ "usage": {
+  "completion_tokens": 251,
+  "prompt_tokens": 526,
+  "total_tokens": 777,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 526,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00356200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:51:45+00:00"
+}

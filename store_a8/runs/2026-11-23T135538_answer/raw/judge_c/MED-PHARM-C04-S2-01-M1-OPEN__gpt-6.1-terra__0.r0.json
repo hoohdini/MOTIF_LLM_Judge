@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHARM-C04-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHARM-C04-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is the effect of co-expressing the GABAB2 subunit with the GABAB1 subunit on the cellular trafficking of GABAB1?\n\nATOM: Co-expression of the GABAB1 and GABAB2 subunits allows transport of GABAB1 to the cell surface.\nKEY POINTS:\n1. Co-expression of GABAB1 with GABAB2 allows GABAB1 to be transported to the cell surface\n\nANSWER TO GRADE:\nCo-expression with GABAB2 allows GABAB1 to escape retention in the endoplasmic reticulum and traffic to the cell surface. GABAB2 masks an ER-retention signal in GABAB1, enabling formation of functional GABAB receptors.",
+ "raw": "{\"units\": {\"MED-PHARM-C04-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Co-expression with GABAB2 allows GABAB1 to escape retention in the endoplasmic reticulum and traffic to the cell surface.\"}], \"why\": \"The answer states that co-expression with GABAB2 lets GABAB1 traffic to the cell surface, which matches the key point.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"GABAB2 masks an ER-retention signal in GABAB1, enabling formation of functional GABAB receptors.\", \"escape retention in the endoplasmic reticulum\"]}}}}",
+ "usage": {
+  "completion_tokens": 269,
+  "prompt_tokens": 747,
+  "total_tokens": 1016,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 269
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 747,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00418400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:07:31+00:00"
+}

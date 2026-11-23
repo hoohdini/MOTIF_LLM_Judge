@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-TOP-C08-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In an ∞-category $X$, when is a 1-simplex $\\alpha:\\Delta[1]\\to X$ called an equivalence? Phrase the condition in terms of the homotopy category $\\tau(X)$.\n\nATOM: For an ∞-category $X$, a 1-simplex $\\alpha:\\Delta[1]\\to X$ is called an equivalence if the corresponding arrow $\\tau(\\alpha)$ in the homotopy category $\\tau(X)$ is an isomorphism.\nKEY POINTS:\n1. The arrow $\\tau(\\alpha)$ in the homotopy category $\\tau(X)$ is an isomorphism\n\nANSWER TO GRADE:\nA 1-simplex α: Δ[1] → X is called an equivalence if its image in the homotopy category τ(X) (the category obtained by applying the homotopy-category functor τ to X, whose morphisms are homotopy classes of 1-simplices) is an isomorphism, i.e., α represents an invertible morphism in τ(X).",
+ "raw": "{\"units\": {\"MATH-TOP-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"its image in the homotopy category τ(X)... is an isomorphism\"}], \"why\": \"The answer directly states that the image of the 1-simplex in the homotopy category τ(X) is an isomorphism.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"(the category obtained by applying the homotopy-category functor τ to X, whose morphisms are homotopy classes of 1-simplices)\", \"i.e., α represents an invertible morphism in τ(X).\"]}}}}",
+ "usage": {
+  "completion_tokens": 162,
+  "prompt_tokens": 568,
+  "total_tokens": 730,
+  "completion_tokens_details": {
+   "text_tokens": 162
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 568
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00275600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:50:37+00:00"
+}

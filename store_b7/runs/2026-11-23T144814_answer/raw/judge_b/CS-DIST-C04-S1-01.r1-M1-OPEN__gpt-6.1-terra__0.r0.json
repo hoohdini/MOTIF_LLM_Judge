@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DIST-C04-S1-01.r1-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C04-S1-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Under what system-model assumptions (timing, network, and failures) can shared-memory registers be implemented on top of message passing, as in the ABD register simulation?\n\nATOM: Shared memory can be implemented from message passing in a system that is asynchronous, has a complete network, and has only f < n/2 crash failures.\nKEY POINTS:\n1. Asynchronous system\n2. Complete network\n3. Only crash failures, with f < n/2\n\nANSWER TO GRADE:\nABD works in an asynchronous message-passing system with no bounds on process speeds or message delays, provided messages between nonfailed processes are eventually delivered. Servers may fail by crashing, but not behave Byzantine; with \\(n>2f\\), a majority remains available and quorums intersect, giving safety despite delays and termination when a majority can communicate.",
+ "raw": "{\"units\": {\"CS-DIST-C04-S1-01.r1-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"ABD works in an asynchronous message-passing system\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}, {\"kp\": 3, \"s\": \"present\", \"quote\": \"Servers may fail by crashing, but not behave Byzantine; with \\\\(n>2f\\\\)\"}], \"why\": \"The answer states that the system is asynchronous (KP1) and experiences only crash failures (not Byzantine) with n > 2f, which is equivalent to f < n/2 (KP3). It does not mention a complete network topology (KP2).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"provided messages between nonfailed processes are eventually delivered.\", \"a majority remains available and quorums intersect, giving safety despite delays and termination when a majority can communicate.\"]}}}}",
+ "usage": {
+  "completion_tokens": 232,
+  "prompt_tokens": 540,
+  "total_tokens": 772,
+  "completion_tokens_details": {
+   "text_tokens": 232
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 540
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00340000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:57:15+00:00"
+}

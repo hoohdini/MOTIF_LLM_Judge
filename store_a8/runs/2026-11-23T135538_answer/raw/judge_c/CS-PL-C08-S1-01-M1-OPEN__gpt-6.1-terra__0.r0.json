@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-PL-C08-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-PL-C08-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In quantitative equational logic, what does a quantitative $\\Omega$-algebra consist of, for a signature $\\Omega$?\n\nATOM: A quantitative $\\Omega$-algebra $\\mathcal{A}=(A,d,\\Omega_{\\mathcal{A}})$ consists of an extended metric space $(A,d)$ together with a collection $\\Omega_{\\mathcal{A}}$ of non-expansive interpretations, one for each operation symbol in the signature $\\Omega$.\nKEY POINTS:\n1. An extended metric space $(A,d)$ as the carrier\n2. An interpretation of each operation symbol in $\\Omega$ that is non-expansive\n\nANSWER TO GRADE:\nA quantitative \\(\\Omega\\)-algebra consists of a metric space \\((A,d)\\) and an interpretation \\(f_A:A^n\\to A\\) for each \\(n\\)-ary operation symbol \\(f\\in\\Omega\\). Each operation is nonexpansive with respect to the supremum metric: \\(d(f_A(\\mathbf a),f_A(\\mathbf b))\\leq\\max_i d(a_i,b_i)\\).",
+ "raw": "{\"units\":{\"CS-PL-C08-S1-01-M1-OPEN::gpt-6.1-terra::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"consists of a metric space \\\\((A,d)\\\\)\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"an interpretation \\\\(f_A:A^n\\\\to A\\\\) for each \\\\(n\\\\)-ary operation symbol \\\\(f\\\\in\\\\Omega\\\\). Each operation is nonexpansive\"}],\"why\":\"The answer gives a metric space as carrier and a non-expansive interpretation for each operation symbol. It says 'metric space' rather than 'extended metric space', but I counted this as present since the carrier is a metric space (A,d).\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"with respect to the supremum metric: \\\\(d(f_A(\\\\mathbf a),f_A(\\\\mathbf b))\\\\leq\\\\max_i d(a_i,b_i)\\\\)\"]}}}}",
+ "usage": {
+  "completion_tokens": 355,
+  "prompt_tokens": 885,
+  "total_tokens": 1240,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 355
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 885,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00532000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:05:01+00:00"
+}

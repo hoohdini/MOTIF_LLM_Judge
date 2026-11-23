@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-ALG-C01-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ALG-C01-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $G$ be a finite group and $p$ a prime dividing the order of $G$. What is a Sylow $p$-subgroup of $G$?\n\nATOM: For a finite group $G$ and a prime $p$ dividing $(G:1)$, a subgroup of $G$ is called a Sylow $p$-subgroup of $G$ if its order is the highest power of $p$ dividing $(G:1)$.\nKEY POINTS:\n1. A subgroup of $G$\n2. Its order is the highest power of $p$ dividing the order of $G$\n\nANSWER TO GRADE:\nA Sylow $p$-subgroup of $G$ is a subgroup whose order is the highest power of $p$ dividing $|G|$ (i.e., a $p$-subgroup of order $p^n$ where $p^n \\mid |G|$ but $p^{n+1} \\nmid |G|$). Equivalently, it is a maximal $p$-subgroup of $G$ under inclusion. By Sylow's theorems, such subgroups always exist.",
+ "raw": "{\"units\":{\"MATH-ALG-C01-S1-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"A Sylow $p$-subgroup of $G$ is a subgroup\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"whose order is the highest power of $p$ dividing $|G|$\"}],\"why\":\"The answer states both that it is a subgroup of G and that its order is the highest power of p dividing the order of G.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"Equivalently, it is a maximal $p$-subgroup of $G$ under inclusion.\",\"By Sylow's theorems, such subgroups always exist.\"]}}}}",
+ "usage": {
+  "completion_tokens": 172,
+  "prompt_tokens": 588,
+  "total_tokens": 760,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 172
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 588,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00289600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:12:00+00:00"
+}

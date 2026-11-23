@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-TOP-C10-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C10-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $p:X\\to S$ be a J-fibration between ∞-categories, and let $q:M\\to S$ be its minimal J-fibration, which is a fibrewise J-deformation retract of $X\\to S$. What kind of map is the retraction $X\\to M$?\n\nATOM: For a J-fibration $p:X\\to S$ between ∞-categories, the retraction of $X\\to S$ onto its minimal J-fibration $q:M\\to S$ (a fibrewise J-deformation retract) is a trivial fibration.\nKEY POINTS:\n1. The retraction is a trivial fibration\n\nANSWER TO GRADE:\nThe retraction \\(X\\to M\\) is a **trivial Kan fibration**. In particular, it is a J-equivalence.",
+ "raw": "{\"units\": {\"MATH-TOP-C10-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The retraction \\\\(X\\\\to M\\\\) is a **trivial Kan fibration**.\"}], \"why\": \"The answer states the retraction is a trivial fibration, matching the key point.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"In particular, it is a J-equivalence.\"]}}}}",
+ "usage": {
+  "completion_tokens": 192,
+  "prompt_tokens": 758,
+  "total_tokens": 950,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 192
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 758,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00343600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:58:11+00:00"
+}

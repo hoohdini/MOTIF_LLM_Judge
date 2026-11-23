@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-ALG-C05-S1-01.r1-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ALG-C05-S1-01.r1-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Consider the upper central series $Z^0(G)=1 \\le Z^1(G) \\le Z^2(G) \\le \\cdots$ of a group $G$, where $g\\in Z^i(G)$ if and only if $[g,x]\\in Z^{i-1}(G)$ for all $x\\in G$. In terms of this series, when is $G$ called nilpotent?\n\nATOM: A group $G$ is nilpotent if $Z^m(G)=G$ for some $m$, where $Z^i(G)$ is characterized by $g\\in Z^i(G)\\iff [g,x]\\in Z^{i-1}(G)$ for all $x\\in G$.\nKEY POINTS:\n1. $G$ is nilpotent if $Z^m(G)=G$ for some $m$\n2. the upper central series reaches all of $G$ after finitely many steps\n\nANSWER TO GRADE:\nA group $G$ is called nilpotent if its upper central series reaches the whole group in finitely many steps, i.e., $Z^c(G)=G$ for some integer $c\\ge 0$ (equivalently, $G$ has a finite nilpotency class $c$, the least such $c$).",
+ "raw": "{\"units\": {\"MATH-ALG-C05-S1-01.r1-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"$Z^c(G)=G$ for some integer $c\\\\ge 0$\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"its upper central series reaches the whole group in finitely many steps\"}], \"why\": \"Both key points are explicitly stated in the answer.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"equivalently, $G$ has a finite nilpotency class $c$, the least such $c$\"]}}}}",
+ "usage": {
+  "completion_tokens": 165,
+  "prompt_tokens": 654,
+  "total_tokens": 819,
+  "completion_tokens_details": {
+   "text_tokens": 165
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 654
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00295800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:01:51+00:00"
+}

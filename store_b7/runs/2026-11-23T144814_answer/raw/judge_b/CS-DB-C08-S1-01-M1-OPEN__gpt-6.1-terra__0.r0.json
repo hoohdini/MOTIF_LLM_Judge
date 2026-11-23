@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DB-C08-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C08-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $M$ be a schema mapping from schema S to schema T. Under what condition is a mapping $M'$ from T to S a Fagin-inverse of $M$?\n\nATOM: A mapping $M'$ from schema T to schema S is a Fagin-inverse of a mapping $M$ from S to T if and only if the composition $M \\circ M'$ equals the identity mapping $\\mathrm{Id}_S$.\nKEY POINTS:\n1. The composition $M \\circ M'$ equals the identity mapping $\\mathrm{Id}_S$\n\nANSWER TO GRADE:\n\\(M'\\) is a Fagin-inverse of \\(M\\) if, for every source instance \\(I\\) in the domain of \\(M\\), the source instances reachable by applying \\(M\\) and then \\(M'\\) have, collectively, exactly the same \\(M\\)-solutions as \\(I\\). In other words, \\(M\\circ M'\\) is the identity on the domain of \\(M\\), up to equivalence of sets of source instances induced by \\(M\\).",
+ "raw": "{\"units\": {\"CS-DB-C08-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"In other words, \\\\(M\\\\circ M'\\\\) is the identity\"}], \"why\": \"The answer explicitly states that the composition M o M' is the identity.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"for every source instance \\\\(I\\\\) in the domain of \\\\(M\\\\), the source instances reachable by applying \\\\(M\\\\) and then \\\\(M'\\\\) have, collectively, exactly the same \\\\(M\\\\)-solutions as \\\\(I\\\\).\", \"on the domain of \\\\(M\\\\), up to equivalence of sets of source instances induced by \\\\(M\\\\).\"]}}}}",
+ "usage": {
+  "completion_tokens": 193,
+  "prompt_tokens": 584,
+  "total_tokens": 777,
+  "completion_tokens_details": {
+   "text_tokens": 193
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 584
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00309800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:54:50+00:00"
+}

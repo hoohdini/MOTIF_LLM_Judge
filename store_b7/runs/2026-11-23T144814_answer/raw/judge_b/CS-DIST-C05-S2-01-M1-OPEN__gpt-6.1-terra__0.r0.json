@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DIST-C05-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C05-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How can a failure detector that is only weakly complete be boosted to give strong completeness? Describe the rule by which processes spread and withdraw suspicion.\n\nATOM: Any weakly-complete failure detector can be boosted to strong completeness by spreading suspicion. A process suspects another from the moment somebody else reports it dead until the moment that process says otherwise.\nKEY POINTS:\n1. A process suspects another process from the moment somebody else reports it dead\n2. The suspicion lasts until that suspected process itself says otherwise (tells it it is alive)\n\nANSWER TO GRADE:\nWhenever a process’s detector suspects another process, it broadcasts the suspicion; if it later stops suspecting it, it broadcasts a retraction. Each recipient tracks reports by sender and withdraws its own suspicion only when no sender’s latest report still suspects that process.",
+ "raw": "{\"units\": {\"CS-DIST-C05-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Whenever a process’s detector suspects another process, it broadcasts the suspicion... Each recipient tracks reports by sender\"}, {\"kp\": 2, \"s\": \"contradicted\", \"quote\": \"withdraws its own suspicion only when no sender’s latest report still suspects that process.\"}], \"why\": \"The answer captures spreading suspicion so recipients suspect when someone else reports it (KP1). However, it contradicts KP2 by stating that suspicion is withdrawn when the reporting senders broadcast a retraction, rather than when the suspected process itself says otherwise.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"if it later stops suspecting it, it broadcasts a retraction.\"]}}}}",
+ "usage": {
+  "completion_tokens": 197,
+  "prompt_tokens": 533,
+  "total_tokens": 730,
+  "completion_tokens_details": {
+   "text_tokens": 197
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 533
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00303600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:55:11+00:00"
+}

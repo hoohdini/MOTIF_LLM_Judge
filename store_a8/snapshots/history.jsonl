@@ -2,3 +2,5 @@
 {"ts": "2026-11-22T10:07:52+00:00", "kind": "items", "sha": "d34829fbc91c", "label": "재현 a8 v3", "rows": 693}
 {"ts": "2026-11-23T01:08:46+00:00", "kind": "answers", "sha": "329c3b9f6e7f", "label": "파일럿 책당6", "rows": 142}
 {"ts": "2026-11-23T01:22:07+00:00", "kind": "answers", "sha": "51997970148f", "label": "파일럿 책당6 보충", "rows": 144}
+{"ts": "2026-11-23T13:14:39+00:00", "kind": "items", "sha": "9d06ba2d548f", "label": "regen round1", "rows": 826}
+{"ts": "2026-11-23T13:55:37+00:00", "kind": "answers", "sha": "bc5faafd0186", "label": "answers v3 all", "rows": 888}

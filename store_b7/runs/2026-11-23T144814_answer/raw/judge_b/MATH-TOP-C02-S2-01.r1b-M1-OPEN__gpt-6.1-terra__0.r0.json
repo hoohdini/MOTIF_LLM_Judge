@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-TOP-C02-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C02-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Which simplicial sets are strict inner Kan complexes, i.e. those in which every inner horn has a unique filler? Characterize them in terms of categories.\n\nATOM: A simplicial set $X$ is a strict inner Kan complex if and only if $X$ is isomorphic to $N\\mathbf{C}$ for some small category $\\mathbf{C}$.\nKEY POINTS:\n1. A simplicial set is a strict inner Kan complex exactly when it is isomorphic to the nerve $N\\mathbf{C}$\n2. of some small category $\\mathbf{C}$\n\nANSWER TO GRADE:\nThe strict inner Kan complexes are exactly the nerves of ordinary categories, uniquely determined up to isomorphism. Their vertices are objects, their edges are morphisms, and unique inner horn fillers encode composition.",
+ "raw": "{\"units\": {\"MATH-TOP-C02-S2-01.r1b-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The strict inner Kan complexes are exactly the nerves of ordinary categories, uniquely determined up to isomorphism.\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"The answer identifies strict inner Kan complexes as the nerves of categories up to isomorphism (KP1), but does not specify that the categories must be 'small' (it says 'ordinary categories').\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Their vertices are objects, their edges are morphisms, and unique inner horn fillers encode composition.\"]}}}}",
+ "usage": {
+  "completion_tokens": 176,
+  "prompt_tokens": 530,
+  "total_tokens": 706,
+  "completion_tokens_details": {
+   "text_tokens": 176
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 530
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00282000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:57:45+00:00"
+}

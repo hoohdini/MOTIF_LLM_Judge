@@ -1,0 +1,38 @@
+{
+ "judges": {
+  "judge_b": {
+   "provider": "openai_compat",
+   "model": "gemini-4-argon",
+   "family": "google",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  },
+  "judge_c": {
+   "provider": "openai_compat",
+   "model": "claude-sonnet-5-5",
+   "family": "anthropic",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000
+  }
+ },
+ "group": "answer_judge",
+ "prompt_hash": "eb775fc4880e1908",
+ "repeat": 1,
+ "n_canary": 0,
+ "tasks": 12,
+ "run_id": "2026-11-23T141744_answer",
+ "stage": "answer",
+ "started_at": "2026-11-23T14:17:44+00:00",
+ "active": {
+  "cards": "b83eeabd7b0b",
+  "items": "9d06ba2d548f",
+  "answers": "bc5faafd0186"
+ },
+ "offsets_at_start": {
+  "verdicts": 41992,
+  "revisions": 160
+ }
+}

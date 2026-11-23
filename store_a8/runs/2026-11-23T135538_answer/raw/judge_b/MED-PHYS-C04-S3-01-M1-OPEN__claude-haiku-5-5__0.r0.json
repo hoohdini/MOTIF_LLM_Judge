@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C04-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C04-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How does respiratory system compliance influence the transmission of airway pressure to the pleural space and the resulting hemodynamic effects of heart-lung interaction? Contrast ARDS with COPD.\n\nATOM: Transmission of airway pressure to the pleural space is lower when the compliance of the respiratory system is low, as in acute respiratory distress syndrome (ARDS) with reduced lung compliance, so such a system has less hemodynamic effect from heart-lung interactions than a more compliant system as seen in chronic obstructive pulmonary disease (COPD).\nKEY POINTS:\n1. Low compliance (e.g., ARDS) leads to lower transmission of airway pressure to the pleural space and thus less hemodynamic effect\n2. More compliant systems (e.g., COPD) transmit more pressure and show greater hemodynamic effects\n\nANSWER TO GRADE:\nRespiratory system compliance determines what fraction of applied airway pressure reaches the pleural space: the pleural pressure change equals ΔPaw × C_lung / (C_lung + C_chest wall), so more compliant lungs transmit more of it. That pleural pressure is then applied to the heart and great vessels, reducing venous return and raising right ventricular afterload. In ARDS, stiff lungs transmit less pressure to the pleura but still load the RV through high plateau and PEEP, while in COPD, compliant hyperinflated lungs with auto-PEEP and large inspiratory swings in pleural pressure cause greater preload reduction and pulsus paradoxus.",
+ "raw": "{\"units\": {\"MED-PHYS-C04-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"In ARDS, stiff lungs transmit less pressure to the pleura\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"while in COPD, compliant hyperinflated lungs with auto-PEEP and large inspiratory swings in pleural pressure cause greater preload reduction and pulsus paradoxus.\"}], \"why\": \"The answer explains that low compliance (stiff lungs in ARDS) transmits less pressure to the pleura, and more compliant lungs (as in COPD) transmit more pressure and cause greater preload reduction.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"the pleural pressure change equals ΔPaw × C_lung / (C_lung + C_chest wall)\", \"That pleural pressure is then applied to the heart and great vessels, reducing venous return and raising right ventricular afterload.\", \"still load the RV through high plateau and PEEP\", \"hyperinflated lungs with auto-PEEP and large inspiratory swings in pleural pressure cause greater preload reduction and pulsus paradoxus.\"]}}}}",
+ "usage": {
+  "completion_tokens": 269,
+  "prompt_tokens": 651,
+  "total_tokens": 920,
+  "completion_tokens_details": {
+   "text_tokens": 269
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 651
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00399200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:00:37+00:00"
+}

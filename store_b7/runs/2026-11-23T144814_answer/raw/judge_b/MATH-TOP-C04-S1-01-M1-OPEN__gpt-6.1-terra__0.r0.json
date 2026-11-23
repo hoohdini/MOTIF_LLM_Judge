@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-TOP-C04-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C04-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What condition must a monomorphism $u: X\\to Y$ of dendroidal sets satisfy in order to be called a normal monomorphism?\n\nATOM: A monomorphism $u: X\\to Y$ of dendroidal sets is called normal if, for every tree $T$, the group $\\mathrm{Aut}(T)$ acts freely on the complement $Y_T - u(X_T)$ of the image of $u$.\nKEY POINTS:\n1. For every tree $T$, the automorphism group $\\mathrm{Aut}(T)$ acts freely\n2. The action is on the complement $Y_T - u(X_T)$ of the image of $u$\n\nANSWER TO GRADE:\nA monomorphism \\(u:X\\to Y\\) is **normal** if, for every tree \\(T\\), the automorphism group \\(\\operatorname{Aut}(T)\\) acts freely on \\(Y_T\\setminus u(X_T)\\). Equivalently, every dendrex of \\(Y\\) not in the image of \\(X\\) has trivial stabilizer.",
+ "raw": "{\"units\": {\"MATH-TOP-C04-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"for every tree \\\\(T\\\\), the automorphism group \\\\(\\\\operatorname{Aut}(T)\\\\) acts freely\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"acts freely on \\\\(Y_T\\\\setminus u(X_T)\\\\).\"}], \"why\": \"Both key points are explicitly stated in the answer.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Equivalently, every dendrex of \\\\(Y\\\\) not in the image of \\\\(X\\\\) has trivial stabilizer.\"]}}}}",
+ "usage": {
+  "completion_tokens": 173,
+  "prompt_tokens": 587,
+  "total_tokens": 760,
+  "completion_tokens_details": {
+   "text_tokens": 173
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 587
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00290400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:55:48+00:00"
+}

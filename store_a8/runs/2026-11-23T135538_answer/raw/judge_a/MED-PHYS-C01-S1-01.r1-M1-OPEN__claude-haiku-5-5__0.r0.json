@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PHYS-C01-S1-01.r1-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C01-S1-01.r1-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the revised Starling principle for continuous microvascular endothelium, what feature of the colloid osmotic pressure force explains why, at steady state, it opposes filtration but does not reverse the direction of filtrate flow?\n\nATOM: The dependence of the colloid osmotic pressure Starling force on the solvent filtration rate within a subglycocalyx 'protected region' of the general interstitial fluid ensures that osmotic forces oppose but, at steady state, do not reverse the flow of the filtrate.\nKEY POINTS:\n1. The colloid osmotic pressure force depends on the solvent filtration rate\n2. This dependence arises within the subglycocalyx 'protected region' of the interstitial fluid\n\nANSWER TO GRADE:\nIn the revised Starling principle, the colloid osmotic force acts only as a reflected force, scaled by the reflection coefficient σ (<1), and it is exerted across the glycocalyx surface layer, where protein concentration is much lower than in plasma. This makes the oncotic opposition smaller than the hydrostatic driving force, so it slows filtration but cannot exceed the net driving force and reverse flow.",
+ "raw": "{\"units\":{\"MED-PHYS-C01-S1-01.r1-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"absent\",\"quote\":\"\"},{\"kp\":2,\"s\":\"absent\",\"quote\":\"\"}],\"why\":\"The answer does not state that the colloid osmotic force depends on solvent filtration rate or that this dependence arises within a subglycocalyx protected region.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"the colloid osmotic force acts only as a reflected force, scaled by the reflection coefficient σ (<1)\",\"it is exerted across the glycocalyx surface layer, where protein concentration is much lower than in plasma.\",\"This makes the oncotic opposition smaller than the hydrostatic driving force\"]}}}}",
+ "usage": {
+  "completion_tokens": 233,
+  "prompt_tokens": 578,
+  "total_tokens": 811,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 578,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00348600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:03:23+00:00"
+}

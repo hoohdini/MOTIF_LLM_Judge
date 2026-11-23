@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-ALG-C06-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ALG-C06-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What condition on its quotient groups characterizes when a subnormal series of a group is a composition series?\n\nATOM: A subnormal series of a group is a composition series if and only if each of its quotient groups is simple and nontrivial.\nKEY POINTS:\n1. Every quotient group of the series is simple\n2. Every quotient group is nontrivial (the series has no repetitions)\n\nANSWER TO GRADE:\nA subnormal series is a composition series exactly when each of its successive quotient groups (factors) G_{i+1}/G_i is simple (and nontrivial, since the series is strictly descending). Equivalently, no proper nontrivial normal subgroups lie strictly between consecutive terms, so each factor has no normal subgroups other than the trivial ones.",
+ "raw": "{\"units\": {\"MATH-ALG-C06-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"each of its successive quotient groups (factors) G_{i+1}/G_i is simple\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"and nontrivial, since the series is strictly descending\"}], \"why\": \"Both key points are explicitly stated in the first sentence of the answer.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Equivalently, no proper nontrivial normal subgroups lie strictly between consecutive terms, so each factor has no normal subgroups other than the trivial ones.\"]}}}}",
+ "usage": {
+  "completion_tokens": 169,
+  "prompt_tokens": 520,
+  "total_tokens": 689,
+  "completion_tokens_details": {
+   "text_tokens": 169
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 520
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00273000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:57:25+00:00"
+}

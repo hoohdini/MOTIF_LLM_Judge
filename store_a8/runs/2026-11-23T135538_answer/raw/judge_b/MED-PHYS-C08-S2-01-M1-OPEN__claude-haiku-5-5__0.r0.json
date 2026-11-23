@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C08-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C08-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How is a calculated anion gap corrected for hypoalbuminemia (normal albumin taken as 4 g/dL)?\n\nATOM: To correct the calculated anion gap for low albumin, the calculated anion gap is increased by 2.5 mmol/L for every 1 g/dL decrease in albumin below the normal value of 4 g/dL.\nKEY POINTS:\n1. Increase the calculated anion gap by 2.5 mmol/L\n2. for every 1 g/dL decrease in albumin below 4 g/dL\n\nANSWER TO GRADE:\nThe albumin-corrected anion gap is calculated as **AG_corrected = measured AG + 2.5 × (4.0 − serum albumin in g/dL)**. For every 1 g/dL that albumin falls below 4 g/dL, 2.5 mEq/L is added to the measured gap.",
+ "raw": "{\"units\": {\"MED-PHYS-C08-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"2.5 mEq/L is added to the measured gap.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"For every 1 g/dL that albumin falls below 4 g/dL\"}], \"why\": \"The answer states the equivalent formula and explicitly writes that 2.5 mEq/L (equivalent to mmol/L for univalent ions in anion gap) is added for every 1 g/dL drop below 4 g/dL.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 180,
+  "prompt_tokens": 557,
+  "total_tokens": 737,
+  "completion_tokens_details": {
+   "text_tokens": 180
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 557
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00291400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:00:53+00:00"
+}

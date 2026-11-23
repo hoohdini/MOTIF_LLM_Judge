@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Why can fluid absorption be sustained in the intestinal mucosal microvasculature, in contrast to the steady-state filtration seen in most tissues?\n\nATOM: In the intestinal mucosal microvasculature, a supply of protein-free solvent to the interstitium by an adjacent secreting epithelium keeps the interstitial colloid osmotic pressure low, so that the colloid osmotic pressure difference that drives fluid absorption can be sustained, which is an exception to the steady-state filtration rule.\nKEY POINTS:\n1. An adjacent secreting epithelium supplies protein-free solvent to the interstitium\n2. This keeps the interstitial colloid osmotic pressure low, so the colloid osmotic pressure difference driving absorption is sustained\n\nANSWER TO GRADE:\nThe intestinal epithelium continuously delivers absorbed, protein-poor fluid to the mucosal interstitium. This raises interstitial pressure and dilutes interstitial proteins, maintaining Starling forces that favor fluid uptake into the microvasculature.",
+ "raw": "{\"units\": {\"MED-PHYS-C01-S3-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The intestinal epithelium continuously delivers absorbed, protein-poor fluid to the mucosal interstitium.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"dilutes interstitial proteins, maintaining Starling forces that favor fluid uptake into the microvasculature.\"}], \"why\": \"The answer says the epithelium delivers protein-poor fluid, matching point 1. It says this dilutes interstitial proteins and keeps forces favoring uptake, which matches point 2 in substance. It does not say 'colloid osmotic pressure' explicitly, but dilution of interstitial proteins implies it.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"This raises interstitial pressure\"]}}}}",
+ "usage": {
+  "completion_tokens": 334,
+  "prompt_tokens": 860,
+  "total_tokens": 1194,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 334
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 860,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00506000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:07:45+00:00"
+}

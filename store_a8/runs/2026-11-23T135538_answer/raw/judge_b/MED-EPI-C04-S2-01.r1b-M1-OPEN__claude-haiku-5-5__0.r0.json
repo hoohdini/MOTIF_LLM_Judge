@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-EPI-C04-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-EPI-C04-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Which RNA-binding protein binds to the A-repeat region of Xist RNA during X chromosome inactivation?\n\nATOM: The RNA-binding protein SPEN binds to the Xist A-repeat.\nKEY POINTS:\n1. SPEN\n\nANSWER TO GRADE:\nThe RNA-binding protein that binds the A-repeat region of Xist is SPEN (SHARP/Spen family transcriptional repressor), which recruits repressive complexes to silence the X chromosome. Note that the A-repeat's binding of SPEN is the key interaction in this step of X inactivation.",
+ "raw": "{\"units\": {\"MED-EPI-C04-S2-01.r1b-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The RNA-binding protein that binds the A-repeat region of Xist is SPEN\"}], \"why\": \"The answer explicitly names SPEN.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"(SHARP/Spen family transcriptional repressor), which recruits repressive complexes to silence the X chromosome.\", \"Note that the A-repeat's binding of SPEN is the key interaction in this step of X inactivation.\"]}}}}",
+ "usage": {
+  "completion_tokens": 154,
+  "prompt_tokens": 488,
+  "total_tokens": 642,
+  "completion_tokens_details": {
+   "text_tokens": 154
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 488
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00251600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:02:47+00:00"
+}

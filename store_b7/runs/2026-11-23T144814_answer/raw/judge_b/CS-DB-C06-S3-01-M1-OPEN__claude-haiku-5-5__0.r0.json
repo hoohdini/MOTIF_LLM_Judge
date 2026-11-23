@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DB-C06-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DB-C06-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is the decidability status of testing CQ-equivalence for two schema mappings based on s-t tgds and a weakly acyclic set of target tgds, and does it change for restricted forms of the dependencies?\n\nATOM: CQ-equivalence is undecidable for schema mappings based on s-t tgds and a weakly acyclic set of target tgds, even for copy s-t tgds and full target tgds.\nKEY POINTS:\n1. CQ-equivalence is undecidable for such mappings\n2. It remains undecidable even for copy s-t tgds and full target tgds\n\nANSWER TO GRADE:\nTesting CQ-equivalence of two schema mappings given by s-t tgds plus a weakly acyclic set of target tgds is **undecidable**. I'm not certain whether restricting the target tgds (for example, to full tgds) restores decidability; my recollection is that it does not, but I can't confirm that from memory.",
+ "raw": "{\"units\": {\"CS-DB-C06-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"Testing CQ-equivalence of two schema mappings given by s-t tgds plus a weakly acyclic set of target tgds is **undecidable**.\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"The answer correctly states that CQ-equivalence is undecidable for these mappings (KP1). It expresses uncertainty about full target tgds and omits copy s-t tgds, so KP2 is absent.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 169,
+  "prompt_tokens": 568,
+  "total_tokens": 737,
+  "completion_tokens_details": {
+   "text_tokens": 169
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 568
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00282600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:49:31+00:00"
+}

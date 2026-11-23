@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PATH-C08-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PATH-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What kind of particle transport do track structure Monte Carlo codes perform, and why is it needed to link radiation track structure to biological effects?\n\nATOM: Track structure Monte Carlo codes simulate particle transport event by event, tracking the individual physical interactions, in order to reach the nanometric spatial resolution needed to link radiation track structure to biological effects.\nKEY POINTS:\n1. Event-by-event transport that tracks the individual physical interactions\n2. Needed to reach nanometric spatial resolution\n\nANSWER TO GRADE:\nTrack structure Monte Carlo codes perform event-by-event, microscopic transport of charged particles (and secondary electrons, etc.), simulating every individual interaction (ionization, excitation, elastic scattering) with its discrete energy deposits and spatial locations. This detailed spatial pattern of energy deposition is needed because biological damage, such as clustered DNA lesions and double-strand breaks, depends on where and how closely ionizations occur at the nanometer scale, so linking track structure to biological effects requires knowing these precise microscopic patterns rather than just average dose.",
+ "raw": "{\"units\":{\"MED-PATH-C08-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"perform event-by-event, microscopic transport of charged particles (and secondary electrons, etc.), simulating every individual interaction\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"depends on where and how closely ionizations occur at the nanometer scale\"}],\"why\":\"The answer explicitly describes event-by-event simulation of individual interactions and the need for nanometer-scale spatial detail to link track structure to biological effects.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"charged particles (and secondary electrons, etc.)\",\"ionization, excitation, elastic scattering\",\"with its discrete energy deposits and spatial locations\",\"biological damage, such as clustered DNA lesions and double-strand breaks\",\"rather than just average dose\"]}}}}",
+ "usage": {
+  "completion_tokens": 260,
+  "prompt_tokens": 544,
+  "total_tokens": 804,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 544,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00368800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T14:51:08+00:00"
+}

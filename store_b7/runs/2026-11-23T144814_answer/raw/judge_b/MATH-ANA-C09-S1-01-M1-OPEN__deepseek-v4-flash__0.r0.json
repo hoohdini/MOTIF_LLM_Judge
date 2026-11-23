@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-ANA-C09-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ANA-C09-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Give a necessary and sufficient condition, stated in terms of sequences in the form domain $\\mathrm{dom}(\\mathfrak t)$, for a Dirichlet form $\\mathfrak t$ on $L^2(X;\\mu)$ to be recurrent.\n\nATOM: A Dirichlet form $\\mathfrak t$ is recurrent if and only if there exists a sequence $(f_n)$ in $\\mathrm{dom}(\\mathfrak t)$ with $f_n\\to\\mathbb 1$ $\\mu$-a.e. on $X$ and $\\mathfrak t[f_n]\\to 0$.\nKEY POINTS:\n1. There exists a sequence $(f_n)$ in $\\mathrm{dom}(\\mathfrak t)$ with $f_n\\to\\mathbb 1$ $\\mu$-almost everywhere on $X$\n2. The same sequence satisfies $\\mathfrak t[f_n]\\to 0$\n\nANSWER TO GRADE:\nA Dirichlet form $\\mathfrak t$ is recurrent if and only if there exists a sequence $(u_n) \\subset \\mathrm{dom}(\\mathfrak t)$ such that $u_n \\to 1$ $\\mu$-a.e. and $\\mathfrak t(u_n, u_n) \\to 0$.",
+ "raw": "{\"units\": {\"MATH-ANA-C09-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"there exists a sequence $(u_n) \\\\subset \\\\mathrm{dom}(\\\\mathfrak t)$ such that $u_n \\\\to 1$ $\\\\mu$-a.e.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"and $\\\\mathfrak t(u_n, u_n) \\\\to 0$.\"}], \"why\": \"Both key points are stated clearly using the equivalent bilinear form notation for the quadratic form.\"}, \"ADDITIONAL_CONTENT\": {\"present\": false, \"quotes\": []}}}}",
+ "usage": {
+  "completion_tokens": 171,
+  "prompt_tokens": 621,
+  "total_tokens": 792,
+  "completion_tokens_details": {
+   "text_tokens": 171
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 621
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00295200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T15:00:46+00:00"
+}

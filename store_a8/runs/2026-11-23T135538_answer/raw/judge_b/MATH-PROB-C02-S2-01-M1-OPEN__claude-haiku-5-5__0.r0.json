@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-PROB-C02-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-PROB-C02-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $I$ be the unit current flow from $a$ to $z$ in a finite network. What is its energy $\\mathcal{E}(I)$ in terms of a standard network quantity?\n\nATOM: For the unit current flow $I$ from $a$ to $z$ with corresponding voltage function $h$, the energy $\\mathcal{E}(I)$ equals the effective resistance $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z)$.\nKEY POINTS:\n1. $\\mathcal{E}(I)$ equals the effective resistance $\\mathcal{R}_{\\mathrm{eff}}(a\\leftrightarrow z)$\n\nANSWER TO GRADE:\nThe energy of the unit current flow equals the effective resistance between $a$ and $z$: $\\mathcal{E}(I) = \\sum_e r(e)\\,I(e)^2 = R_{\\text{eff}}(a \\leftrightarrow z)$. This follows from Thomson's principle, since the unit current flow is the minimum-energy unit flow from $a$ to $z$.",
+ "raw": "{\"units\": {\"MATH-PROB-C02-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"The energy of the unit current flow equals the effective resistance between $a$ and $z$: $\\\\mathcal{E}(I) = \\\\sum_e r(e)\\\\,I(e)^2 = R_{\\\\text{eff}}(a \\\\leftrightarrow z)$.\"}], \"why\": \"The answer explicitly states that the energy of the unit current flow equals the effective resistance between a and z.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"$\\\\mathcal{E}(I) = \\\\sum_e r(e)\\\\,I(e)^2$\", \"This follows from Thomson's principle, since the unit current flow is the minimum-energy unit flow from $a$ to $z$.\"]}}}}",
+ "usage": {
+  "completion_tokens": 211,
+  "prompt_tokens": 580,
+  "total_tokens": 791,
+  "completion_tokens_details": {
+   "text_tokens": 211
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 580
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00327000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T13:58:12+00:00"
+}
