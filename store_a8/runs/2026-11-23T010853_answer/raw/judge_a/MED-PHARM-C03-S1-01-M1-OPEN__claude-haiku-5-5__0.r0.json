@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHARM-C03-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHARM-C03-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is distinctive about the mechanism by which proteinase-activated receptors (PARs), as members of the GPCR superfamily, are activated?\n\nATOM: Proteinase-activated receptors (PARs) are unique members of the GPCR superfamily that are activated by proteolytic cleavage of their amino terminal exodomains.\nKEY POINTS:\n1. Activation occurs by proteolytic cleavage\n2. Cleavage occurs in the amino terminal exodomain of the receptor\n\nANSWER TO GRADE:\nPARs are unusual in that they are activated by proteolytic cleavage of their extracellular N-terminus rather than by binding a diffusible ligand. Proteases such as thrombin cut within the N-terminal exodomain, exposing a new N-terminus that acts as a tethered ligand which binds intramolecularly to the receptor's second extracellular loop to trigger signaling.",
+ "raw": "{\"units\":{\"MED-PHARM-C03-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"they are activated by proteolytic cleavage\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"Proteases such as thrombin cut within the N-terminal exodomain\"}],\"why\":\"The answer explicitly states activation by proteolytic cleavage and locates cleavage in the receptor's N-terminal exodomain.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"rather than by binding a diffusible ligand\",\"Proteases such as thrombin\",\"exposing a new N-terminus that acts as a tethered ligand which binds intramolecularly to the receptor's second extracellular loop to trigger signaling\"]}}}}",
+ "usage": {
+  "completion_tokens": 173,
+  "prompt_tokens": 520,
+  "total_tokens": 693,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 173
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 520,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00277000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:09:55+00:00"
+}

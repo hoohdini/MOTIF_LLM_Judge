@@ -1,0 +1,36 @@
+{
+ "batch_id": "MATH-TOP-C08-S3-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-TOP-C08-S3-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: For an ∞-category $Y$, which other conditions are equivalent to $Y$ being a Kan complex? Give conditions on the homotopy category $\\tau(Y)$ and on the map $Y\\to\\Delta[0]$.\n\nATOM: For an ∞-category $Y$, the following are equivalent: $Y$ is a Kan complex, $\\tau(Y)$ is a groupoid, $Y\\to\\Delta[0]$ is a left fibration, and $Y\\to\\Delta[0]$ is a right fibration.\nKEY POINTS:\n1. $\\tau(Y)$ is a groupoid\n2. $Y\\to\\Delta[0]$ is a left fibration\n3. $Y\\to\\Delta[0]$ is a right fibration\n\nANSWER TO GRADE:\nY is a Kan complex if and only if its homotopy category $\\tau(Y)$ is a groupoid, and also if and only if the map $Y \\to \\Delta[0]$ is a Kan fibration.",
+ "raw": "{\"units\":{\"MATH-TOP-C08-S3-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"Y is a Kan complex if and only if its homotopy category $\\\\tau(Y)$ is a groupoid\"},{\"kp\":2,\"s\":\"absent\",\"quote\":\"\"},{\"kp\":3,\"s\":\"absent\",\"quote\":\"\"}],\"why\":\"The answer states the groupoid condition but does not state either the left-fibration or right-fibration condition.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"also if and only if the map $Y \\\\to \\\\Delta[0]$ is a Kan fibration.\"]}}}}",
+ "usage": {
+  "completion_tokens": 186,
+  "prompt_tokens": 561,
+  "total_tokens": 747,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 561,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00298200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:34:39+00:00"
+}

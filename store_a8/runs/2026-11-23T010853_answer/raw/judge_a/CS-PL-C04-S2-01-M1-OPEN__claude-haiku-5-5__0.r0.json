@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-PL-C04-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-PL-C04-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What does it mean for a pRHL judgment $\\rho \\models c_1 \\sim c_2 : \\Phi \\Longrightarrow \\Psi$ to be valid, in terms of couplings of the output distributions?\n\nATOM: A valid pRHL judgment $\\rho \\models c_1 \\sim c_2 : \\Phi \\Longrightarrow \\Psi$ implies that for any two input memories related by $\\Phi$, there exists a coupling with support in $\\Psi$ between the two output distributions.\nKEY POINTS:\n1. For any two input memories related by $\\Phi$\n2. there exists a coupling of the two output distributions with support in $\\Psi$\n\nANSWER TO GRADE:\nThe judgment is valid if, for every pair of input memories $(m_1, m_2)$ satisfying the precondition $\\Phi$, the output distributions $\\llbracket c_1 \\rrbracket m_1$ and $\\llbracket c_2 \\rrbracket m_2$ have a coupling $\\mu$ whose support lies within the postcondition $\\Psi$. In other words, there is a joint distribution with those two marginals that puts all its probability mass on output pairs satisfying $\\Psi$.",
+ "raw": "{\"units\":{\"CS-PL-C04-S2-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"for every pair of input memories $(m_1, m_2)$ satisfying the precondition $\\\\Phi$\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"the output distributions $\\\\llbracket c_1 \\\\rrbracket m_1$ and $\\\\llbracket c_2 \\\\rrbracket m_2$ have a coupling $\\\\mu$ whose support lies within the postcondition $\\\\Psi$.\"}],\"why\":\"The answer states both the universal condition on input memories and the existence of a coupling supported in the postcondition.\"},\"ADDITIONAL_CONTENT\":{\"present\":false,\"quotes\":[]}}}}",
+ "usage": {
+  "completion_tokens": 178,
+  "prompt_tokens": 588,
+  "total_tokens": 766,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 178
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 588,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00295600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:09:10+00:00"
+}

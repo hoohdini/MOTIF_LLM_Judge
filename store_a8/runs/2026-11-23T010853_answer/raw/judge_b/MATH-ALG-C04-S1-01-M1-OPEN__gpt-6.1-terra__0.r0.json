@@ -1,0 +1,33 @@
+{
+ "batch_id": "MATH-ALG-C04-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ALG-C04-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Let $G \\to \\mathrm{GL}(V)$ be a linear representation of a group $G$ on an $F$-vector space $V$. What does it mean for a subspace $W$ of $V$ to be $G$-invariant?\n\nATOM: In a linear representation $G \\to \\mathrm{GL}(V)$ of $G$ on an $F$-vector space $V$, a subspace $W$ of $V$ is called $G$-invariant if $gW \\subset W$ for all $g \\in G$.\nKEY POINTS:\n1. $gW \\subset W$ for every $g \\in G$ (G maps W into itself)\n\nANSWER TO GRADE:\nA subspace \\(W\\subseteq V\\) is \\(G\\)-invariant if \\(g\\cdot w\\in W\\) for every \\(g\\in G\\) and \\(w\\in W\\). Equivalently, \\(gW=W\\) for every \\(g\\in G\\).",
+ "raw": "{\"units\": {\"MATH-ALG-C04-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"g\\\\cdot w\\\\in W\\\\) for every \\\\(g\\\\in G\\\\) and \\\\(w\\\\in W\"}], \"why\": \"The answer states that g*w is in W for every g in G and w in W, which means gW is a subset of W.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"Equivalently, \\\\(gW=W\\\\) for every \\\\(g\\\\in G\\\\).\"]}}}}",
+ "usage": {
+  "completion_tokens": 159,
+  "prompt_tokens": 573,
+  "total_tokens": 732,
+  "completion_tokens_details": {
+   "text_tokens": 159
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 573
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00273600",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:10:46+00:00"
+}

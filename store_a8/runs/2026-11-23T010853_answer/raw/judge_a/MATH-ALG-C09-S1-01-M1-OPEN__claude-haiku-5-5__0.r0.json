@@ -1,0 +1,39 @@
+{
+ "batch_id": "MATH-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MATH-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What is the definition of a solvable group?\n\nATOM: A group is solvable if it has a solvable series, where a solvable series is a subnormal series whose quotient groups are all commutative.\nKEY POINTS:\n1. The group has a subnormal series (a solvable series)\n2. All quotient groups of that series are commutative\n\nANSWER TO GRADE:\nA group G is solvable if it has a subnormal series 1 = G_0 ◁ G_1 ◁ ... ◁ G_n = G in which each successive quotient G_{i+1}/G_i is abelian. Equivalently, its derived series G^(0) = G, G^(i+1) = [G^(i), G^(i)] reaches the trivial subgroup after finitely many steps.",
+ "raw": "{\"units\":{\"MATH-ALG-C09-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"A group G is solvable if it has a subnormal series 1 = G_0 ◁ G_1 ◁ ... ◁ G_n = G\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"in which each successive quotient G_{i+1}/G_i is abelian.\"}],\"why\":\"The answer states that the group has a subnormal series and that every successive quotient is abelian (commutative).\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"Equivalently, its derived series G^(0) = G, G^(i+1) = [G^(i), G^(i)] reaches the trivial subgroup after finitely many steps.\"]}}}}",
+ "usage": {
+  "completion_tokens": 195,
+  "prompt_tokens": 515,
+  "total_tokens": 710,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 195
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 515,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00298000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:09:22+00:00"
+}

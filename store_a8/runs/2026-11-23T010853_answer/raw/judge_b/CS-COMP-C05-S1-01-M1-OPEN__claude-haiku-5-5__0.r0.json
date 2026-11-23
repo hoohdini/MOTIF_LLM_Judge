@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-COMP-C05-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-COMP-C05-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: State Kleene's normal form theorem for partial recursive functions. What kinds of objects does it provide, and how do they combine to express an arbitrary partial recursive function $f$?\n\nATOM: Kleene's normal form theorem states that there are a primitive recursive relation $T(e,x,s)$ and a primitive recursive function $U(s)$ such that, for every partial recursive function $f$, there is some $e$ with $f(x) \\simeq U(\\mu s\\, T(e,x,s))$ for every $x$.\nKEY POINTS:\n1. There is a primitive recursive relation $T(e,x,s)$ and a primitive recursive function $U(s)$\n2. For every partial recursive $f$ there is some $e$ such that $f(x) \\simeq U(\\mu s\\, T(e,x,s))$ for all $x$\n\nANSWER TO GRADE:\nKleene's Normal Form Theorem says there are a primitive recursive predicate T(e, x, y) (Kleene's T-predicate) and a primitive recursive function U(y) such that for every partial recursive function f of arity n there is an index e with f(x₁,…,xₙ) ≃ U(μy T(e, x⃗, y)), where μ is the unbounded minimization operator. So the objects are a natural number index e (a code for a Turing machine or program) and the fixed primitive recursive predicate T and extraction function U; an arbitrary partial recursive f is expressed by composing one unbounded search μy over T with U applied to the least witness y found.",
+ "raw": "{\"units\": {\"CS-COMP-C05-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"there are a primitive recursive predicate T(e, x, y) (Kleene's T-predicate) and a primitive recursive function U(y)\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"for every partial recursive function f of arity n there is an index e with f(x₁,…,xₙ) ≃ U(μy T(e, x⃗, y))\"}], \"why\": \"Both key points are explicitly stated in the answer (using y instead of s and generalizing to n-ary x).\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"where μ is the unbounded minimization operator\", \"a natural number index e (a code for a Turing machine or program)\"]}}}}",
+ "usage": {
+  "completion_tokens": 216,
+  "prompt_tokens": 712,
+  "total_tokens": 928,
+  "completion_tokens_details": {
+   "text_tokens": 216
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 712
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00358400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:09:10+00:00"
+}

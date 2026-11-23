@@ -1,0 +1,13 @@
+{
+ "kind": "answers",
+ "sha": "51997970148f",
+ "rows": 144,
+ "sources": [
+  {
+   "file": "answers.jsonl",
+   "sha256": "51997970148ff8ffec69d1a4c3542e6ac4c49cb45067db0fcd77b9d54fa99913"
+  }
+ ],
+ "label": "파일럿 책당6 보충",
+ "ingested_at": "2026-11-23T01:22:07+00:00"
+}

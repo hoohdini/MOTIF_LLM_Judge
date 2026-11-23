@@ -1,0 +1,39 @@
+{
+ "judges": {
+  "judge_a": {
+   "provider": "openai_compat",
+   "model": "gpt-6.1-sol",
+   "family": "openai",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  },
+  "judge_b": {
+   "provider": "openai_compat",
+   "model": "gemini-4-argon",
+   "family": "google",
+   "base_url_env": "LETSUR_BASE_URL",
+   "key_env": "LETSUR_API_KEY",
+   "max_tokens": 16000,
+   "token_param": "max_completion_tokens"
+  }
+ },
+ "group": "answer_judge",
+ "prompt_hash": "eb775fc4880e1908",
+ "repeat": 1,
+ "n_canary": 0,
+ "tasks": 2,
+ "run_id": "2026-11-23T014308_answer",
+ "stage": "answer",
+ "started_at": "2026-11-23T01:43:08+00:00",
+ "active": {
+  "cards": "3cc99befe800",
+  "items": "0ba83cb8ac26",
+  "answers": "953b1b614f22"
+ },
+ "offsets_at_start": {
+  "verdicts": 33328,
+  "revisions": 183
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "batch_id": "CS-COMP-C05-S1-01-M1-OPEN::deepseek-v4-flash::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-COMP-C05-S1-01-M1-OPEN::deepseek-v4-flash::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: State Kleene's normal form theorem for partial recursive functions. What kinds of objects does it provide, and how do they combine to express an arbitrary partial recursive function $f$?\n\nATOM: Kleene's normal form theorem states that there are a primitive recursive relation $T(e,x,s)$ and a primitive recursive function $U(s)$ such that, for every partial recursive function $f$, there is some $e$ with $f(x) \\simeq U(\\mu s\\, T(e,x,s))$ for every $x$.\nKEY POINTS:\n1. There is a primitive recursive relation $T(e,x,s)$ and a primitive recursive function $U(s)$\n2. For every partial recursive $f$ there is some $e$ such that $f(x) \\simeq U(\\mu s\\, T(e,x,s))$ for all $x$\n\nANSWER TO GRADE:\nKleene's normal form theorem states that for each arity \\(n\\), there exist a primitive recursive function \\(U\\) and a primitive recursive predicate \\(T_n\\) such that for any partial recursive function \\(f(x_1,\\dots,x_n)\\), there is an index \\(e\\) with \\(f(x_1,\\dots,x_n) \\simeq U(\\mu y.\\, T_n(e, x_1,\\dots,x_n, y))\\). Thus, \\(U\\) extracts the result from the least code \\(y\\) of a computation, \\(T_n\\) encodes the computation steps, and \\(e\\) identifies the function.",
+ "raw": "{\"units\":{\"CS-COMP-C05-S1-01-M1-OPEN::deepseek-v4-flash::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"there exist a primitive recursive function \\\\(U\\\\) and a primitive recursive predicate \\\\(T_n\\\\)\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"for any partial recursive function \\\\(f(x_1,\\\\dots,x_n)\\\\), there is an index \\\\(e\\\\) with \\\\(f(x_1,\\\\dots,x_n) \\\\simeq U(\\\\mu y.\\\\, T_n(e, x_1,\\\\dots,x_n, y))\\\\)\"}],\"why\":\"The answer states both primitive recursive objects and the required representation of every partial recursive function, using n-ary notation.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"Thus, \\\\(U\\\\) extracts the result from the least code \\\\(y\\\\) of a computation, \\\\(T_n\\\\) encodes the computation steps, and \\\\(e\\\\) identifies the function.\"]}}}}",
+ "usage": {
+  "completion_tokens": 336,
+  "prompt_tokens": 666,
+  "total_tokens": 1002,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 666,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00469200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:11:42+00:00"
+}

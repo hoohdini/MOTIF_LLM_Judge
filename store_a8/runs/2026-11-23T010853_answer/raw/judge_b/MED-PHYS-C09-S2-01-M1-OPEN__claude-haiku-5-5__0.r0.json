@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-PHYS-C09-S2-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C09-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: Which major factors regulate intrinsic lymphatic pumping?\n\nATOM: Intrinsic lymphatic pumping is regulated by four major factors: preload, afterload, spontaneous contraction frequency and contractility.\nKEY POINTS:\n1. Preload and afterload\n2. Spontaneous contraction frequency and contractility\n\nANSWER TO GRADE:\nIntrinsic lymphatic pumping is regulated mainly by the degree of lymphatic vessel wall stretch (preload/transmural pressure), which triggers spontaneous contraction of smooth muscle cells, and by afterload (downstream pressure and resistance). Additional modulators include nitric oxide and other vasoactive mediators (e.g., prostaglandins, histamine, serotonin), along with the lymphatic valve function that prevents backflow.",
+ "raw": "{\"units\": {\"MED-PHYS-C09-S2-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"(preload/transmural pressure), which triggers spontaneous contraction of smooth muscle cells, and by afterload\"}, {\"kp\": 2, \"s\": \"absent\", \"quote\": \"\"}], \"why\": \"KP1 is present as both preload and afterload are explicitly stated. KP2 is absent because while 'spontaneous contraction' is mentioned, neither 'spontaneous contraction frequency' nor 'contractility' is stated as a regulating factor.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"degree of lymphatic vessel wall stretch (preload/transmural pressure), which triggers spontaneous contraction of smooth muscle cells\", \"afterload (downstream pressure and resistance)\", \"Additional modulators include nitric oxide and other vasoactive mediators (e.g., prostaglandins, histamine, serotonin), along with the lymphatic valve function that prevents backflow.\"]}}}}",
+ "usage": {
+  "completion_tokens": 231,
+  "prompt_tokens": 502,
+  "total_tokens": 733,
+  "completion_tokens_details": {
+   "text_tokens": 231
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 502
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00331400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:10:19+00:00"
+}

@@ -1,0 +1,33 @@
+{
+ "batch_id": "CS-DIST-C02-S2-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C02-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In Paxos, what does a proposer do after it has received ack messages from a majority of accepters, including how it chooses the value it proposes?\n\nATOM: In Paxos, after a proposer has received ack messages from a majority of accepters, it sets its value v to the value in the ack with the highest proposal number if any ack contained a value, and then sends accept!(r, v) to the accepters.\nKEY POINTS:\n1. If any ack contained a value, it sets v to the value from the ack with the highest (most recent) proposal number\n2. It then sends accept!(r, v) to the accepters\n\nANSWER TO GRADE:\nAfter receiving prepare acknowledgments from a majority of acceptors, the proposer sends an accept request with its proposal number and chosen value. It chooses the value from the highest-numbered proposal previously accepted by any of those acceptors, or its own value if none reported an accepted proposal.",
+ "raw": "{\"units\": {\"CS-DIST-C02-S2-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"It chooses the value from the highest-numbered proposal previously accepted by any of those acceptors\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"the proposer sends an accept request with its proposal number and chosen value.\"}], \"why\": \"Both key points are present. The answer explicitly explains choosing the value from the highest-numbered proposal in the acknowledgments and sending an accept request with the proposal number and value.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"or its own value if none reported an accepted proposal.\"]}}}}",
+ "usage": {
+  "completion_tokens": 175,
+  "prompt_tokens": 570,
+  "total_tokens": 745,
+  "completion_tokens_details": {
+   "text_tokens": 175
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 570
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00289000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:32:44+00:00"
+}

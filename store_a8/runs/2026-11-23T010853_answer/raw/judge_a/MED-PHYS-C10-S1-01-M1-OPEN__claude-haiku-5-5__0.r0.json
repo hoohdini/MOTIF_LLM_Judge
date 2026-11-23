@@ -1,0 +1,36 @@
+{
+ "batch_id": "MED-PHYS-C10-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C10-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In physiological terms, how is fluid responsiveness defined (what changes, and how is that change provoked)?\n\nATOM: Fluid responsiveness is defined as an increase in cardiac output after preload incrementation by manipulation of venous return in a dynamic test context.\nKEY POINTS:\n1. An increase in cardiac output\n2. After preload incrementation by manipulating venous return in a dynamic test context\n\nANSWER TO GRADE:\nFluid responsiveness is defined as the increase in cardiac output (or stroke volume) that occurs in response to a fluid bolus, which raises cardiac preload and thereby increases ventricular stroke volume via the Frank-Starling mechanism. It is typically provoked by a rapid intravenous volume challenge (commonly 250–500 mL of crystalloid or colloid given over a short period, or a passive leg raise as a reversible surrogate), and a response is conventionally defined as an increase in stroke volume or cardiac output of roughly 10–15%.",
+ "raw": "{\"units\":{\"MED-PHYS-C10-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"the increase in cardiac output\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"in response to a fluid bolus, which raises cardiac preload\"}],\"why\":\"The answer describes increased cardiac output following a preload-raising fluid bolus and identifies volume challenge or passive leg raise as provoking tests.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"(or stroke volume)\",\"thereby increases ventricular stroke volume via the Frank-Starling mechanism\",\"commonly 250–500 mL of crystalloid or colloid given over a short period\",\"a response is conventionally defined as an increase in stroke volume or cardiac output of roughly 10–15%\"]}}}}",
+ "usage": {
+  "completion_tokens": 357,
+  "prompt_tokens": 534,
+  "total_tokens": 891,
+  "completion_tokens_details": {},
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 534,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00463800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:10:07+00:00"
+}

@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-ALG-C02-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-ALG-C02-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the study of deterministic graph exploration by a memory-limited agent, what is a \"trap\" for an exploration algorithm?\n\nATOM: A trap for a deterministic exploration algorithm is an edge-colored graph together with an initial location $v_0$ such that the algorithm, when started at $v_0$, never visits all vertices of the graph.\nKEY POINTS:\n1. An edge-colored graph together with an initial location $v_0$\n2. The algorithm, when started at $v_0$, never visits all vertices of the graph\n\nANSWER TO GRADE:\nA trap is a graph, usually with a designated starting vertex and port labeling, on which the exploration algorithm fails to visit every vertex. A memory-limited deterministic agent may, for example, repeat the same behavior indefinitely while some vertices remain unexplored.",
+ "raw": "{\"units\": {\"CS-ALG-C02-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"A trap is a graph, usually with a designated starting vertex and port labeling\", \"note\": \"Port labeling is mentioned rather than edge-colored; this is treated as equivalent in substance.\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"on which the exploration algorithm fails to visit every vertex\", \"note\": \"The answer also says the agent may repeat behavior indefinitely with some vertices unexplored.\"}], \"why\": \"The answer describes a graph with a start vertex and labeling where the algorithm does not visit all vertices. Port labeling stands in for edge coloring.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"A memory-limited deterministic agent may, for example, repeat the same behavior indefinitely while some vertices remain unexplored.\"]}}}}",
+ "usage": {
+  "completion_tokens": 347,
+  "prompt_tokens": 774,
+  "total_tokens": 1121,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 347
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 774,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00501800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:32:30+00:00"
+}

@@ -1,0 +1,33 @@
+{
+ "batch_id": "MED-IMM-C05-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_b",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-IMM-C05-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the T-cell epitope (TCE) group model for HLA-DPB1 mismatches, what distinguishes a permissive mismatch from a nonpermissive mismatch?\n\nATOM: In the T-cell epitope (TCE) group model, HLA-DPB1 mismatches between alleles from the same TCE group are permissive, whereas mismatches between alleles from different TCE groups are nonpermissive.\nKEY POINTS:\n1. Permissive: the mismatched alleles belong to the same TCE group\n2. Nonpermissive: the mismatched alleles belong to different TCE groups\n\nANSWER TO GRADE:\nA permissive HLA-DPB1 mismatch involves alleles in the same T-cell epitope group and is predicted to provoke relatively little alloreactivity. A nonpermissive mismatch involves alleles in different groups and is predicted to provoke a stronger T-cell response.",
+ "raw": "{\"units\": {\"MED-IMM-C05-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"A permissive HLA-DPB1 mismatch involves alleles in the same T-cell epitope group\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"A nonpermissive mismatch involves alleles in different groups\"}], \"why\": \"The answer directly states that permissive mismatches involve alleles in the same T-cell epitope group and nonpermissive mismatches involve alleles in different groups.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"and is predicted to provoke relatively little alloreactivity.\", \"and is predicted to provoke a stronger T-cell response.\"]}}}}",
+ "usage": {
+  "completion_tokens": 177,
+  "prompt_tokens": 535,
+  "total_tokens": 712,
+  "completion_tokens_details": {
+   "text_tokens": 177
+  },
+  "prompt_tokens_details": {
+   "text_tokens": 535
+  },
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00284000",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gemini-4-argon",
+  "request": {
+   "model": "gemini-4-argon",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:33:23+00:00"
+}

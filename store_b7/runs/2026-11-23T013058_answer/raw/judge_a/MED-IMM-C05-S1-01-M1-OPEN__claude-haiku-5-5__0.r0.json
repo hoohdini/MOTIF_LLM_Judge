@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-IMM-C05-S1-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-IMM-C05-S1-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: In the T-cell epitope (TCE) group model for HLA-DPB1 mismatches, what distinguishes a permissive mismatch from a nonpermissive mismatch?\n\nATOM: In the T-cell epitope (TCE) group model, HLA-DPB1 mismatches between alleles from the same TCE group are permissive, whereas mismatches between alleles from different TCE groups are nonpermissive.\nKEY POINTS:\n1. Permissive: the mismatched alleles belong to the same TCE group\n2. Nonpermissive: the mismatched alleles belong to different TCE groups\n\nANSWER TO GRADE:\nIn the T-cell epitope model (Crivello et al.), a permissive HLA-DPB1 mismatch is one where the recipient does not make alloreactive T-cell responses to the donor's DPB1 allele, because the mismatched allele shares the same T-cell epitope group (TCE) as the recipient's own allele, so the donor epitopes are not recognized as foreign. A nonpermissive mismatch is one where the donor and recipient alleles differ in TCE group, so the recipient can mount a T-cell response against the donor-encoded epitopes, raising the risk of graft-versus-host disease and relapse-related outcomes.",
+ "raw": "{\"units\":{\"MED-IMM-C05-S1-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"the mismatched allele shares the same T-cell epitope group (TCE) as the recipient's own allele\"},{\"kp\":2,\"s\":\"present\",\"quote\":\"A nonpermissive mismatch is one where the donor and recipient alleles differ in TCE group\"}],\"why\":\"The answer explicitly distinguishes same-group permissive mismatches from different-group nonpermissive mismatches.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"In the T-cell epitope model (Crivello et al.)\",\"the recipient does not make alloreactive T-cell responses to the donor's DPB1 allele\",\"the donor epitopes are not recognized as foreign\",\"the recipient can mount a T-cell response against the donor-encoded epitopes, raising the risk of graft-versus-host disease and relapse-related outcomes\"]}}}}",
+ "usage": {
+  "completion_tokens": 217,
+  "prompt_tokens": 614,
+  "total_tokens": 831,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 217
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 614,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00339800",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:32:13+00:00"
+}

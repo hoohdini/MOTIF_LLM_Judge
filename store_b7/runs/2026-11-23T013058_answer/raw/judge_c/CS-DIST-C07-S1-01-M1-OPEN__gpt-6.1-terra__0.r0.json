@@ -1,0 +1,39 @@
+{
+ "batch_id": "CS-DIST-C07-S1-01-M1-OPEN::gpt-6.1-terra::0",
+ "judge": "judge_c",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"CS-DIST-C07-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: What does it mean for an implementation of a shared object to be linearizable? Describe the condition in terms of its concurrent executions and a corresponding sequential execution.\n\nATOM: An implementation of an object is linearizable if, for any complete concurrent execution of the object, there is a sequential execution with the same operations and return values whose total order of operations is a linearization of the partial order of operations in the concurrent execution.\nKEY POINTS:\n1. For any complete concurrent execution there exists a sequential execution with the same operations and return values\n2. The total order of operations in that sequential execution is a linearization of (is consistent with and extends) the partial order of operations in the concurrent execution\n\nANSWER TO GRADE:\nAn implementation is linearizable if every concurrent execution can be extended by completing some pending operations, with any remaining pending operations discarded, so that it is equivalent to a legal sequential execution. The sequential execution must preserve each thread’s operation order and the real-time order of operations that do not overlap.",
+ "raw": "{\"units\": {\"CS-DIST-C07-S1-01-M1-OPEN::gpt-6.1-terra::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present\", \"quote\": \"every concurrent execution can be extended by completing some pending operations, with any remaining pending operations discarded, so that it is equivalent to a legal sequential execution.\", \"note\": \"\"}, {\"kp\": 2, \"s\": \"present\", \"quote\": \"The sequential execution must preserve each thread\\u2019s operation order and the real-time order of operations that do not overlap.\", \"note\": \"\"}], \"why\": \"The answer says there is an equivalent legal sequential execution for every concurrent execution (KP1). It also says the sequential order preserves the real-time order of non-overlapping operations, which matches being consistent with the partial order (KP2). The mention of 'same operations and return values' is only implied by 'equivalent'.\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": [\"can be extended by completing some pending operations, with any remaining pending operations discarded\", \"legal sequential execution\", \"preserve each thread\\u2019s operation order\"]}}}}",
+ "usage": {
+  "completion_tokens": 393,
+  "prompt_tokens": 826,
+  "total_tokens": 1219,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 393
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 826,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00558200",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "claude-sonnet-5-5",
+  "request": {
+   "model": "claude-sonnet-5-5",
+   "max_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:32:46+00:00"
+}

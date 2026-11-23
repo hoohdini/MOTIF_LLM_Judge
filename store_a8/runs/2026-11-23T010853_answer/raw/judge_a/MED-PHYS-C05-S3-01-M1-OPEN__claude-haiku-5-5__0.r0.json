@@ -1,0 +1,39 @@
+{
+ "batch_id": "MED-PHYS-C05-S3-01-M1-OPEN::claude-haiku-5-5::0",
+ "judge": "judge_a",
+ "rep": 0,
+ "canary": null,
+ "system": "You grade one answer to an open question by matching it against an answer key. You are a matcher, not an expert.\n\nRules:\n- Use only the key points and the atom below. Do not use your own knowledge to decide whether something is true.\n- For each key point decide: \"present\" (the answer states it, in any wording), \"absent\" (not stated), or \"contradicted\" (the answer states the opposite).\n- For present and contradicted, copy the exact words from the answer that show it into \"quote\" (verbatim, at most 30 words). No quote means absent.\n- ADDITIONAL_CONTENT: if the answer makes claims about the concept not covered by the atom or key points, set present to true and list verbatim quotes in quotes; otherwise present is false and quotes is empty. This is an informational flag, not a correctness verdict. Do not judge those claims true or false, or mark key points absent or contradicted merely because additional content is present. A direct contradiction of a key point is still handled under KEYPOINTS.\n- If the answer is empty, a refusal, or unreadable, mark every key point absent.\n\nOutput ONLY one JSON object:\n{\"units\": {\"MED-PHYS-C05-S3-01-M1-OPEN::claude-haiku-5-5::0\": {\"KEYPOINTS\": {\"points\": [{\"kp\": 1, \"s\": \"present|absent|contradicted\", \"quote\": \"\"}], \"why\": \"\"}, \"ADDITIONAL_CONTENT\": {\"present\": true, \"quotes\": []}}}}",
+ "user": "QUESTION: How does the proportion of interstitial water in the gel-free aqueous phase change in interstitial oedema, and how high can it reach in the most severe cases?\n\nATOM: The proportion of interstitial water in the gel-free aqueous phase is increased in interstitial oedema, and in the most severe cases reaches up to 50%.\nKEY POINTS:\n1. It is increased\n2. Up to about 50% in the most severe cases\n\nANSWER TO GRADE:\nIn interstitial oedema the gel-free (free-fluid) share of interstitial water rises, because the gel-bound water is overwhelmed by excess fluid. In the most severe cases it can reach roughly 80% of the interstitial water, though I'm not certain of that exact figure.",
+ "raw": "{\"units\":{\"MED-PHYS-C05-S3-01-M1-OPEN::claude-haiku-5-5::0\":{\"KEYPOINTS\":{\"points\":[{\"kp\":1,\"s\":\"present\",\"quote\":\"the gel-free (free-fluid) share of interstitial water rises\"},{\"kp\":2,\"s\":\"contradicted\",\"quote\":\"In the most severe cases it can reach roughly 80% of the interstitial water\"}],\"why\":\"The answer states that the proportion rises, but gives roughly 80% rather than up to about 50% in the most severe cases.\"},\"ADDITIONAL_CONTENT\":{\"present\":true,\"quotes\":[\"because the gel-bound water is overwhelmed by excess fluid\"]}}}}",
+ "usage": {
+  "completion_tokens": 150,
+  "prompt_tokens": 497,
+  "total_tokens": 647,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "text_tokens": 150
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "text_tokens": 497,
+   "cache_write_tokens": 0,
+   "cache_creation_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "finish_reason": "stop",
+  "estimated_cost": {
+   "amount": "0.00249400",
+   "currency": "unit",
+   "disclaimer": "Estimated based on published pricing. Actual charges may differ."
+  },
+  "response_model": "gpt-6.1-sol",
+  "request": {
+   "model": "gpt-6.1-sol",
+   "max_completion_tokens": 16000
+  }
+ },
+ "error": null,
+ "ts": "2026-11-23T01:10:13+00:00"
+}
