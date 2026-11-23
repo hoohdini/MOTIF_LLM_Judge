@@ -76,7 +76,7 @@ def _mock(jid, spec):
         for k in range(1, spec["n_kp"] + 1):
             s = vote(spec["unit_id"], f"kp{k}", ["present", "absent", "contradicted"])
             pts.append({"kp": k, "s": s, "quote": " ".join(words[:5]) if s != "absent" else ""})
-        return {"units": {spec["unit_id"]: {"KEYPOINTS": {"points": pts}, "OOD": {"v": "pass", "cite": []}}}}
+        return {"units": {spec["unit_id"]: {"KEYPOINTS": {"points": pts}, "ADDITIONAL_CONTENT": {"present": False, "quotes": []}}}}
     if spec["kind"] == "revise":
         parts = [p.strip() for p in spec["statement"].split(", and ") if p.strip()][:3]
         return {"atoms": [{"statement": (p if p.endswith(".") else p + ".") + " (mock revised)", "scope": spec["scope"],

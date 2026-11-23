@@ -111,13 +111,13 @@ groups:
   answer_judge:
     stage: answer
     unit: answer
-    prompt: prompts/answer_judge.v1.md
+    prompt: prompts/answer_judge.v2.md
     checks:
       KEYPOINTS:
         severity: blocker
         values: [correct, partial, incorrect, hold]
         desc: "Per key point: present / absent / contradicted, with a verbatim quote from the answer."
-      OOD:
-        severity: warn          # 1안(자유 서술)에서는 blocker로 올려 사람 검토로 보낸다
-        values: [pass, fail]
-        desc: "fail = the answer makes claims about the concept that are not covered by the atom or key points; quote them in cite."
+      ADDITIONAL_CONTENT:     # 참고 표시일 뿐 정오 판정이 아니다 (회의 #4 수정본). 저지는 {present, quotes}로 답하고 실행기가 yes/no로 옮긴다
+        severity: warn
+        values: ["no", "yes"]
+        desc: "yes = the answer makes claims about the concept that are not covered by the atom or key points; the quotes go in cite."

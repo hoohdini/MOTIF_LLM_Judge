@@ -134,6 +134,8 @@ def _rows_from(parsed, b, judge, rep, meta):
                 v = ("hold" if "unverified" in states or not pts else "incorrect" if "contradicted" in states or "present" not in states
                      else "correct" if all(s == "present" for s in states) else "partial")
                 extra = {"points": states}
+            elif b["unit_type"] == "answer" and name == "ADDITIONAL_CONTENT" and isinstance(e.get("present"), bool):
+                v, cite = ("yes" if e["present"] else "no"), [q for q in (e.get("quotes") or []) if isinstance(q, str)]
             elif v is None:
                 v, why = "hold", "judge_omitted"
             elif v != "hold" and v not in d["values"]:

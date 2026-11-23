@@ -20,10 +20,10 @@ judges:
     max_tokens: 16000
     token_param: max_completion_tokens
     # temperature는 넣지 않는다 (최신 Gemini에서 지원 중단)
-  judge_c:                        # 예비. 답변 채점에서 평가 대상과 계열이 겹칠 때 대신 들어간다
+  judge_c:                        # 예비. 답변 채점에서 평가 대상과 계열이 겹칠 때 대신 들어간다 (답변 채점은 key point 대조라 생성 계열이어도 쓴다)
     provider: openai_compat
-    model: SET_ME
-    family: oss
+    model: claude-sonnet-5-5
+    family: anthropic
     base_url_env: LETSUR_BASE_URL
     key_env: LETSUR_API_KEY
     max_tokens: 16000
@@ -50,6 +50,8 @@ target_families:
   o: openai
   gemini: google
   claude: anthropic
+  deepseek: oss
+  qwen: oss
 
 policy:
   aggregate: judge_final     # judge_final = 저지별 최종 판정(통과/비통과)이 같으면 확정 (11/18 결정) / per_check = 체크마다 전원 일치
