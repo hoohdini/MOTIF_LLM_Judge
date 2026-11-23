@@ -1,6 +1,7 @@
 """LLM 검수 실행. 카드·문항은 카드 1장 = 호출 1번(묶음), 답변은 답변 1개 = 호출 1번.
 이미 판정이 있는 (단위 해시, 프롬프트 해시, 저지, 반복) 조합은 건너뛰므로 중단 뒤 같은 명령으로 이어 간다."""
 import json, random, re, shutil
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from string import Template
 from .common import ROOT, now, load_prompt, parse_json, book_of
@@ -107,6 +108,16 @@ def build_batches(stage, ctx, books=None, only=None, include_blocked=False, n_ca
 
 
 _norm = lambda s: re.sub(r"\s+", " ", s or "").strip().lower()
+_alnum = lambda s: re.sub(r"[\W_]+", "", (s or "").lower())
+
+
+def _quote_ok(quote, response):
+    """저지가 붙인 인용이 답변에 실제로 있는지 확인한다.
+    저지가 두 구절을 '...'로 이어 붙이거나 수식 구분자·공백·문장부호를 다르게 옮기는 일이 잦아서,
+    '...'로 나눈 조각마다 글자·숫자만 남겨 비교한다. 조각이 하나라도 답변에 없으면 인정하지 않는다."""
+    segs = [x for x in (_alnum(p) for p in re.split(r"\.{3,}|…", quote or "")) if x]
+    resp = _alnum(response)
+    return bool(segs) and all(x in resp for x in segs)
 
 
 def _rows_from(parsed, b, judge, rep, meta):
@@ -123,12 +134,12 @@ def _rows_from(parsed, b, judge, rep, meta):
             e = got.get(name) if isinstance(got.get(name), dict) else {}
             v, why, cite, extra = e.get("v"), e.get("why", ""), e.get("cite") or [], {}
             if b["unit_type"] == "answer" and name == "KEYPOINTS":
-                pts = e.get("points") or []; resp = _norm(b["answer"]["response"]); n_kp = len(b["answer"]["_item"]["key_points"])
+                pts = e.get("points") or []; resp = b["answer"]["response"]; n_kp = len(b["answer"]["_item"]["key_points"])
                 st = {p.get("kp"): p for p in pts if isinstance(p, dict)}
                 states = []
                 for k in range(1, n_kp + 1):
                     p = st.get(k) or {}; s = p.get("s", "absent")
-                    if s in ("present", "contradicted") and (not p.get("quote") or _norm(p["quote"]) not in resp):
+                    if s in ("present", "contradicted") and not _quote_ok(p.get("quote"), resp):
                         s = "unverified"                           # 답변에 없는 인용 → 판정 불인정
                     states.append(s)
                 v = ("hold" if "unverified" in states or not pts else "incorrect" if "contradicted" in states or "present" not in states
@@ -226,6 +237,37 @@ def run_stage(stage, store, ctx, judge_ids=None, books=None, only=None, repeat=1
     if fail:
         raise SystemExit(1)                                         # 실패가 있으면 종료 코드로 알린다. 같은 명령을 다시 실행하면 실패분만 이어 간다
     return run_id
+
+
+def reparse_stage(stage, store, ctx):
+    """저장해 둔 저지 응답 원문을 지금 코드로 다시 해석한다 (API 호출 없음).
+    판정이 달라진 행만 원장에 덧붙인다. 같은 저지·같은 반복의 나중 행이 앞의 행을 대신한다."""
+    gname = ctx.reg.group(stage)[0]; phash = ctx.phash[gname]
+    batches = {b["batch_id"]: b for b in build_batches(stage, ctx, None, None, True, 0)}
+    last = {}
+    for r in ctx.rows:
+        if r.get("prompt_hash") == phash:
+            last[(r["unit_id"], r["unit_hash"], r["judge"], r.get("rep", 0), r["check"])] = r["v"]
+    meta = {"run_id": f"reparse-{now()}", "stage": stage, "prompt_hash": phash}
+    seen = changed = 0; out = []; moves = Counter()
+    for rdir in sorted((store.root / "runs").iterdir()):
+        runj = rdir / "run.json"
+        if not runj.exists() or json.loads(runj.read_text(encoding="utf-8")).get("prompt_hash") != phash:
+            continue
+        for p in sorted(rdir.glob("raw/*/*.json")):
+            rec = json.loads(p.read_text(encoding="utf-8")); b = batches.get(rec["batch_id"])
+            parsed = parse_json(rec.get("raw"), "units") if rec.get("raw") else None
+            if not b or not parsed or rec.get("canary"):
+                continue
+            seen += 1
+            for row in _rows_from(parsed, b, rec["judge"], rec.get("rep", 0), meta):
+                k = (row["unit_id"], row["unit_hash"], row["judge"], row.get("rep", 0), row["check"])
+                if k in last and last[k] != row["v"]:
+                    moves[(row["check"], last[k], row["v"])] += 1; last[k] = row["v"]; out.append(row); changed += 1
+    store.add_verdicts(out)
+    print(f"reparse {stage}: 응답 {seen}건을 다시 해석, 판정이 바뀐 행 {changed}개 적재")
+    for (c, a, b_), n in moves.most_common():
+        print(f"  {c}: {a} → {b_}  {n}건")
 
 
 def judge_ids_given(judge_ids, ctx, stage):

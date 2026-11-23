@@ -19,6 +19,7 @@ p.add_argument("--stage", choices=["card", "item", "answer"], required=True); p.
 p.add_argument("--only", help="단위 id 목록 파일 (보정 세트 등)"); p.add_argument("--repeat", type=int, default=1); p.add_argument("--canaries", type=int, default=0)
 p.add_argument("--include-blocked", action="store_true", help="카드 검수가 끝나지 않은 atom의 문항도 검수"); p.add_argument("--limit", type=int)
 p.add_argument("--workers", type=int, default=1); p.add_argument("--stop-on-error", action="store_true"); p.add_argument("--allow-same-family", action="store_true")
+p = sub.add_parser("reparse", help="저장된 저지 응답을 지금 코드로 다시 해석 (API 호출 없음)"); p.add_argument("--stage", choices=["card", "item", "answer"], required=True)
 p = sub.add_parser("decide", help="현재 판정 요약"); p.add_argument("--stage", choices=["card", "item", "answer"], required=True); p.add_argument("--show", help="특정 단위 상세")
 p = sub.add_parser("revise", help="revise 판정 atom 자동 분리·수정"); p.add_argument("--judge", default="reviser"); p.add_argument("--limit", type=int)
 p = sub.add_parser("human", help="사람 검수 큐"); p.add_argument("action", choices=["export", "import"]); p.add_argument("--stage", choices=["card", "item", "answer"])
@@ -71,6 +72,8 @@ elif args.cmd == "run":
     only = set(Path(args.only).read_text(encoding="utf-8").split()) if args.only else None
     runner.run_stage(args.stage, store, ctx(), args.judges.split(",") if args.judges else None, set(args.books.split(",")) if args.books else None, only,
                      args.repeat, args.canaries, args.include_blocked, args.limit, args.workers, args.stop_on_error, args.allow_same_family)
+elif args.cmd == "reparse":
+    runner.reparse_stage(args.stage, store, ctx())
 elif args.cmd == "decide":
     dec = DECIDE[args.stage](ctx())
     if args.show:
